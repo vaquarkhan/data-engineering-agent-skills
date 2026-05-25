@@ -31,7 +31,7 @@ These commands are conceptual entry points. They can be mapped to any assistant,
 
 ## Initial Skill Pack
 
-This first version starts with a focused set of foundational skills:
+This repository now includes a broader production-grade skill pack:
 
 - `using-data-agent-skills`
 - `data-specification`
@@ -43,16 +43,29 @@ This first version starts with a focused set of foundational skills:
 - `airflow-and-workflow-orchestration`
 - `streaming-and-messaging-systems`
 - `lakehouse-table-format-engineering`
+- `data-lake-and-zone-architecture`
+- `warehouse-and-schema-design`
+- `data-mesh-and-domain-oriented-design`
+- `delta-lake-and-medallion-architecture`
+- `dbt-and-analytics-engineering`
+- `cdc-and-incremental-loading`
+- `schema-evolution-and-contract-migrations`
+- `warehouse-performance-and-cost-optimization`
+- `data-observability-and-sla-management`
+- `incident-triage-and-pipeline-recovery`
+- `terraform-and-data-platform-infrastructure`
+- `semantic-layer-and-metric-governance`
+- `notebook-to-production-hardening`
+- `data-sharing-and-publishing-contracts`
 
 Future skills can extend this pack for:
 
 - source ingestion and API extraction
-- warehouse and schema design
-- analytics engineering and semantic modeling
-- dbt and semantic layer workflows
-- warehouse-specific optimization
-- observability and incident response
+- feature store and ML data pipelines
+- retention and deletion workflows
+- migration and cutover playbooks
 - platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, and `Iceberg`
+- enterprise governance overlays and automated validation hooks
 
 ## Platform Presets
 
@@ -77,7 +90,7 @@ data-engineering-agent-skills/
 ├── references/     # Reusable checklists and guidance
 ├── templates/      # Spec, plan, and task templates
 ├── docs/           # Contribution and format guidance
-├── agents/         # Specialist personas
+├── agents/         # Specialist personas and review roles
 └── examples/       # Example projects and generated artifacts
 ```
 

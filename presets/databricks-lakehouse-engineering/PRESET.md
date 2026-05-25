@@ -7,7 +7,7 @@ description: Adapts the core skills for Databricks-centered data platforms. Use 
 
 ## Overview
 
-Use this preset when `Databricks` is the primary execution and governance surface, whether it runs on `AWS`, `Azure`, or `GCP`. It maps workflows to `Delta Lake`, `Unity Catalog`, `Databricks Workflows`, `Auto Loader`, `Delta Live Tables`, and Spark-native pipelines.
+Use this preset when `Databricks` is the primary execution and governance surface, whether it runs on `AWS`, `Azure`, or `GCP`. It maps workflows to `Delta Lake`, `Unity Catalog`, `Databricks Workflows`, `Auto Loader`, `Delta Live Tables`, medallion-style layering, and Spark-native pipelines.
 
 ## Use When
 
@@ -30,6 +30,7 @@ Use this preset when `Databricks` is the primary execution and governance surfac
 
 - Keep notebook convenience separate from production packaging and deployment discipline.
 - Treat `Unity Catalog` permissions, lineage, and data sharing as part of the implementation.
+- Use medallion layers only when each layer has a real quality and ownership boundary.
 - Design incremental patterns around `Delta Lake` semantics, checkpoints, and merge behavior.
 - Be explicit about cluster policy, job compute, and cost controls.
 - Use `Delta Live Tables` only when the operational model matches the team needs.
@@ -37,6 +38,7 @@ Use this preset when `Databricks` is the primary execution and governance surfac
 ## Verification
 
 - [ ] Delta table strategy and mutation semantics are clear
+- [ ] Medallion layering responsibilities are documented where used
 - [ ] Governance and access are mapped through `Unity Catalog`
 - [ ] Job packaging, orchestration, and compute strategy are documented
 - [ ] Streaming or incremental designs account for checkpoints and replay behavior
