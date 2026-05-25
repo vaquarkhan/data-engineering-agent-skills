@@ -1,0 +1,80 @@
+{
+  "name": "data-engineering-agent-skills",
+  "displayName": "Data Engineering Agent Skills",
+  "description": "Install data engineering skill packs, starter packs, MCP templates, and runnable examples into a VS Code workspace.",
+  "version": "0.1.0",
+  "publisher": "vaquarkhan",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "data-engineering",
+    "agent-skills",
+    "copilot",
+    "cursor",
+    "windsurf",
+    "vscodium",
+    "claude",
+    "gemini",
+    "mcp",
+    "analytics"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaquarkhan/data-engineering-agent-skills.git"
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onCommand:dataEngineeringSkills.installFullToolkit",
+    "onCommand:dataEngineeringSkills.installCorePack",
+    "onCommand:dataEngineeringSkills.installAgentAdapters",
+    "onCommand:dataEngineeringSkills.installStarterPack",
+    "onCommand:dataEngineeringSkills.installMcpTemplates",
+    "onCommand:dataEngineeringSkills.scaffoldRunnableExample"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "dataEngineeringSkills.installFullToolkit",
+        "title": "Data Engineering Skills: Install Full Toolkit"
+      },
+      {
+        "command": "dataEngineeringSkills.installCorePack",
+        "title": "Data Engineering Skills: Install Core Pack"
+      },
+      {
+        "command": "dataEngineeringSkills.installAgentAdapters",
+        "title": "Data Engineering Skills: Install Agent Adapters"
+      },
+      {
+        "command": "dataEngineeringSkills.installStarterPack",
+        "title": "Data Engineering Skills: Install Starter Pack"
+      },
+      {
+        "command": "dataEngineeringSkills.installMcpTemplates",
+        "title": "Data Engineering Skills: Install MCP Templates"
+      },
+      {
+        "command": "dataEngineeringSkills.scaffoldRunnableExample",
+        "title": "Data Engineering Skills: Scaffold Runnable Example"
+      }
+    ],
+    "configuration": {
+      "title": "Data Engineering Agent Skills",
+      "properties": {
+        "dataEngineeringSkills.rawBaseUrl": {
+          "type": "string",
+          "default": "https://raw.githubusercontent.com/vaquarkhan/data-engineering-agent-skills/main",
+          "description": "Raw GitHub base URL used when local extension assets are not available."
+        }
+      }
+    }
+  }
+}

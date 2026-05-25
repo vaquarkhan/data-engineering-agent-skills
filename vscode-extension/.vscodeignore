@@ -1,0 +1,9 @@
+.gitignore
+.vscode/**
+.idea/**
+node_modules/**
+**/*.log
+**/__pycache__/**
+**/.pytest_cache/**
+**/.mypy_cache/**
+**/.ruff_cache/**

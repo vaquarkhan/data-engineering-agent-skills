@@ -1,22 +1,51 @@
 # Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.python-version
 .venv/
 venv/
+.tox/
+.nox/
+.ruff_cache/
+.ipynb_checkpoints/
 
 # Build and test
 .pytest_cache/
 .mypy_cache/
 .coverage
+.coverage.*
 htmlcov/
+coverage/
+.cache/
+*.log
+*.vsix
 
 # Local data and environment
 .env
 .env.*
+.envrc
+.direnv/
+*.local
 data/
 dist/
 build/
+site/
+tmp/
+temp/
+*.tmp
+*.bak
 
 # Editor and OS
 .DS_Store
 Thumbs.db
+.idea/
+.vscode/
+
+# Extension and plugin build artifacts
+vscode-extension/node_modules/
+vscode-extension/.vscode-test/
+jetbrains-plugin/.gradle/
+jetbrains-plugin/build/
+jetbrains-plugin/out/

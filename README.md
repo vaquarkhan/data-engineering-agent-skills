@@ -120,6 +120,8 @@ data-engineering-agent-skills/
 ├── references/     # Reusable checklists and guidance
 ├── templates/      # Spec, plan, and task templates
 ├── docs/           # Contribution and format guidance
+├── vscode-extension/ # VS Code installer extension
+├── jetbrains-plugin/ # JetBrains installer plugin
 ├── mcp/            # MCP configuration templates
 ├── starter-packs/  # Opinionated bundles by use case
 ├── agents/         # Specialist personas and review roles
@@ -135,6 +137,40 @@ Agent-specific setup guides are available in `docs/`:
 - `docs/copilot-setup.md`
 - `docs/generic-markdown-rules-setup.md`
 - `docs/codex-setup.md`
+- `docs/jetbrains-setup.md`
+
+## VS Code Extension
+
+The first working `VS Code` extension scaffold lives in `vscode-extension/`.
+
+It provides command-palette installers for:
+
+- the full toolkit
+- the core pack
+- agent adapters
+- starter packs
+- MCP templates
+- runnable examples
+
+It is intended for the `VS Code` family:
+
+- `VS Code`
+- `Cursor`
+- `Windsurf`
+- `VSCodium`
+
+## JetBrains Plugin
+
+The first working JetBrains plugin scaffold lives in `jetbrains-plugin/`.
+
+It targets IntelliJ-platform IDEs such as:
+
+- `IntelliJ IDEA`
+- `PyCharm`
+- `WebStorm`
+- `DataGrip`
+- `GoLand`
+- `PhpStorm`
 
 ## Multi-Agent Packaging
 
@@ -217,6 +253,7 @@ See `skills-index.md` for a grouped catalog by lifecycle and platform.
 - `docs/release-process.md`
 - `docs/tag-taxonomy.md`
 - `docs/walkthroughs.md`
+- `docs/ide-support-matrix.md`
 
 ## Skill Anatomy
 
