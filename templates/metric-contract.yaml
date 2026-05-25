@@ -1,0 +1,28 @@
+metric_contract:
+  name: net_revenue
+  owner: finance-analytics@example.com
+  description: Net recognized revenue after refunds and credits.
+  grain: day
+  source_dataset: finance.daily_revenue
+  dimensions:
+    - date
+    - region
+    - product_line
+  definition:
+    numerator: recognized_revenue - refunds - credits
+    denominator: null
+    exclusions:
+      - internal_test_accounts
+  freshness:
+    cadence: daily
+    available_by_utc: "09:00"
+  quality:
+    validation_queries:
+      - daily_total_matches_source_reconciliation
+  compatibility:
+    version: v1
+    breaking_change_requires_notice: true
+  consumers:
+    - board_reporting
+    - finance_dashboard
+    - planning_model

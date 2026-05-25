@@ -1,0 +1,39 @@
+dataset_contract:
+  name: example_dataset
+  owner: analytics@example.com
+  domain: finance
+  layer: publish
+  description: Canonical published dataset for downstream consumers.
+  grain: one row per business entity per day
+  keys:
+    business_key:
+      - entity_id
+    partition_key:
+      - event_date
+  schema:
+    version: v1
+    columns:
+      - name: entity_id
+        type: string
+        nullable: false
+      - name: event_date
+        type: date
+        nullable: false
+      - name: metric_value
+        type: decimal(18,2)
+        nullable: false
+  freshness:
+    cadence: daily
+    available_by_utc: "08:00"
+  quality:
+    checks:
+      - unique: [entity_id, event_date]
+      - not_null: [entity_id, event_date, metric_value]
+  access:
+    classification: confidential
+    allowed_consumers:
+      - finance-bi
+      - exec-reporting
+  compatibility:
+    change_policy: additive_by_default
+    deprecation_notice_days: 30

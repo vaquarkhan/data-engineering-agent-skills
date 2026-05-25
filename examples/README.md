@@ -1,10 +1,17 @@
 # Examples
 
-This directory will contain example data projects that apply the skills, templates, and review patterns from this repository.
+This directory contains end-to-end example projects that show how the skills, templates, and presets can be combined into delivery-ready data engineering work.
 
-Planned examples:
+Included examples:
 
-- API to warehouse ingestion
-- batch transformations with quality checks
-- scheduled incremental pipeline with backfill support
-- governed published mart with ownership and access rules
+- `aws-s3-glue-athena-iceberg`
+- `databricks-delta-medallion`
+- `dbt-warehouse-marts`
+- `kafka-flink-streaming`
+
+Each example includes:
+
+- `README.md` for the scenario and architecture
+- `spec.md` for intent and delivery requirements
+- `plan.md` for the implementation path
+- `tasks.md` for executable work breakdown

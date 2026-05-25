@@ -57,13 +57,15 @@ This repository now includes a broader production-grade skill pack:
 - `semantic-layer-and-metric-governance`
 - `notebook-to-production-hardening`
 - `data-sharing-and-publishing-contracts`
+- `data-catalog-and-discovery`
+- `privacy-retention-and-right-to-delete`
+- `reverse-etl-and-operational-data-serving`
+- `feature-store-and-ml-data-pipelines`
+- `data-migration-and-platform-cutover`
 
 Future skills can extend this pack for:
 
 - source ingestion and API extraction
-- feature store and ML data pipelines
-- retention and deletion workflows
-- migration and cutover playbooks
 - platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, and `Iceberg`
 - enterprise governance overlays and automated validation hooks
 
@@ -93,6 +95,37 @@ data-engineering-agent-skills/
 ├── agents/         # Specialist personas and review roles
 └── examples/       # Example projects and generated artifacts
 ```
+
+## Setup Guides
+
+Agent-specific setup guides are available in `docs/`:
+
+- `docs/cursor-setup.md`
+- `docs/claude-setup.md`
+- `docs/copilot-setup.md`
+- `docs/generic-markdown-rules-setup.md`
+
+## Machine-Readable Templates
+
+Starter contract and response templates are available in `templates/`:
+
+- `source-contract.yaml`
+- `dataset-contract.yaml`
+- `metric-contract.yaml`
+- `incident-runbook.md`
+
+## End-To-End Examples
+
+Example project packs are available in `examples/`:
+
+- `aws-s3-glue-athena-iceberg`
+- `databricks-delta-medallion`
+- `dbt-warehouse-marts`
+- `kafka-flink-streaming`
+
+## Skills Catalog
+
+See `skills-index.md` for a grouped catalog by lifecycle and platform.
 
 ## Skill Anatomy
 
@@ -151,4 +184,4 @@ Contributions should be:
 - grounded in real data engineering practice
 - compact enough for agents to follow consistently
 
-See `CONTRIBUTING.md`, `docs/skill-anatomy.md`, and `docs/preset-anatomy.md`.
+See `CONTRIBUTING.md`, `docs/skill-anatomy.md`, `docs/preset-anatomy.md`, and `skills-index.md`.
