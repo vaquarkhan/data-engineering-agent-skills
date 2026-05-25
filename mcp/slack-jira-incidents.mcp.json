@@ -1,0 +1,14 @@
+{
+  "name": "slack-jira-incidents",
+  "transport": {
+    "type": "stdio",
+    "command": "incident-collaboration-mcp-server",
+    "args": [],
+    "env": {
+      "SLACK_TOKEN": "${SLACK_TOKEN}",
+      "JIRA_BASE_URL": "${JIRA_BASE_URL}",
+      "JIRA_EMAIL": "${JIRA_EMAIL}",
+      "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+    }
+  }
+}

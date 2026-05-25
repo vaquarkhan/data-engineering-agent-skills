@@ -1,0 +1,12 @@
+{
+  "name": "databricks",
+  "transport": {
+    "type": "stdio",
+    "command": "databricks-mcp-server",
+    "args": [],
+    "env": {
+      "DATABRICKS_HOST": "${DATABRICKS_HOST}",
+      "DATABRICKS_TOKEN": "${DATABRICKS_TOKEN}"
+    }
+  }
+}

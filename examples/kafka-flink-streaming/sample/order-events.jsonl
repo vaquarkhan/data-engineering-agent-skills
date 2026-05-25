@@ -1,0 +1,2 @@
+{"order_id":"o-1","customer_id":"c-100","event_type":"created","event_ts":"2026-05-01T00:00:00Z"}
+{"order_id":"o-2","customer_id":"c-101","event_type":"created","event_ts":"2026-05-01T00:01:00Z"}

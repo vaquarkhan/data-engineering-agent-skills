@@ -23,3 +23,21 @@ Build a warehouse-centric analytics project with `dbt`, layered models, governed
 - reusable intermediate models
 - publish marts with tests and docs
 - shared metric definitions with ownership
+
+## Minimal Runnable Scaffold
+
+Files included:
+
+- `dbt_project.yml`
+- `models/staging/stg_orders.sql`
+- `models/marts/fct_daily_revenue.sql`
+- `models/schema.yml`
+- `seeds/orders.csv`
+
+## Example Commands
+
+```bash
+dbt seed
+dbt run
+dbt test
+```

@@ -1,0 +1,11 @@
+name: aws-lakehouse-starter
+preset: aws-data-engineering
+skills:
+  - data-lake-and-zone-architecture
+  - lakehouse-table-format-engineering
+  - spark-and-distributed-processing
+  - data-quality-and-contract-testing
+templates:
+  - templates/source-contract.yaml
+  - templates/dataset-contract.yaml
+example: examples/aws-s3-glue-athena-iceberg

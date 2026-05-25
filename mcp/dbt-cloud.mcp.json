@@ -1,0 +1,12 @@
+{
+  "name": "dbt-cloud",
+  "transport": {
+    "type": "stdio",
+    "command": "dbt-cloud-mcp-server",
+    "args": [],
+    "env": {
+      "DBT_CLOUD_ACCOUNT_ID": "${DBT_CLOUD_ACCOUNT_ID}",
+      "DBT_CLOUD_API_TOKEN": "${DBT_CLOUD_API_TOKEN}"
+    }
+  }
+}

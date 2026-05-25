@@ -1,0 +1,10 @@
+name: databricks-medallion-starter
+preset: databricks-lakehouse-engineering
+skills:
+  - delta-lake-and-medallion-architecture
+  - lakehouse-table-format-engineering
+  - data-observability-and-sla-management
+templates:
+  - templates/source-contract.yaml
+  - templates/dataset-contract.yaml
+example: examples/databricks-delta-medallion

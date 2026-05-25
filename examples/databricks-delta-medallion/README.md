@@ -26,3 +26,17 @@ Build a medallion-style lakehouse on `Databricks` using `Delta Lake`, `Unity Cat
 - silver conformance and contract checks
 - gold business-facing publish tables
 - governed access and lineage in `Unity Catalog`
+
+## Minimal Runnable Scaffold
+
+Files included:
+
+- `databricks.yml`
+- `conf/medallion.yaml`
+- `src/bronze_to_silver.py`
+
+## Example Commands
+
+```bash
+python src/bronze_to_silver.py --input sample/bronze.jsonl --output build/silver.jsonl
+```

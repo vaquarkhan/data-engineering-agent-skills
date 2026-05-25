@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: amount
+        tests:
+          - not_null
+  - name: fct_daily_revenue
+    columns:
+      - name: order_date
+        tests:
+          - not_null

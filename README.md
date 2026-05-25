@@ -1,5 +1,12 @@
 # Data Engineering Agent Skills
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Skills](https://img.shields.io/badge/Skills-51-brightgreen.svg)](#initial-skill-pack)
+[![Presets](https://img.shields.io/badge/Presets-12-blue.svg)](#platform-presets)
+[![Examples](https://img.shields.io/badge/Examples-10-purple.svg)](#end-to-end-examples)
+[![MCP Configs](https://img.shields.io/badge/MCP%20Configs-10-orange.svg)](#mcp-config-templates)
+[![Starter Packs](https://img.shields.io/badge/Starter%20Packs-5-red.svg)](#starter-packs)
+
 Production-grade data engineering skills for AI coding agents.
 
 This repository packages repeatable workflows, quality gates, and verification steps so agents can build data systems with the same discipline used by strong data engineering teams.
@@ -62,10 +69,26 @@ This repository now includes a broader production-grade skill pack:
 - `reverse-etl-and-operational-data-serving`
 - `feature-store-and-ml-data-pipelines`
 - `data-migration-and-platform-cutover`
+- `api-and-saas-ingestion-patterns`
+- `source-reliability-and-extraction-resilience`
+- `data-reconciliation-and-financial-controls`
+- `data-platform-ci-cd-and-release-management`
+- `master-data-and-entity-resolution`
+- `debezium-and-kafka-connect-cdc`
+- `apache-beam-unified-batch-and-stream`
+- `apache-hudi-lakehouse`
+- `trino-presto-federated-query`
+- `openmetadata-datahub-and-openlineage`
+- `great-expectations-deequ-and-cuallee`
+- `lakefs-and-data-versioning`
+- `clickhouse-real-time-analytics`
+- `superset-and-metrics-serving`
+- `avro-protobuf-json-schema-registry`
+- `duckdb-local-analytics-and-dev`
+- `data-contract-testing-with-schema-registry`
 
 Future skills can extend this pack for:
 
-- source ingestion and API extraction
 - platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, and `Iceberg`
 - enterprise governance overlays and automated validation hooks
 
@@ -82,6 +105,11 @@ Current presets:
 - `alibaba-cloud-data-engineering`
 - `snowflake-modern-data-platform`
 - `multi-cloud-hybrid-data-engineering`
+- `apache-spark-engineering`
+- `apache-flink-stream-processing`
+- `apache-airflow-orchestration`
+- `apache-kafka-streaming`
+- `apache-iceberg-lakehouse`
 
 ## Project Structure
 
@@ -92,6 +120,8 @@ data-engineering-agent-skills/
 ├── references/     # Reusable checklists and guidance
 ├── templates/      # Spec, plan, and task templates
 ├── docs/           # Contribution and format guidance
+├── mcp/            # MCP configuration templates
+├── starter-packs/  # Opinionated bundles by use case
 ├── agents/         # Specialist personas and review roles
 └── examples/       # Example projects and generated artifacts
 ```
@@ -104,6 +134,27 @@ Agent-specific setup guides are available in `docs/`:
 - `docs/claude-setup.md`
 - `docs/copilot-setup.md`
 - `docs/generic-markdown-rules-setup.md`
+- `docs/codex-setup.md`
+
+## Multi-Agent Packaging
+
+Native adapters are included for multiple agent ecosystems:
+
+- `.cursor/rules/`
+- `.claude/commands/`
+- `.claude-plugin/`
+- `.gemini/commands/`
+- `.github/copilot-instructions.md`
+- `AGENTS.md`
+
+## Install Scripts
+
+Installation helpers are available in `scripts/`:
+
+- `scripts/install.sh --tool cursor|claude|copilot|gemini|generic|all --target <path>`
+- `scripts/install.sh --tool codex --target <path>`
+- `scripts/sync-rules.sh`
+- `scripts/sync-rules.ps1`
 
 ## Machine-Readable Templates
 
@@ -114,18 +165,58 @@ Starter contract and response templates are available in `templates/`:
 - `metric-contract.yaml`
 - `incident-runbook.md`
 
+## MCP Config Templates
+
+Template MCP configs are available in `mcp/` for:
+
+- GitHub
+- Postgres
+- Snowflake
+- BigQuery
+- Databricks
+- dbt Cloud
+- Airflow
+- Kafka
+- Terraform
+- Slack and Jira incident flows
+
 ## End-To-End Examples
 
 Example project packs are available in `examples/`:
 
 - `aws-s3-glue-athena-iceberg`
+- `api-saas-to-warehouse-ingestion`
 - `databricks-delta-medallion`
 - `dbt-warehouse-marts`
+- `gcp-pubsub-dataflow-bigquery`
 - `kafka-flink-streaming`
+- `snowflake-dbt-reverse-etl`
+- `privacy-retention-deletion-workflow`
+- `feature-store-online-offline-parity`
+- `multi-cloud-warehouse-cutover`
+
+The first four example packs also include minimal runnable scaffolds and sample commands.
+
+## Starter Packs
+
+Use the starter packs in `starter-packs/` to adopt the repository by problem area:
+
+- `aws-lakehouse-starter.yaml`
+- `databricks-medallion-starter.yaml`
+- `warehouse-analytics-starter.yaml`
+- `streaming-reliability-starter.yaml`
+- `privacy-governance-starter.yaml`
 
 ## Skills Catalog
 
 See `skills-index.md` for a grouped catalog by lifecycle and platform.
+
+## Release Notes
+
+- `CHANGELOG.md`
+- `docs/release-process.md`
+- `docs/tag-taxonomy.md`
+- `docs/walkthroughs.md`
 
 ## Skill Anatomy
 
@@ -184,4 +275,4 @@ Contributions should be:
 - grounded in real data engineering practice
 - compact enough for agents to follow consistently
 
-See `CONTRIBUTING.md`, `docs/skill-anatomy.md`, `docs/preset-anatomy.md`, and `skills-index.md`.
+See `CONTRIBUTING.md`, `docs/skill-anatomy.md`, `docs/preset-anatomy.md`, `skills-index.md`, and `CHANGELOG.md`.

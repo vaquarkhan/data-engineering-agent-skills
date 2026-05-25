@@ -1,0 +1,14 @@
+{
+  "name": "snowflake",
+  "transport": {
+    "type": "stdio",
+    "command": "snowflake-mcp-server",
+    "args": [],
+    "env": {
+      "SNOWFLAKE_ACCOUNT": "${SNOWFLAKE_ACCOUNT}",
+      "SNOWFLAKE_USER": "${SNOWFLAKE_USER}",
+      "SNOWFLAKE_PASSWORD": "${SNOWFLAKE_PASSWORD}",
+      "SNOWFLAKE_WAREHOUSE": "${SNOWFLAKE_WAREHOUSE}"
+    }
+  }
+}

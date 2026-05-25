@@ -1,0 +1,8 @@
+zones:
+  raw: s3://example-raw/customers/
+  refined: s3://example-refined/customers/
+  publish: s3://example-publish/customers/
+
+catalog:
+  database: analytics
+  publish_table: customers_publish

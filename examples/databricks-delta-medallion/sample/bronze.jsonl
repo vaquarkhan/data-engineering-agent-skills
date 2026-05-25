@@ -1,0 +1,2 @@
+{"event_id":"e-1","customer_id":"c-100","event_type":"PURCHASE","event_ts":"2026-05-01T00:00:00Z"}
+{"event_id":"e-2","customer_id":"c-101","event_type":"REFUND","event_ts":"2026-05-01T01:00:00Z"}

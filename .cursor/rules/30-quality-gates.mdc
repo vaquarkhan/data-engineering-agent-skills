@@ -1,0 +1,14 @@
+---
+description: Quality and operational gates for data engineering work
+globs:
+alwaysApply: false
+---
+
+# Quality Gates
+
+For production-facing data work:
+
+- use `data-quality-and-contract-testing`
+- use `data-observability-and-sla-management`
+- use `incident-triage-and-pipeline-recovery` for incident work
+- require evidence for correctness, replay safety, and publish readiness

@@ -1,0 +1,11 @@
+name: warehouse-analytics-starter
+preset: snowflake-modern-data-platform
+skills:
+  - warehouse-and-schema-design
+  - dbt-and-analytics-engineering
+  - semantic-layer-and-metric-governance
+  - warehouse-performance-and-cost-optimization
+templates:
+  - templates/dataset-contract.yaml
+  - templates/metric-contract.yaml
+example: examples/dbt-warehouse-marts

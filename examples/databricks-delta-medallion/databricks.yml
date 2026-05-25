@@ -1,0 +1,7 @@
+bundle:
+  name: databricks-delta-medallion
+
+resources:
+  jobs:
+    bronze_to_silver:
+      name: bronze-to-silver

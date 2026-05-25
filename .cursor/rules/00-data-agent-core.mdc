@@ -1,0 +1,16 @@
+---
+description: Core operating rules for data engineering agent work
+globs:
+alwaysApply: true
+---
+
+# Data Engineering Agent Core
+
+Use `AGENTS.md` and `skills/using-data-agent-skills/SKILL.md` to classify work before implementation.
+
+Default rules:
+
+- prefer specification before changing pipeline behavior
+- keep contracts, grain, and ownership explicit
+- load one platform preset and only the minimum useful workflow skills
+- treat validation, replay, lineage, privacy, and publish safety as part of delivery

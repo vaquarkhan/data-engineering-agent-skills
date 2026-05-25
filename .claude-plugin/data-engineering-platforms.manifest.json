@@ -1,0 +1,13 @@
+{
+  "name": "data-engineering-platforms",
+  "description": "Platform and stack presets for cloud, lakehouse, and Apache-based data engineering.",
+  "includes": [
+    "presets/aws-data-engineering",
+    "presets/gcp-data-engineering",
+    "presets/databricks-lakehouse-engineering",
+    "presets/apache-spark-engineering",
+    "presets/apache-airflow-orchestration",
+    "presets/apache-kafka-streaming",
+    "presets/apache-iceberg-lakehouse"
+  ]
+}

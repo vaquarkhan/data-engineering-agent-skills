@@ -1,0 +1,11 @@
+{
+  "name": "github",
+  "transport": {
+    "type": "stdio",
+    "command": "github-mcp-server",
+    "args": [],
+    "env": {
+      "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+    }
+  }
+}

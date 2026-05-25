@@ -1,0 +1,11 @@
+name: streaming-reliability-starter
+preset: apache-kafka-streaming
+skills:
+  - streaming-and-messaging-systems
+  - data-observability-and-sla-management
+  - incident-triage-and-pipeline-recovery
+  - data-contract-testing-with-schema-registry
+templates:
+  - templates/source-contract.yaml
+  - templates/incident-runbook.md
+example: examples/kafka-flink-streaming

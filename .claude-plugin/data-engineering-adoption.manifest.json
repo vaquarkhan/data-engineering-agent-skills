@@ -1,0 +1,16 @@
+{
+  "name": "data-engineering-adoption",
+  "description": "Adoption assets including examples, templates, and setup guides for multi-agent usage.",
+  "includes": [
+    "AGENTS.md",
+    "skills-index.md",
+    "templates/source-contract.yaml",
+    "templates/dataset-contract.yaml",
+    "templates/metric-contract.yaml",
+    "docs/cursor-setup.md",
+    "docs/claude-setup.md",
+    "docs/copilot-setup.md",
+    "docs/generic-markdown-rules-setup.md",
+    "examples"
+  ]
+}

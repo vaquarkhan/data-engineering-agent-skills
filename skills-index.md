@@ -13,16 +13,23 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `warehouse-and-schema-design`
 - `data-mesh-and-domain-oriented-design`
 - `data-lake-and-zone-architecture`
+- `master-data-and-entity-resolution`
 
 ## Build And Model
 
+- `api-and-saas-ingestion-patterns`
+- `source-reliability-and-extraction-resilience`
 - `dbt-and-analytics-engineering`
 - `cdc-and-incremental-loading`
+- `debezium-and-kafka-connect-cdc`
+- `apache-beam-unified-batch-and-stream`
 - `spark-and-distributed-processing`
 - `airflow-and-workflow-orchestration`
 - `streaming-and-messaging-systems`
 - `lakehouse-table-format-engineering`
 - `delta-lake-and-medallion-architecture`
+- `apache-hudi-lakehouse`
+- `duckdb-local-analytics-and-dev`
 - `feature-store-and-ml-data-pipelines`
 - `reverse-etl-and-operational-data-serving`
 
@@ -32,6 +39,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `schema-evolution-and-contract-migrations`
 - `privacy-retention-and-right-to-delete`
 - `data-catalog-and-discovery`
+- `openmetadata-datahub-and-openlineage`
+- `avro-protobuf-json-schema-registry`
+- `data-contract-testing-with-schema-registry`
+- `great-expectations-deequ-and-cuallee`
+- `data-reconciliation-and-financial-controls`
 - `semantic-layer-and-metric-governance`
 - `data-sharing-and-publishing-contracts`
 
@@ -47,6 +59,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ## Platform And Infrastructure
 
 - `terraform-and-data-platform-infrastructure`
+- `data-platform-ci-cd-and-release-management`
+- `trino-presto-federated-query`
+- `clickhouse-real-time-analytics`
+- `superset-and-metrics-serving`
+- `lakefs-and-data-versioning`
 
 ## Platform Presets
 
@@ -57,6 +74,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `alibaba-cloud-data-engineering`
 - `snowflake-modern-data-platform`
 - `multi-cloud-hybrid-data-engineering`
+- `apache-spark-engineering`
+- `apache-flink-stream-processing`
+- `apache-airflow-orchestration`
+- `apache-kafka-streaming`
+- `apache-iceberg-lakehouse`
 
 ## Common Bundles
 
@@ -64,6 +86,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: `aws-data-engineering`
 - skills: `data-lake-and-zone-architecture`, `lakehouse-table-format-engineering`, `spark-and-distributed-processing`, `airflow-and-workflow-orchestration`
+
+### API Ingestion
+
+- preset: choose the platform stack
+- skills: `api-and-saas-ingestion-patterns`, `source-reliability-and-extraction-resilience`, `cdc-and-incremental-loading`
 
 ### Databricks Medallion
 
@@ -89,3 +116,23 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: choose the platform stack
 - skills: `feature-store-and-ml-data-pipelines`, `data-quality-and-contract-testing`, `data-observability-and-sla-management`
+
+### Warehouse Cutover
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`, `data-platform-ci-cd-and-release-management`
+
+### Master Data
+
+- preset: choose the platform stack
+- skills: `master-data-and-entity-resolution`, `data-sharing-and-publishing-contracts`, `data-catalog-and-discovery`
+
+### Open Source CDC
+
+- preset: `apache-kafka-streaming`
+- skills: `debezium-and-kafka-connect-cdc`, `avro-protobuf-json-schema-registry`, `data-contract-testing-with-schema-registry`
+
+### Local Development
+
+- preset: choose the platform stack
+- skills: `duckdb-local-analytics-and-dev`, `warehouse-and-schema-design`, `data-quality-and-contract-testing`

@@ -1,0 +1,12 @@
+{
+  "name": "bigquery",
+  "transport": {
+    "type": "stdio",
+    "command": "bigquery-mcp-server",
+    "args": [],
+    "env": {
+      "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}",
+      "BIGQUERY_PROJECT": "${BIGQUERY_PROJECT}"
+    }
+  }
+}

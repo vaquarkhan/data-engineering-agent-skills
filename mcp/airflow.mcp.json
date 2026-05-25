@@ -1,0 +1,13 @@
+{
+  "name": "airflow",
+  "transport": {
+    "type": "stdio",
+    "command": "airflow-mcp-server",
+    "args": [],
+    "env": {
+      "AIRFLOW_BASE_URL": "${AIRFLOW_BASE_URL}",
+      "AIRFLOW_USERNAME": "${AIRFLOW_USERNAME}",
+      "AIRFLOW_PASSWORD": "${AIRFLOW_PASSWORD}"
+    }
+  }
+}

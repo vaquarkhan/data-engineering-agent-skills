@@ -1,0 +1,11 @@
+{
+  "name": "postgres",
+  "transport": {
+    "type": "stdio",
+    "command": "postgres-mcp-server",
+    "args": [],
+    "env": {
+      "POSTGRES_DSN": "${POSTGRES_DSN}"
+    }
+  }
+}

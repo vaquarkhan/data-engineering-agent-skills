@@ -13,3 +13,8 @@ Available presets:
 - `alibaba-cloud-data-engineering`
 - `snowflake-modern-data-platform`
 - `multi-cloud-hybrid-data-engineering`
+- `apache-spark-engineering`
+- `apache-flink-stream-processing`
+- `apache-airflow-orchestration`
+- `apache-kafka-streaming`
+- `apache-iceberg-lakehouse`

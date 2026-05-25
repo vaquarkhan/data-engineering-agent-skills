@@ -1,0 +1,12 @@
+{
+  "name": "terraform",
+  "transport": {
+    "type": "stdio",
+    "command": "terraform-mcp-server",
+    "args": [],
+    "env": {
+      "TF_WORKSPACE": "${TF_WORKSPACE}",
+      "TF_VAR_environment": "${TF_VAR_environment}"
+    }
+  }
+}

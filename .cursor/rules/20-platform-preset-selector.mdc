@@ -1,0 +1,21 @@
+---
+description: Select the right platform preset before implementation
+globs:
+alwaysApply: false
+---
+
+# Platform Preset Selector
+
+Before implementation, select the matching preset from `presets/`.
+
+Examples:
+
+- `aws-data-engineering`
+- `gcp-data-engineering`
+- `databricks-lakehouse-engineering`
+- `apache-spark-engineering`
+- `apache-airflow-orchestration`
+- `apache-kafka-streaming`
+- `apache-iceberg-lakehouse`
+
+Do not mix platform assumptions silently.

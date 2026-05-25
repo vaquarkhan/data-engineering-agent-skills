@@ -28,3 +28,20 @@ Build an AWS-native lakehouse pipeline that ingests operational data into `S3`, 
 - conformed `Iceberg` tables in a curated zone
 - governed access through `Lake Formation`
 - published analytical views queryable in `Athena`
+
+## Minimal Runnable Scaffold
+
+Files included:
+
+- `Makefile`
+- `jobs/normalize_customers.py`
+- `config/lake-layout.yaml`
+- `sql/create_publish_view.sql`
+- `data/customers.jsonl`
+
+## Example Commands
+
+```bash
+python jobs/normalize_customers.py --input data/customers.jsonl --output build/customers.ndjson
+make publish-sql
+```

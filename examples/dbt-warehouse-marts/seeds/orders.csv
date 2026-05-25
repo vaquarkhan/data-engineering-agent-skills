@@ -1,0 +1,3 @@
+order_id,customer_id,order_date,amount
+o-1,c-100,2026-05-01,125.00
+o-2,c-101,2026-05-01,80.00

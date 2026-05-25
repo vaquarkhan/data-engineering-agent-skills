@@ -1,0 +1,12 @@
+{
+  "name": "data-engineering-core",
+  "description": "Core workflow skills for specification, planning, quality, observability, and operational safety.",
+  "includes": [
+    "skills/using-data-agent-skills",
+    "skills/data-specification",
+    "skills/pipeline-planning-and-task-breakdown",
+    "skills/data-quality-and-contract-testing",
+    "skills/data-observability-and-sla-management",
+    "skills/incident-triage-and-pipeline-recovery"
+  ]
+}

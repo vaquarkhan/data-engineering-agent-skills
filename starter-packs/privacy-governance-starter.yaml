@@ -1,0 +1,10 @@
+name: privacy-governance-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - privacy-retention-and-right-to-delete
+  - lineage-pii-and-governance
+  - data-catalog-and-discovery
+templates:
+  - templates/dataset-contract.yaml
+  - templates/incident-runbook.md
+example: examples/privacy-retention-deletion-workflow

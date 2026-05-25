@@ -1,0 +1,7 @@
+layers:
+  bronze:
+    quality_bar: raw-survival
+  silver:
+    quality_bar: contract-aware
+  gold:
+    quality_bar: publish-ready

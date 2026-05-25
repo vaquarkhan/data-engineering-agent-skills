@@ -1,0 +1,4 @@
+job:
+  name: order-events-enrichment
+  checkpoint_interval_seconds: 30
+  replay_strategy: from-beginning-for-backfill
