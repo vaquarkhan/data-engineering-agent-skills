@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build and test
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local data and environment
+.env
+.env.*
+data/
+dist/
+build/
+
+# Editor and OS
+.DS_Store
+Thumbs.db
