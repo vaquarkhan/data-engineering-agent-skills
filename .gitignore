@@ -47,5 +47,6 @@ Thumbs.db
 vscode-extension/node_modules/
 vscode-extension/.vscode-test/
 jetbrains-plugin/.gradle/
+jetbrains-plugin/bin/
 jetbrains-plugin/build/
 jetbrains-plugin/out/
