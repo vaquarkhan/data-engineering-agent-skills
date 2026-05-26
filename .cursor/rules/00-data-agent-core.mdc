@@ -6,7 +6,7 @@ alwaysApply: true
 
 # Data Engineering Agent Core
 
-Use `AGENTS.md` and `skills/using-data-agent-skills/SKILL.md` to classify work before implementation.
+Use `AGENTS.md` and `skills/using-data-engineering-agent-skills/SKILL.md` to classify work before implementation.
 
 Default rules:
 

@@ -1,0 +1,505 @@
+{
+  "templates": [
+    {
+      "id": "source-contract",
+      "path": "templates/source-contract.yaml",
+      "category": "contract"
+    },
+    {
+      "id": "dataset-contract",
+      "path": "templates/dataset-contract.yaml",
+      "category": "contract"
+    },
+    {
+      "id": "metric-contract",
+      "path": "templates/metric-contract.yaml",
+      "category": "contract"
+    },
+    {
+      "id": "data-compliance-controls",
+      "path": "templates/data-compliance-controls.yaml",
+      "category": "control"
+    },
+    {
+      "id": "backfill-plan",
+      "path": "templates/backfill-plan.yaml",
+      "category": "operations"
+    },
+    {
+      "id": "schema-change-plan",
+      "path": "templates/schema-change-plan.yaml",
+      "category": "operations"
+    },
+    {
+      "id": "release-gate-evidence",
+      "path": "templates/release-gate-evidence.yaml",
+      "category": "operations"
+    },
+    {
+      "id": "incident-runbook",
+      "path": "templates/incident-runbook.md",
+      "category": "operations"
+    }
+  ],
+  "starter_packs": [
+    {
+      "id": "aws-lakehouse",
+      "label": "AWS Lakehouse",
+      "path": "starter-packs/aws-lakehouse-starter.yaml",
+      "install_files": [
+        "starter-packs/aws-lakehouse-starter.yaml",
+        "templates/source-contract.yaml",
+        "templates/dataset-contract.yaml",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "databricks-medallion",
+      "label": "Databricks Medallion",
+      "path": "starter-packs/databricks-medallion-starter.yaml",
+      "install_files": [
+        "starter-packs/databricks-medallion-starter.yaml",
+        "templates/source-contract.yaml",
+        "templates/dataset-contract.yaml",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "warehouse-analytics",
+      "label": "Warehouse Analytics",
+      "path": "starter-packs/warehouse-analytics-starter.yaml",
+      "install_files": [
+        "starter-packs/warehouse-analytics-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/metric-contract.yaml",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "streaming-reliability",
+      "label": "Streaming Reliability",
+      "path": "starter-packs/streaming-reliability-starter.yaml",
+      "install_files": [
+        "starter-packs/streaming-reliability-starter.yaml",
+        "templates/source-contract.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "privacy-governance",
+      "label": "Privacy Governance",
+      "path": "starter-packs/privacy-governance-starter.yaml",
+      "install_files": [
+        "starter-packs/privacy-governance-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "regulated-data-compliance",
+      "label": "Regulated Data Compliance",
+      "path": "starter-packs/regulated-data-compliance-starter.yaml",
+      "install_files": [
+        "starter-packs/regulated-data-compliance-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/data-compliance-controls.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "data-platform-cicd-release",
+      "label": "Data Platform CI CD Release",
+      "path": "starter-packs/data-platform-cicd-release-starter.yaml",
+      "install_files": [
+        "starter-packs/data-platform-cicd-release-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "resiliency-testing",
+      "label": "Resiliency Testing",
+      "path": "starter-packs/resiliency-testing-starter.yaml",
+      "install_files": [
+        "starter-packs/resiliency-testing-starter.yaml",
+        "templates/incident-runbook.md",
+        "templates/backfill-plan.yaml",
+        "templates/release-gate-evidence.yaml",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "validation-security-review",
+      "label": "Validation Security Review",
+      "path": "starter-packs/validation-security-review-starter.yaml",
+      "install_files": [
+        "starter-packs/validation-security-review-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/data-compliance-controls.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "regional-compliance-esg-reporting",
+      "label": "Regional Compliance ESG Reporting",
+      "path": "starter-packs/regional-compliance-and-esg-reporting-starter.yaml",
+      "install_files": [
+        "starter-packs/regional-compliance-and-esg-reporting-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/data-compliance-controls.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "test-data-lower-environments",
+      "label": "Test Data Lower Environments",
+      "path": "starter-packs/test-data-lower-environments-starter.yaml",
+      "install_files": [
+        "starter-packs/test-data-lower-environments-starter.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/data-compliance-controls.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    },
+    {
+      "id": "enterprise-etl-modernization",
+      "label": "Enterprise ETL Modernization",
+      "path": "starter-packs/enterprise-etl-modernization-starter.yaml",
+      "install_files": [
+        "starter-packs/enterprise-etl-modernization-starter.yaml",
+        "templates/source-contract.yaml",
+        "templates/dataset-contract.yaml",
+        "templates/incident-runbook.md",
+        "AGENTS.md",
+        "skills-index.md"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "aws-s3-glue-athena-iceberg",
+      "readme": "examples/aws-s3-glue-athena-iceberg/README.md",
+      "runnable": true
+    },
+    {
+      "id": "api-saas-to-warehouse-ingestion",
+      "readme": "examples/api-saas-to-warehouse-ingestion/README.md",
+      "runnable": false
+    },
+    {
+      "id": "databricks-delta-medallion",
+      "readme": "examples/databricks-delta-medallion/README.md",
+      "runnable": true
+    },
+    {
+      "id": "dbt-warehouse-marts",
+      "readme": "examples/dbt-warehouse-marts/README.md",
+      "runnable": true
+    },
+    {
+      "id": "gcp-pubsub-dataflow-bigquery",
+      "readme": "examples/gcp-pubsub-dataflow-bigquery/README.md",
+      "runnable": false
+    },
+    {
+      "id": "kafka-flink-streaming",
+      "readme": "examples/kafka-flink-streaming/README.md",
+      "runnable": true
+    },
+    {
+      "id": "snowflake-dbt-reverse-etl",
+      "readme": "examples/snowflake-dbt-reverse-etl/README.md",
+      "runnable": false
+    },
+    {
+      "id": "privacy-retention-deletion-workflow",
+      "readme": "examples/privacy-retention-deletion-workflow/README.md",
+      "runnable": false
+    },
+    {
+      "id": "feature-store-online-offline-parity",
+      "readme": "examples/feature-store-online-offline-parity/README.md",
+      "runnable": false
+    },
+    {
+      "id": "multi-cloud-warehouse-cutover",
+      "readme": "examples/multi-cloud-warehouse-cutover/README.md",
+      "runnable": false
+    },
+    {
+      "id": "data-platform-cicd-progressive-release",
+      "readme": "examples/data-platform-cicd-progressive-release/README.md",
+      "runnable": false
+    },
+    {
+      "id": "esg-regulatory-reporting-foundation",
+      "readme": "examples/esg-regulatory-reporting-foundation/README.md",
+      "runnable": false
+    },
+    {
+      "id": "validation-and-security-review-foundation",
+      "readme": "examples/validation-and-security-review-foundation/README.md",
+      "runnable": false
+    }
+  ],
+  "mcp_templates": [
+    {
+      "label": "GitHub",
+      "path": "mcp/github.mcp.json"
+    },
+    {
+      "label": "Postgres",
+      "path": "mcp/postgres.mcp.json"
+    },
+    {
+      "label": "Snowflake",
+      "path": "mcp/snowflake.mcp.json"
+    },
+    {
+      "label": "BigQuery",
+      "path": "mcp/bigquery.mcp.json"
+    },
+    {
+      "label": "Databricks",
+      "path": "mcp/databricks.mcp.json"
+    },
+    {
+      "label": "dbt Cloud",
+      "path": "mcp/dbt-cloud.mcp.json"
+    },
+    {
+      "label": "Airflow",
+      "path": "mcp/airflow.mcp.json"
+    },
+    {
+      "label": "Kafka",
+      "path": "mcp/kafka.mcp.json"
+    },
+    {
+      "label": "Terraform",
+      "path": "mcp/terraform.mcp.json"
+    },
+    {
+      "label": "Slack and Jira",
+      "path": "mcp/slack-jira-incidents.mcp.json"
+    }
+  ],
+  "install_surfaces": {
+    "core_files": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "skills-index.md",
+      "registry/assets.json",
+      "templates/source-contract.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/metric-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/backfill-plan.yaml",
+      "templates/schema-change-plan.yaml",
+      "templates/release-gate-evidence.yaml",
+      "templates/incident-runbook.md",
+      "docs/getting-started.md",
+      "docs/codex-setup.md",
+      "hooks/README.md",
+      "hooks/hooks.json",
+      "hooks/session-start.sh",
+      "hooks/contract-check-pre.sh",
+      "hooks/pipeline-review-pre.sh",
+      "hooks/incident-mode.sh",
+      "hooks/backfill-guard.sh",
+      "hooks/schema-change-guard.sh",
+      "hooks/cost-check.sh",
+      "hooks/release-guard.sh"
+    ],
+    "generic_install_files": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "skills-index.md",
+      "registry/assets.json",
+      "docs/getting-started.md",
+      "templates/source-contract.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/metric-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/backfill-plan.yaml",
+      "templates/schema-change-plan.yaml",
+      "templates/release-gate-evidence.yaml",
+      "templates/incident-runbook.md",
+      "hooks/README.md",
+      "hooks/session-start.sh",
+      "hooks/contract-check-pre.sh",
+      "hooks/pipeline-review-pre.sh",
+      "hooks/incident-mode.sh",
+      "hooks/backfill-guard.sh",
+      "hooks/schema-change-guard.sh",
+      "hooks/cost-check.sh",
+      "hooks/release-guard.sh"
+    ],
+    "agent_adapters": [
+      {
+        "label": "Cursor",
+        "files": [
+          ".cursor/rules/00-data-agent-core.mdc",
+          ".cursor/rules/10-spec-first.mdc",
+          ".cursor/rules/20-platform-preset-selector.mdc",
+          ".cursor/rules/30-quality-gates.mdc"
+        ]
+      },
+      {
+        "label": "Claude",
+        "files": [
+          ".claude/commands/spec.md",
+          ".claude/commands/plan.md",
+          ".claude/commands/build.md",
+          ".claude/commands/test.md",
+          ".claude/commands/validate.md",
+          ".claude/commands/backfill.md",
+          ".claude/commands/review.md",
+          ".claude/commands/ship.md",
+          "AGENTS.md",
+          "CLAUDE.md"
+        ]
+      },
+      {
+        "label": "Copilot",
+        "files": [
+          ".github/copilot-instructions.md",
+          "AGENTS.md"
+        ]
+      },
+      {
+        "label": "Gemini",
+        "files": [
+          ".gemini/commands/spec.md",
+          ".gemini/commands/plan.md",
+          ".gemini/commands/build.md",
+          ".gemini/commands/test.md",
+          ".gemini/commands/validate.md",
+          ".gemini/commands/backfill.md",
+          ".gemini/commands/review.md",
+          ".gemini/commands/ship.md"
+        ]
+      },
+      {
+        "label": "Kiro",
+        "files": [
+          ".kiro/steering/product.md",
+          ".kiro/steering/tech.md",
+          ".kiro/steering/structure.md",
+          "docs/kiro-setup.md",
+          "AGENTS.md",
+          "CLAUDE.md"
+        ]
+      },
+      {
+        "label": "Codex",
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          "skills-index.md",
+          "docs/getting-started.md",
+          "docs/codex-setup.md"
+        ]
+      },
+      {
+        "label": "OpenCode",
+        "files": [
+          "AGENTS.md",
+          "CLAUDE.md",
+          ".opencode/README.md",
+          ".opencode/skills",
+          "docs/opencode-setup.md",
+          "docs/getting-started.md"
+        ]
+      },
+      {
+        "label": "Windsurf",
+        "files": [
+          ".windsurfrules.example",
+          "docs/windsurf-setup.md",
+          "docs/getting-started.md"
+        ]
+      }
+    ],
+    "runnable_examples": [
+      {
+        "label": "AWS S3 Glue Athena Iceberg",
+        "files": [
+          "examples/aws-s3-glue-athena-iceberg/README.md",
+          "examples/aws-s3-glue-athena-iceberg/spec.md",
+          "examples/aws-s3-glue-athena-iceberg/plan.md",
+          "examples/aws-s3-glue-athena-iceberg/tasks.md",
+          "examples/aws-s3-glue-athena-iceberg/Makefile",
+          "examples/aws-s3-glue-athena-iceberg/config/lake-layout.yaml",
+          "examples/aws-s3-glue-athena-iceberg/jobs/normalize_customers.py",
+          "examples/aws-s3-glue-athena-iceberg/sql/create_publish_view.sql",
+          "examples/aws-s3-glue-athena-iceberg/data/customers.jsonl"
+        ]
+      },
+      {
+        "label": "Databricks Delta Medallion",
+        "files": [
+          "examples/databricks-delta-medallion/README.md",
+          "examples/databricks-delta-medallion/spec.md",
+          "examples/databricks-delta-medallion/plan.md",
+          "examples/databricks-delta-medallion/tasks.md",
+          "examples/databricks-delta-medallion/databricks.yml",
+          "examples/databricks-delta-medallion/conf/medallion.yaml",
+          "examples/databricks-delta-medallion/src/bronze_to_silver.py",
+          "examples/databricks-delta-medallion/sample/bronze.jsonl"
+        ]
+      },
+      {
+        "label": "dbt Warehouse Marts",
+        "files": [
+          "examples/dbt-warehouse-marts/README.md",
+          "examples/dbt-warehouse-marts/spec.md",
+          "examples/dbt-warehouse-marts/plan.md",
+          "examples/dbt-warehouse-marts/tasks.md",
+          "examples/dbt-warehouse-marts/dbt_project.yml",
+          "examples/dbt-warehouse-marts/models/staging/stg_orders.sql",
+          "examples/dbt-warehouse-marts/models/marts/fct_daily_revenue.sql",
+          "examples/dbt-warehouse-marts/models/schema.yml",
+          "examples/dbt-warehouse-marts/seeds/orders.csv"
+        ]
+      },
+      {
+        "label": "Kafka Flink Streaming",
+        "files": [
+          "examples/kafka-flink-streaming/README.md",
+          "examples/kafka-flink-streaming/spec.md",
+          "examples/kafka-flink-streaming/plan.md",
+          "examples/kafka-flink-streaming/tasks.md",
+          "examples/kafka-flink-streaming/docker-compose.yml",
+          "examples/kafka-flink-streaming/config/flink-job.yaml",
+          "examples/kafka-flink-streaming/schemas/order-events.avsc",
+          "examples/kafka-flink-streaming/src/stream_job.py",
+          "examples/kafka-flink-streaming/sample/order-events.jsonl"
+        ]
+      }
+    ]
+  },
+  "packaging_manifests": [
+    ".claude-plugin/data-engineering-core.manifest.json",
+    ".claude-plugin/data-engineering-platforms.manifest.json",
+    ".claude-plugin/data-engineering-adoption.manifest.json"
+  ]
+}

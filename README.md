@@ -1,17 +1,98 @@
+![Data Engineering Agent Skills](images/DE-Skills-2.0.png)
+
 # Data Engineering Agent Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-51-brightgreen.svg)](#initial-skill-pack)
-[![Presets](https://img.shields.io/badge/Presets-12-blue.svg)](#platform-presets)
-[![Examples](https://img.shields.io/badge/Examples-10-purple.svg)](#end-to-end-examples)
+[![Skills](https://img.shields.io/badge/Skills-59-brightgreen.svg)](#initial-skill-pack)
+[![Presets](https://img.shields.io/badge/Presets-14-blue.svg)](#platform-presets)
+[![Examples](https://img.shields.io/badge/Examples-13-purple.svg)](#end-to-end-examples)
 [![MCP Configs](https://img.shields.io/badge/MCP%20Configs-10-orange.svg)](#mcp-config-templates)
-[![Starter Packs](https://img.shields.io/badge/Starter%20Packs-5-red.svg)](#starter-packs)
+[![Starter Packs](https://img.shields.io/badge/Starter%20Packs-12-red.svg)](#starter-packs)
+[![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
+[![Release Artifacts](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml/badge.svg)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/vaquarkhan/data-engineering-agent-skills)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases)
 
-Production-grade data engineering skills for AI coding agents.
+Production-grade data engineering skills for AI agents.
 
-This repository packages repeatable workflows, quality gates, and verification steps so agents can build data systems with the same discipline used by strong data engineering teams.
+The open skill registry and execution toolkit for data engineering agents.
 
-The goal is not to give agents generic prompts. The goal is to give them operating procedures for designing, planning, implementing, validating, and shipping reliable data products.
+This repository packages repeatable workflows, quality gates, hooks, installer surfaces, and runnable examples so agents can build data systems with the same discipline used by strong data engineering teams.
+
+The goal is not to give agents generic prompts. The goal is to give them operating procedures for defining, planning, implementing, validating, replaying, and shipping reliable data products.
+
+## Agent Skills Registry Compatibility
+
+This repository is structured to work with open `Agent Skills` registries:
+
+- every capability lives in a directory containing a `SKILL.md`
+- every `SKILL.md` starts with YAML frontmatter including at least `name` and `description`
+- descriptions are written for progressive disclosure so agents can decide when to load the full skill
+- supporting materials can live in `references/`, `templates/`, `examples/`, `hooks/`, and `scripts/`
+
+Copy-pasteable install commands:
+
+```bash
+npx skills add vaquarkhan/data-engineering-agent-skills
+gemini skills install https://github.com/vaquarkhan/data-engineering-agent-skills
+git clone https://github.com/vaquarkhan/data-engineering-agent-skills.git
+```
+
+If you want file-based setup instead of registry install, use:
+
+```bash
+scripts/install.sh --tool all --target /path/to/project
+```
+
+## Quick Start
+
+### Start Here
+
+1. load `skills/using-data-engineering-agent-skills/SKILL.md`
+2. pick the closest platform preset from `presets/`
+3. choose the safest next command from the lifecycle below
+4. use one starter pack, template, or example to reduce guessing
+
+### Install Surfaces
+
+#### Plugin And Release Downloads
+
+- `VS Code` family `.vsix`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+- `JetBrains` plugin `.zip`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+- `Claude` plugin bundle: use `.claude-plugin/`, `.claude/commands/`, and `CLAUDE.md`
+
+#### One-Line Script Install
+
+```bash
+scripts/install.sh --tool claude --target /path/to/project
+scripts/install.sh --tool kiro --target /path/to/project
+scripts/install.sh --tool windsurf --target /path/to/project
+scripts/install.sh --tool opencode --target /path/to/project
+scripts/install.sh --tool all --target /path/to/project
+```
+
+#### Tool Setup Guides
+
+- `docs/getting-started.md`
+- `docs/cursor-setup.md`
+- `docs/kiro-setup.md`
+- `docs/claude-setup.md`
+- `docs/copilot-setup.md`
+- `docs/windsurf-setup.md`
+- `docs/opencode-setup.md`
+- `docs/codex-setup.md`
+- `docs/jetbrains-setup.md`
+
+#### Tutorials
+
+- `tutorials/README.md`
+- `tutorials/using-data-engineering-agent-skills.md`
+- `tutorials/cloud-data-engineering-architecture-patterns.md`
+- `tutorials/pipeline-orchestration-patterns.md`
+- `tutorials/streaming-architecture-patterns.md`
+- `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/etl-elt-modernization-and-cutover.md`
+- `tutorials/regulated-data-and-compliance-workflows.md`
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`
 
 ## Core Principles
 
@@ -22,36 +103,114 @@ The goal is not to give agents generic prompts. The goal is to give them operati
 - Lineage, ownership, and governance by default
 - Clear evidence for every change
 
+## Feature Highlights
+
+- Spec-first lifecycle with `/spec`, `/plan`, `/build`, `/validate`, `/review`, `/backfill`, and `/ship`
+- 59 workflow skills covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, release, incident recovery, and resiliency testing
+- focused resilience testing coverage for failure drills, replay safety, restart behavior, backlog catch-up, and publish protection
+- 14 platform presets spanning `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, `Informatica`, `Talend`, and Apache-first stacks
+- Multi-agent packaging for `Cursor`, `Claude`, `Copilot`, `Gemini`, `Codex`, `Kiro`, `OpenCode`, `Windsurf`, `AGENTS.md`, and `CLAUDE.md` consumers
+- Install surfaces for `VS Code` family editors, `JetBrains` IDEs, setup guides, one-line install scripts, and plugin release artifacts
+- Runnable examples, starter packs, MCP templates, hooks, and machine-readable registry assets for faster adoption
+- Structured operational templates for dataset contracts, compliance controls, backfills, schema changes, release gates, and incident response
+
+## Feature Coverage
+
+| Area | What is included | Good starting point |
+| --- | --- | --- |
+| Core delivery workflow | Spec-driven delivery, planning, validation, review, publish readiness, replay safety, and rollback-aware release flow | `skills/using-data-engineering-agent-skills/SKILL.md` |
+| Cloud and platform coverage | `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, multi-cloud and hybrid guidance | `presets/` |
+| Apache and OSS data stack | `Spark`, `Flink`, `Airflow`, `Kafka`, `Iceberg`, `Hudi`, `Beam`, `Trino`, `ClickHouse`, `DuckDB`, `LakeFS`, `OpenMetadata`, `DataHub`, `OpenLineage`, `Great Expectations`, `Deequ`, `Cuallee`, `Superset`, and schema-registry patterns | `skills-index.md` |
+| Orchestration and streaming | Scheduler-driven, event-driven, and lakehouse-native orchestration patterns plus replay-safe streaming architecture guidance | `references/pipeline-orchestration-patterns.md`, `references/streaming-architecture-patterns.md` |
+| Security, governance, and regulated data | `PII`, `PCI`, `HIPAA`, lineage, retention, deletion, privacy, audit evidence, platform security, and publish controls | `skills/data-security-compliance-and-regulated-data/SKILL.md` |
+| Regional compliance and reporting | `GDPR`, sovereignty and residency patterns, `SAMA`, `Europe`, `USA`, `India`, `Saudi Arabia`, `CSRD`, `ESRS`, `BRSR`, and `ESG` reporting workflows | `references/regional-compliance-and-data-sovereignty-checklist.md`, `references/esg-and-sustainability-reporting-checklist.md` |
+| Modernization and enterprise ETL | `ETL` versus `ELT`, data migration, cutover, enterprise ETL modernization, and guidance for `Informatica`, `Talend`, `DataStage`, `SSIS`, and `Matillion`-style estates | `skills/etl-elt-and-modernization-strategy/SKILL.md`, `skills/enterprise-etl-and-data-integration-modernization/SKILL.md` |
+| Testing and lower environments | Contract testing, testcase patterns, resiliency testing, failure drills, reconciliation, anti-patterns, synthetic data, masked lower environments, and validation-security review starter packs | `references/data-resiliency-testing-patterns.md`, `starter-packs/resiliency-testing-starter.yaml` |
+| Language-specific engineering | `Python` pipeline packaging, `Scala` JVM data jobs, and `Java` integration or metadata services | `skills/python-data-engineering-and-pipeline-packaging/SKILL.md`, `skills/scala-data-engineering-on-jvm-runtimes/SKILL.md`, `skills/java-data-engineering-and-integration-services/SKILL.md` |
+| Adoption and automation | `VS Code` extension, `JetBrains` plugin, `Kiro` steering, hooks, starter packs, examples, MCP templates, and machine-readable asset registry | `docs/getting-started.md`, `registry/assets.json` |
+
 ## Lifecycle Commands
 
-These commands are conceptual entry points. They can be mapped to any assistant, automation layer, or local workflow.
+These commands are the clearest way to understand the repo. They can be mapped to slash commands, prompts, hooks, or local workflows.
 
 | What you're doing | Command | Key principle |
 | --- | --- | --- |
-| Define the data product | `/spec` | Intent before implementation |
-| Plan the work | `/plan` | Small, verifiable tasks |
+| Define the data product | `/spec` | Contract, SLA, lineage, schema, retention, ownership |
+| Plan the work | `/plan` | Small, atomic, verifiable tasks |
 | Build incrementally | `/build` | Safe slices over big rewrites |
-| Prove quality | `/test` | Contracts and checks are proof |
-| Review the change | `/review` | Reliability, governance, cost |
-| Simplify the system | `/simplify` | Clarity over accidental complexity |
-| Ship and operate | `/ship` | Safe rollout and recovery paths |
+| Prove publish safety | `/validate` | Quality, contract compliance, and reconciliation are proof |
+| Review the change | `/review` | Reliability, governance, cost, and operability |
+| Replay or cut over safely | `/backfill` | Backfills, reruns, and cutovers need explicit guardrails |
+| Ship and operate | `/ship` | Safe rollout, observability, and rollback paths |
+
+## Choose Your Path
+
+- New pipeline -> use `/spec`
+- dbt project -> use `starter-packs/warehouse-analytics-starter.yaml`
+- Streaming system -> use `starter-packs/streaming-reliability-starter.yaml`
+- Streaming architecture review -> use `references/streaming-architecture-patterns.md`
+- Cloud architecture review -> use `references/cloud-data-engineering-architecture-patterns.md`
+- Pipeline orchestration review -> use `references/pipeline-orchestration-patterns.md`
+- Validation and testcase review -> use `starter-packs/validation-security-review-starter.yaml`
+- Resiliency testing -> use `starter-packs/resiliency-testing-starter.yaml`
+- `Python` data pipeline work -> use `python-data-engineering-and-pipeline-packaging`
+- `Scala` Spark or JVM jobs -> use `scala-data-engineering-on-jvm-runtimes`
+- `Java` connectors or data services -> use `java-data-engineering-and-integration-services`
+- `MySQL` versus `NoSQL` choice -> use `operational-datastore-selection-relational-and-nosql`
+- Anti-pattern review -> use `references/data-engineering-anti-patterns.md`
+- `ETL` or `ELT` modernization -> use `etl-elt-and-modernization-strategy`
+- Incident recovery -> use `incident-triage-and-pipeline-recovery`
+- Schema migration -> use `schema-evolution-and-contract-migrations`
+- Cutover or backfill -> use `data-migration-and-platform-cutover`
+- CI/CD and progressive release -> use `starter-packs/data-platform-cicd-release-starter.yaml`
+- Regional compliance or sovereignty -> use `regional-data-compliance-and-sovereignty`
+- `ESG` reporting -> use `starter-packs/regional-compliance-and-esg-reporting-starter.yaml`
+- Regulated data (`PII`, `PCI`, `HIPAA`) -> use `data-security-compliance-and-regulated-data`
+- Test data or synthetic fixtures -> use `test-data-preparation-and-synthetic-data`
+- Lower-environment masked refresh -> use `lower-environment-data-masking-and-obfuscation`
+- `Informatica` or `Talend` estate -> use `enterprise-etl-and-data-integration-modernization`
+
+## Hooks
+
+The `hooks/` directory adds a lightweight operating layer:
+
+- `session-start.sh`
+- `contract-check-pre.sh`
+- `pipeline-review-pre.sh`
+- `incident-mode.sh`
+- `backfill-guard.sh`
+- `schema-change-guard.sh`
+- `cost-check.sh`
+- `release-guard.sh`
+
+Use these hooks when you want the repository to behave more like a workflow system than a static library.
 
 ## Initial Skill Pack
 
 This repository now includes a broader production-grade skill pack:
 
+- `using-data-engineering-agent-skills`
 - `using-data-agent-skills`
 - `data-specification`
 - `pipeline-planning-and-task-breakdown`
 - `data-quality-and-contract-testing`
+- `data-resiliency-testing-and-failure-injection`
 - `orchestration-and-backfills`
 - `lineage-pii-and-governance`
+- `data-security-compliance-and-regulated-data`
+- `regional-data-compliance-and-sovereignty`
+- `esg-and-sustainability-regulatory-reporting`
+- `lower-environment-data-masking-and-obfuscation`
 - `spark-and-distributed-processing`
 - `airflow-and-workflow-orchestration`
 - `streaming-and-messaging-systems`
 - `lakehouse-table-format-engineering`
 - `data-lake-and-zone-architecture`
 - `warehouse-and-schema-design`
+- `python-data-engineering-and-pipeline-packaging`
+- `scala-data-engineering-on-jvm-runtimes`
+- `java-data-engineering-and-integration-services`
+- `operational-datastore-selection-relational-and-nosql`
 - `data-mesh-and-domain-oriented-design`
 - `delta-lake-and-medallion-architecture`
 - `dbt-and-analytics-engineering`
@@ -66,11 +225,14 @@ This repository now includes a broader production-grade skill pack:
 - `data-sharing-and-publishing-contracts`
 - `data-catalog-and-discovery`
 - `privacy-retention-and-right-to-delete`
+- `etl-elt-and-modernization-strategy`
+- `test-data-preparation-and-synthetic-data`
 - `reverse-etl-and-operational-data-serving`
 - `feature-store-and-ml-data-pipelines`
 - `data-migration-and-platform-cutover`
 - `api-and-saas-ingestion-patterns`
 - `source-reliability-and-extraction-resilience`
+- `enterprise-etl-and-data-integration-modernization`
 - `data-reconciliation-and-financial-controls`
 - `data-platform-ci-cd-and-release-management`
 - `master-data-and-entity-resolution`
@@ -89,7 +251,7 @@ This repository now includes a broader production-grade skill pack:
 
 Future skills can extend this pack for:
 
-- platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, and `Iceberg`
+- platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, `Iceberg`, `SSIS`, `DataStage`, and `Matillion`
 - enterprise governance overlays and automated validation hooks
 
 ## Platform Presets
@@ -104,6 +266,8 @@ Current presets:
 - `databricks-lakehouse-engineering`
 - `alibaba-cloud-data-engineering`
 - `snowflake-modern-data-platform`
+- `informatica-data-integration`
+- `talend-data-integration`
 - `multi-cloud-hybrid-data-engineering`
 - `apache-spark-engineering`
 - `apache-flink-stream-processing`
@@ -115,33 +279,59 @@ Current presets:
 
 ```text
 data-engineering-agent-skills/
-├── skills/         # Workflow-driven skill definitions
-├── presets/        # Platform and stack-specific operating profiles
-├── references/     # Reusable checklists and guidance
-├── templates/      # Spec, plan, and task templates
-├── docs/           # Contribution and format guidance
+├── skills/           # Workflow-driven skill definitions
+├── presets/          # Platform and stack-specific operating profiles
+├── references/       # Reusable checklists and guidance
+├── templates/        # Spec, plan, and task templates
+├── registry/         # Machine-readable asset registry and indexes
+├── hooks/            # Session-start and pre-flight automation hooks
+├── docs/             # Setup, onboarding, and format guidance
 ├── vscode-extension/ # VS Code installer extension
 ├── jetbrains-plugin/ # JetBrains installer plugin
-├── mcp/            # MCP configuration templates
-├── starter-packs/  # Opinionated bundles by use case
-├── agents/         # Specialist personas and review roles
-└── examples/       # Example projects and generated artifacts
+├── mcp/              # MCP configuration templates
+├── starter-packs/    # Opinionated bundles by use case
+├── agents/           # Specialist personas and review roles
+├── .claude-plugin/   # Claude plugin manifests and install bundles
+├── .kiro/            # Kiro steering adapter files
+├── .opencode/        # OpenCode integration surface
+├── CLAUDE.md         # Claude-style repository entry point
+└── examples/         # Example projects and generated artifacts
 ```
 
 ## Setup Guides
 
 Agent-specific setup guides are available in `docs/`:
 
+- `docs/getting-started.md`
 - `docs/cursor-setup.md`
+- `docs/kiro-setup.md`
 - `docs/claude-setup.md`
 - `docs/copilot-setup.md`
+- `docs/windsurf-setup.md`
+- `docs/opencode-setup.md`
 - `docs/generic-markdown-rules-setup.md`
 - `docs/codex-setup.md`
 - `docs/jetbrains-setup.md`
 
+## Tutorials
+
+Longer-form walkthroughs live in `tutorials/`:
+
+- `tutorials/README.md`
+- `tutorials/using-data-engineering-agent-skills.md`
+- `tutorials/cloud-data-engineering-architecture-patterns.md`
+- `tutorials/pipeline-orchestration-patterns.md`
+- `tutorials/streaming-architecture-patterns.md`
+- `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/etl-elt-modernization-and-cutover.md`
+- `tutorials/regulated-data-and-compliance-workflows.md`
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`
+
 ## VS Code Extension
 
 The first working `VS Code` extension scaffold lives in `vscode-extension/`.
+
+Installable release assets are published from the repository release page as `.vsix` downloads.
 
 It provides command-palette installers for:
 
@@ -163,6 +353,8 @@ It is intended for the `VS Code` family:
 
 The first working JetBrains plugin scaffold lives in `jetbrains-plugin/`.
 
+Installable plugin ZIP artifacts are published from the repository release page.
+
 It targets IntelliJ-platform IDEs such as:
 
 - `IntelliJ IDEA`
@@ -180,15 +372,22 @@ Native adapters are included for multiple agent ecosystems:
 - `.claude/commands/`
 - `.claude-plugin/`
 - `.gemini/commands/`
+- `.kiro/steering/`
 - `.github/copilot-instructions.md`
 - `AGENTS.md`
+- `CLAUDE.md`
+- `.opencode/`
+- `.windsurfrules.example`
 
 ## Install Scripts
 
 Installation helpers are available in `scripts/`:
 
-- `scripts/install.sh --tool cursor|claude|copilot|gemini|generic|all --target <path>`
+- `scripts/install.sh --tool cursor|claude|copilot|gemini|kiro|windsurf|opencode|generic|all --target <path>`
 - `scripts/install.sh --tool codex --target <path>`
+- `scripts/validate-skills.py`
+- `scripts/validate-assets.py`
+- `scripts/check-links.py`
 - `scripts/sync-rules.sh`
 - `scripts/sync-rules.ps1`
 
@@ -199,7 +398,19 @@ Starter contract and response templates are available in `templates/`:
 - `source-contract.yaml`
 - `dataset-contract.yaml`
 - `metric-contract.yaml`
+- `data-compliance-controls.yaml`
+- `backfill-plan.yaml`
+- `schema-change-plan.yaml`
+- `release-gate-evidence.yaml`
 - `incident-runbook.md`
+
+## Asset Registry
+
+Machine-readable discovery lives in:
+
+- `registry/assets.json`
+
+Use it to index templates, starter packs, examples, MCP templates, agent adapters, and installer bundle contents without scraping the Markdown docs.
 
 ## MCP Config Templates
 
@@ -230,6 +441,9 @@ Example project packs are available in `examples/`:
 - `privacy-retention-deletion-workflow`
 - `feature-store-online-offline-parity`
 - `multi-cloud-warehouse-cutover`
+- `data-platform-cicd-progressive-release`
+- `esg-regulatory-reporting-foundation`
+- `validation-and-security-review-foundation`
 
 The first four example packs also include minimal runnable scaffolds and sample commands.
 
@@ -242,20 +456,84 @@ Use the starter packs in `starter-packs/` to adopt the repository by problem are
 - `warehouse-analytics-starter.yaml`
 - `streaming-reliability-starter.yaml`
 - `privacy-governance-starter.yaml`
+- `regulated-data-compliance-starter.yaml`
+- `data-platform-cicd-release-starter.yaml`
+- `validation-security-review-starter.yaml`
+- `regional-compliance-and-esg-reporting-starter.yaml`
+- `test-data-lower-environments-starter.yaml`
+- `enterprise-etl-modernization-starter.yaml`
+- `resiliency-testing-starter.yaml`
 
 ## Skills Catalog
 
 See `skills-index.md` for a grouped catalog by lifecycle and platform.
 
-## Release Notes
+## Agent Personas
 
-- `CHANGELOG.md`
-- `docs/release-process.md`
-- `docs/tag-taxonomy.md`
-- `docs/walkthroughs.md`
-- `docs/ide-support-matrix.md`
+Pre-configured specialist personas give targeted review perspectives for data engineering work:
 
-## Skill Anatomy
+| Agent | Role | Best for |
+| --- | --- | --- |
+| `data-architect` | Architecture reviewer | Platform shape, contracts, ownership, replay, and recovery design |
+| `analytics-engineer-reviewer` | Analytics reviewer | `dbt`, marts, semantic consistency, and model grain |
+| `data-platform-reliability-reviewer` | Reliability reviewer | SLAs, incidents, backfills, replay safety, and operational readiness |
+| `data-platform-infrastructure-reviewer` | Infrastructure reviewer | Terraform, environment boundaries, secrets, and access controls |
+| `data-security-and-compliance-auditor` | Security and compliance reviewer | `PII`, `PCI`, `HIPAA`, lineage, audit evidence, retention, and publish controls |
+
+Use personas mainly for `/review`, `/validate`, and `/ship` when you want one focused lens on the current change.
+
+## Reference Guides
+
+Use `references/` for high-signal checklists and workflow support material.
+
+| Reference | Covers |
+| --- | --- |
+| `references/data-testing-patterns.md` | Contract tests, reconciliation, freshness, replay, and publish-proof patterns |
+| `references/data-resiliency-testing-patterns.md` | Failure drills for restart, outage, replay, checkpoint recovery, backlog catch-up, and publish protection |
+| `references/data-validation-and-testcase-patterns.md` | Concrete testcase categories for schema, nulls, duplicates, replay, security, skew, and late-data behavior |
+| `references/data-platform-security-checklist.md` | Access, secrets, environment boundaries, auditability, and operational safety |
+| `references/data-engineering-anti-patterns.md` | Common failure modes across validation, storage, pipelines, governance, and operations plus healthier counter-patterns |
+| `references/security-compliance-regulated-data-checklist.md` | `PII`, `PCI`, `HIPAA`, lineage, retention, deletion, and release-gate evidence |
+| `references/etl-elt-modernization-checklist.md` | Choosing ETL versus ELT boundaries, modernization sequencing, parity checks, and retirement of old paths |
+| `references/progressive-data-release-patterns.md` | Shadow validation, canary publish, dual-run, consumer cutover, and rollback-window patterns for data releases |
+| `references/test-data-preparation-checklist.md` | Safe synthetic data, masked fixtures, realism levels, and lower-environment validation coverage |
+| `references/lower-environment-masking-checklist.md` | Non-production refresh boundaries, masking controls, auditability, and retained usability |
+| `references/enterprise-etl-modernization-checklist.md` | Mapping discovery, parameterization, scheduler dependencies, and migration parity for `Informatica`, `Talend`, and similar ETL stacks |
+| `references/regional-compliance-and-data-sovereignty-checklist.md` | Multi-country residency, transfer, jurisdiction overlays, and region-specific engineering controls including `Europe`, `USA`, `India`, and `Saudi Arabia` |
+| `references/esg-and-sustainability-reporting-checklist.md` | Scope, methodology, assurance-readiness, and KPI traceability for `CSRD`, `ESRS`, `BRSR`, and similar sustainability reporting workflows |
+| `references/streaming-architecture-patterns.md` | Event backbone, CDC/outbox, replay-safe sinks, DLQ, event-time, joins, savepoints, and hot-partition containment |
+| `references/cloud-data-engineering-architecture-patterns.md` | Common lake, warehouse, lakehouse, streaming, and hybrid architecture patterns across `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, and `Alibaba Cloud` |
+| `references/pipeline-orchestration-patterns.md` | Generic orchestration decisions plus `AWS`, `Azure`, `GCP`, and `Databricks` workflow patterns and best practices |
+| `references/orchestration-patterns.md` | How skills, personas, commands, and hooks in this repository should compose without overlap |
+
+## How This Toolkit Works
+
+The repository is intentionally layered so agents do not confuse workflow, perspective, and entry point:
+
+| Layer | What it is | Example | Job |
+| --- | --- | --- | --- |
+| Skill | Workflow with steps and exit criteria | `data-specification` | The process the agent should follow |
+| Preset | Platform mapping and design rules | `aws-data-engineering` | The stack-specific adaptation layer |
+| Persona | Specialized review perspective | `data-platform-reliability-reviewer` | The point of view applied during review |
+| Command | User-facing lifecycle entry point | `/validate` | The easiest way to enter the right workflow |
+| Hook | Pre-flight or session-start guardrail | `schema-change-guard.sh` | Early risk detection and routing |
+
+Recommended composition:
+
+```text
+/spec -> /plan -> /build -> /validate -> /review -> /ship
+```
+
+Parallel review is useful only when perspectives are genuinely independent:
+
+```text
+/ship
+  ├── analytics-engineer-reviewer
+  ├── data-platform-reliability-reviewer
+  └── data-security-and-compliance-auditor
+```
+
+## How Skills Work
 
 Each skill lives in its own directory and has a `SKILL.md` entry point.
 
@@ -275,14 +553,36 @@ Each `SKILL.md` should include:
 - red flags that indicate the skill is being ignored
 - a verification checklist with evidence requirements
 
-## What Makes This Different
+Key design choices:
 
-This project is opinionated about data engineering quality:
+- **Workflow, not prose.** Skills are meant to guide agent behavior, not just describe concepts.
+- **Verification is required.** Validation evidence, reconciliation, or rollout proof should exist before publish.
+- **Progressive disclosure.** Start with one entry skill, then load the minimum useful preset, references, and examples.
+- **Operational realism.** Replay, lineage, access, retention, and rollback are part of delivery, not afterthoughts.
+
+## Why Data Engineering Agent Skills?
+
+AI agents often default to the shortest path, which is risky in data systems. That usually means:
+
+- skipping specification and contract definition
+- treating a successful run as proof of correctness
+- ignoring replay, backfill, and consumer impact
+- leaving lineage, access, retention, and ownership implicit
+
+This project is opinionated about avoiding those failure modes:
 
 - A pipeline is not done because it runs once.
 - A model is not done because the SQL compiles.
 - A table is not production-ready without ownership, contracts, checks, and recovery paths.
 - An agent should not guess unclear data requirements when the specification can force clarity up front.
+
+## Release Notes
+
+- `CHANGELOG.md`
+- `docs/release-process.md`
+- `docs/tag-taxonomy.md`
+- `docs/walkthroughs.md`
+- `docs/ide-support-matrix.md`
 
 ## Roadmap
 

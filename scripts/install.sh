@@ -4,10 +4,12 @@ set -euo pipefail
 usage() {
   cat <<'EOF'
 Usage:
-  scripts/install.sh --tool <cursor|claude|copilot|gemini|codex|generic|all> --target <path> [--force]
+  scripts/install.sh --tool <cursor|claude|copilot|gemini|codex|generic|kiro|windsurf|opencode|all> --target <path> [--force]
 
 Examples:
   scripts/install.sh --tool cursor --target /path/to/project
+  scripts/install.sh --tool kiro --target /path/to/project
+  scripts/install.sh --tool windsurf --target /path/to/project
   scripts/install.sh --tool all --target /path/to/project --force
 EOF
 }
@@ -82,6 +84,7 @@ install_cursor() {
 install_claude() {
   copy_dir_contents "$REPO_ROOT/.claude/commands" "$TARGET/.claude/commands"
   copy_file "$REPO_ROOT/AGENTS.md" "$TARGET/AGENTS.md"
+  copy_file "$REPO_ROOT/CLAUDE.md" "$TARGET/CLAUDE.md"
 }
 
 install_copilot() {
@@ -93,9 +96,34 @@ install_gemini() {
   copy_dir_contents "$REPO_ROOT/.gemini/commands" "$TARGET/.gemini/commands"
 }
 
+install_kiro() {
+  copy_dir_contents "$REPO_ROOT/.kiro/steering" "$TARGET/.kiro/steering"
+  copy_file "$REPO_ROOT/docs/kiro-setup.md" "$TARGET/docs/kiro-setup.md"
+  copy_file "$REPO_ROOT/AGENTS.md" "$TARGET/AGENTS.md"
+  copy_file "$REPO_ROOT/CLAUDE.md" "$TARGET/CLAUDE.md"
+}
+
+install_windsurf() {
+  copy_file "$REPO_ROOT/.windsurfrules.example" "$TARGET/.windsurfrules"
+  copy_file "$REPO_ROOT/docs/windsurf-setup.md" "$TARGET/docs/windsurf-setup.md"
+}
+
+install_opencode() {
+  copy_file "$REPO_ROOT/AGENTS.md" "$TARGET/AGENTS.md"
+  copy_file "$REPO_ROOT/CLAUDE.md" "$TARGET/CLAUDE.md"
+  copy_file "$REPO_ROOT/.opencode/README.md" "$TARGET/.opencode/README.md"
+  copy_file "$REPO_ROOT/.opencode/skills" "$TARGET/.opencode/skills"
+  copy_file "$REPO_ROOT/docs/opencode-setup.md" "$TARGET/docs/opencode-setup.md"
+}
+
 install_generic() {
   copy_file "$REPO_ROOT/AGENTS.md" "$TARGET/AGENTS.md"
+  copy_file "$REPO_ROOT/CLAUDE.md" "$TARGET/CLAUDE.md"
   copy_file "$REPO_ROOT/skills-index.md" "$TARGET/skills-index.md"
+  copy_file "$REPO_ROOT/docs/getting-started.md" "$TARGET/docs/getting-started.md"
+  copy_file "$REPO_ROOT/registry/assets.json" "$TARGET/registry/assets.json"
+  copy_dir_contents "$REPO_ROOT/templates" "$TARGET/templates"
+  copy_dir_contents "$REPO_ROOT/hooks" "$TARGET/hooks"
 }
 
 case "$TOOL" in
@@ -105,11 +133,17 @@ case "$TOOL" in
   gemini) install_gemini ;;
   codex) install_generic ;;
   generic) install_generic ;;
+  kiro) install_kiro ;;
+  windsurf) install_windsurf ;;
+  opencode) install_opencode ;;
   all)
     install_cursor
     install_claude
     install_copilot
     install_gemini
+    install_kiro
+    install_windsurf
+    install_opencode
     install_generic
     ;;
   *)

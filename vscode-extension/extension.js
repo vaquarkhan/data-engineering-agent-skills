@@ -5,12 +5,29 @@ const https = require("https");
 
 const CORE_FILES = [
   "AGENTS.md",
+  "CLAUDE.md",
   "skills-index.md",
+  "registry/assets.json",
   "templates/source-contract.yaml",
   "templates/dataset-contract.yaml",
   "templates/metric-contract.yaml",
+  "templates/data-compliance-controls.yaml",
+  "templates/backfill-plan.yaml",
+  "templates/schema-change-plan.yaml",
+  "templates/release-gate-evidence.yaml",
   "templates/incident-runbook.md",
-  "docs/codex-setup.md"
+  "docs/getting-started.md",
+  "docs/codex-setup.md",
+  "hooks/README.md",
+  "hooks/hooks.json",
+  "hooks/session-start.sh",
+  "hooks/contract-check-pre.sh",
+  "hooks/pipeline-review-pre.sh",
+  "hooks/incident-mode.sh",
+  "hooks/backfill-guard.sh",
+  "hooks/schema-change-guard.sh",
+  "hooks/cost-check.sh",
+  "hooks/release-guard.sh"
 ];
 
 const AGENT_ADAPTERS = {
@@ -25,9 +42,12 @@ const AGENT_ADAPTERS = {
     ".claude/commands/plan.md",
     ".claude/commands/build.md",
     ".claude/commands/test.md",
+    ".claude/commands/validate.md",
+    ".claude/commands/backfill.md",
     ".claude/commands/review.md",
     ".claude/commands/ship.md",
-    "AGENTS.md"
+    "AGENTS.md",
+    "CLAUDE.md"
   ],
   Copilot: [
     ".github/copilot-instructions.md",
@@ -38,13 +58,38 @@ const AGENT_ADAPTERS = {
     ".gemini/commands/plan.md",
     ".gemini/commands/build.md",
     ".gemini/commands/test.md",
+    ".gemini/commands/validate.md",
+    ".gemini/commands/backfill.md",
     ".gemini/commands/review.md",
     ".gemini/commands/ship.md"
   ],
+  Kiro: [
+    ".kiro/steering/product.md",
+    ".kiro/steering/tech.md",
+    ".kiro/steering/structure.md",
+    "docs/kiro-setup.md",
+    "AGENTS.md",
+    "CLAUDE.md"
+  ],
   Codex: [
     "AGENTS.md",
+    "CLAUDE.md",
     "skills-index.md",
+    "docs/getting-started.md",
     "docs/codex-setup.md"
+  ],
+  OpenCode: [
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".opencode/README.md",
+    ".opencode/skills",
+    "docs/opencode-setup.md",
+    "docs/getting-started.md"
+  ],
+  Windsurf: [
+    ".windsurfrules.example",
+    "docs/windsurf-setup.md",
+    "docs/getting-started.md"
   ]
 };
 
@@ -88,6 +133,75 @@ const STARTER_PACKS = {
   "Privacy Governance": {
     files: [
       "starter-packs/privacy-governance-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Regulated Data Compliance": {
+    files: [
+      "starter-packs/regulated-data-compliance-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Data Platform CI CD Release": {
+    files: [
+      "starter-packs/data-platform-cicd-release-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Resiliency Testing": {
+    files: [
+      "starter-packs/resiliency-testing-starter.yaml",
+      "templates/incident-runbook.md",
+      "templates/backfill-plan.yaml",
+      "templates/release-gate-evidence.yaml",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Validation Security Review": {
+    files: [
+      "starter-packs/validation-security-review-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Regional Compliance ESG Reporting": {
+    files: [
+      "starter-packs/regional-compliance-and-esg-reporting-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Test Data Lower Environments": {
+    files: [
+      "starter-packs/test-data-lower-environments-starter.yaml",
+      "templates/dataset-contract.yaml",
+      "templates/data-compliance-controls.yaml",
+      "templates/incident-runbook.md",
+      "AGENTS.md",
+      "skills-index.md"
+    ]
+  },
+  "Enterprise ETL Modernization": {
+    files: [
+      "starter-packs/enterprise-etl-modernization-starter.yaml",
+      "templates/source-contract.yaml",
       "templates/dataset-contract.yaml",
       "templates/incident-runbook.md",
       "AGENTS.md",

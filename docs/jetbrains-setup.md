@@ -36,3 +36,9 @@ Supported IDE families include:
 
 - The plugin installs repository assets into the current project, not the IDE globally
 - It complements other tools in the repo such as the `VS Code` family extension and `scripts/install.sh`
+
+## Next Step
+
+For a longer install-and-usage walkthrough, use:
+
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`

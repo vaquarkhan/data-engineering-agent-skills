@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a defect in skills, docs, examples, installers, hooks, or packaging.
+title: "[bug]: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What failed?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - skill
+        - preset
+        - docs
+        - example
+        - starter pack
+        - hook
+        - VS Code extension
+        - JetBrains plugin
+        - release automation
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Include commands, files, or setup steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Paste any helpful command output or screenshots.

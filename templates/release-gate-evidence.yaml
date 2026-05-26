@@ -1,0 +1,41 @@
+release_gate_evidence:
+  release_name: publish_orders_v2
+  owner: release-manager@example.com
+  environment: production
+  release_surface:
+    code_paths:
+      - jobs/publish_orders.py
+      - models/marts/orders_daily.sql
+    datasets:
+      - publish.orders_daily
+    contracts:
+      - contracts/publish/orders.yaml
+  staged_validation:
+    shadow_run: pass
+    canary_scope: tenant_group_a
+    notes: Shadow outputs matched current publish within the accepted thresholds.
+  reconciliation:
+    row_count_status: pass
+    metric_parity_status: pass
+    checked_metrics:
+      - net_revenue
+      - order_count
+  publish_control:
+    deployment_complete: true
+    publish_unblocked: false
+    cutover_strategy: view_swap
+  observability:
+    alerts_configured: true
+    dashboard_link: https://example.internal/dashboards/orders-release
+    owner_oncall: data-platform-oncall
+  rollback:
+    strategy: restore_prior_view_and_close_publish
+    tested: false
+  approvals:
+    required:
+      - data-platform-owner
+      - analytics-owner
+    granted:
+      - data-platform-owner
+  decision:
+    ready_to_ship: false

@@ -1,0 +1,12 @@
+name: test-data-lower-environments-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - test-data-preparation-and-synthetic-data
+  - lower-environment-data-masking-and-obfuscation
+  - data-security-compliance-and-regulated-data
+  - privacy-retention-and-right-to-delete
+templates:
+  - templates/dataset-contract.yaml
+  - templates/data-compliance-controls.yaml
+  - templates/incident-runbook.md
+example: examples/privacy-retention-deletion-workflow

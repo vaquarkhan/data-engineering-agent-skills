@@ -3,14 +3,25 @@
   "description": "Adoption assets including examples, templates, and setup guides for multi-agent usage.",
   "includes": [
     "AGENTS.md",
+    "CLAUDE.md",
     "skills-index.md",
+    "registry/assets.json",
     "templates/source-contract.yaml",
     "templates/dataset-contract.yaml",
     "templates/metric-contract.yaml",
+    "templates/backfill-plan.yaml",
+    "templates/schema-change-plan.yaml",
+    "templates/release-gate-evidence.yaml",
+    "docs/getting-started.md",
     "docs/cursor-setup.md",
+    "docs/kiro-setup.md",
     "docs/claude-setup.md",
     "docs/copilot-setup.md",
+    "docs/opencode-setup.md",
+    "docs/windsurf-setup.md",
     "docs/generic-markdown-rules-setup.md",
+    ".kiro/steering",
+    "hooks",
     "examples"
   ]
 }

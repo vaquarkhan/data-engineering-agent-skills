@@ -23,10 +23,15 @@ Compatible editors:
 Depending on the command, the extension can write:
 
 - `AGENTS.md`
+- `CLAUDE.md`
 - `skills-index.md`
+- `hooks/`
 - `.cursor/rules/`
+- `.kiro/steering/`
 - `.claude/commands/`
 - `.gemini/commands/`
+- `.opencode/`
+- `.windsurfrules`
 - `.github/copilot-instructions.md`
 - `templates/`
 - `starter-packs/`
@@ -44,3 +49,9 @@ For packaged usage, it can fall back to the raw GitHub source using the `dataEng
 1. Open the `vscode-extension/` folder in VS Code.
 2. Press `F5` to launch the Extension Development Host.
 3. Run the commands from the command palette in a test workspace.
+
+## Related Tutorial
+
+For a longer install-and-usage walkthrough, see:
+
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`

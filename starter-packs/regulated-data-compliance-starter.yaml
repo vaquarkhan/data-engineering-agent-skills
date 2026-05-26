@@ -1,0 +1,12 @@
+name: regulated-data-compliance-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - data-security-compliance-and-regulated-data
+  - lineage-pii-and-governance
+  - privacy-retention-and-right-to-delete
+  - data-sharing-and-publishing-contracts
+templates:
+  - templates/dataset-contract.yaml
+  - templates/data-compliance-controls.yaml
+  - templates/incident-runbook.md
+example: examples/privacy-retention-deletion-workflow

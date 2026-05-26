@@ -26,6 +26,22 @@ Use this preset when the platform is centered on Azure services. It maps core wo
 - secrets and security: `Key Vault`, `Managed Identity`, `Entra ID`
 - monitoring: `Azure Monitor`, `Log Analytics`
 
+## Common Architecture Patterns
+
+- `ADLS Gen2` plus `Azure Data Factory` ingestion and `Azure Databricks` transforms for a lake-centric architecture
+- `Synapse`-oriented architecture when pipelines, Spark, and SQL serving stay inside one Microsoft analytics surface
+- `Fabric`-leaning analytics architecture where the platform standard is already Microsoft-centric and governed centrally
+- `Event Hubs`-driven streaming architecture for low-latency ingestion and downstream analytical or operational sinks
+- Load `references/cloud-data-engineering-architecture-patterns.md` when choosing the overall Azure platform shape across lake, warehouse, and streaming paths
+
+## Orchestration Patterns
+
+- Prefer `Azure Data Factory` or `Synapse Pipelines` when connector-heavy ingestion, copy activities, and parameterized enterprise flows dominate.
+- Prefer `Azure Databricks Workflows` when most execution logic already lives inside `Databricks`.
+- Use `Event Grid`, `Functions`, or `Logic Apps` for event-driven workflows instead of stretching batch schedulers into callback coordination.
+- Keep control flow separate from transformation notebooks or SQL so retries and ownership stay clear.
+- Load `references/pipeline-orchestration-patterns.md` when deciding between pipeline schedulers and event-driven Azure services.
+
 ## Design Rules
 
 - Keep raw, curated, and publish zones explicit in `ADLS Gen2`.

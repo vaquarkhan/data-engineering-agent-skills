@@ -1,0 +1,11 @@
+# Data engineering starter rules for Windsurf
+
+# 1. Paste skills/using-data-engineering-agent-skills/SKILL.md
+
+---
+
+# 2. Paste one platform preset such as presets/aws-data-engineering/PRESET.md
+
+---
+
+# 3. Paste one workflow skill such as skills/data-specification/SKILL.md

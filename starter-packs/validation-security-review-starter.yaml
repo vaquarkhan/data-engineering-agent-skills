@@ -1,0 +1,12 @@
+name: validation-security-review-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - data-quality-and-contract-testing
+  - data-reconciliation-and-financial-controls
+  - data-security-compliance-and-regulated-data
+  - incident-triage-and-pipeline-recovery
+templates:
+  - templates/dataset-contract.yaml
+  - templates/data-compliance-controls.yaml
+  - templates/incident-runbook.md
+example: examples/validation-and-security-review-foundation

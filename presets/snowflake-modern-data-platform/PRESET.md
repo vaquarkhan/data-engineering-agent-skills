@@ -25,6 +25,14 @@ Use this preset when `Snowflake` is the primary data platform across one or more
 - sharing: secure data sharing, listings where relevant
 - monitoring: account usage views, query history, external observability
 
+## Common Architecture Patterns
+
+- warehouse-centric architecture with staged ingestion, modeled transforms, and semantic or BI serving inside `Snowflake`
+- incremental architecture using `Streams`, `Tasks`, and `Dynamic Tables` for warehouse-native change processing
+- external landing plus internal warehouse modeling when raw ingestion begins in cloud storage but governed serving stays in `Snowflake`
+- secure-sharing architecture where publish outputs are designed explicitly for internal or external consumers
+- Load `references/cloud-data-engineering-architecture-patterns.md` when deciding whether the warehouse should stay the primary platform boundary or participate in a hybrid architecture
+
 ## Design Rules
 
 - Make role design, masking, and row access part of delivery, not a later review.

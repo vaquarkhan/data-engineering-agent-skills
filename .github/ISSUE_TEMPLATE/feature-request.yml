@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a new skill, preset, example, hook, workflow, or install surface.
+title: "[feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What data engineering or adoption problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the new skill, preset, docs, hook, workflow, or example.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or references
+      description: Link comparable repos, workflows, or operational pain points if possible.
+  - type: textarea
+    id: adoption
+    attributes:
+      label: Adoption impact
+      description: Who would use this, and how would it improve real usage?

@@ -13,7 +13,7 @@ Pick:
 
 ## Good Default Starter Bundle
 
-- `skills/using-data-agent-skills/SKILL.md`
+- `skills/using-data-engineering-agent-skills/SKILL.md`
 - one preset from `presets/`
 - `skills/data-specification/SKILL.md`
 - `skills/pipeline-planning-and-task-breakdown/SKILL.md`
@@ -50,3 +50,4 @@ Pick:
 - Keep the bundle small and role-specific.
 - Combine templates and examples with the skills to seed concrete artifacts.
 - Prefer workflow skills over long descriptive docs when the agent must act.
+- Add `CLAUDE.md` or `AGENTS.md` at the repository root when your tool supports a shared instruction file.

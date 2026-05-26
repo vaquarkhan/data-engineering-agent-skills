@@ -1,0 +1,12 @@
+name: enterprise-etl-modernization-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - enterprise-etl-and-data-integration-modernization
+  - data-migration-and-platform-cutover
+  - data-reconciliation-and-financial-controls
+  - source-reliability-and-extraction-resilience
+templates:
+  - templates/source-contract.yaml
+  - templates/dataset-contract.yaml
+  - templates/incident-runbook.md
+example: examples/multi-cloud-warehouse-cutover

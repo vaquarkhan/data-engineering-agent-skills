@@ -1,0 +1,45 @@
+compliance_controls:
+  data_product: example_sensitive_dataset
+  owner: data-governance@example.com
+  control_owner: security@example.com
+  regulatory_scope:
+    - pii
+    - pci
+    - hipaa
+  sensitive_fields:
+    - field_name: customer_email
+      classification: pii
+      protection: tokenized
+    - field_name: card_last4
+      classification: pci
+      protection: masked
+    - field_name: diagnosis_code
+      classification: phi
+      protection: restricted_access
+  lineage:
+    upstream_sources:
+      - crm.customers
+      - payments.transactions
+    downstream_consumers:
+      - finance.daily_revenue
+      - privacy-retention-workflow
+  access_controls:
+    row_level_policy: required
+    column_level_policy: required
+    approved_roles:
+      - finance_analytics
+      - privacy_ops
+  encryption:
+    at_rest: required
+    in_transit: required
+    key_management: kms_or_equivalent
+  retention:
+    raw_days: 30
+    curated_days: 365
+    deletion_propagation_required: true
+  audit:
+    evidence_owner: security@example.com
+    logging_required: true
+    quarterly_review_required: true
+  notes:
+    - replace all example values with project-specific control definitions

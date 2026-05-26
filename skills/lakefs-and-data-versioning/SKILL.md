@@ -22,6 +22,19 @@ Use this skill when datasets need branch-like safety and controlled promotion. I
 3. Attach validation and promotion gates to version moves.
 4. Make rollback and cleanup explicit.
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+| --- | --- |
+| "The platform-specific feature is the whole design." | Platform features do not replace contract, compatibility, and operational planning. |
+| "We can validate this after publish." | Late validation is expensive when downstream consumers already depend on the asset. |
+| "Operations can figure out the edge cases later." | Replay, maintenance, and publish safety need to be explicit before adoption. |
+
+## Red Flags
+
+- downstream compatibility is assumed instead of documented
+- publish or replay behavior is not explicit
+- maintenance, rollback, or observability expectations are missing
 ## Verification
 
 - [ ] Data versioning has a clear operational purpose

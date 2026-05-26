@@ -1,0 +1,62 @@
+name: Release Artifacts
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Validate repository structure
+        run: |
+          python scripts/validate-skills.py
+          python scripts/check-links.py
+
+      - name: Build release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          VERSION="${GITHUB_REF_NAME:-manual}"
+          VERSION="${VERSION#v}"
+          npx @vscode/vsce package --out "../dist/data-engineering-agent-skills-${VERSION}.vsix"
+          cd ../jetbrains-plugin
+          chmod +x gradlew
+          ./gradlew buildPlugin
+          cp build/distributions/*.zip ../dist/
+          cd ../dist
+          sha256sum * > SHA256SUMS.txt
+        working-directory: vscode-extension
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+          fail_on_unmatched_files: true

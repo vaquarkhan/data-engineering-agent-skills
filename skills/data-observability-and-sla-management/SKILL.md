@@ -16,6 +16,7 @@ Use this skill when the pipeline must be operated as a service, not just execute
 - improving alerting and anomaly detection
 - adding operational metadata and health visibility
 - reducing noisy or low-signal incident response
+- designing resilience drills with explicit alert and recovery evidence
 
 ## Workflow
 
@@ -42,6 +43,9 @@ Use this skill when the pipeline must be operated as a service, not just execute
 
 5. Review alert quality.
    Noisy alerts damage trust just as much as missing alerts.
+
+6. Pair health signals with resilience drills when recovery behavior matters.
+   Load `references/data-resiliency-testing-patterns.md` when the team must prove restart, retry, backlog, or failover behavior under controlled failure.
 
 ## Common Rationalizations
 

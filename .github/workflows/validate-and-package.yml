@@ -1,0 +1,61 @@
+name: Validate and Package
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Validate skill and preset structure
+        run: python scripts/validate-skills.py
+
+      - name: Validate asset registry and installer parity
+        run: python scripts/validate-assets.py
+
+      - name: Validate local markdown links
+        run: python scripts/check-links.py
+
+      - name: Check VS Code extension syntax
+        run: node --check extension.js
+        working-directory: vscode-extension
+
+      - name: Package VS Code extension
+        run: npx @vscode/vsce package --out data-engineering-agent-skills-ci.vsix
+        working-directory: vscode-extension
+
+      - name: Build JetBrains plugin
+        run: |
+          chmod +x gradlew
+          ./gradlew buildPlugin
+        working-directory: jetbrains-plugin
+
+      - name: Upload packaged artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-engineering-agent-skills-artifacts
+          path: |
+            vscode-extension/data-engineering-agent-skills-ci.vsix
+            jetbrains-plugin/build/distributions/*.zip

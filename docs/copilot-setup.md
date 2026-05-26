@@ -10,6 +10,7 @@ Use this repository with GitHub Copilot by referencing the skills and presets in
    - the platform preset
    - a small number of workflow skills for the current delivery stream
 3. Use personas from `agents/` for focused review prompts or pull-request review checklists.
+4. Keep `AGENTS.md`, `CLAUDE.md`, or both in the repo root if you want one obvious start-here instruction surface.
 
 ## Suggested Mapping
 
@@ -28,3 +29,4 @@ Use this repository with GitHub Copilot by referencing the skills and presets in
 - Avoid giant instruction files that dump the whole repository into one context.
 - Pair skills with machine-readable templates from `templates/` when starting new work.
 - Use `skills-index.md` to choose the smallest useful subset for a task.
+- Treat `/validate` and `/backfill` as explicit phases in your pull-request and release workflow.

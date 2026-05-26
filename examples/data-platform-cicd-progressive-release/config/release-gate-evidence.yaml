@@ -1,0 +1,40 @@
+release_gate_evidence:
+  release_name: orders_publish_v2
+  owner: release-manager@example.com
+  environment: staging
+  release_surface:
+    code_paths:
+      - jobs/publish_orders.py
+    datasets:
+      - publish.orders_daily
+    contracts:
+      - contracts/publish/orders.yaml
+  staged_validation:
+    shadow_run: pass
+    canary_scope: finance_reporting_only
+    notes: Staging parity checks passed before publish cutover.
+  reconciliation:
+    row_count_status: pass
+    metric_parity_status: pass
+    checked_metrics:
+      - order_count
+      - net_revenue
+  publish_control:
+    deployment_complete: true
+    publish_unblocked: false
+    cutover_strategy: view_swap
+  observability:
+    alerts_configured: true
+    dashboard_link: https://example.internal/dashboards/orders-release
+    owner_oncall: data-platform-oncall
+  rollback:
+    strategy: restore_previous_view_and_close_publish
+    tested: false
+  approvals:
+    required:
+      - data-platform-owner
+      - analytics-owner
+    granted:
+      - data-platform-owner
+  decision:
+    ready_to_ship: false

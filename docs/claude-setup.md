@@ -6,10 +6,11 @@ Use this repository with Claude-style agent workflows by loading skills as reusa
 
 1. Keep this repository available locally.
 2. Start sessions with:
-   - `skills/using-data-agent-skills/SKILL.md`
+   - `skills/using-data-engineering-agent-skills/SKILL.md`
    - one platform preset from `presets/`
    - one or more workflow skills based on the task
 3. Pull in references only when you need verification checklists or deeper support material.
+4. Add `CLAUDE.md` if you want a repository-level default for command routing and guardrails.
 
 ## Suggested Load Order
 
@@ -17,6 +18,7 @@ Use this repository with Claude-style agent workflows by loading skills as reusa
 2. platform preset
 3. task workflow skill
 4. supporting checklist
+5. optional hook from `hooks/` for pre-flight safety
 
 ## Good Session Pattern
 
@@ -29,3 +31,4 @@ Use this repository with Claude-style agent workflows by loading skills as reusa
 - Keep the active skill set narrow per task.
 - Treat the examples directory as a quick way to seed initial context for new projects.
 - Use templates from `templates/` as the starting point for project-specific artifacts.
+- Prefer `/validate` for publish gates and `/backfill` for replay work instead of treating those as generic build steps.

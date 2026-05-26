@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Getting started guide
+    url: https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/getting-started.md
+    about: Start here before opening an issue about setup or first-run usage.
+  - name: Support guide
+    url: https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/SUPPORT.md
+    about: Review support expectations and troubleshooting tips.

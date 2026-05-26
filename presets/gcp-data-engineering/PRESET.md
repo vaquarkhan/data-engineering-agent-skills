@@ -27,6 +27,22 @@ Use this preset when the data platform is centered on Google Cloud. It maps shar
 - secrets and security: `IAM`, `Secret Manager`, `Cloud KMS`
 - monitoring: `Cloud Logging`, `Cloud Monitoring`
 
+## Common Architecture Patterns
+
+- `Cloud Storage` plus `BigQuery` for a warehouse-centric analytics platform with external landing
+- `Pub/Sub` + `Dataflow` + `BigQuery` for streaming and analytical architecture with managed services
+- `Cloud Storage` plus `Dataproc` or `Dataflow` feeding `BigQuery` when compute specialization is required
+- `BigQuery`-first architecture when the warehouse is the main compute and serving boundary
+- Load `references/cloud-data-engineering-architecture-patterns.md` when choosing between lake, warehouse, and stream-first patterns on `GCP`
+
+## Orchestration Patterns
+
+- Prefer `Cloud Composer` when the team needs `Airflow`-style DAGs, schedule windows, and backfill-aware dependencies.
+- Prefer `Google Cloud Workflows` when the control plane mainly coordinates APIs, services, and branching logic.
+- Use `Cloud Scheduler` plus `Pub/Sub` for lightweight trigger paths instead of deploying a large scheduler for simple starts.
+- Keep `Composer` responsible for orchestration while heavy compute stays in `Dataflow`, `Dataproc`, `BigQuery`, or packaged jobs.
+- Load `references/pipeline-orchestration-patterns.md` when choosing among `Composer`, `Workflows`, and event-triggered GCP patterns.
+
 ## Design Rules
 
 - Treat `BigQuery` table design, partitioning, and clustering as core architecture decisions.

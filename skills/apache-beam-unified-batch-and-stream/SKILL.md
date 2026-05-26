@@ -23,6 +23,19 @@ Use this skill when `Apache Beam` is the abstraction layer for both batch and st
 3. Validate windowing, triggers, and replay behavior explicitly.
 4. Confirm sink guarantees and operational observability.
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+| --- | --- |
+| "The platform-specific feature is the whole design." | Platform features do not replace contract, compatibility, and operational planning. |
+| "We can validate this after publish." | Late validation is expensive when downstream consumers already depend on the asset. |
+| "Operations can figure out the edge cases later." | Replay, maintenance, and publish safety need to be explicit before adoption. |
+
+## Red Flags
+
+- downstream compatibility is assumed instead of documented
+- publish or replay behavior is not explicit
+- maintenance, rollback, or observability expectations are missing
 ## Verification
 
 - [ ] Batch and streaming behavior are both understood

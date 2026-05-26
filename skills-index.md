@@ -4,13 +4,25 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 ## Start Here
 
+- `using-data-engineering-agent-skills`
 - `using-data-agent-skills`
+
+## Command-First Lifecycle
+
+- `/spec` -> `data-specification`
+- `/plan` -> `pipeline-planning-and-task-breakdown`
+- `/build` -> use the matching execution skill plus one preset
+- `/validate` -> `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`, `schema-evolution-and-contract-migrations`, `data-resiliency-testing-and-failure-injection`
+- `/review` -> `incident-triage-and-pipeline-recovery`, `data-observability-and-sla-management`, and reviewer personas in `agents/`
+- `/backfill` -> `orchestration-and-backfills`, `data-migration-and-platform-cutover`
+- `/ship` -> `data-platform-ci-cd-and-release-management`, `data-sharing-and-publishing-contracts`, `data-observability-and-sla-management`
 
 ## Define And Plan
 
 - `data-specification`
 - `pipeline-planning-and-task-breakdown`
 - `warehouse-and-schema-design`
+- `operational-datastore-selection-relational-and-nosql`
 - `data-mesh-and-domain-oriented-design`
 - `data-lake-and-zone-architecture`
 - `master-data-and-entity-resolution`
@@ -19,6 +31,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - `api-and-saas-ingestion-patterns`
 - `source-reliability-and-extraction-resilience`
+- `python-data-engineering-and-pipeline-packaging`
+- `scala-data-engineering-on-jvm-runtimes`
+- `java-data-engineering-and-integration-services`
+- `etl-elt-and-modernization-strategy`
+- `enterprise-etl-and-data-integration-modernization`
 - `dbt-and-analytics-engineering`
 - `cdc-and-incremental-loading`
 - `debezium-and-kafka-connect-cdc`
@@ -36,6 +53,10 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ## Govern And Protect
 
 - `lineage-pii-and-governance`
+- `data-security-compliance-and-regulated-data`
+- `regional-data-compliance-and-sovereignty`
+- `esg-and-sustainability-regulatory-reporting`
+- `lower-environment-data-masking-and-obfuscation`
 - `schema-evolution-and-contract-migrations`
 - `privacy-retention-and-right-to-delete`
 - `data-catalog-and-discovery`
@@ -50,6 +71,8 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ## Operate And Recover
 
 - `data-quality-and-contract-testing`
+- `data-resiliency-testing-and-failure-injection`
+- `test-data-preparation-and-synthetic-data`
 - `warehouse-performance-and-cost-optimization`
 - `data-observability-and-sla-management`
 - `incident-triage-and-pipeline-recovery`
@@ -73,6 +96,8 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `databricks-lakehouse-engineering`
 - `alibaba-cloud-data-engineering`
 - `snowflake-modern-data-platform`
+- `informatica-data-integration`
+- `talend-data-integration`
 - `multi-cloud-hybrid-data-engineering`
 - `apache-spark-engineering`
 - `apache-flink-stream-processing`
@@ -87,10 +112,30 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - preset: `aws-data-engineering`
 - skills: `data-lake-and-zone-architecture`, `lakehouse-table-format-engineering`, `spark-and-distributed-processing`, `airflow-and-workflow-orchestration`
 
+### Cloud Architecture Review
+
+- preset: `aws-data-engineering`, `azure-data-engineering`, `gcp-data-engineering`, `databricks-lakehouse-engineering`, `snowflake-modern-data-platform`, or `alibaba-cloud-data-engineering`
+- skills: `data-lake-and-zone-architecture`, `warehouse-and-schema-design`, `airflow-and-workflow-orchestration`
+
 ### API Ingestion
 
 - preset: choose the platform stack
 - skills: `api-and-saas-ingestion-patterns`, `source-reliability-and-extraction-resilience`, `cdc-and-incremental-loading`
+
+### Python Data Pipelines
+
+- preset: choose the platform stack
+- skills: `python-data-engineering-and-pipeline-packaging`, `data-quality-and-contract-testing`, `data-platform-ci-cd-and-release-management`
+
+### Scala JVM Data Jobs
+
+- preset: `apache-spark-engineering` or `apache-flink-stream-processing`
+- skills: `scala-data-engineering-on-jvm-runtimes`, `spark-and-distributed-processing`, `streaming-and-messaging-systems`
+
+### Java Data Services
+
+- preset: choose the platform stack
+- skills: `java-data-engineering-and-integration-services`, `api-and-saas-ingestion-patterns`, `data-platform-ci-cd-and-release-management`
 
 ### Databricks Medallion
 
@@ -102,15 +147,50 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - preset: `snowflake-modern-data-platform` or `gcp-data-engineering`
 - skills: `warehouse-and-schema-design`, `dbt-and-analytics-engineering`, `semantic-layer-and-metric-governance`
 
+### Operational Store Selection
+
+- preset: choose the platform stack
+- skills: `operational-datastore-selection-relational-and-nosql`, `source-reliability-and-extraction-resilience`
+
 ### Streaming
 
 - preset: choose the platform stack
 - skills: `streaming-and-messaging-systems`, `orchestration-and-backfills`, `incident-triage-and-pipeline-recovery`
 
+### Pipeline Orchestration
+
+- preset: `aws-data-engineering`, `azure-data-engineering`, `gcp-data-engineering`, or `databricks-lakehouse-engineering`
+- skills: `airflow-and-workflow-orchestration`, `orchestration-and-backfills`, `data-quality-and-contract-testing`
+
+### Streaming Architecture Review
+
+- preset: `apache-kafka-streaming` or `apache-flink-stream-processing`
+- skills: `streaming-and-messaging-systems`, `data-contract-testing-with-schema-registry`, `data-observability-and-sla-management`
+
 ### Governance And Privacy
 
 - preset: choose the platform stack
 - skills: `lineage-pii-and-governance`, `privacy-retention-and-right-to-delete`, `data-catalog-and-discovery`
+
+### Regulated Data And Compliance
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-security-compliance-and-regulated-data`, `lineage-pii-and-governance`, `privacy-retention-and-right-to-delete`, `data-sharing-and-publishing-contracts`
+
+### Test Data And Lower Environments
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `test-data-preparation-and-synthetic-data`, `lower-environment-data-masking-and-obfuscation`, `data-security-compliance-and-regulated-data`
+
+### Enterprise ETL Modernization
+
+- preset: `informatica-data-integration` or `talend-data-integration`
+- skills: `enterprise-etl-and-data-integration-modernization`, `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`
+
+### ETL And ELT Modernization
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `etl-elt-and-modernization-strategy`, `enterprise-etl-and-data-integration-modernization`, `data-migration-and-platform-cutover`
 
 ### ML Features
 
@@ -121,6 +201,31 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: `multi-cloud-hybrid-data-engineering`
 - skills: `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`, `data-platform-ci-cd-and-release-management`
+
+### Data Platform CI CD
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-platform-ci-cd-and-release-management`, `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`
+
+### Resiliency Testing
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-resiliency-testing-and-failure-injection`, `data-observability-and-sla-management`, `incident-triage-and-pipeline-recovery`, `orchestration-and-backfills`
+
+### Validation And Security Review
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`, `data-security-compliance-and-regulated-data`
+
+### Regional Compliance And Sovereignty
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `regional-data-compliance-and-sovereignty`, `data-security-compliance-and-regulated-data`, `lineage-pii-and-governance`
+
+### ESG And Sustainability Reporting
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `esg-and-sustainability-regulatory-reporting`, `regional-data-compliance-and-sovereignty`, `data-reconciliation-and-financial-controls`
 
 ### Master Data
 

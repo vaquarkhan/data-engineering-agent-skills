@@ -28,6 +28,22 @@ Use this preset when the data platform is primarily AWS-native. It maps common d
 - secrets and security: `IAM`, `Secrets Manager`, `KMS`
 - monitoring: `CloudWatch`, `CloudTrail`
 
+## Common Architecture Patterns
+
+- `S3` landing zone plus `Glue` or `EMR` batch transforms, with `Athena` or `Redshift` serving for a lake-centric architecture
+- `S3` plus `Iceberg` for lakehouse-style table management when open format interoperability matters
+- `Redshift`-centric warehouse architecture when structured analytics and SQL-serving dominate
+- `Kinesis` or `MSK` streaming pipelines feeding warehouse, lakehouse, or operational outputs
+- Load `references/cloud-data-engineering-architecture-patterns.md` when choosing the overall AWS platform shape, not just service preferences
+
+## Orchestration Patterns
+
+- Prefer `MWAA` when the workflow is DAG-shaped, dependency-rich, and backfill-aware across `Glue`, `EMR`, `Athena`, or `Redshift`.
+- Prefer `Step Functions` when the workflow is event-driven, branch-heavy, approval-oriented, or mainly coordinating AWS services.
+- Use `EventBridge` plus queues or lightweight compute for arrival-triggered flows instead of building polling-heavy schedulers.
+- Keep `Glue Workflows` for narrower `Glue`-centric chains rather than the default orchestrator for the whole platform.
+- Load `references/pipeline-orchestration-patterns.md` when choosing among `MWAA`, `Step Functions`, and event-triggered patterns.
+
 ## Design Rules
 
 - Prefer durable raw-zone storage in `S3` with clear partitioning and ownership.

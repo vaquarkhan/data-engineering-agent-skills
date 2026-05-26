@@ -1,0 +1,44 @@
+backfill_plan:
+  name: replay_publish_partition_2026_05
+  owner: data-platform@example.com
+  reason: Correct a failed publish window after upstream recovery.
+  affected_window:
+    start_utc: "2026-05-01T00:00:00Z"
+    end_utc: "2026-05-03T00:00:00Z"
+    partitions:
+      - "event_date=2026-05-01"
+      - "event_date=2026-05-02"
+  source_of_truth:
+    system: canonical_events
+    dataset: bronze.orders_raw
+  targets:
+    - silver.orders_clean
+    - publish.daily_order_metrics
+  execution:
+    mode: replay
+    idempotent: true
+    write_strategy: merge
+    dry_run_completed: false
+  safeguards:
+    publish_paused: true
+    downstream_notifications:
+      - finance-bi
+      - ops-analytics
+    rollback_strategy: Re-close publish, restore prior snapshot, and reopen only after reconciliation passes.
+  validation:
+    checks:
+      - type: row_count_parity
+        threshold_percent: 0.1
+      - type: metric_reconciliation
+        metric: gross_revenue
+        threshold_percent: 0.05
+      - type: duplicate_check
+        key_columns:
+          - order_id
+          - event_date
+  approvals:
+    required:
+      - data-platform-owner
+      - downstream-owner
+  status:
+    state: draft

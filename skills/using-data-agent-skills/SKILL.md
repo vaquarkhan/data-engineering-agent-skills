@@ -1,70 +1,54 @@
 ---
 name: using-data-agent-skills
-description: Helps agents choose the right workflow for data engineering work. Use when starting a session, triaging a request, or deciding which skill should drive execution.
+description: Provides a compatibility alias for the main data engineering entry skill. Use when an existing setup still points at the legacy start-here file.
 ---
 
 # Using Data Agent Skills
 
 ## Overview
 
-Choose the right workflow before touching code, SQL, orchestration, or infrastructure. Most data engineering failures start with using the wrong process for the job.
+This legacy entry point remains for compatibility with older setups. The preferred start-here skill is `using-data-engineering-agent-skills`, which provides the current classification flow, preset mapping, example routing, and next-command guidance.
 
 ## When to Use
 
-- starting a new task
-- triaging an ambiguous request
-- deciding whether to specify, plan, build, test, review, or ship
-- determining whether governance, quality, or backfill concerns apply
+- loading an older project that still points to this skill
+- triaging a request before switching to the current entry skill
+- preserving compatibility for previously installed rule bundles
 
-Do not use this as a replacement for the actual skill that matches the work.
+Do not use this as the long-term default. Switch to `skills/using-data-engineering-agent-skills/SKILL.md` once the session starts.
 
 ## Workflow
 
-1. Classify the request.
-   - New data product or major behavior change: use `data-specification`
-   - Approved scope that needs sequencing: use `pipeline-planning-and-task-breakdown`
-   - Any change affecting contracts, checks, or correctness: use `data-quality-and-contract-testing`
-   - Any change affecting schedules, reruns, or reprocessing: use `orchestration-and-backfills`
-   - Any change affecting sensitive data, lineage, ownership, or access: use `lineage-pii-and-governance`
+1. Redirect the session to `skills/using-data-engineering-agent-skills/SKILL.md`.
+   - Treat that skill as the default router.
+   - Use it to choose the platform preset, example, and next command.
 
-2. Surface assumptions before implementation.
-   - source systems
-   - destinations
-   - freshness expectations
-   - data volume
-   - idempotency and replay expectations
-   - security and retention constraints
+2. Preserve older references safely.
+   - If docs, rules, or prompts still mention `using-data-agent-skills`, do not fail the session.
+   - Treat the old name as an alias, not a separate workflow.
 
-3. Decide the operating mode.
-   - Specify before build when intent is unclear.
-   - Plan before build when work spans multiple files or systems.
-   - Build only after success criteria are clear.
-   - Test before publish for all behavioral changes.
-
-4. Keep evidence as you go.
-   - specification updates
-   - plan and tasks
-   - test or validation output
-   - runbook or rollout notes where needed
+3. Continue with the real task skill.
+   - `data-specification` for unclear intent
+   - `pipeline-planning-and-task-breakdown` for sequencing
+   - `data-quality-and-contract-testing` for correctness and publish gates
+   - `incident-triage-and-pipeline-recovery` for broken production behavior
 
 ## Common Rationalizations
 
 | Rationalization | Reality |
 | --- | --- |
-| "It is just one pipeline tweak." | Small data changes can break downstream models, SLAs, or dashboards. Use the right skill anyway. |
-| "The requirements are obvious." | Source assumptions, grain, freshness, and null handling are rarely obvious. |
-| "We can add governance later." | Ownership, lineage, and access are hardest to retrofit after adoption. |
+| "The old start-here skill is good enough." | The newer entry skill has the current routing logic, examples, and command mapping. |
+| "We can keep using both as separate workflows." | Treat the old name as an alias so the repository does not drift into duplicate behavior. |
+| "Renaming the start-here skill is risky." | Compatibility is preserved as long as this alias continues to redirect cleanly. |
 
 ## Red Flags
 
-- code changes begin without a defined success condition
-- an agent guesses source semantics or data grain
-- a rerun strategy is missing for a non-idempotent job
-- a change touches sensitive data with no governance review
+- the session keeps this alias loaded instead of the newer start-here skill
+- docs or rules reference two different entry skills as if both are primary
+- the agent skips preset or command selection after triage
 
 ## Verification
 
-- [ ] The task has been classified into the right skill workflow
-- [ ] Key assumptions are written down
-- [ ] Success evidence is identified before implementation begins
-- [ ] Quality and governance concerns have not been skipped
+- [ ] The session has been redirected to `using-data-engineering-agent-skills`
+- [ ] Older bundles still work without breaking changes
+- [ ] The active workflow moved on to the real execution skill after triage

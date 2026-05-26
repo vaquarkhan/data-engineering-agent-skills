@@ -53,6 +53,10 @@ Do not use this to justify creating extra layers with no operational purpose.
 5. Keep publish rules separate from lake convenience.
    Not every dataset in the lake is ready for shared consumption.
 
+## Cross-Cloud Architecture
+
+Use `references/cloud-data-engineering-architecture-patterns.md` when the task is not only zone design, but choosing the overall cloud architecture pattern across lake, warehouse, lakehouse, streaming, and hybrid shapes.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

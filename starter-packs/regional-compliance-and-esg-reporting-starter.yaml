@@ -1,0 +1,12 @@
+name: regional-compliance-and-esg-reporting-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - regional-data-compliance-and-sovereignty
+  - data-security-compliance-and-regulated-data
+  - esg-and-sustainability-regulatory-reporting
+  - lineage-pii-and-governance
+templates:
+  - templates/dataset-contract.yaml
+  - templates/data-compliance-controls.yaml
+  - templates/incident-runbook.md
+example: examples/esg-regulatory-reporting-foundation

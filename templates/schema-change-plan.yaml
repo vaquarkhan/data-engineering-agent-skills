@@ -1,0 +1,35 @@
+schema_change_plan:
+  name: publish_orders_add_customer_segment
+  owner: analytics-engineering@example.com
+  change_type: additive
+  affected_assets:
+    contracts:
+      - contracts/publish/orders.yaml
+    datasets:
+      - publish.orders_daily
+    downstream_consumers:
+      - finance_reporting
+      - revenue_dashboard
+  compatibility:
+    backwards_compatible: true
+    contract_version_from: v1
+    contract_version_to: v2
+    deprecation_notice_days: 30
+  migration:
+    dual_read_supported: false
+    backfill_required: false
+    consumer_cutover_strategy: Existing consumers remain on current columns while new field rolls out additively.
+  validation:
+    checks:
+      - type: contract_validation
+      - type: schema_registry_compatibility
+      - type: downstream_query_smoke_test
+  rollback:
+    strategy: Remove the new field from publish exposure and revert contract metadata before consumer adoption.
+    time_boundary: before_first_consumer_dependency
+  approvals:
+    required:
+      - dataset-owner
+      - downstream-owner
+  status:
+    state: draft

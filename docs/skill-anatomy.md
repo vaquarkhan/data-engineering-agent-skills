@@ -1,6 +1,6 @@
 # Skill Anatomy
 
-This document defines the recommended structure for data engineering skills.
+This document defines the recommended structure for data engineering skills and the compatibility expectations for open `Agent Skills` registries.
 
 ## File Layout
 
@@ -13,6 +13,12 @@ skills/
 ```
 
 Add supporting files only when they keep the main skill focused.
+
+This layout is the core registry expectation:
+
+- one capability directory
+- one `SKILL.md` file as the entry point
+- optional `references/`, `scripts/`, or supporting markdown only when they strengthen the skill
 
 ## Required Frontmatter
 
@@ -28,6 +34,28 @@ Rules:
 - `name` must match the directory name
 - use lowercase hyphen-separated names
 - `description` must say what the skill does and when to use it
+- `description` should contain clear trigger words so an agent can match the skill during progressive disclosure
+- avoid vague descriptions such as "general data help" that give no activation clues
+
+## Progressive Disclosure
+
+Most agent runtimes do not load every skill in full at startup. They first inspect the `description` field and only load the full `SKILL.md` when the task appears to match.
+
+Good description traits:
+
+- names the workflow explicitly
+- includes trigger keywords
+- says "Use when..." clearly
+- distinguishes the skill from nearby skills
+
+Example:
+
+```yaml
+---
+name: data-resiliency-testing-and-failure-injection
+description: Guides agents through resiliency testing for data platforms. Use when designing or running failure drills, recovery validation, failover tests, replay-safety checks, dependency outage exercises, or fault injection for pipelines and publishes.
+---
+```
 
 ## Recommended Sections
 

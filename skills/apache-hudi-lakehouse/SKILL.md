@@ -23,6 +23,19 @@ Use this skill when `Apache Hudi` is the primary table layer for incremental lak
 3. Plan compaction and incremental consumption explicitly.
 4. Validate downstream engine compatibility and publish safety.
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+| --- | --- |
+| "The platform-specific feature is the whole design." | Platform features do not replace contract, compatibility, and operational planning. |
+| "We can validate this after publish." | Late validation is expensive when downstream consumers already depend on the asset. |
+| "Operations can figure out the edge cases later." | Replay, maintenance, and publish safety need to be explicit before adoption. |
+
+## Red Flags
+
+- downstream compatibility is assumed instead of documented
+- publish or replay behavior is not explicit
+- maintenance, rollback, or observability expectations are missing
 ## Verification
 
 - [ ] Mutation and incremental-read behavior are documented

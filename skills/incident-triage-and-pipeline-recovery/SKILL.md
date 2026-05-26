@@ -48,6 +48,9 @@ Do not jump to fixes before stabilizing the system and understanding impact.
 5. Record the incident and add a guardrail.
    A fixed incident with no prevention work is unfinished.
 
+6. Turn high-value incidents into repeatable resilience tests.
+   Load `skills/data-resiliency-testing-and-failure-injection/SKILL.md` or `references/data-resiliency-testing-patterns.md` when the same failure mode must be prevented from surprising the team again.
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

@@ -24,6 +24,19 @@ Use this skill when database changes must be captured and delivered through `Deb
 4. Plan for schema evolution and connector recovery.
 5. Validate replay and bootstrap behavior before publish.
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+| --- | --- |
+| "The platform-specific feature is the whole design." | Platform features do not replace contract, compatibility, and operational planning. |
+| "We can validate this after publish." | Late validation is expensive when downstream consumers already depend on the asset. |
+| "Operations can figure out the edge cases later." | Replay, maintenance, and publish safety need to be explicit before adoption. |
+
+## Red Flags
+
+- downstream compatibility is assumed instead of documented
+- publish or replay behavior is not explicit
+- maintenance, rollback, or observability expectations are missing
 ## Verification
 
 - [ ] Connector snapshot and offset behavior are explicit

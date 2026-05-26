@@ -1,0 +1,11 @@
+name: data-platform-cicd-release-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - data-platform-ci-cd-and-release-management
+  - data-quality-and-contract-testing
+  - data-reconciliation-and-financial-controls
+  - data-observability-and-sla-management
+templates:
+  - templates/dataset-contract.yaml
+  - templates/incident-runbook.md
+example: examples/data-platform-cicd-progressive-release

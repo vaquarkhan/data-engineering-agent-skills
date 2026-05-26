@@ -36,6 +36,18 @@ Use cases:
 - choose starter packs and runnable examples
 - install agent adapter files for other tools used alongside JetBrains IDEs
 
+## Kiro
+
+Supported with workspace steering files under `.kiro/steering/` and the setup guide in `docs/kiro-setup.md`:
+
+- `Kiro`
+
+Use cases:
+
+- install persistent steering files for workspace context
+- keep the main entry skill and presets discoverable
+- use the same templates, hooks, starter packs, and examples as other agent surfaces
+
 ## Agent Surfaces Covered
 
 These IDE integrations install files for:
@@ -44,11 +56,17 @@ These IDE integrations install files for:
 - `Claude`
 - `Copilot`
 - `Gemini`
+- `Kiro`
 - `Codex`
+- `OpenCode`
+- `Windsurf`
+- `CLAUDE.md` consumers
 - generic `AGENTS.md` consumers
 
 ## Practical Recommendation
 
 - use the `vscode-extension/` package for VS Code-compatible editors
+- use `.kiro/steering/` plus `docs/kiro-setup.md` for `Kiro`
 - use the `jetbrains-plugin/` package for IntelliJ-platform IDEs
 - use `scripts/install.sh` or starter packs when an extension is not available yet
+- use `docs/getting-started.md` as the shared quickstart across tools

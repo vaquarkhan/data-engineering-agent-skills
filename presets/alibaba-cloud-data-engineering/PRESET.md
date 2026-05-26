@@ -26,6 +26,14 @@ Use this preset when the data platform is based on Alibaba Cloud. It maps core w
 - secrets and security: `RAM`, `KMS`
 - monitoring: `CloudMonitor`, platform audit services
 
+## Common Architecture Patterns
+
+- `OSS` landing plus `MaxCompute` or `EMR` batch processing for lake-centric architecture
+- `Realtime Compute for Apache Flink` plus `AnalyticDB` for streaming and analytical serving architecture
+- `DataWorks`-centric orchestration and governance pattern for enterprise scheduling and lineage visibility
+- mixed `EMR` and `MaxCompute` architecture where workloads differ by scale, engine requirements, or operational constraints
+- Load `references/cloud-data-engineering-architecture-patterns.md` when choosing the overall Alibaba Cloud platform shape
+
 ## Design Rules
 
 - Keep platform-native scheduling, lineage, and governance visible through `DataWorks` where possible.

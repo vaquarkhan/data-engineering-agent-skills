@@ -1,0 +1,12 @@
+name: resiliency-testing-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - data-resiliency-testing-and-failure-injection
+  - data-observability-and-sla-management
+  - incident-triage-and-pipeline-recovery
+  - orchestration-and-backfills
+templates:
+  - templates/incident-runbook.md
+  - templates/backfill-plan.yaml
+  - templates/release-gate-evidence.yaml
+example: examples/data-platform-cicd-progressive-release

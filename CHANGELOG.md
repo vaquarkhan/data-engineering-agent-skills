@@ -12,6 +12,25 @@ All notable changes to this repository will be documented in this file.
 - runnable scaffolds for the flagship examples
 - starter packs, release docs, walkthrough guidance, and taxonomy docs
 - additional OSS and platform-specific skills and presets
+- command-first lifecycle with `/validate` and `/backfill`
+- `hooks/` automation layer for session start, contract checks, schema safety, cost checks, and replay guardrails
+- `CLAUDE.md`, `.opencode/`, `docs/getting-started.md`, `docs/windsurf-setup.md`, and `docs/opencode-setup.md`
+- GitHub workflows for validation, packaging, and release artifact automation
+- community and maintenance files including issue templates, PR template, `CODEOWNERS`, `SECURITY.md`, `SUPPORT.md`, and `CODE_OF_CONDUCT.md`
+- regulated-data security and compliance assets for `PII`, `PCI`, `HIPAA`, lineage, governance, and audit evidence
+- new reference guides for orchestration patterns, data testing patterns, and platform security review
+- skills, presets, starter packs, and references for test data preparation, lower-environment masking, and enterprise ETL modernization across `Informatica`, `Talend`, and similar stacks
+- CI/CD starter and example assets, progressive data-release guidance, streaming architecture patterns, and a release guard hook for safer `/ship` workflows
+- ETL versus ELT modernization guidance plus regional compliance and ESG reporting assets covering Europe, USA, India, Saudi Arabia, `SAMA`, and similar multi-jurisdiction data obligations
+- validation and testcase pattern guides, anti-pattern references, `MySQL` versus `NoSQL` datastore selection guidance, and a validation-security review starter pack with example assets
+- language-specific implementation skills for `Python`, `Scala`, and `Java` data engineering workflows with routing updates in the entrypoint docs and session-start hook
+- machine-readable asset registry, structured backfill/schema/release templates, asset-parity validation, stronger generic install coverage, and operational example assets for release workflows
+- `Amazon Kiro` support through `.kiro/steering/` adapter files, `docs/kiro-setup.md`, installer support, registry wiring, and IDE-support documentation updates
+- generic and per-cloud pipeline orchestration guidance covering scheduler-centric, event-driven, and lakehouse-native control-plane patterns across `AWS`, `Azure`, `GCP`, and `Databricks`
+- common cloud-specific data engineering architecture guidance covering lake, warehouse, lakehouse, streaming, and hybrid patterns across `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, and `Alibaba Cloud`
+- resiliency testing coverage for restart drills, failure injection, failover validation, backlog catch-up, checkpoint recovery, and publish protection through a dedicated skill, reference guide, starter pack, and install-surface wiring
+- pattern-based tutorials for cloud architecture, pipeline orchestration, streaming architecture, and resiliency testing so users can follow guided walkthroughs instead of only reference guides
+- more detailed tutorial coverage for `ETL` or `ELT` modernization and regulated-data compliance workflows, plus a richer example catalog that maps each example to scenarios, stack patterns, and starting skills
 
 ## 2026-05-25
 
