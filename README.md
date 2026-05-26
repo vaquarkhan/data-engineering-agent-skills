@@ -1,4 +1,4 @@
-![Data Engineering Agent Skills](images/DE-Skills-2.1.png)
+![Data Engineering Agent Skills](https://raw.githubusercontent.com/vaquarkhan/data-engineering-agent-skills/main/images/DE-Skills-2.1.png)
 
 # Data Engineering Agent Skills
 
