@@ -11,6 +11,7 @@ REGISTRY_PATH = ROOT / "registry" / "assets.json"
 JS_INSTALLER = ROOT / "vscode-extension" / "extension.js"
 KOTLIN_INSTALLER = ROOT / "jetbrains-plugin" / "src" / "main" / "kotlin" / "com" / "vaquarkhan" / "dataengineeringskills" / "InstallerData.kt"
 INSTALL_SCRIPT = ROOT / "scripts" / "install.sh"
+INSTALL_TOOLKIT = ROOT / "scripts" / "install_toolkit.py"
 
 
 def load_registry() -> dict:
@@ -281,16 +282,22 @@ def validate_installer_parity(data: dict) -> list[str]:
         errors.append("registry runnable examples do not match jetbrains-plugin InstallerData.runnableExamples")
 
     install_text = INSTALL_SCRIPT.read_text(encoding="utf-8")
+    install_toolkit_text = INSTALL_TOOLKIT.read_text(encoding="utf-8")
     expected_install_snippets = [
-        'copy_file "$REPO_ROOT/registry/assets.json" "$TARGET/registry/assets.json"',
-        'copy_dir_contents "$REPO_ROOT/templates" "$TARGET/templates"',
-        'copy_dir_contents "$REPO_ROOT/hooks" "$TARGET/hooks"',
-        'copy_dir_contents "$REPO_ROOT/.kiro/steering" "$TARGET/.kiro/steering"',
-        'copy_file "$REPO_ROOT/docs/kiro-setup.md" "$TARGET/docs/kiro-setup.md"',
+        'python "$SCRIPT_DIR/install_toolkit.py" "$@"',
+        '"registry/assets.json"',
+        '"templates"',
+        '"hooks"',
+        '".kiro/steering"',
+        '"docs/kiro-setup.md"',
     ]
-    for snippet in expected_install_snippets:
-        if snippet not in install_text:
-            errors.append(f"scripts/install.sh missing expected install behavior: {snippet}")
+    if expected_install_snippets[0] not in install_text:
+        errors.append(
+            f"scripts/install.sh missing expected install behavior: {expected_install_snippets[0]}"
+        )
+    for snippet in expected_install_snippets[1:]:
+        if snippet not in install_toolkit_text:
+            errors.append(f"scripts/install_toolkit.py missing expected install behavior: {snippet}")
 
     return errors
 

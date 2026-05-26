@@ -19,7 +19,7 @@ def main() -> None:
     else:
         with topic_log.open("a", encoding="utf-8") as handle:
             if topic_log.stat().st_size > 0 and not payload.startswith("\n"):
-                handle.write("")
+                handle.write("\n")
             handle.write(payload)
 
     line_count = len([line for line in payload.splitlines() if line.strip()])

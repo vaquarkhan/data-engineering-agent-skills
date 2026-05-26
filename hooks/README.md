@@ -2,7 +2,7 @@
 
 This directory contains lightweight operational hooks that make the repository feel more like a workflow system than a static library.
 
-The scripts are intentionally shell-based so they can run in local agent sessions, CI, or plugin hook systems.
+The hook logic now lives in `scripts/hook_runner.py` so the same checks can run from bash, PowerShell, CI, or plugin hook systems without depending on `rg`.
 
 ## Included Hooks
 
@@ -34,6 +34,15 @@ bash hooks/schema-change-guard.sh
 bash hooks/release-guard.sh
 ```
 
+PowerShell equivalents are also included:
+
+```powershell
+pwsh hooks/session-start.ps1
+pwsh hooks/contract-check-pre.ps1
+pwsh hooks/schema-change-guard.ps1
+pwsh hooks/release-guard.ps1
+```
+
 All hooks accept an optional workspace path:
 
 ```bash
@@ -57,3 +66,4 @@ bash hooks/cost-check.sh /path/to/project
 - Hooks that detect clearly risky states return a non-zero exit code.
 - The `hooks.json` file provides a starter Claude-style hook mapping for session start.
 - Use `templates/backfill-plan.yaml`, `templates/schema-change-plan.yaml`, and `templates/release-gate-evidence.yaml` when you want the hook advice to become structured evidence.
+- `session-start` avoids broad self-matching when run inside this repository so documentation keywords do not overwhelm real stack detection.

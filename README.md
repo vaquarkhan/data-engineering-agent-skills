@@ -10,7 +10,9 @@
 [![Starter Packs](https://img.shields.io/badge/Starter%20Packs-12-red.svg)](#starter-packs)
 [![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
 [![Release Artifacts](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml)
+[![Proof Assets](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/proof-assets.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/proof-assets.yml)
 [![Test Plugin Installation](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/test-plugin-installation.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/test-plugin-installation.yml)
+[![Agent Benchmarks](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml)
 [![Markdown Lint](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/vaquarkhan/data-engineering-agent-skills)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases)
 
@@ -31,7 +33,7 @@ This repository is structured to work with open `Agent Skills` registries:
 - descriptions are written for progressive disclosure so agents can decide when to load the full skill
 - supporting materials can live in `references/`, `templates/`, `examples/`, `hooks/`, and `scripts/`
 
-Copy-pasteable install commands:
+Registry-style install commands for tools that support `Agent Skills` registries:
 
 ```bash
 npx skills add vaquarkhan/data-engineering-agent-skills
@@ -43,6 +45,12 @@ If you want file-based setup instead of registry install, use:
 
 ```bash
 scripts/install.sh --tool all --target /path/to/project
+```
+
+For Python-based proof assets and validators, install local dependencies with:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## Quick Start
@@ -61,6 +69,7 @@ scripts/install.sh --tool all --target /path/to/project
 - `VS Code` family `.vsix`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 - `JetBrains` plugin `.zip`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 - plugin publishing and marketplace workflow setup: `docs/plugin-publishing.md`
+- marketplace publication is workflow-ready, but requires configured publish secrets and a tagged release
 - `Claude` plugin bundle: use `.claude-plugin/`, `.claude/commands/`, and `CLAUDE.md`
 
 #### Install By Tool
@@ -86,6 +95,12 @@ scripts/install.sh --tool kiro --target /path/to/project
 scripts/install.sh --tool windsurf --target /path/to/project
 scripts/install.sh --tool opencode --target /path/to/project
 scripts/install.sh --tool all --target /path/to/project
+```
+
+Windows-friendly install path:
+
+```powershell
+pwsh scripts/install.ps1 --tool all --target C:\path\to\project
 ```
 
 #### Tool Setup Guides
@@ -131,7 +146,7 @@ scripts/install.sh --tool all --target /path/to/project
 - Multi-agent packaging for `Cursor`, `Claude`, `Copilot`, `Gemini`, `Codex`, `Kiro`, `OpenCode`, `Windsurf`, `AGENTS.md`, and `CLAUDE.md` consumers
 - Install surfaces for `VS Code` family editors, `JetBrains` IDEs, setup guides, one-line install scripts, and plugin release artifacts
 - Plugin delivery and discovery workflows for `VS Code` and `JetBrains`, including release downloads, install smoke tests, markdown linting, and marketplace-ready publish automation
-- Runnable examples with contract validation and smoke-test proof paths, plus starter packs, MCP templates, hooks, and machine-readable registry assets for faster adoption
+- Runnable examples with contract validation, rollback demonstrations, smoke-test proof paths, and a benchmark pack that compares baseline vs with-skills concern coverage
 - Structured operational templates for dataset contracts, compliance controls, backfills, schema changes, release gates, and incident response
 
 ## Feature Coverage
@@ -461,12 +476,16 @@ Direct setup links for common agent surfaces:
 Installation helpers are available in `scripts/`:
 
 - `scripts/install.sh --tool cursor|claude|copilot|gemini|kiro|windsurf|opencode|generic|all --target <path>`
+- `scripts/install.ps1 --tool cursor|claude|copilot|gemini|kiro|windsurf|opencode|generic|all --target <path>`
 - `scripts/install.sh --tool codex --target <path>`
+- `scripts/install_toolkit.py`
+- `scripts/hook_runner.py`
 - `scripts/validate-skills.py`
 - `scripts/validate-assets.py`
 - `scripts/validate_dataset_contract.py`
 - `scripts/check-links.py`
 - `scripts/test-plugin-installation.py`
+- `requirements.txt`
 - `requirements-proof.txt`
 - `scripts/sync-rules.sh`
 - `scripts/sync-rules.ps1`
@@ -478,6 +497,7 @@ Repository automation includes:
 - `.github/workflows/validate-and-package.yml`
 - `.github/workflows/test-plugin-installation.yml`
 - `.github/workflows/proof-assets.yml`
+- `.github/workflows/agent-benchmarks.yml`
 - `.github/workflows/release-artifacts.yml`
 - `.github/workflows/publish-plugins.yml`
 - `.github/workflows/markdown-lint.yml`
@@ -521,6 +541,8 @@ Template MCP configs are available in `mcp/` for:
 - Kafka
 - Terraform
 - Slack and Jira incident flows
+
+Each template is a starting point only. Use `mcp/README.md` for environment-variable requirements and service-specific setup notes before connecting a live system.
 
 ## End-To-End Examples
 

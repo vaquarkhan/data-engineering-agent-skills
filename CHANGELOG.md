@@ -37,6 +37,7 @@ All notable changes to this repository will be documented in this file.
 - mainframe modernization and data offload guidance plus stronger data-quality tooling and rule-management coverage across `dbt`, `Great Expectations`, `Deequ`, `Cuallee`, `Soda`, and warehouse-native quality flows
 - release and plugin packaging updates for the `2.0.0` line, including install smoke tests, marketplace-publish scaffolding, release badge improvements, and stronger release-asset validation
 - proof assets for executable examples, including a dataset-contract validator CLI, `dbt` plus `DuckDB` local execution, replay-safe streaming harness validation, reconciliation checks, and a dedicated proof workflow
+- cross-platform toolkit hardening including a full installer backend, PowerShell hook surfaces, validator compatibility checks and tests, rollback-aware `Databricks` example proof, MCP setup guidance, expanded reviewer personas, and agent benchmark scoring assets
 
 ## 2026-05-25
 

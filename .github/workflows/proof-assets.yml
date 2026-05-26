@@ -21,7 +21,7 @@ jobs:
       - name: Install proof dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-proof.txt
+          pip install -r requirements.txt
 
       - name: Run AWS lakehouse example smoke test
         run: |
@@ -39,6 +39,14 @@ jobs:
           dbt test --project-dir . --profiles-dir profiles
           python ../../scripts/validate_dataset_contract.py --contract contracts/fct_daily_revenue-contract.yaml --duckdb build/dbt_warehouse_marts.duckdb --query "select * from fct_daily_revenue order by order_date"
 
+      - name: Run Databricks medallion example smoke test
+        run: |
+          python examples/databricks-delta-medallion/src/bronze_to_silver.py --input examples/databricks-delta-medallion/sample/bronze.jsonl --output examples/databricks-delta-medallion/build/silver.jsonl
+          python scripts/validate_dataset_contract.py --contract examples/databricks-delta-medallion/contracts/silver-contract.yaml --previous-contract examples/databricks-delta-medallion/contracts/silver-contract-v1.yaml --data examples/databricks-delta-medallion/build/silver.jsonl --reference-time 2026-05-02T00:00:00Z
+          python examples/databricks-delta-medallion/src/validate_silver.py --silver examples/databricks-delta-medallion/build/silver.jsonl
+          python examples/databricks-delta-medallion/src/rollback_silver.py --snapshot examples/databricks-delta-medallion/snapshots/silver_previous.jsonl --output examples/databricks-delta-medallion/build/silver.jsonl
+          python examples/databricks-delta-medallion/src/validate_rollback.py --silver examples/databricks-delta-medallion/build/silver.jsonl
+
       - name: Run streaming harness smoke test
         run: |
           python examples/kafka-flink-streaming/src/producer.py --input examples/kafka-flink-streaming/sample/order-events.jsonl --topic-log examples/kafka-flink-streaming/build/topic/order-events.jsonl --reset
@@ -48,3 +56,6 @@ jobs:
           python examples/kafka-flink-streaming/src/replay.py --input examples/kafka-flink-streaming/sample/order-events.jsonl --topic-log examples/kafka-flink-streaming/build/topic/order-events.jsonl
           python examples/kafka-flink-streaming/src/stream_job.py --input examples/kafka-flink-streaming/build/topic/order-events.jsonl --output examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint-output examples/kafka-flink-streaming/build/checkpoints/state.json
           python examples/kafka-flink-streaming/src/validate_sink.py --sink examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint examples/kafka-flink-streaming/build/checkpoints/state.json
+
+      - name: Run validator unit tests
+        run: python -m unittest discover -s tests -v

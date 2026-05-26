@@ -35,9 +35,13 @@ Files included:
 - `config/flink-job.yaml`
 - `contracts/windowed-orders-contract.yaml`
 - `src/producer.py`
+- `src/produce_to_kafka.py`
 - `src/replay.py`
+- `src/replay_to_kafka.py`
 - `src/stream_job.py`
+- `src/kafka_to_postgres.py`
 - `src/validate_sink.py`
+- `src/validate_postgres_sink.py`
 - `sample/order-events.jsonl`
 
 ## Example Commands
@@ -57,4 +61,18 @@ Or run the full local proof path:
 
 ```bash
 make smoke-test
+```
+
+## Compose Sandbox Path
+
+The local smoke test uses a deterministic Python harness for CI-friendly replay and contract proof. The included `docker-compose.yml` stack can also be exercised against real `Kafka` and `Postgres` services:
+
+```bash
+docker compose up -d
+python src/produce_to_kafka.py --input sample/order-events.jsonl --bootstrap-servers localhost:19092 --topic order-events
+python src/kafka_to_postgres.py --bootstrap-servers localhost:19092 --topic order-events --postgres-dsn postgresql://stream:stream@localhost:15432/stream
+python src/validate_postgres_sink.py --postgres-dsn postgresql://stream:stream@localhost:15432/stream
+python src/replay_to_kafka.py --input sample/order-events.jsonl --bootstrap-servers localhost:19092 --topic order-events
+python src/kafka_to_postgres.py --bootstrap-servers localhost:19092 --topic order-events --postgres-dsn postgresql://stream:stream@localhost:15432/stream --group-id order-events-demo-replay
+python src/validate_postgres_sink.py --postgres-dsn postgresql://stream:stream@localhost:15432/stream
 ```

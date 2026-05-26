@@ -12,6 +12,8 @@ This repository supports three plugin delivery surfaces:
 
 GitHub Releases remain the universal fallback download surface even when marketplace publishing is not configured yet.
 
+This repository is publish-ready through workflows, but actual marketplace listings appear only after you configure secrets and execute a release publish.
+
 ## Workflows
 
 - `.github/workflows/validate-and-package.yml`  

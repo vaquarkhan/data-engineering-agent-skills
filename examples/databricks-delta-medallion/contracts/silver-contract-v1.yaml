@@ -1,0 +1,32 @@
+dataset_contract:
+  name: silver_customer_events
+  owner: lakehouse@example.com
+  domain: customer
+  layer: silver
+  description: Previous contract version for compatibility validation during silver-layer changes.
+  grain: one row per event_id
+  keys:
+    business_key:
+      - event_id
+  schema:
+    version: v1
+    columns:
+      - name: event_id
+        type: string
+        nullable: false
+      - name: customer_id
+        type: string
+        nullable: false
+      - name: event_type
+        type: string
+        nullable: false
+  freshness:
+    field: event_type
+    cadence: hourly
+  quality:
+    checks:
+      - unique: [event_id]
+      - not_null: [event_id, customer_id, event_type]
+  compatibility:
+    change_policy: additive_by_default
+    deprecation_notice_days: 30

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "spec_customer_orders",
+    "prompt": "Design a new customer orders data product for finance and analytics.",
+    "expected_concerns": ["contract", "grain", "ownership", "quality", "lineage"]
+  },
+  {
+    "id": "dbt_daily_revenue",
+    "prompt": "Review a dbt model that publishes daily revenue.",
+    "expected_concerns": ["grain", "tests", "docs", "freshness", "rollback"]
+  },
+  {
+    "id": "streaming_replay",
+    "prompt": "Plan a replay-safe Kafka to analytics pipeline after a bad consumer release.",
+    "expected_concerns": ["replay", "idempotency", "checkpoint", "reconciliation", "rollback"]
+  },
+  {
+    "id": "schema_change_review",
+    "prompt": "Review a breaking schema change that drops a published column.",
+    "expected_concerns": ["compatibility", "migration", "consumer-impact", "deprecation", "contract"]
+  },
+  {
+    "id": "regulated_publish",
+    "prompt": "Ship a new publish dataset that contains PII.",
+    "expected_concerns": ["classification", "access", "masking", "audit", "retention"]
+  },
+  {
+    "id": "backfill_cutover",
+    "prompt": "Run a historical backfill after a pipeline bug corrupted 30 days of data.",
+    "expected_concerns": ["affected-window", "reconciliation", "downstream-impact", "rollback", "approval"]
+  },
+  {
+    "id": "cost_review",
+    "prompt": "Review a large warehouse SQL change before merge.",
+    "expected_concerns": ["cost", "partitioning", "select-star", "incremental", "monitoring"]
+  },
+  {
+    "id": "lakehouse_release",
+    "prompt": "Release a new curated table to downstream consumers with minimal risk.",
+    "expected_concerns": ["shadow", "canary", "publish-separation", "parity", "observability"]
+  },
+  {
+    "id": "incident_response",
+    "prompt": "Respond to a failed data platform publish that reached executives.",
+    "expected_concerns": ["containment", "evidence", "affected-consumers", "replay", "reconciliation"]
+  },
+  {
+    "id": "terraform_platform_review",
+    "prompt": "Review Terraform for an AWS lakehouse deployment.",
+    "expected_concerns": ["drift", "least-privilege", "governance", "rollback", "operations"]
+  }
+]

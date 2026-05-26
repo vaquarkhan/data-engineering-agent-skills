@@ -1,0 +1,12 @@
+{
+  "spec_customer_orders": ["contract", "grain", "ownership", "quality", "lineage"],
+  "dbt_daily_revenue": ["grain", "tests", "docs", "freshness", "rollback"],
+  "streaming_replay": ["replay", "idempotency", "checkpoint", "reconciliation", "rollback"],
+  "schema_change_review": ["compatibility", "migration", "consumer-impact", "deprecation", "contract"],
+  "regulated_publish": ["classification", "access", "masking", "audit", "retention"],
+  "backfill_cutover": ["affected-window", "reconciliation", "downstream-impact", "rollback", "approval"],
+  "cost_review": ["cost", "partitioning", "select-star", "incremental", "monitoring"],
+  "lakehouse_release": ["shadow", "canary", "publish-separation", "parity", "observability"],
+  "incident_response": ["containment", "evidence", "affected-consumers", "replay", "reconciliation"],
+  "terraform_platform_review": ["drift", "least-privilege", "governance", "rollback", "operations"]
+}

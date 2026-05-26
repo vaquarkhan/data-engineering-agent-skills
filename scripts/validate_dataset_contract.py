@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from typing import Any
+from typing import Any, NoReturn
 
 import duckdb
 import yaml
@@ -22,7 +22,7 @@ class ValidationResult:
     latest_freshness_value: str | None
 
 
-def fail(message: str) -> None:
+def fail(message: str) -> NoReturn:
     raise SystemExit(message)
 
 
@@ -43,6 +43,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--reference-time",
         help="Reference timestamp used for freshness checks, ISO 8601 format",
+    )
+    parser.add_argument(
+        "--previous-contract",
+        type=Path,
+        help="Optional path to the previous contract version for compatibility validation",
     )
     parser.add_argument(
         "--report-json",
@@ -72,6 +77,15 @@ def load_records_from_file(path: Path) -> list[dict[str, Any]]:
         with path.open("r", encoding="utf-8", newline="") as handle:
             return list(csv.DictReader(handle))
     fail(f"Unsupported data file format for {path}; use .jsonl, .ndjson, or .csv")
+
+
+def build_schema_map(contract: dict[str, Any]) -> dict[str, str]:
+    columns = contract.get("schema", {}).get("columns", [])
+    return {
+        column["name"]: str(column.get("type", "string"))
+        for column in columns
+        if isinstance(column, dict) and column.get("name")
+    }
 
 
 def load_records_from_duckdb(database_path: Path, query: str | None) -> list[dict[str, Any]]:
@@ -117,36 +131,98 @@ def parse_reference_time(raw_value: str | None) -> datetime | None:
     return parse_temporal_value(raw_value)
 
 
+def normalize_value(value: Any, type_name: str) -> Any:
+    if is_null_like(value):
+        return None
+
+    normalized = type_name.lower()
+    if normalized.startswith("string"):
+        return str(value).strip()
+    if normalized.startswith("date"):
+        parsed = parse_temporal_value(value)
+        return parsed.date().isoformat()
+    if normalized.startswith("timestamp"):
+        parsed = parse_temporal_value(value)
+        return parsed.isoformat()
+    if normalized.startswith("decimal") or normalized.startswith("numeric"):
+        return Decimal(str(value))
+    if normalized.startswith("int") or normalized.startswith("bigint"):
+        return int(str(value))
+    if normalized.startswith("float") or normalized.startswith("double"):
+        return Decimal(str(value))
+    if normalized.startswith("bool"):
+        lowered = str(value).strip().lower()
+        if lowered in {"true", "1", "yes"}:
+            return True
+        if lowered in {"false", "0", "no"}:
+            return False
+        raise ValueError(f"unsupported boolean value {value!r}")
+    return value
+
+
 def validate_value_type(value: Any, type_name: str) -> bool:
     if is_null_like(value):
         return True
 
-    normalized = type_name.lower()
     try:
-        if normalized.startswith("string"):
-            return True
-        if normalized.startswith("date"):
-            parse_temporal_value(value)
-            return True
-        if normalized.startswith("timestamp"):
-            parse_temporal_value(value)
-            return True
-        if normalized.startswith("decimal") or normalized.startswith("numeric"):
-            Decimal(str(value))
-            return True
-        if normalized.startswith("int") or normalized.startswith("bigint"):
-            int(str(value))
-            return True
-        if normalized.startswith("float") or normalized.startswith("double"):
-            float(str(value))
-            return True
-        if normalized.startswith("bool"):
-            lowered = str(value).strip().lower()
-            return lowered in {"true", "false", "1", "0", "yes", "no"}
+        normalize_value(value, type_name)
+        return True
     except (InvalidOperation, ValueError):
         return False
 
-    return True
+
+def validate_contract_compatibility(
+    current_contract: dict[str, Any], previous_contract: dict[str, Any]
+) -> list[str]:
+    errors: list[str] = []
+    current_name = current_contract.get("name")
+    previous_name = previous_contract.get("name")
+    if current_name and previous_name and current_name != previous_name:
+        errors.append(
+            f"contract name changed from {previous_name!r} to {current_name!r}; compatibility checks require the same dataset name"
+        )
+
+    policy = str(
+        current_contract.get("compatibility", {}).get(
+            "change_policy",
+            previous_contract.get("compatibility", {}).get("change_policy", "additive_by_default"),
+        )
+    )
+    if policy != "additive_by_default":
+        return errors
+
+    current_columns = {
+        column["name"]: column
+        for column in current_contract.get("schema", {}).get("columns", [])
+        if isinstance(column, dict) and column.get("name")
+    }
+    previous_columns = {
+        column["name"]: column
+        for column in previous_contract.get("schema", {}).get("columns", [])
+        if isinstance(column, dict) and column.get("name")
+    }
+
+    for name, previous_column in previous_columns.items():
+        current_column = current_columns.get(name)
+        if current_column is None:
+            errors.append(f"additive compatibility violation: column '{name}' was removed")
+            continue
+
+        previous_type = str(previous_column.get("type", "string")).lower()
+        current_type = str(current_column.get("type", "string")).lower()
+        if previous_type != current_type:
+            errors.append(
+                f"additive compatibility violation: column '{name}' changed type from {previous_type} to {current_type}"
+            )
+
+        if bool(previous_column.get("nullable", True)) and not bool(
+            current_column.get("nullable", True)
+        ):
+            errors.append(
+                f"additive compatibility violation: column '{name}' changed from nullable to non-nullable"
+            )
+
+    return errors
 
 
 def validate_rows(contract: dict[str, Any], rows: list[dict[str, Any]], reference_time: datetime | None) -> ValidationResult:
@@ -159,6 +235,7 @@ def validate_rows(contract: dict[str, Any], rows: list[dict[str, Any]], referenc
 
     schema = contract.get("schema", {})
     columns = schema.get("columns", [])
+    schema_map = build_schema_map(contract)
     column_names = [column.get("name") for column in columns if column.get("name")]
 
     for column in column_names:
@@ -201,7 +278,16 @@ def validate_rows(contract: dict[str, Any], rows: list[dict[str, Any]], referenc
             seen: dict[tuple[Any, ...], int] = {}
             duplicates: list[str] = []
             for index, row in enumerate(rows, start=1):
-                key = tuple(row.get(column) for column in key_columns)
+                try:
+                    key = tuple(
+                        normalize_value(row.get(column), schema_map.get(column, "string"))
+                        for column in key_columns
+                    )
+                except (InvalidOperation, ValueError) as exc:
+                    errors.append(
+                        f"unique check could not normalize key {key_columns} on row {index}: {exc}"
+                    )
+                    continue
                 if key in seen:
                     duplicates.append(
                         f"rows {seen[key]} and {index} share key {dict(zip(key_columns, key))}"
@@ -272,6 +358,16 @@ def main() -> int:
     args = parse_args()
     contract = parse_contract(args.contract)
     reference_time = parse_reference_time(args.reference_time)
+    previous_contract = None
+
+    if getattr(args, "previous_contract", None):
+        previous_contract = parse_contract(args.previous_contract)
+        compatibility_errors = validate_contract_compatibility(contract, previous_contract)
+        if compatibility_errors:
+            print(f"Contract compatibility failed for {contract.get('name', 'unnamed_dataset_contract')}:")
+            for error in compatibility_errors:
+                print(f"- {error}")
+            return 1
 
     if args.data:
         rows = load_records_from_file(args.data)

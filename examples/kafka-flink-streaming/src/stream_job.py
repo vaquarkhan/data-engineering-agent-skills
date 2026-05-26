@@ -1,7 +1,7 @@
 import argparse
 import json
 from collections import defaultdict
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
 
@@ -80,18 +80,13 @@ def main() -> None:
             {
                 "window_start": window_start.isoformat().replace("+00:00", "Z"),
                 "window_end": (
-                    window_start.timestamp() + args.window_seconds
-                ),
+                    window_start + timedelta(seconds=args.window_seconds)
+                ).isoformat().replace("+00:00", "Z"),
                 "event_type": event_type,
                 "unique_orders": len(metrics["orders"]),
                 "total_events": metrics["total_events"],
                 "gross_amount": f"{metrics['gross_amount']:.2f}",
             }
-        )
-
-    for row in sink_rows:
-        row["window_end"] = datetime.fromtimestamp(row["window_end"], tz=UTC).isoformat().replace(
-            "+00:00", "Z"
         )
 
     with output_path.open("w", encoding="utf-8") as handle:

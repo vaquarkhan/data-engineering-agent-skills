@@ -19,6 +19,12 @@ git clone https://github.com/vaquarkhan/data-engineering-agent-skills.git
 cd data-engineering-agent-skills
 ```
 
+Install the local proof dependencies when you want to run validators, examples, or benchmarks:
+
+```bash
+pip install -r requirements.txt
+```
+
 2. Start with the main entry skill:
 
 - `skills/using-data-engineering-agent-skills/SKILL.md`
@@ -59,6 +65,20 @@ cd data-engineering-agent-skills
 - `scripts/validate_dataset_contract.py`
 
 ## Choose Your Path
+
+## File-Based Install
+
+If you want to copy the toolkit into another project instead of cloning the full repository:
+
+```bash
+scripts/install.sh --tool all --target /path/to/project
+```
+
+Windows:
+
+```powershell
+pwsh scripts/install.ps1 --tool all --target C:\path\to\project
+```
 
 ### New pipeline
 

@@ -1,0 +1,12 @@
+{
+  "spec_customer_orders": ["contract", "grain"],
+  "dbt_daily_revenue": ["grain", "tests"],
+  "streaming_replay": ["replay", "idempotency"],
+  "schema_change_review": ["compatibility"],
+  "regulated_publish": ["classification", "access"],
+  "backfill_cutover": ["affected-window", "reconciliation"],
+  "cost_review": ["cost"],
+  "lakehouse_release": ["publish-separation"],
+  "incident_response": ["containment", "replay"],
+  "terraform_platform_review": ["drift", "least-privilege"]
+}

@@ -62,7 +62,7 @@ Each example includes:
 
 ## Runnable Example Scaffolds
 
-The following examples include local proof paths with sample configs, validation commands, and smoke-test targets:
+The following examples include local proof paths with sample configs, validation commands, smoke-test targets, and at least one rollback or recovery demonstration:
 
 - `aws-s3-glue-athena-iceberg`
 - `databricks-delta-medallion`
