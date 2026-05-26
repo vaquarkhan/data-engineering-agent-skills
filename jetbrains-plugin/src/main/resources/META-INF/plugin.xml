@@ -3,10 +3,15 @@
     <name>Data Engineering Agent Skills</name>
     <vendor email="vaquarkhan@users.noreply.github.com" url="https://github.com/vaquarkhan/data-engineering-agent-skills">vaquarkhan</vendor>
     <description><![CDATA[
-      Installs data engineering skill packs, agent adapters, starter packs, MCP templates, and runnable examples into JetBrains IDE workspaces.
+      <p>Install data engineering skill packs, agent adapters, starter packs, MCP templates, and runnable examples into JetBrains IDE workspaces.</p>
+      <ul>
+        <li>Install the full toolkit or a smaller starter surface</li>
+        <li>Add agent adapters for Claude, Copilot, Gemini, Kiro, Codex, OpenCode, and Windsurf-style workflows</li>
+        <li>Scaffold runnable examples and MCP templates directly into the current project</li>
+      </ul>
     ]]></description>
     <change-notes><![CDATA[
-      Initial JetBrains plugin scaffold with installer actions for the core toolkit, starter packs, MCP templates, and runnable examples.
+      Initial marketplace-ready JetBrains plugin scaffold with installer actions for the core toolkit, starter packs, MCP templates, runnable examples, and GitHub release distribution.
     ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>

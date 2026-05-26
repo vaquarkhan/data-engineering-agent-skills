@@ -3,13 +3,15 @@
 # Data Engineering Agent Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-59-brightgreen.svg)](#initial-skill-pack)
+[![Skills](https://img.shields.io/badge/Skills-70-brightgreen.svg)](#initial-skill-pack)
 [![Presets](https://img.shields.io/badge/Presets-14-blue.svg)](#platform-presets)
 [![Examples](https://img.shields.io/badge/Examples-13-purple.svg)](#end-to-end-examples)
 [![MCP Configs](https://img.shields.io/badge/MCP%20Configs-10-orange.svg)](#mcp-config-templates)
 [![Starter Packs](https://img.shields.io/badge/Starter%20Packs-12-red.svg)](#starter-packs)
-[![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
-[![Release Artifacts](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml/badge.svg)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml)
+[![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
+[![Release Artifacts](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml)
+[![Test Plugin Installation](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/test-plugin-installation.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/test-plugin-installation.yml)
+[![Markdown Lint](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/vaquarkhan/data-engineering-agent-skills)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases)
 
 Production-grade data engineering skills for AI agents.
@@ -58,7 +60,23 @@ scripts/install.sh --tool all --target /path/to/project
 
 - `VS Code` family `.vsix`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 - `JetBrains` plugin `.zip`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+- plugin publishing and marketplace workflow setup: `docs/plugin-publishing.md`
 - `Claude` plugin bundle: use `.claude-plugin/`, `.claude/commands/`, and `CLAUDE.md`
+
+#### Install By Tool
+
+| Tool or surface | Best starting link | Install path |
+| --- | --- | --- |
+| `VS Code` | `vscode-extension/README.md` | download `.vsix` from Releases, then use the extension commands |
+| `Cursor` | `docs/cursor-setup.md` | use `.cursor/rules/` or `scripts/install.sh --tool cursor` |
+| `Claude` | `docs/claude-setup.md` | use `.claude/commands/`, `.claude-plugin/`, `CLAUDE.md`, or `scripts/install.sh --tool claude` |
+| `JetBrains` | `docs/jetbrains-setup.md` | download plugin `.zip` from Releases or use the JetBrains plugin workflow |
+| `Copilot` | `docs/copilot-setup.md` | use `.github/copilot-instructions.md` or `scripts/install.sh --tool copilot` |
+| `Kiro` | `docs/kiro-setup.md` | use `.kiro/steering/` or `scripts/install.sh --tool kiro` |
+| `Windsurf` | `docs/windsurf-setup.md` | use `.windsurfrules.example` or `scripts/install.sh --tool windsurf` |
+| `OpenCode` | `docs/opencode-setup.md` | use `.opencode/` or `scripts/install.sh --tool opencode` |
+| `Codex` | `docs/codex-setup.md` | use `AGENTS.md`, `CLAUDE.md`, `skills-index.md`, and `docs/codex-setup.md` |
+| generic `AGENTS.md` consumers | `docs/getting-started.md` | use `scripts/install.sh --tool all` or copy the core files manually |
 
 #### One-Line Script Install
 
@@ -81,6 +99,7 @@ scripts/install.sh --tool all --target /path/to/project
 - `docs/opencode-setup.md`
 - `docs/codex-setup.md`
 - `docs/jetbrains-setup.md`
+- `docs/plugin-publishing.md`
 
 #### Tutorials
 
@@ -106,12 +125,13 @@ scripts/install.sh --tool all --target /path/to/project
 ## Feature Highlights
 
 - Spec-first lifecycle with `/spec`, `/plan`, `/build`, `/validate`, `/review`, `/backfill`, and `/ship`
-- 59 workflow skills covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, release, incident recovery, and resiliency testing
-- focused resilience testing coverage for failure drills, replay safety, restart behavior, backlog catch-up, and publish protection
+- 70 workflow skills covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, quality tooling, legacy modernization, release, incident recovery, and platform operating concerns
+- focused resilience testing coverage for failure drills, replay safety, restart behavior, backlog catch-up, publish protection, and disaster recovery readiness
 - 14 platform presets spanning `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, `Informatica`, `Talend`, and Apache-first stacks
 - Multi-agent packaging for `Cursor`, `Claude`, `Copilot`, `Gemini`, `Codex`, `Kiro`, `OpenCode`, `Windsurf`, `AGENTS.md`, and `CLAUDE.md` consumers
 - Install surfaces for `VS Code` family editors, `JetBrains` IDEs, setup guides, one-line install scripts, and plugin release artifacts
-- Runnable examples, starter packs, MCP templates, hooks, and machine-readable registry assets for faster adoption
+- Plugin delivery and discovery workflows for `VS Code` and `JetBrains`, including release downloads, install smoke tests, markdown linting, and marketplace-ready publish automation
+- Runnable examples with contract validation and smoke-test proof paths, plus starter packs, MCP templates, hooks, and machine-readable registry assets for faster adoption
 - Structured operational templates for dataset contracts, compliance controls, backfills, schema changes, release gates, and incident response
 
 ## Feature Coverage
@@ -120,12 +140,12 @@ scripts/install.sh --tool all --target /path/to/project
 | --- | --- | --- |
 | Core delivery workflow | Spec-driven delivery, planning, validation, review, publish readiness, replay safety, and rollback-aware release flow | `skills/using-data-engineering-agent-skills/SKILL.md` |
 | Cloud and platform coverage | `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, multi-cloud and hybrid guidance | `presets/` |
-| Apache and OSS data stack | `Spark`, `Flink`, `Airflow`, `Kafka`, `Iceberg`, `Hudi`, `Beam`, `Trino`, `ClickHouse`, `DuckDB`, `LakeFS`, `OpenMetadata`, `DataHub`, `OpenLineage`, `Great Expectations`, `Deequ`, `Cuallee`, `Superset`, and schema-registry patterns | `skills-index.md` |
+| Apache and OSS data stack | `Spark`, `Flink`, `Airflow`, `Kafka`, `Iceberg`, `Hudi`, `Beam`, `Trino`, `ClickHouse`, `DuckDB`, `LakeFS`, `OpenMetadata`, `DataHub`, `OpenLineage`, `Great Expectations`, `Deequ`, `Cuallee`, `Soda`, `Superset`, and schema-registry patterns | `skills-index.md` |
 | Orchestration and streaming | Scheduler-driven, event-driven, and lakehouse-native orchestration patterns plus replay-safe streaming architecture guidance | `references/pipeline-orchestration-patterns.md`, `references/streaming-architecture-patterns.md` |
-| Security, governance, and regulated data | `PII`, `PCI`, `HIPAA`, lineage, retention, deletion, privacy, audit evidence, platform security, and publish controls | `skills/data-security-compliance-and-regulated-data/SKILL.md` |
+| Security, governance, and regulated data | `PII`, `PCI`, `HIPAA`, lineage, retention, deletion, privacy, audit evidence, platform security, publish controls, and cloud-native governance for `Glue Data Catalog`, `Lake Formation`, `Unity Catalog`, `Purview`, and `Dataplex` | `skills/data-security-compliance-and-regulated-data/SKILL.md`, `references/platform-native-governance-patterns.md` |
 | Regional compliance and reporting | `GDPR`, sovereignty and residency patterns, `SAMA`, `Europe`, `USA`, `India`, `Saudi Arabia`, `CSRD`, `ESRS`, `BRSR`, and `ESG` reporting workflows | `references/regional-compliance-and-data-sovereignty-checklist.md`, `references/esg-and-sustainability-reporting-checklist.md` |
-| Modernization and enterprise ETL | `ETL` versus `ELT`, data migration, cutover, enterprise ETL modernization, and guidance for `Informatica`, `Talend`, `DataStage`, `SSIS`, and `Matillion`-style estates | `skills/etl-elt-and-modernization-strategy/SKILL.md`, `skills/enterprise-etl-and-data-integration-modernization/SKILL.md` |
-| Testing and lower environments | Contract testing, testcase patterns, resiliency testing, failure drills, reconciliation, anti-patterns, synthetic data, masked lower environments, and validation-security review starter packs | `references/data-resiliency-testing-patterns.md`, `starter-packs/resiliency-testing-starter.yaml` |
+| Modernization and enterprise ETL | `ETL` versus `ELT`, data migration, cutover, enterprise ETL modernization, mainframe offload, and guidance for `Informatica`, `Talend`, `DataStage`, `SSIS`, `Matillion`, and mainframe-origin estates | `skills/etl-elt-and-modernization-strategy/SKILL.md`, `skills/mainframe-modernization-and-data-offload/SKILL.md` |
+| Testing and lower environments | Contract testing, testcase patterns, data-quality tools, resiliency testing, failure drills, reconciliation, anti-patterns, synthetic data, masked lower environments, and validation-security review starter packs | `references/data-quality-tooling-and-rule-management.md`, `starter-packs/resiliency-testing-starter.yaml` |
 | Language-specific engineering | `Python` pipeline packaging, `Scala` JVM data jobs, and `Java` integration or metadata services | `skills/python-data-engineering-and-pipeline-packaging/SKILL.md`, `skills/scala-data-engineering-on-jvm-runtimes/SKILL.md`, `skills/java-data-engineering-and-integration-services/SKILL.md` |
 | Adoption and automation | `VS Code` extension, `JetBrains` plugin, `Kiro` steering, hooks, starter packs, examples, MCP templates, and machine-readable asset registry | `docs/getting-started.md`, `registry/assets.json` |
 
@@ -159,7 +179,17 @@ These commands are the clearest way to understand the repo. They can be mapped t
 - `MySQL` versus `NoSQL` choice -> use `operational-datastore-selection-relational-and-nosql`
 - Anti-pattern review -> use `references/data-engineering-anti-patterns.md`
 - `ETL` or `ELT` modernization -> use `etl-elt-and-modernization-strategy`
+- Partner file or `SFTP` ingestion -> use `file-and-partner-feed-ingestion`
+- `Glue Data Catalog` or `Lake Formation` governance -> use `glue-data-catalog-and-lake-formation-governance`
+- `Unity Catalog` governance -> use `unity-catalog-and-lakehouse-governance`
+- Azure governance or `Purview` -> use `microsoft-purview-and-azure-data-governance`
+- `Dataplex` or `BigQuery` governance -> use `dataplex-and-bigquery-governance`
+- `Snowflake`-native pipelines -> use `snowflake-native-pipelines-and-governance`
+- `BigQuery` or `Dataform` platform work -> use `bigquery-and-dataform-platform-engineering`
+- Data-quality tool strategy -> use `data-quality-platforms-and-rule-management`
 - Incident recovery -> use `incident-triage-and-pipeline-recovery`
+- Disaster recovery planning -> use `data-platform-disaster-recovery-and-business-continuity`
+- Platform operating model or golden paths -> use `data-platform-operating-model-and-service-ownership`
 - Schema migration -> use `schema-evolution-and-contract-migrations`
 - Cutover or backfill -> use `data-migration-and-platform-cutover`
 - CI/CD and progressive release -> use `starter-packs/data-platform-cicd-release-starter.yaml`
@@ -169,6 +199,7 @@ These commands are the clearest way to understand the repo. They can be mapped t
 - Test data or synthetic fixtures -> use `test-data-preparation-and-synthetic-data`
 - Lower-environment masked refresh -> use `lower-environment-data-masking-and-obfuscation`
 - `Informatica` or `Talend` estate -> use `enterprise-etl-and-data-integration-modernization`
+- Mainframe modernization -> use `mainframe-modernization-and-data-offload`
 
 ## Hooks
 
@@ -204,6 +235,7 @@ This repository now includes a broader production-grade skill pack:
 - `spark-and-distributed-processing`
 - `airflow-and-workflow-orchestration`
 - `streaming-and-messaging-systems`
+- `file-and-partner-feed-ingestion`
 - `lakehouse-table-format-engineering`
 - `data-lake-and-zone-architecture`
 - `warehouse-and-schema-design`
@@ -217,15 +249,24 @@ This repository now includes a broader production-grade skill pack:
 - `cdc-and-incremental-loading`
 - `schema-evolution-and-contract-migrations`
 - `warehouse-performance-and-cost-optimization`
+- `data-platform-disaster-recovery-and-business-continuity`
 - `data-observability-and-sla-management`
 - `incident-triage-and-pipeline-recovery`
+- `data-platform-operating-model-and-service-ownership`
 - `terraform-and-data-platform-infrastructure`
+- `snowflake-native-pipelines-and-governance`
+- `bigquery-and-dataform-platform-engineering`
 - `semantic-layer-and-metric-governance`
 - `notebook-to-production-hardening`
 - `data-sharing-and-publishing-contracts`
 - `data-catalog-and-discovery`
+- `glue-data-catalog-and-lake-formation-governance`
+- `unity-catalog-and-lakehouse-governance`
+- `microsoft-purview-and-azure-data-governance`
+- `dataplex-and-bigquery-governance`
 - `privacy-retention-and-right-to-delete`
 - `etl-elt-and-modernization-strategy`
+- `mainframe-modernization-and-data-offload`
 - `test-data-preparation-and-synthetic-data`
 - `reverse-etl-and-operational-data-serving`
 - `feature-store-and-ml-data-pipelines`
@@ -242,6 +283,7 @@ This repository now includes a broader production-grade skill pack:
 - `trino-presto-federated-query`
 - `openmetadata-datahub-and-openlineage`
 - `great-expectations-deequ-and-cuallee`
+- `data-quality-platforms-and-rule-management`
 - `lakefs-and-data-versioning`
 - `clickhouse-real-time-analytics`
 - `superset-and-metrics-serving`
@@ -251,7 +293,7 @@ This repository now includes a broader production-grade skill pack:
 
 Future skills can extend this pack for:
 
-- platform-specific delivery patterns for tools such as `Glue`, `EMR`, `Flink`, `Kafka`, `Kinesis`, `Iceberg`, `SSIS`, `DataStage`, and `Matillion`
+- additional platform-specific delivery patterns for tools such as `EMR`, `Flink`, `Kafka`, `Kinesis`, `Iceberg`, `SSIS`, `DataStage`, and `Matillion`
 - enterprise governance overlays and automated validation hooks
 
 ## Platform Presets
@@ -323,6 +365,11 @@ Longer-form walkthroughs live in `tutorials/`:
 - `tutorials/pipeline-orchestration-patterns.md`
 - `tutorials/streaming-architecture-patterns.md`
 - `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/platform-native-governance-patterns.md`
+- `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
+- `tutorials/disaster-recovery-and-restore-drills.md`
+- `tutorials/mainframe-modernization-and-cutover.md`
+- `tutorials/data-quality-tools-and-rule-operating-model.md`
 - `tutorials/etl-elt-modernization-and-cutover.md`
 - `tutorials/regulated-data-and-compliance-workflows.md`
 - `tutorials/installing-vscode-and-jetbrains-plugins.md`
@@ -332,6 +379,15 @@ Longer-form walkthroughs live in `tutorials/`:
 The first working `VS Code` extension scaffold lives in `vscode-extension/`.
 
 Installable release assets are published from the repository release page as `.vsix` downloads.
+
+Marketplace publishing is supported through `.github/workflows/publish-plugins.yml` for `VS Code Marketplace` and `Open VSX` when publish secrets are configured.
+
+Start here for the `VS Code` family:
+
+- `vscode-extension/README.md`
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`
+- `docs/plugin-publishing.md`
+- [latest release downloads](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 
 It provides command-palette installers for:
 
@@ -354,6 +410,16 @@ It is intended for the `VS Code` family:
 The first working JetBrains plugin scaffold lives in `jetbrains-plugin/`.
 
 Installable plugin ZIP artifacts are published from the repository release page.
+
+Marketplace publishing is supported through `.github/workflows/publish-plugins.yml` when JetBrains signing and marketplace secrets are configured.
+
+Start here for `JetBrains` IDEs:
+
+- `jetbrains-plugin/README.md`
+- `docs/jetbrains-setup.md`
+- `tutorials/installing-vscode-and-jetbrains-plugins.md`
+- `docs/plugin-publishing.md`
+- [latest release downloads](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 
 It targets IntelliJ-platform IDEs such as:
 
@@ -379,6 +445,17 @@ Native adapters are included for multiple agent ecosystems:
 - `.opencode/`
 - `.windsurfrules.example`
 
+Direct setup links for common agent surfaces:
+
+- `Claude` -> `docs/claude-setup.md`
+- `Cursor` -> `docs/cursor-setup.md`
+- `Copilot` -> `docs/copilot-setup.md`
+- `Kiro` -> `docs/kiro-setup.md`
+- `OpenCode` -> `docs/opencode-setup.md`
+- `Windsurf` -> `docs/windsurf-setup.md`
+- `Codex` -> `docs/codex-setup.md`
+- generic `AGENTS.md` setup -> `docs/getting-started.md`
+
 ## Install Scripts
 
 Installation helpers are available in `scripts/`:
@@ -387,9 +464,23 @@ Installation helpers are available in `scripts/`:
 - `scripts/install.sh --tool codex --target <path>`
 - `scripts/validate-skills.py`
 - `scripts/validate-assets.py`
+- `scripts/validate_dataset_contract.py`
 - `scripts/check-links.py`
+- `scripts/test-plugin-installation.py`
+- `requirements-proof.txt`
 - `scripts/sync-rules.sh`
 - `scripts/sync-rules.ps1`
+
+## Workflow Automation
+
+Repository automation includes:
+
+- `.github/workflows/validate-and-package.yml`
+- `.github/workflows/test-plugin-installation.yml`
+- `.github/workflows/proof-assets.yml`
+- `.github/workflows/release-artifacts.yml`
+- `.github/workflows/publish-plugins.yml`
+- `.github/workflows/markdown-lint.yml`
 
 ## Machine-Readable Templates
 
@@ -411,6 +502,10 @@ Machine-readable discovery lives in:
 - `registry/assets.json`
 
 Use it to index templates, starter packs, examples, MCP templates, agent adapters, and installer bundle contents without scraping the Markdown docs.
+
+For human-readable selection of checklists and decision guides, start with:
+
+- `references/README.md`
 
 ## MCP Config Templates
 
@@ -488,8 +583,15 @@ Use `references/` for high-signal checklists and workflow support material.
 
 | Reference | Covers |
 | --- | --- |
+| `references/README.md` | Human-readable selector for architecture, testing, compliance, ingestion, and operating-model checklists |
 | `references/data-testing-patterns.md` | Contract tests, reconciliation, freshness, replay, and publish-proof patterns |
 | `references/data-resiliency-testing-patterns.md` | Failure drills for restart, outage, replay, checkpoint recovery, backlog catch-up, and publish protection |
+| `references/platform-native-governance-patterns.md` | Cloud-native governance choices across `Glue Data Catalog`, `Lake Formation`, `Unity Catalog`, `Purview`, and `Dataplex` |
+| `references/data-platform-dr-bcp-checklist.md` | Recovery objectives, dependency inventory, failover choices, restore validation, and drill readiness |
+| `references/data-platform-operating-model-checklist.md` | Service catalog, ownership, golden paths, support boundaries, and lifecycle flows for shared data platforms |
+| `references/mainframe-modernization-checklist.md` | Mainframe source inventory, copybook mapping, batch-window behavior, reconciliation, coexistence, and cutover controls |
+| `references/data-quality-tooling-and-rule-management.md` | Rule ownership, severity, tool boundaries, and operating-model choices for multi-tool data-quality programs |
+| `references/file-ingestion-checklist.md` | Partner-feed contracts, landing, validation, duplicate handling, replay, and publish protection for file-based ingestion |
 | `references/data-validation-and-testcase-patterns.md` | Concrete testcase categories for schema, nulls, duplicates, replay, security, skew, and late-data behavior |
 | `references/data-platform-security-checklist.md` | Access, secrets, environment boundaries, auditability, and operational safety |
 | `references/data-engineering-anti-patterns.md` | Common failure modes across validation, storage, pipelines, governance, and operations plus healthier counter-patterns |

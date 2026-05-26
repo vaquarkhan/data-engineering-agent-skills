@@ -2,9 +2,11 @@
   "type": "record",
   "name": "OrderEvent",
   "fields": [
+    { "name": "event_id", "type": "string" },
     { "name": "order_id", "type": "string" },
     { "name": "customer_id", "type": "string" },
     { "name": "event_type", "type": "string" },
+    { "name": "amount", "type": "double" },
     { "name": "event_ts", "type": "string" }
   ]
 }

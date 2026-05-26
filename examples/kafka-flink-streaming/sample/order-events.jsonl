@@ -1,2 +1,6 @@
-{"order_id":"o-1","customer_id":"c-100","event_type":"created","event_ts":"2026-05-01T00:00:00Z"}
-{"order_id":"o-2","customer_id":"c-101","event_type":"created","event_ts":"2026-05-01T00:01:00Z"}
+{"event_id":"e-1","order_id":"o-1","customer_id":"c-100","event_type":"created","amount":125.00,"event_ts":"2026-05-01T00:00:00Z"}
+{"event_id":"e-2","order_id":"o-2","customer_id":"c-101","event_type":"created","amount":80.00,"event_ts":"2026-05-01T00:01:00Z"}
+{"event_id":"e-3","order_id":"o-1","customer_id":"c-100","event_type":"paid","amount":125.00,"event_ts":"2026-05-01T00:03:00Z"}
+{"event_id":"e-4","order_id":"o-3","customer_id":"c-102","event_type":"created","amount":40.00,"event_ts":"2026-05-01T00:07:00Z"}
+{"event_id":"e-5","order_id":"o-3","customer_id":"c-102","event_type":"paid","amount":40.00,"event_ts":"2026-05-01T00:08:00Z"}
+{"event_id":"e-5","order_id":"o-3","customer_id":"c-102","event_type":"paid","amount":40.00,"event_ts":"2026-05-01T00:08:00Z"}

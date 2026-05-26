@@ -1,0 +1,57 @@
+name: Test Plugin Installation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test-plugin-installation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Package VS Code extension
+        run: |
+          mkdir -p ../dist
+          npx @vscode/vsce package --out ../dist/data-engineering-agent-skills-test.vsix
+        working-directory: vscode-extension
+
+      - name: Build JetBrains plugin
+        run: |
+          chmod +x gradlew
+          ./gradlew buildPlugin
+          mkdir -p ../dist
+          cp build/distributions/*.zip ../dist/
+        working-directory: jetbrains-plugin
+
+      - name: Smoke-test packaged plugin artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          JETBRAINS_ZIP="$(ls dist/*.zip | head -n 1)"
+          python scripts/test-plugin-installation.py --vsix dist/data-engineering-agent-skills-test.vsix --jetbrains-zip "$JETBRAINS_ZIP"
+
+      - name: Upload tested plugin artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: tested-plugin-installers
+          path: dist/*

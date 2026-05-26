@@ -2,6 +2,11 @@
 
 This extension installs the repository's core data engineering skill pack into the current workspace.
 
+Download paths:
+
+- GitHub Releases `.vsix`: `https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest`
+- publishing workflow and marketplace setup: `docs/plugin-publishing.md`
+
 Compatible editors:
 
 - `VS Code`
@@ -55,3 +60,4 @@ For packaged usage, it can fall back to the raw GitHub source using the `dataEng
 For a longer install-and-usage walkthrough, see:
 
 - `tutorials/installing-vscode-and-jetbrains-plugins.md`
+- `docs/plugin-publishing.md`

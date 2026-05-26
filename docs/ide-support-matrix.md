@@ -70,3 +70,4 @@ These IDE integrations install files for:
 - use the `jetbrains-plugin/` package for IntelliJ-platform IDEs
 - use `scripts/install.sh` or starter packs when an extension is not available yet
 - use `docs/getting-started.md` as the shared quickstart across tools
+- use `docs/plugin-publishing.md` when you want GitHub release downloads and marketplace publication workflows

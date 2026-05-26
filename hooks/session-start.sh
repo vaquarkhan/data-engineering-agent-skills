@@ -24,6 +24,36 @@ if has_match "dbt_project.yml" || has_match "models/**/*.sql"; then
   recommended_examples+=("examples/dbt-warehouse-marts/")
 fi
 
+if has_match "dataform.json" || has_match "workflow_settings.yaml" || has_match "definitions/**/*.sqlx"; then
+  repo_signals+=("bigquery-dataform")
+  recommended_skills+=("skills/bigquery-and-dataform-platform-engineering/SKILL.md")
+  recommended_presets+=("presets/gcp-data-engineering/PRESET.md")
+fi
+
+if rg -n -i "glue data catalog|lake formation|lf-tag|athena grant|resource link" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("aws-native-governance")
+  recommended_skills+=("skills/glue-data-catalog-and-lake-formation-governance/SKILL.md")
+  recommended_presets+=("presets/aws-data-engineering/PRESET.md")
+fi
+
+if rg -n -i "unity catalog|external location|storage credential|catalog\\.schema|delta sharing" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("unity-catalog-governance")
+  recommended_skills+=("skills/unity-catalog-and-lakehouse-governance/SKILL.md")
+  recommended_presets+=("presets/databricks-lakehouse-engineering/PRESET.md")
+fi
+
+if rg -n -i "purview|microsoft purview|collection admin|data map|classification rule|endorsement" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("azure-governance")
+  recommended_skills+=("skills/microsoft-purview-and-azure-data-governance/SKILL.md")
+  recommended_presets+=("presets/azure-data-engineering/PRESET.md")
+fi
+
+if rg -n -i "dataplex|policy tag|bigquery data policy|google data catalog" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("gcp-governance")
+  recommended_skills+=("skills/dataplex-and-bigquery-governance/SKILL.md")
+  recommended_presets+=("presets/gcp-data-engineering/PRESET.md")
+fi
+
 if has_match "pyproject.toml" || has_match "requirements.txt" || has_match "poetry.lock" || has_match "**/*.py"; then
   repo_signals+=("python")
   recommended_skills+=("skills/python-data-engineering-and-pipeline-packaging/SKILL.md")
@@ -60,6 +90,12 @@ if has_match "databricks.yml" || has_match "**/*.dbc" || has_match "**/*.ipynb";
   recommended_skills+=("skills/delta-lake-and-medallion-architecture/SKILL.md" "skills/notebook-to-production-hardening/SKILL.md")
   recommended_presets+=("presets/databricks-lakehouse-engineering/PRESET.md")
   recommended_examples+=("examples/databricks-delta-medallion/")
+fi
+
+if rg -n -i "snowflake|snowpipe|dynamic table|stream\\(|create task|row access policy|masking policy" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("snowflake-native")
+  recommended_skills+=("skills/snowflake-native-pipelines-and-governance/SKILL.md")
+  recommended_presets+=("presets/snowflake-modern-data-platform/PRESET.md")
 fi
 
 if has_match "**/*.tf" || has_match "**/*.tfvars"; then
@@ -114,16 +150,41 @@ if rg -n -i "masked|masking|obfuscat|tokeniz|tokenis|synthetic data|test data|se
   recommended_starters+=("starter-packs/test-data-lower-environments-starter.yaml")
 fi
 
+if has_match "**/*.csv" || has_match "**/*.tsv" || has_match "**/*.json" || has_match "**/*.xml"; then
+  if rg -n -i "sftp|mft|partner feed|checksum|manifest|control total|late file|file drop" "$WORKSPACE" >/dev/null 2>&1; then
+    repo_signals+=("file-ingestion")
+    recommended_skills+=("skills/file-and-partner-feed-ingestion/SKILL.md" "skills/source-reliability-and-extraction-resilience/SKILL.md")
+    next_command="/plan"
+  fi
+fi
+
 if rg -n -i "not_null|unique|freshness|reconcile|reconciliation|expectation|great expectations|deequ|cuallee|masking|access control|security review" "$WORKSPACE" >/dev/null 2>&1; then
   repo_signals+=("validation-or-security-review")
   recommended_skills+=("skills/data-quality-and-contract-testing/SKILL.md" "skills/data-security-compliance-and-regulated-data/SKILL.md")
   recommended_starters+=("starter-packs/validation-security-review-starter.yaml")
 fi
 
+if rg -n -i "great expectations|deequ|cuallee|soda|dbt test|quality suite|expectation suite|quality monitor" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("quality-tooling")
+  recommended_skills+=("skills/data-quality-platforms-and-rule-management/SKILL.md" "skills/great-expectations-deequ-and-cuallee/SKILL.md")
+fi
+
 if rg -n -i "resilien|resilienc|chaos|failure injection|failover|disaster recovery|dr drill|recovery drill|checkpoint recovery|duplicate delivery|retry storm" "$WORKSPACE" >/dev/null 2>&1; then
   repo_signals+=("resiliency-testing")
   recommended_skills+=("skills/data-resiliency-testing-and-failure-injection/SKILL.md" "skills/data-observability-and-sla-management/SKILL.md" "skills/incident-triage-and-pipeline-recovery/SKILL.md")
   recommended_starters+=("starter-packs/resiliency-testing-starter.yaml")
+  next_command="/plan"
+fi
+
+if rg -n -i "rto|rpo|business continuity|restore drill|backup restore|failover region|cross-region restore|cross-account restore" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("platform-dr")
+  recommended_skills+=("skills/data-platform-disaster-recovery-and-business-continuity/SKILL.md")
+  next_command="/plan"
+fi
+
+if rg -n -i "cobol|jcl|vsam|ims|db2 z/os|copybook|mainframe|packed decimal|ebcdic" "$WORKSPACE" >/dev/null 2>&1; then
+  repo_signals+=("mainframe-modernization")
+  recommended_skills+=("skills/mainframe-modernization-and-data-offload/SKILL.md" "skills/data-migration-and-platform-cutover/SKILL.md")
   next_command="/plan"
 fi
 

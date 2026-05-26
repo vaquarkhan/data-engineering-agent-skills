@@ -29,8 +29,11 @@ coverage/
 .direnv/
 *.local
 data/
+!examples/**/data/
+!examples/**/data/**
 dist/
 build/
+examples/**/target/
 site/
 tmp/
 temp/

@@ -56,6 +56,7 @@ cd data-engineering-agent-skills
 - `templates/schema-change-plan.yaml`
 - `templates/release-gate-evidence.yaml`
 - `examples/dbt-warehouse-marts/`
+- `scripts/validate_dataset_contract.py`
 
 ## Choose Your Path
 
@@ -70,12 +71,14 @@ cd data-engineering-agent-skills
 - start with `starter-packs/warehouse-analytics-starter.yaml`
 - load `warehouse-and-schema-design`
 - load `dbt-and-analytics-engineering`
+- run `examples/dbt-warehouse-marts/Makefile` for a local proof slice
 
 ### Streaming system
 
 - start with `starter-packs/streaming-reliability-starter.yaml`
 - load `streaming-and-messaging-systems`
 - load `incident-triage-and-pipeline-recovery`
+- run `examples/kafka-flink-streaming/Makefile` to exercise replay-safe local validation
 
 ### Cloud architecture review
 
@@ -94,6 +97,48 @@ cd data-engineering-agent-skills
 - start with `starter-packs/resiliency-testing-starter.yaml`
 - load `data-resiliency-testing-and-failure-injection`
 - use `references/data-resiliency-testing-patterns.md` to design the failure drills
+
+### Partner file ingestion
+
+- start with `file-and-partner-feed-ingestion`
+- load `source-reliability-and-extraction-resilience`
+- use `references/file-ingestion-checklist.md` to define landing, validation, and replay-safe publish behavior
+
+### Platform-native governance
+
+- start with the matching cloud governance skill such as `glue-data-catalog-and-lake-formation-governance`, `unity-catalog-and-lakehouse-governance`, `microsoft-purview-and-azure-data-governance`, or `dataplex-and-bigquery-governance`
+- load the matching cloud preset
+- use `references/platform-native-governance-patterns.md` to choose ownership, catalog, access, and trusted-publish boundaries
+
+### Disaster recovery planning
+
+- start with `data-platform-disaster-recovery-and-business-continuity`
+- load `data-resiliency-testing-and-failure-injection`
+- use `references/data-platform-dr-bcp-checklist.md` to define restore and failover readiness
+
+### Snowflake-native pipelines
+
+- start with `snowflake-native-pipelines-and-governance`
+- load `presets/snowflake-modern-data-platform/PRESET.md`
+- keep governance, warehouse sizing, and publish controls in scope with the pipeline design
+
+### BigQuery and Dataform
+
+- start with `bigquery-and-dataform-platform-engineering`
+- load `presets/gcp-data-engineering/PRESET.md`
+- confirm `BigQuery`, `Dataform`, and `Dataflow` or `Dataproc` boundaries early
+
+### Mainframe modernization
+
+- start with `mainframe-modernization-and-data-offload`
+- load `data-migration-and-platform-cutover`
+- use `references/mainframe-modernization-checklist.md` to define parity, coexistence, and cutover controls
+
+### Data-quality tools and rule model
+
+- start with `data-quality-platforms-and-rule-management`
+- load `data-quality-and-contract-testing`
+- use `references/data-quality-tooling-and-rule-management.md` to define tool boundaries and publish severity
 
 ### Validation and security review
 
@@ -187,6 +232,11 @@ If you want a longer guided walkthrough instead of only setup guidance, continue
 - `tutorials/pipeline-orchestration-patterns.md`
 - `tutorials/streaming-architecture-patterns.md`
 - `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/platform-native-governance-patterns.md`
+- `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
+- `tutorials/disaster-recovery-and-restore-drills.md`
+- `tutorials/mainframe-modernization-and-cutover.md`
+- `tutorials/data-quality-tools-and-rule-operating-model.md`
 - `tutorials/etl-elt-modernization-and-cutover.md`
 - `tutorials/regulated-data-and-compliance-workflows.md`
 - `tutorials/installing-vscode-and-jetbrains-plugins.md`

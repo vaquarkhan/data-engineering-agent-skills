@@ -9,6 +9,8 @@ description: Adapts the core skills for Databricks-centered data platforms. Use 
 
 Use this preset when `Databricks` is the primary execution and governance surface, whether it runs on `AWS`, `Azure`, or `GCP`. It maps workflows to `Delta Lake`, `Unity Catalog`, `Databricks Workflows`, `Auto Loader`, `Delta Live Tables`, medallion-style layering, and Spark-native pipelines.
 
+Pair this preset with `skills/unity-catalog-and-lakehouse-governance/SKILL.md` when `Unity Catalog`, storage credentials, external locations, and governed sharing are the main execution boundary.
+
 ## Use When
 
 - the platform standard is `Databricks`

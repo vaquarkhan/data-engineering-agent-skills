@@ -2,15 +2,18 @@ name: Release Artifacts
 
 on:
   push:
+    branches:
+      - main
     tags:
       - "v*"
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  build-release-artifacts:
     runs-on: ubuntu-latest
 
     steps:
@@ -36,25 +39,39 @@ jobs:
       - name: Validate repository structure
         run: |
           python scripts/validate-skills.py
+          python scripts/validate-assets.py
           python scripts/check-links.py
 
       - name: Build release assets
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p dist
-          VERSION="${GITHUB_REF_NAME:-manual}"
-          VERSION="${VERSION#v}"
+          mkdir -p ../dist
+          if [[ "${GITHUB_REF_TYPE:-}" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="ci-${GITHUB_SHA::7}"
+          fi
           npx @vscode/vsce package --out "../dist/data-engineering-agent-skills-${VERSION}.vsix"
           cd ../jetbrains-plugin
           chmod +x gradlew
           ./gradlew buildPlugin
           cp build/distributions/*.zip ../dist/
-          cd ../dist
+          cd ..
+          JETBRAINS_ZIP="$(ls dist/*.zip | head -n 1)"
+          python scripts/test-plugin-installation.py --vsix "dist/data-engineering-agent-skills-${VERSION}.vsix" --jetbrains-zip "$JETBRAINS_ZIP"
+          cd dist
           sha256sum * > SHA256SUMS.txt
         working-directory: vscode-extension
 
+      - name: Upload release build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts-ci
+          path: dist/*
+
       - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*

@@ -23,7 +23,9 @@ dataset_contract:
         type: decimal(18,2)
         nullable: false
   freshness:
+    field: event_date
     cadence: daily
+    max_age_hours: 24
     available_by_utc: "08:00"
   quality:
     checks:

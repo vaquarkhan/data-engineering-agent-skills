@@ -1,0 +1,13 @@
+{
+  "config": {
+    "MD013": false,
+    "MD022": false,
+    "MD024": {
+      "siblings_only": true
+    },
+    "MD029": false,
+    "MD032": false,
+    "MD033": false,
+    "MD041": false
+  }
+}

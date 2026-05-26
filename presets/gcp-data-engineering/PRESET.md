@@ -9,6 +9,10 @@ description: Adapts the core skills for Google Cloud data engineering teams. Use
 
 Use this preset when the data platform is centered on Google Cloud. It maps shared workflows to `Cloud Storage`, `BigQuery`, `Dataflow`, `Dataproc`, `Composer`, `Pub/Sub`, `Dataplex`, and Google Cloud observability services.
 
+Pair this preset with `skills/bigquery-and-dataform-platform-engineering/SKILL.md` when `BigQuery` physical design, `Dataform`, and warehouse-native delivery are the main execution boundary.
+
+Pair this preset with `skills/dataplex-and-bigquery-governance/SKILL.md` when `Dataplex`, policy tags, and GCP-native governed publishing are the main concern.
+
 ## Use When
 
 - using `BigQuery` as the core analytics engine

@@ -18,6 +18,16 @@ Use these tutorials when you want a step-by-step adoption path instead of only a
   Applied walkthrough for event backbone, CDC, replay-safe sinks, DLQ, lateness, and state-recovery design choices.
 - `tutorials/data-resiliency-testing-patterns.md`  
   Practical tutorial for failure drills, restart behavior, replay safety, backlog catch-up, and publish-protection testing.
+- `tutorials/platform-native-governance-patterns.md`  
+  Guided tutorial for choosing native governance patterns across `Glue Data Catalog`, `Lake Formation`, `Unity Catalog`, `Purview`, and `Dataplex`.
+- `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`  
+  Guided walkthrough for `SFTP`, managed file transfer, recurring extracts, landing validation, replay safety, and controlled publish for partner-managed feeds.
+- `tutorials/disaster-recovery-and-restore-drills.md`  
+  Practical tutorial for `RTO` and `RPO`, backup and restore dependencies, failover choices, publish protection, and recovery drill execution.
+- `tutorials/mainframe-modernization-and-cutover.md`  
+  Guided tutorial for offloading and modernizing mainframe-origin data with coexistence, reconciliation, and cutover planning.
+- `tutorials/data-quality-tools-and-rule-operating-model.md`  
+  Practical tutorial for designing data-quality rule ownership, severity, tool boundaries, and publish behavior across multiple quality frameworks.
 - `tutorials/etl-elt-modernization-and-cutover.md`  
   Detailed walkthrough for choosing `ETL`, `ELT`, or hybrid modernization patterns with parity, cutover, and retirement planning.
 - `tutorials/regulated-data-and-compliance-workflows.md`  
@@ -31,9 +41,14 @@ Use these tutorials when you want a step-by-step adoption path instead of only a
 4. `tutorials/pipeline-orchestration-patterns.md`
 5. `tutorials/streaming-architecture-patterns.md`
 6. `tutorials/data-resiliency-testing-patterns.md`
-7. `tutorials/etl-elt-modernization-and-cutover.md`
-8. `tutorials/regulated-data-and-compliance-workflows.md`
-9. `tutorials/installing-vscode-and-jetbrains-plugins.md`
+7. `tutorials/platform-native-governance-patterns.md`
+8. `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
+9. `tutorials/disaster-recovery-and-restore-drills.md`
+10. `tutorials/mainframe-modernization-and-cutover.md`
+11. `tutorials/data-quality-tools-and-rule-operating-model.md`
+12. `tutorials/etl-elt-modernization-and-cutover.md`
+13. `tutorials/regulated-data-and-compliance-workflows.md`
+14. `tutorials/installing-vscode-and-jetbrains-plugins.md`
 
 ## Who These Tutorials Are For
 

@@ -1,0 +1,34 @@
+dataset_contract:
+  name: curated_customers
+  owner: platform@example.com
+  domain: customer
+  layer: curated
+  description: Canonical curated customer records prepared for downstream analytics and governed publish layers.
+  grain: one row per customer record version
+  keys:
+    business_key:
+      - customer_id
+  schema:
+    version: v1
+    columns:
+      - name: customer_id
+        type: string
+        nullable: false
+      - name: customer_name
+        type: string
+        nullable: false
+      - name: country
+        type: string
+        nullable: false
+      - name: updated_at
+        type: timestamp
+        nullable: false
+  freshness:
+    field: updated_at
+    cadence: daily
+    max_age_hours: 48
+    available_by_utc: "02:00"
+  quality:
+    checks:
+      - unique: [customer_id, updated_at]
+      - not_null: [customer_id, customer_name, country, updated_at]

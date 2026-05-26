@@ -19,7 +19,7 @@ def main() -> None:
             normalized = {
                 "customer_id": record["id"],
                 "customer_name": record["name"].strip(),
-                "country": record.get("country", "unknown"),
+                "country": record.get("country", "unknown").upper(),
                 "updated_at": record["updated_at"],
             }
             dst.write(json.dumps(normalized) + "\n")

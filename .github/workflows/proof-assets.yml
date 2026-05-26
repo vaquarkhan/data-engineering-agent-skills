@@ -1,0 +1,50 @@
+name: Proof Assets
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  proof-assets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install proof dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-proof.txt
+
+      - name: Run AWS lakehouse example smoke test
+        run: |
+          python examples/aws-s3-glue-athena-iceberg/jobs/normalize_customers.py --input examples/aws-s3-glue-athena-iceberg/data/customers.jsonl --output examples/aws-s3-glue-athena-iceberg/build/customers.ndjson
+          python scripts/validate_dataset_contract.py --contract examples/aws-s3-glue-athena-iceberg/contracts/customers-contract.yaml --data examples/aws-s3-glue-athena-iceberg/build/customers.ndjson --reference-time 2026-05-02T00:00:00Z
+          python examples/aws-s3-glue-athena-iceberg/jobs/reconcile_customers.py --source examples/aws-s3-glue-athena-iceberg/data/customers.jsonl --normalized examples/aws-s3-glue-athena-iceberg/build/customers.ndjson
+
+      - name: Run dbt warehouse example smoke test
+        run: |
+          cd examples/dbt-warehouse-marts
+          python -c "from pathlib import Path; Path('build').mkdir(exist_ok=True)"
+          export DBT_DUCKDB_PATH=build/dbt_warehouse_marts.duckdb
+          dbt seed --project-dir . --profiles-dir profiles
+          dbt run --project-dir . --profiles-dir profiles
+          dbt test --project-dir . --profiles-dir profiles
+          python ../../scripts/validate_dataset_contract.py --contract contracts/fct_daily_revenue-contract.yaml --duckdb build/dbt_warehouse_marts.duckdb --query "select * from fct_daily_revenue order by order_date"
+
+      - name: Run streaming harness smoke test
+        run: |
+          python examples/kafka-flink-streaming/src/producer.py --input examples/kafka-flink-streaming/sample/order-events.jsonl --topic-log examples/kafka-flink-streaming/build/topic/order-events.jsonl --reset
+          python examples/kafka-flink-streaming/src/stream_job.py --input examples/kafka-flink-streaming/build/topic/order-events.jsonl --output examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint-output examples/kafka-flink-streaming/build/checkpoints/state.json
+          python scripts/validate_dataset_contract.py --contract examples/kafka-flink-streaming/contracts/windowed-orders-contract.yaml --data examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl
+          python examples/kafka-flink-streaming/src/validate_sink.py --sink examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint examples/kafka-flink-streaming/build/checkpoints/state.json
+          python examples/kafka-flink-streaming/src/replay.py --input examples/kafka-flink-streaming/sample/order-events.jsonl --topic-log examples/kafka-flink-streaming/build/topic/order-events.jsonl
+          python examples/kafka-flink-streaming/src/stream_job.py --input examples/kafka-flink-streaming/build/topic/order-events.jsonl --output examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint-output examples/kafka-flink-streaming/build/checkpoints/state.json
+          python examples/kafka-flink-streaming/src/validate_sink.py --sink examples/kafka-flink-streaming/build/sink/windowed-orders.jsonl --checkpoint examples/kafka-flink-streaming/build/checkpoints/state.json

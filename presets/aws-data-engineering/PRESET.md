@@ -9,6 +9,8 @@ description: Adapts the core skills for AWS-native data engineering teams. Use w
 
 Use this preset when the data platform is primarily AWS-native. It maps common data engineering concerns to services such as `S3`, `Glue`, `Athena`, `Redshift`, `EMR`, `Kinesis`, `Lake Formation`, `MWAA`, and `CloudWatch`.
 
+Pair this preset with `skills/glue-data-catalog-and-lake-formation-governance/SKILL.md` when `Glue Data Catalog`, `Lake Formation`, governed sharing, and AWS-native metadata boundaries are the main concern.
+
 ## Use When
 
 - landing and serving data on `AWS`

@@ -7,8 +7,10 @@ This tutorial explains how to install and use the repository through its native 
 By the end of this tutorial, you should be able to:
 
 - install the `VS Code` family extension from the release asset
+- understand the marketplace publish path for the extension
 - use the extension commands to install repo assets into a workspace
 - install the `JetBrains` plugin ZIP
+- understand the marketplace publish path for the JetBrains plugin
 - use the plugin actions from the IDE
 - decide when the plugin path is better than direct file-based setup
 
@@ -29,6 +31,8 @@ The release page is linked from:
 
 - `README.md`
 - the repository Releases tab
+
+When marketplace publishing is configured, the same extension can also be published through the workflow described in `docs/plugin-publishing.md`.
 
 ### Step 2: Install The `.vsix`
 
@@ -96,6 +100,8 @@ The plugin targets IntelliJ-platform IDEs such as:
 ### Step 1: Download The Plugin ZIP
 
 Download the JetBrains plugin ZIP from the latest repository release.
+
+When marketplace publishing is configured, the JetBrains plugin can also be published through the workflow described in `docs/plugin-publishing.md`.
 
 ### Step 2: Install From Disk
 
@@ -202,5 +208,6 @@ Instead use:
 - `docs/getting-started.md`
 - `docs/cursor-setup.md`
 - `docs/jetbrains-setup.md`
+- `docs/plugin-publishing.md`
 - `vscode-extension/README.md`
 - `jetbrains-plugin/README.md`

@@ -1,0 +1,27 @@
+dataset_contract:
+  name: fct_daily_revenue
+  owner: analytics@example.com
+  domain: finance
+  layer: publish
+  description: Daily revenue mart used for dashboards and downstream financial reporting checks.
+  grain: one row per order_date
+  keys:
+    business_key:
+      - order_date
+  schema:
+    version: v1
+    columns:
+      - name: order_date
+        type: date
+        nullable: false
+      - name: daily_revenue
+        type: decimal(18,2)
+        nullable: false
+  freshness:
+    field: order_date
+    cadence: daily
+  quality:
+    checks:
+      - unique: [order_date]
+      - not_null: [order_date, daily_revenue]
+      - row_count_min: 1

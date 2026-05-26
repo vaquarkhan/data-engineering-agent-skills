@@ -31,6 +31,12 @@ All notable changes to this repository will be documented in this file.
 - resiliency testing coverage for restart drills, failure injection, failover validation, backlog catch-up, checkpoint recovery, and publish protection through a dedicated skill, reference guide, starter pack, and install-surface wiring
 - pattern-based tutorials for cloud architecture, pipeline orchestration, streaming architecture, and resiliency testing so users can follow guided walkthroughs instead of only reference guides
 - more detailed tutorial coverage for `ETL` or `ELT` modernization and regulated-data compliance workflows, plus a richer example catalog that maps each example to scenarios, stack patterns, and starting skills
+- new high-value missing-skill coverage for partner file ingestion, disaster recovery and business continuity, platform operating models, `Snowflake`-native pipelines, and `BigQuery` plus `Dataform` execution workflows
+- a human-readable `references/README.md` selector plus new ingestion and disaster-recovery tutorials and checklist references for faster adoption
+- platform-native governance coverage for `Glue Data Catalog`, `Lake Formation`, `Unity Catalog`, `Microsoft Purview`, and `Dataplex` plus new governance reference and tutorial assets
+- mainframe modernization and data offload guidance plus stronger data-quality tooling and rule-management coverage across `dbt`, `Great Expectations`, `Deequ`, `Cuallee`, `Soda`, and warehouse-native quality flows
+- release and plugin packaging updates for the `2.0.0` line, including install smoke tests, marketplace-publish scaffolding, release badge improvements, and stronger release-asset validation
+- proof assets for executable examples, including a dataset-contract validator CLI, `dbt` plus `DuckDB` local execution, replay-safe streaming harness validation, reconciliation checks, and a dedicated proof workflow
 
 ## 2026-05-25
 

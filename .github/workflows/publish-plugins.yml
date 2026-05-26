@@ -1,0 +1,97 @@
+name: Publish Plugins
+
+on:
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish-plugins:
+    runs-on: ubuntu-latest
+    env:
+      VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
+      JETBRAINS_MARKETPLACE_TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+      JETBRAINS_CERTIFICATE_CHAIN: ${{ secrets.JETBRAINS_CERTIFICATE_CHAIN }}
+      JETBRAINS_PRIVATE_KEY: ${{ secrets.JETBRAINS_PRIVATE_KEY }}
+      JETBRAINS_PRIVATE_KEY_PASSWORD: ${{ secrets.JETBRAINS_PRIVATE_KEY_PASSWORD }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Validate repository before publish
+        run: |
+          python scripts/validate-skills.py
+          python scripts/check-links.py
+
+      - name: Build VS Code extension package
+        run: |
+          mkdir -p ../dist
+          npx @vscode/vsce package --out ../dist/data-engineering-agent-skills-publish.vsix
+        working-directory: vscode-extension
+
+      - name: Build JetBrains plugin package
+        run: |
+          chmod +x gradlew
+          ./gradlew buildPlugin
+          mkdir -p ../dist
+          cp build/distributions/*.zip ../dist/
+        working-directory: jetbrains-plugin
+
+      - name: Smoke-test packaged plugin artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          JETBRAINS_ZIP="$(ls dist/*.zip | head -n 1)"
+          python scripts/test-plugin-installation.py --vsix dist/data-engineering-agent-skills-publish.vsix --jetbrains-zip "$JETBRAINS_ZIP"
+
+      - name: Publish VS Code extension to Marketplace
+        if: ${{ env.VSCE_PAT != '' }}
+        run: npx @vscode/vsce publish --packagePath ../dist/data-engineering-agent-skills-publish.vsix
+        working-directory: vscode-extension
+
+      - name: Publish VS Code extension to Open VSX
+        if: ${{ env.OVSX_PAT != '' }}
+        run: npx ovsx publish ../dist/data-engineering-agent-skills-publish.vsix -p "$OVSX_PAT"
+        working-directory: vscode-extension
+
+      - name: Sign JetBrains plugin
+        if: ${{ env.JETBRAINS_MARKETPLACE_TOKEN != '' && env.JETBRAINS_CERTIFICATE_CHAIN != '' && env.JETBRAINS_PRIVATE_KEY != '' && env.JETBRAINS_PRIVATE_KEY_PASSWORD != '' }}
+        run: |
+          chmod +x gradlew
+          ./gradlew signPlugin
+        working-directory: jetbrains-plugin
+
+      - name: Publish JetBrains plugin to Marketplace
+        if: ${{ env.JETBRAINS_MARKETPLACE_TOKEN != '' && env.JETBRAINS_CERTIFICATE_CHAIN != '' && env.JETBRAINS_PRIVATE_KEY != '' && env.JETBRAINS_PRIVATE_KEY_PASSWORD != '' }}
+        run: |
+          chmod +x gradlew
+          ./gradlew publishPlugin
+        working-directory: jetbrains-plugin
+
+      - name: Upload publish-ready plugin artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-ready-plugin-artifacts
+          path: dist/*

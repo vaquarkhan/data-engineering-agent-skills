@@ -9,6 +9,8 @@ description: Adapts the core skills for Azure-native data engineering teams. Use
 
 Use this preset when the platform is centered on Azure services. It maps core workflows to `ADLS Gen2`, `Data Factory`, `Synapse`, `Event Hubs`, `Azure Databricks`, `Purview`, `Key Vault`, and Azure monitoring services.
 
+Pair this preset with `skills/microsoft-purview-and-azure-data-governance/SKILL.md` when `Purview`, certification, lineage, and Azure-native governance are the main execution boundary.
+
 ## Use When
 
 - storage and governance are anchored in `Azure`

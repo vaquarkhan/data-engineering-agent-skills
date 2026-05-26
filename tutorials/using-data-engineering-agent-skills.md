@@ -122,6 +122,45 @@ Use one small bundle based on the task.
 - `references/data-resiliency-testing-patterns.md`
 - `templates/incident-runbook.md` and `templates/backfill-plan.yaml`
 
+### Example: partner file ingestion
+
+- `skills/using-data-engineering-agent-skills/SKILL.md`
+- `skills/file-and-partner-feed-ingestion/SKILL.md`
+- `skills/source-reliability-and-extraction-resilience/SKILL.md`
+- `references/file-ingestion-checklist.md`
+- `templates/source-contract.yaml`
+
+### Example: platform-native governance
+
+- `skills/using-data-engineering-agent-skills/SKILL.md`
+- the matching governance skill such as `glue-data-catalog-and-lake-formation-governance`, `unity-catalog-and-lakehouse-governance`, `microsoft-purview-and-azure-data-governance`, or `dataplex-and-bigquery-governance`
+- the matching cloud preset
+- `references/platform-native-governance-patterns.md`
+
+### Example: mainframe modernization
+
+- `skills/using-data-engineering-agent-skills/SKILL.md`
+- `skills/mainframe-modernization-and-data-offload/SKILL.md`
+- `skills/data-migration-and-platform-cutover/SKILL.md`
+- `skills/data-reconciliation-and-financial-controls/SKILL.md`
+- `references/mainframe-modernization-checklist.md`
+
+### Example: data-quality tool strategy
+
+- `skills/using-data-engineering-agent-skills/SKILL.md`
+- `skills/data-quality-platforms-and-rule-management/SKILL.md`
+- `skills/data-quality-and-contract-testing/SKILL.md`
+- `skills/great-expectations-deequ-and-cuallee/SKILL.md`
+- `references/data-quality-tooling-and-rule-management.md`
+
+### Example: disaster recovery planning
+
+- `skills/using-data-engineering-agent-skills/SKILL.md`
+- `skills/data-platform-disaster-recovery-and-business-continuity/SKILL.md`
+- `skills/data-resiliency-testing-and-failure-injection/SKILL.md`
+- `references/data-platform-dr-bcp-checklist.md`
+- `templates/incident-runbook.md`
+
 ### Example: regulated data work
 
 - `skills/using-data-engineering-agent-skills/SKILL.md`
@@ -232,6 +271,11 @@ If you want a guided walkthrough for one design area instead of the whole reposi
 - `tutorials/pipeline-orchestration-patterns.md`
 - `tutorials/streaming-architecture-patterns.md`
 - `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/platform-native-governance-patterns.md`
+- `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
+- `tutorials/disaster-recovery-and-restore-drills.md`
+- `tutorials/mainframe-modernization-and-cutover.md`
+- `tutorials/data-quality-tools-and-rule-operating-model.md`
 - `tutorials/etl-elt-modernization-and-cutover.md`
 - `tutorials/regulated-data-and-compliance-workflows.md`
 

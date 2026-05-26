@@ -30,12 +30,14 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ## Build And Model
 
 - `api-and-saas-ingestion-patterns`
+- `file-and-partner-feed-ingestion`
 - `source-reliability-and-extraction-resilience`
 - `python-data-engineering-and-pipeline-packaging`
 - `scala-data-engineering-on-jvm-runtimes`
 - `java-data-engineering-and-integration-services`
 - `etl-elt-and-modernization-strategy`
 - `enterprise-etl-and-data-integration-modernization`
+- `mainframe-modernization-and-data-offload`
 - `dbt-and-analytics-engineering`
 - `cdc-and-incremental-loading`
 - `debezium-and-kafka-connect-cdc`
@@ -60,6 +62,10 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `schema-evolution-and-contract-migrations`
 - `privacy-retention-and-right-to-delete`
 - `data-catalog-and-discovery`
+- `glue-data-catalog-and-lake-formation-governance`
+- `unity-catalog-and-lakehouse-governance`
+- `microsoft-purview-and-azure-data-governance`
+- `dataplex-and-bigquery-governance`
 - `openmetadata-datahub-and-openlineage`
 - `avro-protobuf-json-schema-registry`
 - `data-contract-testing-with-schema-registry`
@@ -71,7 +77,9 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ## Operate And Recover
 
 - `data-quality-and-contract-testing`
+- `data-quality-platforms-and-rule-management`
 - `data-resiliency-testing-and-failure-injection`
+- `data-platform-disaster-recovery-and-business-continuity`
 - `test-data-preparation-and-synthetic-data`
 - `warehouse-performance-and-cost-optimization`
 - `data-observability-and-sla-management`
@@ -87,6 +95,9 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `clickhouse-real-time-analytics`
 - `superset-and-metrics-serving`
 - `lakefs-and-data-versioning`
+- `snowflake-native-pipelines-and-governance`
+- `bigquery-and-dataform-platform-engineering`
+- `data-platform-operating-model-and-service-ownership`
 
 ## Platform Presets
 
@@ -122,6 +133,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - preset: choose the platform stack
 - skills: `api-and-saas-ingestion-patterns`, `source-reliability-and-extraction-resilience`, `cdc-and-incremental-loading`
 
+### Partner File Ingestion
+
+- preset: choose the platform stack
+- skills: `file-and-partner-feed-ingestion`, `source-reliability-and-extraction-resilience`, `data-quality-and-contract-testing`
+
 ### Python Data Pipelines
 
 - preset: choose the platform stack
@@ -145,7 +161,7 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ### Warehouse Analytics
 
 - preset: `snowflake-modern-data-platform` or `gcp-data-engineering`
-- skills: `warehouse-and-schema-design`, `dbt-and-analytics-engineering`, `semantic-layer-and-metric-governance`
+- skills: `warehouse-and-schema-design`, `dbt-and-analytics-engineering`, `semantic-layer-and-metric-governance`, `snowflake-native-pipelines-and-governance`, `bigquery-and-dataform-platform-engineering`
 
 ### Operational Store Selection
 
@@ -170,7 +186,7 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ### Governance And Privacy
 
 - preset: choose the platform stack
-- skills: `lineage-pii-and-governance`, `privacy-retention-and-right-to-delete`, `data-catalog-and-discovery`
+- skills: `lineage-pii-and-governance`, `privacy-retention-and-right-to-delete`, `data-catalog-and-discovery`, `glue-data-catalog-and-lake-formation-governance`, `unity-catalog-and-lakehouse-governance`, `microsoft-purview-and-azure-data-governance`, `dataplex-and-bigquery-governance`
 
 ### Regulated Data And Compliance
 
@@ -186,6 +202,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: `informatica-data-integration` or `talend-data-integration`
 - skills: `enterprise-etl-and-data-integration-modernization`, `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`
+
+### Mainframe Modernization
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `mainframe-modernization-and-data-offload`, `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`
 
 ### ETL And ELT Modernization
 
@@ -207,6 +228,16 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - preset: `multi-cloud-hybrid-data-engineering`
 - skills: `data-platform-ci-cd-and-release-management`, `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`
 
+### Platform Disaster Recovery
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-platform-disaster-recovery-and-business-continuity`, `data-resiliency-testing-and-failure-injection`, `incident-triage-and-pipeline-recovery`
+
+### Platform Operating Model
+
+- preset: `multi-cloud-hybrid-data-engineering`
+- skills: `data-platform-operating-model-and-service-ownership`, `data-platform-ci-cd-and-release-management`, `data-catalog-and-discovery`
+
 ### Resiliency Testing
 
 - preset: `multi-cloud-hybrid-data-engineering`
@@ -216,6 +247,11 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: `multi-cloud-hybrid-data-engineering`
 - skills: `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`, `data-security-compliance-and-regulated-data`
+
+### Data Quality Operating Model
+
+- preset: choose the platform stack
+- skills: `data-quality-platforms-and-rule-management`, `data-quality-and-contract-testing`, `great-expectations-deequ-and-cuallee`
 
 ### Regional Compliance And Sovereignty
 

@@ -35,6 +35,8 @@ Files included:
 
 - `Makefile`
 - `jobs/normalize_customers.py`
+- `jobs/reconcile_customers.py`
+- `contracts/customers-contract.yaml`
 - `config/lake-layout.yaml`
 - `sql/create_publish_view.sql`
 - `data/customers.jsonl`
@@ -43,5 +45,13 @@ Files included:
 
 ```bash
 python jobs/normalize_customers.py --input data/customers.jsonl --output build/customers.ndjson
+python ../../scripts/validate_dataset_contract.py --contract contracts/customers-contract.yaml --data build/customers.ndjson --reference-time 2026-05-02T00:00:00Z
+python jobs/reconcile_customers.py --source data/customers.jsonl --normalized build/customers.ndjson
 make publish-sql
+```
+
+Or run the full local proof path:
+
+```bash
+make smoke-test
 ```

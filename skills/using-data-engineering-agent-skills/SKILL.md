@@ -25,15 +25,21 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - New data product, new pipeline, or major behavior change: use `data-specification`
    - Approved scope that needs sequencing: use `pipeline-planning-and-task-breakdown`
    - Implementation across code, SQL, or jobs: use the relevant build skill plus a matching preset
+   - File drops, `SFTP`, or partner-managed feeds: use `file-and-partner-feed-ingestion`
+   - `Glue Data Catalog`, `Lake Formation`, or AWS-native catalog governance: use `glue-data-catalog-and-lake-formation-governance`
    - `Python` implementation work: use `python-data-engineering-and-pipeline-packaging`
    - `Scala` JVM data jobs: use `scala-data-engineering-on-jvm-runtimes`
    - `Java` connectors or data services: use `java-data-engineering-and-integration-services`
+   - `Unity Catalog` or Databricks lakehouse governance: use `unity-catalog-and-lakehouse-governance`
+   - `Purview` or Azure-native governance: use `microsoft-purview-and-azure-data-governance`
+   - `Dataplex`, policy tags, or `BigQuery` governance: use `dataplex-and-bigquery-governance`
    - `MySQL` versus `NoSQL` or operational-store choice: use `operational-datastore-selection-relational-and-nosql`
    - `ETL`, `ELT`, or transformation-boundary redesign: use `etl-elt-and-modernization-strategy`
    - Test data generation, seeded fixtures, or lower-environment realism: use `test-data-preparation-and-synthetic-data`
    - Production-like data refresh into development, QA, or staging: use `lower-environment-data-masking-and-obfuscation`
    - Quality, reconciliation, or contract correctness: use `data-quality-and-contract-testing`
    - Resiliency testing, failure injection, restart drills, or failover validation: use `data-resiliency-testing-and-failure-injection`
+   - Disaster recovery or business continuity planning: use `data-platform-disaster-recovery-and-business-continuity`
    - Reliability issue, incident, or broken publish: use `incident-triage-and-pipeline-recovery`
    - Replay, rerun, cutover, or historical repair: use `orchestration-and-backfills` and `data-migration-and-platform-cutover`
    - Governance, lineage, privacy, or access changes: use `lineage-pii-and-governance`
@@ -42,12 +48,18 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - sustainability or `ESG` reporting data products: use `esg-and-sustainability-regulatory-reporting`
    - Schema changes or breaking contracts: use `schema-evolution-and-contract-migrations`
    - `Informatica`, `Talend`, or legacy ETL modernization: use `enterprise-etl-and-data-integration-modernization`
+   - mainframe data offload or modernization: use `mainframe-modernization-and-data-offload`
+   - Platform-team ownership, golden paths, or support-boundary design: use `data-platform-operating-model-and-service-ownership`
+   - quality tool selection, rule severity, or quality operating model: use `data-quality-platforms-and-rule-management`
 
 2. Choose the execution surface.
    - Python pipeline or validation package: `python-data-engineering-and-pipeline-packaging`
    - Scala Spark or JVM stream job: `scala-data-engineering-on-jvm-runtimes`
    - Java connector or metadata service: `java-data-engineering-and-integration-services`
    - Warehouse/dbt work: `warehouse-and-schema-design` + `dbt-and-analytics-engineering`
+   - Snowflake-native warehouse pipelines: `snowflake-native-pipelines-and-governance`
+   - BigQuery or Dataform platform workflows: `bigquery-and-dataform-platform-engineering`
+   - Platform-native governance on `AWS`, `Azure`, `GCP`, or `Databricks`: use the matching governance skill plus the matching platform preset
    - Spark or distributed processing: `spark-and-distributed-processing`
    - Pipeline scheduling, DAG behavior, or event-driven orchestration: `airflow-and-workflow-orchestration`
    - Streaming or messaging: `streaming-and-messaging-systems`
@@ -105,14 +117,19 @@ Do not stop here once the task has been classified. Load the actual execution sk
 
 7. Pull in supporting references only when needed.
    - ingestion: `references/api-saas-ingestion-checklist.md`
+   - file feeds: `references/file-ingestion-checklist.md`
    - quality: `references/data-quality-checklist.md`
    - security and compliance: `references/security-compliance-regulated-data-checklist.md`
    - asset discovery and install surfaces: `registry/assets.json`
    - testcase design: `references/data-validation-and-testcase-patterns.md`
    - resiliency testing: `references/data-resiliency-testing-patterns.md`
+   - disaster recovery: `references/data-platform-dr-bcp-checklist.md`
+   - operating model: `references/data-platform-operating-model-checklist.md`
+   - platform-native governance: `references/platform-native-governance-patterns.md`
    - platform security: `references/data-platform-security-checklist.md`
    - anti-pattern review: `references/data-engineering-anti-patterns.md`
    - ETL and ELT strategy: `references/etl-elt-modernization-checklist.md`
+   - mainframe modernization: `references/mainframe-modernization-checklist.md`
    - progressive release: `references/progressive-data-release-patterns.md`
    - test data: `references/test-data-preparation-checklist.md`
    - lower environments: `references/lower-environment-masking-checklist.md`
@@ -122,6 +139,8 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - streaming architecture: `references/streaming-architecture-patterns.md`
    - cloud-specific common architecture patterns: `references/cloud-data-engineering-architecture-patterns.md`
    - pipeline orchestration across schedulers and clouds: `references/pipeline-orchestration-patterns.md`
+   - data-quality tool boundaries and severity design: `references/data-quality-tooling-and-rule-management.md`
+   - reference selection: `references/README.md`
    - streaming: `references/streaming-checklist.md`
    - recovery: `references/incident-recovery-checklist.md`
    - schema change: `references/schema-migration-checklist.md`

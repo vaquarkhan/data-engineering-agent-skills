@@ -10,6 +10,7 @@ Use this process to publish repository updates in a way that is reviewable and a
 - templates
 - examples
 - agent packaging files
+- IDE plugins
 - scripts
 - MCP templates
 
@@ -18,8 +19,10 @@ Use this process to publish repository updates in a way that is reviewable and a
 1. Group changes into one coherent release theme.
 2. Update `CHANGELOG.md`.
 3. Update `skills-index.md` and `README.md` if discovery changes.
-4. Verify new examples or templates are internally consistent.
-5. Tag the release with a version and short release notes.
+4. Verify new examples, templates, and plugin installers are internally consistent.
+5. Run the workflow surfaces that matter for the release, especially `Validate and Package`, `Test Plugin Installation`, and `Markdown Lint`.
+6. Tag the release with a version and short release notes.
+7. Use `Publish Plugins` when marketplace publishing is configured.
 
 ## Release Themes
 
@@ -35,3 +38,4 @@ Use this process to publish repository updates in a way that is reviewable and a
 - who should care
 - how to install or adopt it
 - what examples or starter packs demonstrate the new capability
+- what plugin download or marketplace surfaces were updated

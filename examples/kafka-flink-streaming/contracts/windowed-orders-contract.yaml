@@ -1,0 +1,40 @@
+dataset_contract:
+  name: windowed_order_metrics
+  owner: streaming@example.com
+  domain: orders
+  layer: publish
+  description: Windowed order metrics emitted by the local streaming harness before downstream analytics consumption.
+  grain: one row per event_type per five-minute window
+  keys:
+    business_key:
+      - window_start
+      - event_type
+  schema:
+    version: v1
+    columns:
+      - name: window_start
+        type: timestamp
+        nullable: false
+      - name: window_end
+        type: timestamp
+        nullable: false
+      - name: event_type
+        type: string
+        nullable: false
+      - name: unique_orders
+        type: integer
+        nullable: false
+      - name: total_events
+        type: integer
+        nullable: false
+      - name: gross_amount
+        type: decimal(18,2)
+        nullable: false
+  freshness:
+    field: window_end
+    cadence: near_real_time
+  quality:
+    checks:
+      - unique: [window_start, event_type]
+      - not_null: [window_start, window_end, event_type, unique_orders, total_events, gross_amount]
+      - row_count_min: 1

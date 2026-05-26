@@ -62,12 +62,14 @@ Each example includes:
 
 ## Runnable Example Scaffolds
 
-The following examples also include minimal runnable scaffolds with sample configs and commands:
+The following examples include local proof paths with sample configs, validation commands, and smoke-test targets:
 
 - `aws-s3-glue-athena-iceberg`
 - `databricks-delta-medallion`
 - `dbt-warehouse-marts`
 - `kafka-flink-streaming`
+
+Use `make smoke-test` inside each runnable example directory to execute the local proof slice when a `Makefile` is present.
 
 ## How To Use An Example
 

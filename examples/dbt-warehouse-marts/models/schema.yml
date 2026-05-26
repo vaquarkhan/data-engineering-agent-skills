@@ -6,11 +6,16 @@ models:
       - name: order_id
         tests:
           - not_null
+          - unique
       - name: amount
         tests:
           - not_null
   - name: fct_daily_revenue
     columns:
       - name: order_date
+        tests:
+          - not_null
+          - unique
+      - name: daily_revenue
         tests:
           - not_null

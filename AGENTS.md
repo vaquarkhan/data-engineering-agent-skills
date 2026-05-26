@@ -26,9 +26,17 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - `Python` data pipeline implementation -> `python-data-engineering-and-pipeline-packaging`
 - `Scala` Spark, Flink, or JVM data job implementation -> `scala-data-engineering-on-jvm-runtimes`
 - `Java` connector, integration, or metadata service work -> `java-data-engineering-and-integration-services`
+- file drops, `SFTP`, or partner-managed feeds -> `file-and-partner-feed-ingestion`
+- `Glue Data Catalog` or `Lake Formation` governance -> `glue-data-catalog-and-lake-formation-governance`
+- `Unity Catalog` governance -> `unity-catalog-and-lakehouse-governance`
+- `Purview` or Azure governance -> `microsoft-purview-and-azure-data-governance`
+- `Dataplex` or `BigQuery` governance -> `dataplex-and-bigquery-governance`
 - operational store choice such as `MySQL` versus `NoSQL` -> `operational-datastore-selection-relational-and-nosql`
 - warehouse/dbt work -> `warehouse-and-schema-design` + `dbt-and-analytics-engineering`
+- `Snowflake` warehouse-native pipelines -> `snowflake-native-pipelines-and-governance`
+- `BigQuery` or `Dataform` platform work -> `bigquery-and-dataform-platform-engineering`
 - `ETL` or `ELT` transformation-boundary work -> `etl-elt-and-modernization-strategy`
+- mainframe offload or modernization -> `mainframe-modernization-and-data-offload`
 - streaming work -> `streaming-and-messaging-systems`
 - lakehouse work -> `data-lake-and-zone-architecture` + `lakehouse-table-format-engineering`
 - release workflow, promotion design, or gated rollout -> `data-platform-ci-cd-and-release-management`
@@ -38,8 +46,11 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - regional or country-specific data obligations -> `regional-data-compliance-and-sovereignty`
 - `ESG` or sustainability reporting -> `esg-and-sustainability-regulatory-reporting`
 - quality or release gates -> `data-quality-and-contract-testing`
+- data-quality tool selection, rule severity, or quality operating model -> `data-quality-platforms-and-rule-management`
 - resiliency testing, failure injection, or failover drills -> `data-resiliency-testing-and-failure-injection`
+- disaster recovery or business continuity planning -> `data-platform-disaster-recovery-and-business-continuity`
 - reliability issue -> `data-observability-and-sla-management` + `incident-triage-and-pipeline-recovery`
+- platform-team ownership, golden paths, or support-boundary design -> `data-platform-operating-model-and-service-ownership`
 - replay or migration work -> `orchestration-and-backfills` + `data-migration-and-platform-cutover`
 - regulated data and audit-bound publish paths -> `data-security-compliance-and-regulated-data` + `lineage-pii-and-governance`
 
@@ -67,6 +78,12 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - `hooks/README.md`
 - `references/data-testing-patterns.md`
 - `references/data-resiliency-testing-patterns.md`
+- `references/data-platform-dr-bcp-checklist.md`
+- `references/data-platform-operating-model-checklist.md`
+- `references/file-ingestion-checklist.md`
+- `references/platform-native-governance-patterns.md`
+- `references/mainframe-modernization-checklist.md`
+- `references/data-quality-tooling-and-rule-management.md`
 - `references/data-validation-and-testcase-patterns.md`
 - `references/data-platform-security-checklist.md`
 - `references/data-engineering-anti-patterns.md`
@@ -80,4 +97,5 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - `references/streaming-architecture-patterns.md`
 - `references/cloud-data-engineering-architecture-patterns.md`
 - `references/pipeline-orchestration-patterns.md`
+- `references/README.md`
 - `references/orchestration-patterns.md`

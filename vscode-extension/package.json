@@ -2,9 +2,14 @@
   "name": "data-engineering-agent-skills",
   "displayName": "Data Engineering Agent Skills",
   "description": "Install data engineering skill packs, starter packs, MCP templates, and runnable examples into a VS Code workspace.",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "publisher": "vaquarkhan",
+  "publisherDisplayName": "vaquarkhan",
   "license": "MIT",
+  "homepage": "https://github.com/vaquarkhan/data-engineering-agent-skills",
+  "bugs": {
+    "url": "https://github.com/vaquarkhan/data-engineering-agent-skills/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -14,9 +19,18 @@
   "categories": [
     "Other"
   ],
+  "galleryBanner": {
+    "color": "#0B7285",
+    "theme": "dark"
+  },
   "keywords": [
     "data-engineering",
     "agent-skills",
+    "data-platform",
+    "dbt",
+    "spark",
+    "airflow",
+    "databricks",
     "copilot",
     "cursor",
     "windsurf",
@@ -31,14 +45,6 @@
     "url": "https://github.com/vaquarkhan/data-engineering-agent-skills.git"
   },
   "main": "./extension.js",
-  "activationEvents": [
-    "onCommand:dataEngineeringSkills.installFullToolkit",
-    "onCommand:dataEngineeringSkills.installCorePack",
-    "onCommand:dataEngineeringSkills.installAgentAdapters",
-    "onCommand:dataEngineeringSkills.installStarterPack",
-    "onCommand:dataEngineeringSkills.installMcpTemplates",
-    "onCommand:dataEngineeringSkills.scaffoldRunnableExample"
-  ],
   "contributes": {
     "commands": [
       {

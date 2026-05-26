@@ -1,4 +1,8 @@
 job:
   name: order-events-enrichment
+  window_seconds: 300
   checkpoint_interval_seconds: 30
-  replay_strategy: from-beginning-for-backfill
+  replay_strategy: deduplicate-on-event-id
+  sink:
+    type: windowed-jsonl
+    path: build/sink/windowed-orders.jsonl

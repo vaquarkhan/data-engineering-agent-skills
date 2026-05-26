@@ -22,6 +22,16 @@ tasks {
         untilBuild.set("")
     }
 
+    signPlugin {
+        certificateChain.set(providers.environmentVariable("JETBRAINS_CERTIFICATE_CHAIN"))
+        privateKey.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY"))
+        password.set(providers.environmentVariable("JETBRAINS_PRIVATE_KEY_PASSWORD"))
+    }
+
+    publishPlugin {
+        token.set(providers.environmentVariable("JETBRAINS_MARKETPLACE_TOKEN"))
+    }
+
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
     }

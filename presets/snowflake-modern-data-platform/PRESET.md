@@ -9,6 +9,8 @@ description: Adapts the core skills for Snowflake-centered data platforms. Use w
 
 Use this preset when `Snowflake` is the primary data platform across one or more clouds. It maps core workflows to Snowflake databases, warehouses, tasks, streams, dynamic tables, governance features, and secure data-sharing patterns.
 
+Pair this preset with `skills/snowflake-native-pipelines-and-governance/SKILL.md` when the pipeline logic, governance controls, and publish paths are primarily Snowflake-native.
+
 ## Use When
 
 - `Snowflake` is the core storage and compute platform

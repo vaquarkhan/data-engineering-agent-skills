@@ -16,8 +16,10 @@ object InstallerData {
         "templates/schema-change-plan.yaml",
         "templates/release-gate-evidence.yaml",
         "templates/incident-runbook.md",
+        "requirements-proof.txt",
         "docs/getting-started.md",
         "docs/codex-setup.md",
+        "scripts/validate_dataset_contract.py",
         "hooks/README.md",
         "hooks/hooks.json",
         "hooks/session-start.sh",
@@ -206,10 +208,14 @@ object InstallerData {
             "examples/aws-s3-glue-athena-iceberg/plan.md",
             "examples/aws-s3-glue-athena-iceberg/tasks.md",
             "examples/aws-s3-glue-athena-iceberg/Makefile",
+            "examples/aws-s3-glue-athena-iceberg/contracts/customers-contract.yaml",
             "examples/aws-s3-glue-athena-iceberg/config/lake-layout.yaml",
             "examples/aws-s3-glue-athena-iceberg/jobs/normalize_customers.py",
+            "examples/aws-s3-glue-athena-iceberg/jobs/reconcile_customers.py",
             "examples/aws-s3-glue-athena-iceberg/sql/create_publish_view.sql",
-            "examples/aws-s3-glue-athena-iceberg/data/customers.jsonl"
+            "examples/aws-s3-glue-athena-iceberg/data/customers.jsonl",
+            "scripts/validate_dataset_contract.py",
+            "requirements-proof.txt"
         ),
         "Databricks Delta Medallion" to listOf(
             "examples/databricks-delta-medallion/README.md",
@@ -226,22 +232,34 @@ object InstallerData {
             "examples/dbt-warehouse-marts/spec.md",
             "examples/dbt-warehouse-marts/plan.md",
             "examples/dbt-warehouse-marts/tasks.md",
+            "examples/dbt-warehouse-marts/Makefile",
+            "examples/dbt-warehouse-marts/contracts/fct_daily_revenue-contract.yaml",
             "examples/dbt-warehouse-marts/dbt_project.yml",
+            "examples/dbt-warehouse-marts/profiles/profiles.yml",
             "examples/dbt-warehouse-marts/models/staging/stg_orders.sql",
             "examples/dbt-warehouse-marts/models/marts/fct_daily_revenue.sql",
             "examples/dbt-warehouse-marts/models/schema.yml",
-            "examples/dbt-warehouse-marts/seeds/orders.csv"
+            "examples/dbt-warehouse-marts/seeds/orders.csv",
+            "scripts/validate_dataset_contract.py",
+            "requirements-proof.txt"
         ),
         "Kafka Flink Streaming" to listOf(
             "examples/kafka-flink-streaming/README.md",
             "examples/kafka-flink-streaming/spec.md",
             "examples/kafka-flink-streaming/plan.md",
             "examples/kafka-flink-streaming/tasks.md",
+            "examples/kafka-flink-streaming/Makefile",
             "examples/kafka-flink-streaming/docker-compose.yml",
             "examples/kafka-flink-streaming/config/flink-job.yaml",
+            "examples/kafka-flink-streaming/contracts/windowed-orders-contract.yaml",
             "examples/kafka-flink-streaming/schemas/order-events.avsc",
+            "examples/kafka-flink-streaming/src/producer.py",
+            "examples/kafka-flink-streaming/src/replay.py",
             "examples/kafka-flink-streaming/src/stream_job.py",
-            "examples/kafka-flink-streaming/sample/order-events.jsonl"
+            "examples/kafka-flink-streaming/src/validate_sink.py",
+            "examples/kafka-flink-streaming/sample/order-events.jsonl",
+            "scripts/validate_dataset_contract.py",
+            "requirements-proof.txt"
         )
     )
 }

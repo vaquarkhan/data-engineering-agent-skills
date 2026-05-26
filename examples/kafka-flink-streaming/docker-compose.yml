@@ -1,12 +1,51 @@
 services:
-  kafka:
-    image: bitnami/kafka:latest
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.1.8
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp=1
+      - --memory=1G
+      - --reserve-memory=0M
+      - --node-id=0
+      - --check=false
+      - --kafka-addr=PLAINTEXT://0.0.0.0:9092,OUTSIDE://0.0.0.0:19092
+      - --advertise-kafka-addr=PLAINTEXT://redpanda:9092,OUTSIDE://localhost:19092
+    ports:
+      - "19092:19092"
+      - "9644:9644"
+
+  postgres:
+    image: postgres:16-alpine
     environment:
-      KAFKA_CFG_NODE_ID: 1
-      KAFKA_CFG_PROCESS_ROLES: controller,broker
-      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
-      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
-      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      ALLOW_PLAINTEXT_LISTENER: "yes"
+      POSTGRES_USER: stream
+      POSTGRES_PASSWORD: stream
+      POSTGRES_DB: stream
+    ports:
+      - "15432:5432"
+
+  jobmanager:
+    image: flink:1.18.1-scala_2.12-java17
+    command: jobmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./src:/opt/flink/usrlib/src
+      - ./schemas:/opt/flink/usrlib/schemas
+      - ./config:/opt/flink/usrlib/config
+    depends_on:
+      - redpanda
+
+  taskmanager:
+    image: flink:1.18.1-scala_2.12-java17
+    command: taskmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+    depends_on:
+      - jobmanager
