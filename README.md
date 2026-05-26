@@ -1,4 +1,4 @@
-![Data Engineering Agent Skills](images/DE-Skills-2.0.png)
+![Data Engineering Agent Skills](images/DE-Skills-2.1.png)
 
 # Data Engineering Agent Skills
 
