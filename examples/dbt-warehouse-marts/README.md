@@ -41,12 +41,13 @@ Files included:
 
 ```bash
 python -c "from pathlib import Path; Path('build').mkdir(exist_ok=True)"
-export DBT_DUCKDB_PATH=build/dbt_warehouse_marts.duckdb
 dbt seed --project-dir . --profiles-dir profiles
 dbt run --project-dir . --profiles-dir profiles
 dbt test --project-dir . --profiles-dir profiles
 python ../../scripts/validate_dataset_contract.py --contract contracts/fct_daily_revenue-contract.yaml --duckdb build/dbt_warehouse_marts.duckdb --query "select * from fct_daily_revenue order by order_date"
 ```
+
+The default profile writes to `build/dbt_warehouse_marts.duckdb` when you run the example from this directory. Set `DBT_DUCKDB_PATH` only if you want a different output location.
 
 Or run the full local proof path:
 

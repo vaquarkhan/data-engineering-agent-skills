@@ -32,7 +32,7 @@ The release page is linked from:
 - `README.md`
 - the repository Releases tab
 
-GitHub Releases are the default download surface. When marketplace publishing is configured and a publish release is executed, the same extension can also appear through the workflow described in `docs/plugin-publishing.md`.
+GitHub Releases are the default download surface. Do not assume the extension is already live on the `VS Code Marketplace` or `Open VSX` unless that listing is explicitly published and verified. The workflow in `docs/plugin-publishing.md` describes how to publish it.
 
 ### Step 2: Install The `.vsix`
 
@@ -101,7 +101,7 @@ The plugin targets IntelliJ-platform IDEs such as:
 
 Download the JetBrains plugin ZIP from the latest repository release.
 
-GitHub Releases are the default download surface. When marketplace publishing is configured and a publish release is executed, the JetBrains plugin can also appear through the workflow described in `docs/plugin-publishing.md`.
+GitHub Releases are the default download surface. Do not assume the plugin is already live on `JetBrains Marketplace` unless that listing is explicitly published and verified. The workflow in `docs/plugin-publishing.md` describes how to publish it.
 
 ### Step 2: Install From Disk
 

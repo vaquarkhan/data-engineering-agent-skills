@@ -1,13 +1,29 @@
 {
   "name": "airflow",
+  "description": "DAG metadata, task state, and log access for orchestration reviews, incidents, and backfill planning.",
   "transport": {
     "type": "stdio",
     "command": "airflow-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--timeout-seconds",
+      "30"
+    ],
     "env": {
       "AIRFLOW_BASE_URL": "${AIRFLOW_BASE_URL}",
       "AIRFLOW_USERNAME": "${AIRFLOW_USERNAME}",
-      "AIRFLOW_PASSWORD": "${AIRFLOW_PASSWORD}"
+      "AIRFLOW_PASSWORD": "${AIRFLOW_PASSWORD}",
+      "AIRFLOW_DAG_ALLOWLIST": "${AIRFLOW_DAG_ALLOWLIST}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "curl -u \"$AIRFLOW_USERNAME:$AIRFLOW_PASSWORD\" \"$AIRFLOW_BASE_URL/api/v1/health\""
+    ],
+    "best_for": [
+      "DAG run triage",
+      "backfill checks",
+      "task log inspection"
+    ]
   }
 }

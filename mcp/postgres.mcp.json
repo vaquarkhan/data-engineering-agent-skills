@@ -1,11 +1,29 @@
 {
   "name": "postgres",
+  "description": "Read-mostly SQL access for warehouse marts, operational metadata, and validation queries.",
   "transport": {
     "type": "stdio",
     "command": "postgres-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--default-schema",
+      "${POSTGRES_SCHEMA}"
+    ],
     "env": {
-      "POSTGRES_DSN": "${POSTGRES_DSN}"
+      "POSTGRES_DSN": "${POSTGRES_DSN}",
+      "POSTGRES_SCHEMA": "${POSTGRES_SCHEMA}",
+      "POSTGRES_SSLMODE": "${POSTGRES_SSLMODE}"
     }
+  },
+  "metadata": {
+    "recommended_dsn_shape": "postgresql://user:password@host:5432/dbname",
+    "validation": [
+      "psql \"$POSTGRES_DSN\" -c \"select current_database(), current_schema();\""
+    ],
+    "best_for": [
+      "contract validation queries",
+      "mart inspection",
+      "incident triage"
+    ]
   }
 }

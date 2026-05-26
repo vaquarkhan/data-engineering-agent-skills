@@ -33,19 +33,20 @@ This repository is structured to work with open `Agent Skills` registries:
 - descriptions are written for progressive disclosure so agents can decide when to load the full skill
 - supporting materials can live in `references/`, `templates/`, `examples/`, `hooks/`, and `scripts/`
 
-Registry-style install commands for tools that support `Agent Skills` registries:
+Real setup paths:
 
 ```bash
-npx skills add vaquarkhan/data-engineering-agent-skills
-gemini skills install https://github.com/vaquarkhan/data-engineering-agent-skills
 git clone https://github.com/vaquarkhan/data-engineering-agent-skills.git
-```
-
-If you want file-based setup instead of registry install, use:
-
-```bash
 scripts/install.sh --tool all --target /path/to/project
 ```
+
+Windows-friendly file install:
+
+```powershell
+pwsh scripts/install.ps1 --tool all --target C:\path\to\project
+```
+
+If your agent or editor supports importing a GitHub-hosted skill registry directly, use that tool's documented repository-install command against this repository URL rather than the example syntax from another project.
 
 For Python-based proof assets and validators, install local dependencies with:
 
@@ -69,17 +70,17 @@ pip install -r requirements.txt
 - `VS Code` family `.vsix`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 - `JetBrains` plugin `.zip`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
 - plugin publishing and marketplace workflow setup: `docs/plugin-publishing.md`
-- marketplace publication is workflow-ready, but requires configured publish secrets and a tagged release
+- marketplace publish workflows exist, but this repository should be treated as GitHub Releases-first unless a marketplace listing is explicitly published
 - `Claude` plugin bundle: use `.claude-plugin/`, `.claude/commands/`, and `CLAUDE.md`
 
 #### Install By Tool
 
 | Tool or surface | Best starting link | Install path |
 | --- | --- | --- |
-| `VS Code` | `vscode-extension/README.md` | download `.vsix` from Releases, then use the extension commands |
+| `VS Code` | `vscode-extension/README.md` | download `.vsix` from Releases, then use the extension commands; do not assume a live marketplace listing |
 | `Cursor` | `docs/cursor-setup.md` | use `.cursor/rules/` or `scripts/install.sh --tool cursor` |
 | `Claude` | `docs/claude-setup.md` | use `.claude/commands/`, `.claude-plugin/`, `CLAUDE.md`, or `scripts/install.sh --tool claude` |
-| `JetBrains` | `docs/jetbrains-setup.md` | download plugin `.zip` from Releases or use the JetBrains plugin workflow |
+| `JetBrains` | `docs/jetbrains-setup.md` | download plugin `.zip` from Releases; marketplace publish is optional and may not be active |
 | `Copilot` | `docs/copilot-setup.md` | use `.github/copilot-instructions.md` or `scripts/install.sh --tool copilot` |
 | `Kiro` | `docs/kiro-setup.md` | use `.kiro/steering/` or `scripts/install.sh --tool kiro` |
 | `Windsurf` | `docs/windsurf-setup.md` | use `.windsurfrules.example` or `scripts/install.sh --tool windsurf` |
@@ -145,7 +146,7 @@ pwsh scripts/install.ps1 --tool all --target C:\path\to\project
 - 14 platform presets spanning `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, `Informatica`, `Talend`, and Apache-first stacks
 - Multi-agent packaging for `Cursor`, `Claude`, `Copilot`, `Gemini`, `Codex`, `Kiro`, `OpenCode`, `Windsurf`, `AGENTS.md`, and `CLAUDE.md` consumers
 - Install surfaces for `VS Code` family editors, `JetBrains` IDEs, setup guides, one-line install scripts, and plugin release artifacts
-- Plugin delivery and discovery workflows for `VS Code` and `JetBrains`, including release downloads, install smoke tests, markdown linting, and marketplace-ready publish automation
+- Plugin delivery and discovery workflows for `VS Code` and `JetBrains`, including release downloads, install smoke tests, markdown linting, and optional marketplace publish automation
 - Runnable examples with contract validation, rollback demonstrations, smoke-test proof paths, and a benchmark pack that compares baseline vs with-skills concern coverage
 - Structured operational templates for dataset contracts, compliance controls, backfills, schema changes, release gates, and incident response
 

@@ -4,6 +4,13 @@ This directory contains template MCP configuration files for common data enginee
 
 These are starting points, not vendor-locked binaries. Replace the placeholder commands and environment variables with the MCP server implementation you actually use.
 
+Each template now includes:
+
+- a short purpose description
+- service-specific arguments that show intended operating mode
+- environment variables beyond the bare minimum so scope and defaults are explicit
+- metadata with validation commands and best-fit use cases
+
 ## How To Use These Templates
 
 1. Pick the closest template for the service you want the agent to access.

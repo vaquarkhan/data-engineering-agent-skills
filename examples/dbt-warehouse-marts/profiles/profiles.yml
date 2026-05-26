@@ -3,5 +3,5 @@ default:
   outputs:
     local:
       type: duckdb
-      path: "{{ env_var('DBT_DUCKDB_PATH', 'examples/dbt-warehouse-marts/build/dbt_warehouse_marts.duckdb') }}"
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'build/dbt_warehouse_marts.duckdb') }}"
       threads: 1

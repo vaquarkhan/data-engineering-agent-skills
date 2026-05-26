@@ -1,11 +1,35 @@
 {
   "name": "github",
+  "description": "Repository metadata, pull request, issue, and check access for release and review workflows.",
   "transport": {
     "type": "stdio",
     "command": "github-mcp-server",
-    "args": [],
+    "args": [
+      "--toolsets",
+      "repos,pulls,issues,checks",
+      "--read-only"
+    ],
     "env": {
-      "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      "GITHUB_TOKEN": "${GITHUB_TOKEN}",
+      "GITHUB_OWNER": "${GITHUB_OWNER}",
+      "GITHUB_REPO": "${GITHUB_REPO}"
     }
+  },
+  "metadata": {
+    "recommended_scopes": [
+      "contents:read",
+      "pull_requests:read",
+      "issues:read",
+      "checks:read"
+    ],
+    "validation": [
+      "gh auth status",
+      "gh repo view ${GITHUB_OWNER}/${GITHUB_REPO}"
+    ],
+    "best_for": [
+      "release checks",
+      "pull request review",
+      "issue triage"
+    ]
   }
 }

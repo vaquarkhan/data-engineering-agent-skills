@@ -1,12 +1,30 @@
 {
   "name": "terraform",
+  "description": "Infrastructure plan and state inspection for data platform provisioning, drift review, and release safety.",
   "transport": {
     "type": "stdio",
     "command": "terraform-mcp-server",
-    "args": [],
+    "args": [
+      "--workspace",
+      "${TF_WORKSPACE}",
+      "--read-only"
+    ],
     "env": {
       "TF_WORKSPACE": "${TF_WORKSPACE}",
-      "TF_VAR_environment": "${TF_VAR_environment}"
+      "TF_VAR_environment": "${TF_VAR_environment}",
+      "TF_CLI_CONFIG_FILE": "${TF_CLI_CONFIG_FILE}",
+      "TF_PLAN_FILE": "${TF_PLAN_FILE}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "terraform workspace show",
+      "terraform validate"
+    ],
+    "best_for": [
+      "plan review",
+      "drift inspection",
+      "infrastructure release checks"
+    ]
   }
 }

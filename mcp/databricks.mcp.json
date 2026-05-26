@@ -1,12 +1,33 @@
 {
   "name": "databricks",
+  "description": "Workspace, catalog, and SQL warehouse access for lakehouse inspection and release-safe validation.",
   "transport": {
     "type": "stdio",
     "command": "databricks-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--catalog",
+      "${DATABRICKS_CATALOG}",
+      "--schema",
+      "${DATABRICKS_SCHEMA}"
+    ],
     "env": {
       "DATABRICKS_HOST": "${DATABRICKS_HOST}",
-      "DATABRICKS_TOKEN": "${DATABRICKS_TOKEN}"
+      "DATABRICKS_TOKEN": "${DATABRICKS_TOKEN}",
+      "DATABRICKS_CATALOG": "${DATABRICKS_CATALOG}",
+      "DATABRICKS_SCHEMA": "${DATABRICKS_SCHEMA}",
+      "DATABRICKS_WAREHOUSE_ID": "${DATABRICKS_WAREHOUSE_ID}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "databricks current-user me",
+      "databricks warehouses get ${DATABRICKS_WAREHOUSE_ID}"
+    ],
+    "best_for": [
+      "unity catalog review",
+      "lakehouse publish inspection",
+      "SQL warehouse validation"
+    ]
   }
 }

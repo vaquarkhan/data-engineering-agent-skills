@@ -1,12 +1,31 @@
 {
   "name": "bigquery",
+  "description": "Managed warehouse and metadata access for query review, dry-run cost checks, and dataset inspection in BigQuery.",
   "transport": {
     "type": "stdio",
     "command": "bigquery-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--dry-run-by-default",
+      "--location",
+      "${BIGQUERY_LOCATION}"
+    ],
     "env": {
       "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}",
-      "BIGQUERY_PROJECT": "${BIGQUERY_PROJECT}"
+      "BIGQUERY_PROJECT": "${BIGQUERY_PROJECT}",
+      "BIGQUERY_LOCATION": "${BIGQUERY_LOCATION}",
+      "BIGQUERY_DATASET": "${BIGQUERY_DATASET}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "bq ls --project_id=${BIGQUERY_PROJECT}",
+      "bq query --dry_run --use_legacy_sql=false 'select 1'"
+    ],
+    "best_for": [
+      "dry-run cost estimation",
+      "dataset inventory",
+      "query review"
+    ]
   }
 }

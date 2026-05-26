@@ -7,12 +7,12 @@ Use this guide when you want the `VS Code` extension and `JetBrains` plugin to b
 This repository supports three plugin delivery surfaces:
 
 - GitHub Releases for direct `.vsix` and `.zip` downloads
-- `VS Code Marketplace` and `Open VSX` for the `VS Code` family extension
-- `JetBrains Marketplace` for the IntelliJ-platform plugin
+- `VS Code Marketplace` and `Open VSX` for the `VS Code` family extension when those listings are actually published
+- `JetBrains Marketplace` for the IntelliJ-platform plugin when that listing is actually published
 
 GitHub Releases remain the universal fallback download surface even when marketplace publishing is not configured yet.
 
-This repository is publish-ready through workflows, but actual marketplace listings appear only after you configure secrets and execute a release publish.
+This repository is publish-ready through workflows, but actual marketplace listings do not exist until you configure secrets, execute a release publish, and verify that the listing is live.
 
 ## Workflows
 

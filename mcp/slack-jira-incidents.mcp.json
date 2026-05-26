@@ -1,14 +1,32 @@
 {
   "name": "slack-jira-incidents",
+  "description": "Incident communication and ticket metadata access for response coordination, handoff, and release blocking review.",
   "transport": {
     "type": "stdio",
     "command": "incident-collaboration-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--jira-project",
+      "${JIRA_PROJECT_KEY}"
+    ],
     "env": {
       "SLACK_TOKEN": "${SLACK_TOKEN}",
+      "SLACK_CHANNEL_ALLOWLIST": "${SLACK_CHANNEL_ALLOWLIST}",
       "JIRA_BASE_URL": "${JIRA_BASE_URL}",
       "JIRA_EMAIL": "${JIRA_EMAIL}",
-      "JIRA_API_TOKEN": "${JIRA_API_TOKEN}"
+      "JIRA_API_TOKEN": "${JIRA_API_TOKEN}",
+      "JIRA_PROJECT_KEY": "${JIRA_PROJECT_KEY}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "curl -s -H \"Authorization: Bearer $SLACK_TOKEN\" https://slack.com/api/auth.test",
+      "curl -s -u \"$JIRA_EMAIL:$JIRA_API_TOKEN\" \"$JIRA_BASE_URL/rest/api/3/project/$JIRA_PROJECT_KEY\""
+    ],
+    "best_for": [
+      "incident timeline review",
+      "escalation coordination",
+      "release blocker tracking"
+    ]
   }
 }

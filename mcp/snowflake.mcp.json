@@ -1,14 +1,34 @@
 {
   "name": "snowflake",
+  "description": "Warehouse metadata and query access for Snowflake-native pipelines, quality checks, and governed publish review.",
   "transport": {
     "type": "stdio",
     "command": "snowflake-mcp-server",
-    "args": [],
+    "args": [
+      "--read-only",
+      "--database",
+      "${SNOWFLAKE_DATABASE}",
+      "--schema",
+      "${SNOWFLAKE_SCHEMA}"
+    ],
     "env": {
       "SNOWFLAKE_ACCOUNT": "${SNOWFLAKE_ACCOUNT}",
       "SNOWFLAKE_USER": "${SNOWFLAKE_USER}",
       "SNOWFLAKE_PASSWORD": "${SNOWFLAKE_PASSWORD}",
-      "SNOWFLAKE_WAREHOUSE": "${SNOWFLAKE_WAREHOUSE}"
+      "SNOWFLAKE_WAREHOUSE": "${SNOWFLAKE_WAREHOUSE}",
+      "SNOWFLAKE_DATABASE": "${SNOWFLAKE_DATABASE}",
+      "SNOWFLAKE_SCHEMA": "${SNOWFLAKE_SCHEMA}",
+      "SNOWFLAKE_ROLE": "${SNOWFLAKE_ROLE}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "snowsql -a \"$SNOWFLAKE_ACCOUNT\" -u \"$SNOWFLAKE_USER\" -q \"select current_warehouse(), current_database(), current_schema();\""
+    ],
+    "best_for": [
+      "warehouse metadata inspection",
+      "cost-sensitive query review",
+      "publish readiness checks"
+    ]
   }
 }

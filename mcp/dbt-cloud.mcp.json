@@ -1,12 +1,31 @@
 {
   "name": "dbt-cloud",
+  "description": "Metadata and job-run access for dbt Cloud project health, environment review, and deployment coordination.",
   "transport": {
     "type": "stdio",
     "command": "dbt-cloud-mcp-server",
-    "args": [],
+    "args": [
+      "--metadata-only",
+      "--project-id",
+      "${DBT_CLOUD_PROJECT_ID}",
+      "--environment-id",
+      "${DBT_CLOUD_ENVIRONMENT_ID}"
+    ],
     "env": {
       "DBT_CLOUD_ACCOUNT_ID": "${DBT_CLOUD_ACCOUNT_ID}",
-      "DBT_CLOUD_API_TOKEN": "${DBT_CLOUD_API_TOKEN}"
+      "DBT_CLOUD_API_TOKEN": "${DBT_CLOUD_API_TOKEN}",
+      "DBT_CLOUD_PROJECT_ID": "${DBT_CLOUD_PROJECT_ID}",
+      "DBT_CLOUD_ENVIRONMENT_ID": "${DBT_CLOUD_ENVIRONMENT_ID}"
     }
+  },
+  "metadata": {
+    "validation": [
+      "curl -s -H \"Authorization: Token $DBT_CLOUD_API_TOKEN\" https://cloud.getdbt.com/api/v2/accounts/$DBT_CLOUD_ACCOUNT_ID/projects/"
+    ],
+    "best_for": [
+      "job health review",
+      "deployment inspection",
+      "environment metadata checks"
+    ]
   }
 }
