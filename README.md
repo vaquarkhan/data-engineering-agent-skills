@@ -737,3 +737,5 @@ Contributions should be:
 - compact enough for agents to follow consistently
 
 See `CONTRIBUTING.md`, `docs/skill-anatomy.md`, `docs/preset-anatomy.md`, `skills-index.md`, and `CHANGELOG.md`.
+
+Inspired by [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills).
