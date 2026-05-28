@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://de-skills/schemas/starter-pack.schema.json",
+  "type": "object",
+  "required": [
+    "name",
+    "preset",
+    "skills",
+    "templates",
+    "example"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "preset": {
+      "type": "string",
+      "minLength": 3
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "templates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    },
+    "example": {
+      "type": "string",
+      "minLength": 3
+    }
+  },
+  "additionalProperties": true
+}

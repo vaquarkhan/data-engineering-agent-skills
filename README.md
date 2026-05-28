@@ -54,6 +54,16 @@ For Python-based proof assets and validators, install local dependencies with:
 pip install -r requirements.txt
 ```
 
+Bootstrap install shortcuts:
+
+```bash
+./bootstrap.sh /path/to/project auto
+```
+
+```powershell
+pwsh .\bootstrap.ps1 C:\path\to\project auto
+```
+
 ## Quick Start
 
 ### Start Here
@@ -96,12 +106,21 @@ scripts/install.sh --tool kiro --target /path/to/project
 scripts/install.sh --tool windsurf --target /path/to/project
 scripts/install.sh --tool opencode --target /path/to/project
 scripts/install.sh --tool all --target /path/to/project
+scripts/install.sh --tool auto --target /path/to/project
+scripts/install.sh --tool cursor,claude --target /path/to/project
+scripts/install.sh --tool all --target /path/to/project --symlink
 ```
 
 Windows-friendly install path:
 
 ```powershell
 pwsh scripts/install.ps1 --tool all --target C:\path\to\project
+```
+
+Evaluation runner:
+
+```bash
+python evals/run.py
 ```
 
 #### Tool Setup Guides
@@ -337,23 +356,23 @@ Current presets:
 
 ```text
 data-engineering-agent-skills/
-├── skills/           # Workflow-driven skill definitions
-├── presets/          # Platform and stack-specific operating profiles
-├── references/       # Reusable checklists and guidance
-├── templates/        # Spec, plan, and task templates
-├── registry/         # Machine-readable asset registry and indexes
-├── hooks/            # Session-start and pre-flight automation hooks
-├── docs/             # Setup, onboarding, and format guidance
-├── vscode-extension/ # VS Code installer extension
-├── jetbrains-plugin/ # JetBrains installer plugin
-├── mcp/              # MCP configuration templates
-├── starter-packs/    # Opinionated bundles by use case
-├── agents/           # Specialist personas and review roles
-├── .claude-plugin/   # Claude plugin manifests and install bundles
-├── .kiro/            # Kiro steering adapter files
-├── .opencode/        # OpenCode integration surface
-├── CLAUDE.md         # Claude-style repository entry point
-└── examples/         # Example projects and generated artifacts
++-- skills/           # Workflow-driven skill definitions
++-- presets/          # Platform and stack-specific operating profiles
++-- references/       # Reusable checklists and guidance
++-- templates/        # Spec, plan, and task templates
++-- registry/         # Machine-readable asset registry and indexes
++-- hooks/            # Session-start and pre-flight automation hooks
++-- docs/             # Setup, onboarding, and format guidance
++-- vscode-extension/ # VS Code installer extension
++-- jetbrains-plugin/ # JetBrains installer plugin
++-- mcp/              # MCP configuration templates
++-- starter-packs/    # Opinionated bundles by use case
++-- agents/           # Specialist personas and review roles
++-- .claude-plugin/   # Claude plugin manifests and install bundles
++-- .kiro/            # Kiro steering adapter files
++-- .opencode/        # OpenCode integration surface
++-- CLAUDE.md         # Claude-style repository entry point
+`-- examples/         # Example projects and generated artifacts
 ```
 
 ## Setup Guides
@@ -653,9 +672,9 @@ Parallel review is useful only when perspectives are genuinely independent:
 
 ```text
 /ship
-  ├── analytics-engineer-reviewer
-  ├── data-platform-reliability-reviewer
-  └── data-security-and-compliance-auditor
+  +-- analytics-engineer-reviewer
+  +-- data-platform-reliability-reviewer
+  `-- data-security-and-compliance-auditor
 ```
 
 ## How Skills Work
