@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Engineering Agent Skills - Production-Grade Skills for AI Agents</title>
+  <meta name="description" content="The open skill registry and execution toolkit for data engineering agents. 70+ skills, 14 platform presets, and disciplined delivery workflows.">
+  <meta property="og:title" content="Data Engineering Agent Skills">
+  <meta property="og:description" content="Production-grade data engineering skills for AI agents. 70+ workflow skills, 14 platform presets, multi-agent support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vaquarkhan.github.io/data-engineering-agent-skills/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+      --secondary: #06b6d4;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --rose: #f43f5e;
+      --violet: #8b5cf6;
+      --bg-dark: #0a0e1a;
+      --bg-darker: #060810;
+      --bg-card: #131a2e;
+      --bg-card-hover: #1c2540;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(99, 102, 241, 0.15);
+      --border-hover: rgba(99, 102, 241, 0.4);
+      --glow-primary: rgba(99, 102, 241, 0.4);
+      --glow-secondary: rgba(6, 182, 212, 0.3);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+    /* Animated Background */
+    .bg-grid {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-orbs {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .orb-1 { width: 600px; height: 600px; background: rgba(99, 102, 241, 0.15); top: -200px; left: -100px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: rgba(6, 182, 212, 0.12); top: 40%; right: -150px; animation-delay: -7s; }
+    .orb-3 { width: 400px; height: 400px; background: rgba(139, 92, 246, 0.1); bottom: -100px; left: 30%; animation-delay: -14s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(10, 14, 26, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 1.15rem;
+      text-decoration: none; color: var(--text-primary);
+    }
+
+    .nav-brand svg { width: 32px; height: 32px; }
+
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white !important; padding: 8px 20px; border-radius: 8px; font-weight: 600;
+    }
+
+    .mobile-menu { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+    /* Hero */
+    .hero {
+      padding: 180px 0 120px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(6, 182, 212, 0.05) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      padding: 8px 20px; border-radius: 100px;
+      font-size: 0.85rem; color: var(--primary-light);
+      margin-bottom: 32px;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900; line-height: 1.05;
+      margin-bottom: 28px; letter-spacing: -0.03em;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8, #06b6d4, #34d399);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem; color: var(--text-secondary);
+      max-width: 750px; margin: 0 auto 48px; line-height: 1.7;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .hero-buttons {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; border-radius: 14px;
+      font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: all 0.3s; cursor: pointer; border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      color: white;
+      box-shadow: 0 4px 24px var(--glow-primary), 0 0 0 1px rgba(99, 102, 241, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 40px var(--glow-primary); }
+
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.6); color: var(--text-primary);
+      border: 1px solid var(--border); backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover { background: rgba(30, 41, 59, 0.9); transform: translateY(-3px); border-color: var(--border-hover); }
+
+    .btn-outline {
+      background: transparent; color: var(--primary-light);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { background: rgba(99, 102, 241, 0.1); border-color: var(--primary); }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 0; margin-top: 80px;
+      background: rgba(19, 26, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden;
+      backdrop-filter: blur(10px);
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .stat-item {
+      padding: 32px 16px; text-align: center;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(99, 102, 241, 0.05); }
+
+    .stat-number {
+      font-size: 2.8rem; font-weight: 900;
+      background: linear-gradient(135deg, #818cf8, #06b6d4);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Section Styles */
+    section { padding: 120px 0; position: relative; z-index: 1; }
+
+    .section-header { text-align: center; margin-bottom: 72px; }
+    .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .section-header p { font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto; }
+    .section-label { display: inline-block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary-light); margin-bottom: 12px; }
+
+    /* Feature Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 20px;
+    }
+
+    .bento-card {
+      background: rgba(19, 26, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 36px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+      position: relative; overflow: hidden;
+    }
+
+    .bento-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+
+    .bento-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .bento-card:hover::before { opacity: 1; }
+
+    .bento-card.span-2 { grid-column: span 2; }
+    .bento-card.span-full { grid-column: span 3; }
+
+    .bento-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 1.6rem;
+    }
+
+    .bento-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+    .bento-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+    /* IDE/Plugin Section */
+    .ide-showcase {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: center;
+    }
+
+    .ide-visual {
+      position: relative;
+      background: rgba(19, 26, 46, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 20px; padding: 32px;
+      overflow: hidden;
+    }
+
+    .ide-visual::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 40px; background: rgba(30, 41, 59, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ide-dots {
+      position: absolute; top: 12px; left: 16px;
+      display: flex; gap: 8px;
+    }
+    .ide-dots span { width: 12px; height: 12px; border-radius: 50%; }
+    .ide-dots span:nth-child(1) { background: #ef4444; }
+    .ide-dots span:nth-child(2) { background: #f59e0b; }
+    .ide-dots span:nth-child(3) { background: #10b981; }
+
+    .ide-content { margin-top: 32px; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; line-height: 2; }
+    .ide-content .line { display: flex; gap: 12px; }
+    .ide-content .line-num { color: var(--text-muted); min-width: 24px; text-align: right; user-select: none; }
+    .ide-content .keyword { color: #c084fc; }
+    .ide-content .string { color: #34d399; }
+    .ide-content .comment { color: var(--text-muted); font-style: italic; }
+    .ide-content .func { color: #60a5fa; }
+    .ide-content .prop { color: #f59e0b; }
+
+    .ide-info h3 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    .ide-info p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px; }
+
+    .ide-features { list-style: none; }
+    .ide-features li { display: flex; align-items: center; gap: 12px; padding: 10px 0; color: var(--text-secondary); font-size: 0.95rem; }
+    .ide-features li svg { width: 20px; height: 20px; color: var(--success); flex-shrink: 0; }
+
+    /* Agent Cards with SVG logos */
+    .agent-showcase {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .agent-card {
+      background: rgba(19, 26, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px 20px;
+      text-align: center; transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+
+    .agent-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+
+    .agent-logo {
+      width: 48px; height: 48px; margin: 0 auto 14px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+    }
+
+    .agent-logo svg { width: 32px; height: 32px; }
+
+    .agent-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .agent-card p { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* Lifecycle Visual */
+    .lifecycle-visual {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; flex-wrap: wrap; margin-top: 48px;
+    }
+
+    .lc-step {
+      display: flex; flex-direction: column; align-items: center;
+      position: relative;
+    }
+
+    .lc-node {
+      width: 80px; height: 80px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      background: rgba(19, 26, 46, 0.8);
+      border: 2px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .lc-node:hover { border-color: var(--primary); box-shadow: 0 0 30px var(--glow-primary); transform: scale(1.1); }
+
+    .lc-label {
+      margin-top: 12px; font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem; font-weight: 600; color: var(--primary-light);
+    }
+
+    .lc-desc { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+    .lc-connector {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0.4; margin: 0 -4px;
+      align-self: center; margin-bottom: 30px;
+    }
+
+    /* Platform Logos Grid */
+    .platform-showcase {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .platform-item {
+      background: rgba(19, 26, 46, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 16px;
+      text-align: center; transition: all 0.3s;
+    }
+
+    .platform-item:hover { border-color: var(--secondary); background: rgba(6, 182, 212, 0.05); transform: translateY(-2px); }
+
+    .platform-icon { font-size: 2rem; margin-bottom: 10px; }
+    .platform-item h4 { font-size: 0.95rem; font-weight: 600; }
+    .platform-item p { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* Examples Carousel */
+    .examples-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .example-card {
+      background: rgba(19, 26, 46, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      transition: all 0.3s; position: relative;
+    }
+
+    .example-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
+
+    .example-tag {
+      display: inline-block; padding: 4px 12px;
+      border-radius: 6px; font-size: 0.7rem;
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.05em; margin-bottom: 14px;
+    }
+
+    .tag-lakehouse { background: rgba(99, 102, 241, 0.15); color: var(--primary-light); }
+    .tag-streaming { background: rgba(6, 182, 212, 0.15); color: var(--secondary); }
+    .tag-analytics { background: rgba(16, 185, 129, 0.15); color: var(--success); }
+    .tag-governance { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+    .tag-migration { background: rgba(244, 63, 94, 0.15); color: var(--rose); }
+    .tag-release { background: rgba(139, 92, 246, 0.15); color: var(--violet); }
+
+    .example-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .example-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* Hooks Section */
+    .hooks-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .hook-card {
+      background: rgba(19, 26, 46, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px;
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: all 0.3s;
+    }
+
+    .hook-card:hover { border-color: var(--accent); background: rgba(245, 158, 11, 0.03); }
+
+    .hook-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(245, 158, 11, 0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .hook-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+    .hook-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* CTA */
+    .cta-section {
+      text-align: center; padding: 140px 0;
+      position: relative;
+    }
+
+    .cta-glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; margin-bottom: 16px; }
+    .cta-section p { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; max-width: 550px; margin-left: auto; margin-right: auto; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0; text-align: center;
+      color: var(--text-muted); font-size: 0.85rem;
+    }
+
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-primary); }
+
+    /* Animations */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: 1fr 1fr; }
+      .bento-card.span-2 { grid-column: span 2; }
+      .bento-card.span-full { grid-column: span 2; }
+      .agent-showcase { grid-template-columns: repeat(3, 1fr); }
+      .ide-showcase { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu { display: block; }
+      .bento-grid { grid-template-columns: 1fr; }
+      .bento-card.span-2, .bento-card.span-full { grid-column: span 1; }
+      .agent-showcase { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .lifecycle-visual { flex-direction: column; }
+      .lc-connector { width: 2px; height: 30px; margin: -4px 0; }
+      section { padding: 80px 0; }
+      .hero { padding: 140px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Effects -->
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <svg viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="url(#nav-grad)"/>
+          <path d="M8 16h4l3-6 4 12 3-6h4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs><linearGradient id="nav-grad" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+        </svg>
+        DE Agent Skills
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#lifecycle">Lifecycle</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#ide">IDE Plugins</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="nav-cta">&#9733; GitHub</a></li>
+      </ul>
+      <button class="mobile-menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2.2 4.4L15 6.3l-3.5 3.4.8 4.9L8 12.4l-4.3 2.2.8-4.9L1 6.3l4.8-.9L8 1z" fill="#f59e0b"/></svg>
+        Open Source &bull; MIT Licensed &bull; Production-Grade
+      </div>
+      <h1>
+        <span class="gradient-text">Data Engineering</span><br>
+        Agent Skills
+      </h1>
+      <p class="hero-subtitle">
+        The open skill registry and execution toolkit that gives AI agents the operating procedures
+        to define, plan, implement, validate, replay, and ship reliable data products with the same discipline used by strong data engineering teams.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Get Started
+        </a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Latest
+        </a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/getting-started.md" class="btn btn-outline">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          Documentation
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">70+</div>
+          <div class="stat-label">Skills</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Presets</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">13</div>
+          <div class="stat-label">Examples</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Starter Packs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">MCP Configs</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Agent Surfaces</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Bento Grid -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Core Capabilities</span>
+        <h2>Everything You Need for<br><span class="gradient-text">Disciplined Data Delivery</span></h2>
+        <p>Not generic prompts. Operating procedures for building reliable data products.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card span-2 reveal">
+          <div class="bento-icon" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(6,182,212,0.1));">&#127919;</div>
+          <h3>70+ Production-Grade Workflow Skills</h3>
+          <p>Covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, quality, legacy modernization, release management, incident recovery, and platform operating models. Each skill is a structured SKILL.md with progressive disclosure for agents.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(6, 182, 212, 0.15);">&#9729;&#65039;</div>
+          <h3>14 Platform Presets</h3>
+          <p>Vendor-neutral skills adapt to AWS, Azure, GCP, Databricks, Snowflake, Alibaba Cloud, and Apache stacks through platform-specific presets.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(245, 158, 11, 0.15);">&#128220;</div>
+          <h3>Contract-First Design</h3>
+          <p>Source contracts, dataset contracts, metric contracts, and compliance controls defined before implementation. No guessing grain, freshness, or behavior.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(16, 185, 129, 0.15);">&#128260;</div>
+          <h3>Replay-Safe Execution</h3>
+          <p>Idempotent, replayable, backfill-safe patterns are the default. Backfill guards, schema change guards, and release gates built in.</p>
+        </div>
+        <div class="bento-card span-2 reveal">
+          <div class="bento-icon" style="background: linear-gradient(135deg, rgba(244,63,94,0.15), rgba(245,158,11,0.1));">&#128737;</div>
+          <h3>Operational Hooks &amp; Guardrails</h3>
+          <p>Session start detection, contract validation, schema safety checks, cost analysis, backfill guards, pipeline review gates, and release readiness checks. The repository behaves like a workflow system, not a static library. Run hooks before risky operations to catch problems early.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(139, 92, 246, 0.15);">&#128202;</div>
+          <h3>Runnable Examples</h3>
+          <p>13 end-to-end projects with specs, plans, tasks, smoke tests, rollback demos, and proof paths.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(99, 102, 241, 0.15);">&#128218;</div>
+          <h3>Templates &amp; Evidence</h3>
+          <p>Machine-readable YAML templates for contracts, backfill plans, schema changes, release gates, and incident runbooks.</p>
+        </div>
+        <div class="bento-card reveal">
+          <div class="bento-icon" style="background: rgba(6, 182, 212, 0.15);">&#128640;</div>
+          <h3>Starter Packs</h3>
+          <p>Opinionated bundles for AWS Lakehouse, Databricks Medallion, Streaming, CI/CD, Privacy, ESG, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifecycle Section -->
+  <section id="lifecycle" style="background: linear-gradient(180deg, rgba(19,26,46,0.3) 0%, transparent 100%);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Delivery Lifecycle</span>
+        <h2>Seven Commands. One Discipline.</h2>
+        <p>A spec-first lifecycle that maps to the entire data product delivery journey.</p>
+      </div>
+
+      <div class="lifecycle-visual reveal">
+        <div class="lc-step">
+          <div class="lc-node">&#128220;</div>
+          <div class="lc-label">/spec</div>
+          <div class="lc-desc">Define</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#128203;</div>
+          <div class="lc-label">/plan</div>
+          <div class="lc-desc">Break down</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#128295;</div>
+          <div class="lc-label">/build</div>
+          <div class="lc-desc">Implement</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#9989;</div>
+          <div class="lc-label">/validate</div>
+          <div class="lc-desc">Prove</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#128269;</div>
+          <div class="lc-label">/review</div>
+          <div class="lc-desc">Inspect</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#128260;</div>
+          <div class="lc-label">/backfill</div>
+          <div class="lc-desc">Replay</div>
+        </div>
+        <div class="lc-connector"></div>
+        <div class="lc-step">
+          <div class="lc-node">&#128640;</div>
+          <div class="lc-label">/ship</div>
+          <div class="lc-desc">Release</div>
+        </div>
+      </div>
+
+      <!-- Code Install Block -->
+      <div class="ide-visual reveal" style="margin-top: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <div class="ide-dots"><span></span><span></span><span></span></div>
+        <div class="ide-content">
+          <div class="line"><span class="line-num">1</span><span class="comment"># Quick install</span></div>
+          <div class="line"><span class="line-num">2</span><span class="func">git clone</span> <span class="string">https://github.com/vaquarkhan/data-engineering-agent-skills.git</span></div>
+          <div class="line"><span class="line-num">3</span><span class="func">cd</span> <span class="string">data-engineering-agent-skills</span></div>
+          <div class="line"><span class="line-num">4</span></div>
+          <div class="line"><span class="line-num">5</span><span class="comment"># Install into your project (all agents)</span></div>
+          <div class="line"><span class="line-num">6</span><span class="func">./bootstrap.sh</span> <span class="string">/path/to/project</span> <span class="prop">auto</span></div>
+          <div class="line"><span class="line-num">7</span></div>
+          <div class="line"><span class="line-num">8</span><span class="comment"># Or pick specific agents</span></div>
+          <div class="line"><span class="line-num">9</span><span class="func">scripts/install.sh</span> <span class="keyword">--tool</span> <span class="prop">cursor,claude,kiro</span> <span class="keyword">--target</span> <span class="string">./my-project</span></div>
+          <div class="line"><span class="line-num">10</span></div>
+          <div class="line"><span class="line-num">11</span><span class="comment"># Run benchmarks</span></div>
+          <div class="line"><span class="line-num">12</span><span class="func">python</span> <span class="string">benchmarks/score_benchmarks.py</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDE & Plugin Section -->
+  <section id="ide">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">IDE Plugins</span>
+        <h2>Install in <span class="gradient-text">VS Code</span> &amp; <span class="gradient-text">JetBrains</span></h2>
+        <p>First-class plugin support for the editors your team already uses.</p>
+      </div>
+
+      <!-- VS Code -->
+      <div class="ide-showcase reveal" style="margin-bottom: 80px;">
+        <div class="ide-info">
+          <h3>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 8px;">
+              <path d="M17.5 2L6 11.5l-3.5-2.8v6.6L6 12.5 17.5 22l4-2V4l-4-2zM6 11.5L17.5 2" fill="#007ACC"/>
+              <path d="M17.5 2L6 11.5M6 12.5L17.5 22M2.5 8.7v6.6" stroke="#007ACC" stroke-width="0"/>
+            </svg>
+            VS Code Extension
+          </h3>
+          <p>A full command-palette installer for the VS Code family. Install the complete toolkit, core pack, agent adapters, starter packs, MCP templates, or runnable examples with a single command.</p>
+          <ul class="ide-features">
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Works with VS Code, Cursor, Windsurf, VSCodium</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Command palette installers for all asset types</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Download .vsix from GitHub Releases</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Marketplace publish workflow included</li>
+          </ul>
+          <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest" class="btn btn-primary" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download .vsix
+          </a>
+        </div>
+        <div class="ide-visual">
+          <div class="ide-dots"><span></span><span></span><span></span></div>
+          <div class="ide-content">
+            <div class="line"><span class="line-num">1</span><span class="comment">// VS Code Command Palette</span></div>
+            <div class="line"><span class="line-num">2</span><span class="keyword">></span> <span class="func">DE Skills: Install Full Toolkit</span></div>
+            <div class="line"><span class="line-num">3</span><span class="keyword">></span> <span class="func">DE Skills: Install Core Pack</span></div>
+            <div class="line"><span class="line-num">4</span><span class="keyword">></span> <span class="func">DE Skills: Install Agent Adapters</span></div>
+            <div class="line"><span class="line-num">5</span><span class="keyword">></span> <span class="func">DE Skills: Install Starter Pack</span></div>
+            <div class="line"><span class="line-num">6</span><span class="keyword">></span> <span class="func">DE Skills: Install MCP Templates</span></div>
+            <div class="line"><span class="line-num">7</span><span class="keyword">></span> <span class="func">DE Skills: Install Examples</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JetBrains -->
+      <div class="ide-showcase reveal" style="flex-direction: row-reverse;">
+        <div class="ide-info">
+          <h3>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 8px;">
+              <rect x="2" y="2" width="20" height="20" rx="3" fill="#000"/>
+              <text x="5" y="17" font-family="Inter" font-weight="900" font-size="10" fill="white">JB</text>
+            </svg>
+            JetBrains Plugin
+          </h3>
+          <p>Native plugin for IntelliJ-platform IDEs. Install the data engineering skill toolkit directly into your JetBrains workflow with tool-window integration and project-level configuration.</p>
+          <ul class="ide-features">
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> IntelliJ IDEA, PyCharm, DataGrip, WebStorm, GoLand</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Download plugin .zip from GitHub Releases</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Marketplace publish workflow ready</li>
+            <li><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg> Install smoke tests in CI</li>
+          </ul>
+          <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest" class="btn btn-secondary" style="margin-top: 20px; padding: 12px 24px; font-size: 0.9rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download Plugin .zip
+          </a>
+        </div>
+        <div class="ide-visual">
+          <div class="ide-dots"><span></span><span></span><span></span></div>
+          <div class="ide-content">
+            <div class="line"><span class="line-num">1</span><span class="comment">// JetBrains Tool Window</span></div>
+            <div class="line"><span class="line-num">2</span><span class="keyword">Tools</span> &gt; <span class="func">Data Engineering Skills</span></div>
+            <div class="line"><span class="line-num">3</span></div>
+            <div class="line"><span class="line-num">4</span>  <span class="prop">&#9654;</span> <span class="func">Install Full Toolkit</span></div>
+            <div class="line"><span class="line-num">5</span>  <span class="prop">&#9654;</span> <span class="func">Install Core Skills</span></div>
+            <div class="line"><span class="line-num">6</span>  <span class="prop">&#9654;</span> <span class="func">Install Platform Preset</span></div>
+            <div class="line"><span class="line-num">7</span>  <span class="prop">&#9654;</span> <span class="func">Install Starter Pack</span></div>
+            <div class="line"><span class="line-num">8</span>  <span class="prop">&#9654;</span> <span class="func">Run Session Hook</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Compatibility Section -->
+  <section id="agents" style="background: linear-gradient(180deg, rgba(19,26,46,0.3) 0%, transparent 100%);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Multi-Agent Support</span>
+        <h2>Works With <span class="gradient-text">Every AI Agent</span></h2>
+        <p>Native adapters and install surfaces for all major AI coding assistants and IDEs.</p>
+      </div>
+
+      <div class="agent-showcase reveal">
+        <!-- VS Code -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(0, 122, 204, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M24 3L11 14.5 5.5 10.5 3 12v8l2.5 1.5L11 17.5 24 29l5-2.5V5.5L24 3z" fill="#007ACC"/></svg>
+          </div>
+          <h4>VS Code</h4>
+          <p>.vsix extension</p>
+        </div>
+        <!-- Cursor -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(99, 102, 241, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="6" stroke="#818cf8" stroke-width="2"/><path d="M10 16h12M16 10v12" stroke="#818cf8" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Cursor</h4>
+          <p>.cursor/rules/</p>
+        </div>
+        <!-- Claude -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(217, 119, 87, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" fill="#D97757"/><path d="M11 14c0-1.5 2.2-3 5-3s5 1.5 5 3M11 18c0 1.5 2.2 3 5 3s5-1.5 5-3" stroke="white" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Claude</h4>
+          <p>CLAUDE.md + plugin</p>
+        </div>
+        <!-- Copilot -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(36, 41, 47, 0.3);">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4C9.4 4 4 9.4 4 16c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2 1-.3 2-.4 3-.4s2 .1 3 .4c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6C24.6 25.8 28 21.3 28 16c0-6.6-5.4-12-12-12z" fill="#f1f5f9"/></svg>
+          </div>
+          <h4>Copilot</h4>
+          <p>copilot-instructions</p>
+        </div>
+        <!-- Gemini -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(66, 133, 244, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l3 8h8l-6.5 5 2.5 8L16 20l-7 5 2.5-8L5 12h8l3-8z" fill="#4285F4"/></svg>
+          </div>
+          <h4>Gemini</h4>
+          <p>.gemini/commands/</p>
+        </div>
+        <!-- Kiro -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(16, 185, 129, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="12" stroke="#10b981" stroke-width="2"/><path d="M12 12l4 4 4-4M12 20l4-4 4 4" stroke="#10b981" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Kiro</h4>
+          <p>.kiro/steering/</p>
+        </div>
+        <!-- Windsurf -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(6, 182, 212, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M4 20c4-4 8-8 12-4s8 0 12-4" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/><path d="M4 14c4-4 8-8 12-4s8 0 12-4" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/></svg>
+          </div>
+          <h4>Windsurf</h4>
+          <p>.windsurfrules</p>
+        </div>
+        <!-- OpenCode -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(245, 158, 11, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M8 10l-4 6 4 6M24 10l4 6-4 6M18 8l-4 16" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>OpenCode</h4>
+          <p>.opencode/</p>
+        </div>
+        <!-- Codex -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(139, 92, 246, 0.15);">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#8b5cf6" stroke-width="2"/><path d="M11 13h10M11 16h7M11 19h10" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Codex</h4>
+          <p>AGENTS.md</p>
+        </div>
+        <!-- JetBrains -->
+        <div class="agent-card">
+          <div class="agent-logo" style="background: rgba(255, 255, 255, 0.08);">
+            <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="4" fill="#1e1e1e"/><rect x="7" y="7" width="18" height="18" rx="2" stroke="#f1f5f9" stroke-width="1.5"/><text x="10" y="20" font-family="Inter" font-weight="900" font-size="9" fill="#f1f5f9">JB</text></svg>
+          </div>
+          <h4>JetBrains</h4>
+          <p>Plugin .zip</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms Section -->
+  <section id="platforms">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Platform Coverage</span>
+        <h2>Every Major Data Platform</h2>
+        <p>Vendor-neutral skills adapt to your stack through platform-specific presets.</p>
+      </div>
+
+      <div class="platform-showcase reveal">
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l12 4v8c0 6-5 10-12 12C9 26 4 22 4 16V8l12-4z" fill="#FF9900" opacity="0.2"/><path d="M16 4l12 4v8c0 6-5 10-12 12C9 26 4 22 4 16V8l12-4z" stroke="#FF9900" stroke-width="1.5"/></svg>
+          </div>
+          <h4>AWS</h4>
+          <p>S3, Glue, Athena, EMR, Lake Formation</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16l10-10 10 10-10 10L6 16z" fill="#0078D4" opacity="0.3"/><path d="M6 16l10-10 10 10-10 10L6 16z" stroke="#0078D4" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Azure</h4>
+          <p>ADLS, Synapse, Purview, Data Factory</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" fill="#4285F4" opacity="0.2"/><circle cx="16" cy="16" r="10" stroke="#4285F4" stroke-width="1.5"/><circle cx="16" cy="16" r="4" fill="#4285F4"/></svg>
+          </div>
+          <h4>GCP</h4>
+          <p>BigQuery, Dataflow, Pub/Sub, Dataplex</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16l8-10 8 10-8 10-8-10z" fill="#FF3621" opacity="0.2"/><path d="M8 16l8-10 8 10-8 10-8-10z" stroke="#FF3621" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Databricks</h4>
+          <p>Delta Lake, Unity Catalog, Auto Loader</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6l8 4v12l-8 4-8-4V10l8-4z" fill="#29B5E8" opacity="0.2"/><path d="M16 6l8 4v12l-8 4-8-4V10l8-4z" stroke="#29B5E8" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Snowflake</h4>
+          <p>Streams, Tasks, Dynamic Tables</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" fill="#FF6A00" opacity="0.2"/><circle cx="16" cy="16" r="10" stroke="#FF6A00" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Alibaba Cloud</h4>
+          <p>MaxCompute, DataWorks, OSS</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 16c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8" stroke="#E25A1C" stroke-width="2" stroke-linecap="round"/><circle cx="16" cy="16" r="3" fill="#E25A1C"/></svg>
+          </div>
+          <h4>Apache Spark</h4>
+          <p>Batch &amp; streaming processing</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M16 6v20" stroke="#E6526F" stroke-width="2"/><path d="M10 10l12 12M22 10L10 22" stroke="#E6526F" stroke-width="1.5" opacity="0.5"/></svg>
+          </div>
+          <h4>Apache Flink</h4>
+          <p>Stream processing engine</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="10" r="4" stroke="#017CEE" stroke-width="1.5"/><path d="M8 22c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#017CEE" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Apache Airflow</h4>
+          <p>Workflow orchestration</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 10l10 6-10 6V10z" fill="#231F20" opacity="0.3"/><path d="M16 10l10 6-10 6V10z" fill="#231F20" opacity="0.6"/></svg>
+          </div>
+          <h4>Apache Kafka</h4>
+          <p>Event streaming platform</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 8h16v16H8z" stroke="#4EC3E0" stroke-width="2" stroke-dasharray="4 2"/><path d="M12 12h8v8h-8z" fill="#4EC3E0" opacity="0.3"/></svg>
+          </div>
+          <h4>Apache Iceberg</h4>
+          <p>Open table format</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 8h16v4H8zM8 14h16v4H8zM8 20h16v4H8z" fill="#FF4C00" opacity="0.2" stroke="#FF4C00" stroke-width="1"/></svg>
+          </div>
+          <h4>Informatica</h4>
+          <p>Enterprise data integration</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 6c5.5 0 10 4.5 10 10s-4.5 10-10 10S6 21.5 6 16 10.5 6 16 6z" stroke="#1BA7C9" stroke-width="1.5"/><path d="M12 16h8M16 12v8" stroke="#1BA7C9" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h4>Talend</h4>
+          <p>Data integration &amp; quality</p>
+        </div>
+        <div class="platform-item">
+          <div class="platform-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h8l-4-8-4 8zM18 16h8l-4-8-4 8zM12 24h8l-4-8-4 8z" fill="#818cf8" opacity="0.3" stroke="#818cf8" stroke-width="1"/></svg>
+          </div>
+          <h4>Multi-Cloud</h4>
+          <p>Hybrid &amp; cross-cloud patterns</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hooks Section -->
+  <section style="background: linear-gradient(180deg, rgba(19,26,46,0.3) 0%, transparent 100%);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Automation Layer</span>
+        <h2>Operational Hooks &amp; Guardrails</h2>
+        <p>Pre-flight checks that make the repository behave like a workflow system.</p>
+      </div>
+
+      <div class="hooks-grid reveal">
+        <div class="hook-card">
+          <div class="hook-icon">&#128204;</div>
+          <div>
+            <h4>session-start</h4>
+            <p>Detects repo type, recommends preset, starter pack, and next command</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128220;</div>
+          <div>
+            <h4>contract-check-pre</h4>
+            <p>Validates contract files contain minimum required fields</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128737;</div>
+          <div>
+            <h4>pipeline-review-pre</h4>
+            <p>Checks for tests, contracts, rollback notes, lineage, quality gates</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128680;</div>
+          <div>
+            <h4>incident-mode</h4>
+            <p>Switches session into incident-response posture</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128260;</div>
+          <div>
+            <h4>backfill-guard</h4>
+            <p>Safety questions and validation gates before replay or cutover</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#9888;&#65039;</div>
+          <div>
+            <h4>schema-change-guard</h4>
+            <p>Detects risky schema evolution: breaking renames, drops, destructive refreshes</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128176;</div>
+          <div>
+            <h4>cost-check</h4>
+            <p>Flags cost hotspots in SQL, dbt, Spark, and warehouse projects</p>
+          </div>
+        </div>
+        <div class="hook-card">
+          <div class="hook-icon">&#128640;</div>
+          <div>
+            <h4>release-guard</h4>
+            <p>Validates reconciliation, publish control, observability, and rollback evidence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section id="examples">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">End-to-End Projects</span>
+        <h2>13 Real-World Examples</h2>
+        <p>Complete project packs with specs, plans, tasks, smoke tests, and proof paths.</p>
+      </div>
+
+      <div class="examples-grid reveal">
+        <div class="example-card">
+          <span class="example-tag tag-lakehouse">Lakehouse</span>
+          <h4>AWS S3 + Glue + Athena + Iceberg</h4>
+          <p>Full lakehouse adoption with zone architecture, normalization jobs, reconciliation checks, and rollback demonstrations.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-lakehouse">Medallion</span>
+          <h4>Databricks Delta Medallion</h4>
+          <p>Bronze-to-silver transformation with Auto Loader, contract validation, and rollback-aware proof paths.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-analytics">Analytics</span>
+          <h4>dbt Warehouse Marts</h4>
+          <p>Analytics modeling with DuckDB local execution, semantic layer governance, and quality gates.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-streaming">Streaming</span>
+          <h4>Kafka + Flink Streaming</h4>
+          <p>Stream processing with replay safety, schema-aware pipelines, and incident recovery patterns.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-streaming">GCP</span>
+          <h4>GCP Pub/Sub + Dataflow + BigQuery</h4>
+          <p>Managed GCP stream-to-analytics path with observability and SLA management.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-analytics">Snowflake</span>
+          <h4>Snowflake + dbt + Reverse ETL</h4>
+          <p>Warehouse-to-operational serving with publishing contracts and data sharing patterns.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-governance">Governance</span>
+          <h4>Privacy Retention &amp; Deletion</h4>
+          <p>GDPR-compliant deletion propagation with audit evidence and lineage tracking.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-migration">Migration</span>
+          <h4>Multi-Cloud Warehouse Cutover</h4>
+          <p>Platform migration with dual-run reconciliation, consumer cutover, and rollback paths.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-release">Release</span>
+          <h4>CI/CD Progressive Release</h4>
+          <p>Staged platform release flow with shadow validation, canary checks, and gated rollout.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-governance">ESG</span>
+          <h4>ESG Regulatory Reporting</h4>
+          <p>Governed sustainability and regulatory reporting with evidence collection and regional controls.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-governance">Security</span>
+          <h4>Validation &amp; Security Review</h4>
+          <p>Release readiness through proof: validation, testcase inventory, and security controls.</p>
+        </div>
+        <div class="example-card">
+          <span class="example-tag tag-analytics">ML</span>
+          <h4>Feature Store Online/Offline Parity</h4>
+          <p>Feature consistency between training and serving with quality checks and observability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Section -->
+  <section style="background: linear-gradient(180deg, rgba(19,26,46,0.3) 0%, transparent 100%);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Full Spectrum</span>
+        <h2>Comprehensive Coverage</h2>
+        <p>From ingestion to governance, from streaming to compliance, from legacy to cloud-native.</p>
+      </div>
+
+      <div class="bento-grid reveal">
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(99, 102, 241, 0.15);">&#128202;</div>
+          <h3>Ingestion &amp; Extraction</h3>
+          <p>API/SaaS ingestion, CDC, Debezium, file/SFTP feeds, partner sources, source reliability, and extraction resilience.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(6, 182, 212, 0.15);">&#9889;</div>
+          <h3>Streaming &amp; Messaging</h3>
+          <p>Kafka, Flink, Beam, Pub/Sub, Kinesis, schema registries, replay-safe streaming, and ClickHouse real-time analytics.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(245, 158, 11, 0.15);">&#127981;</div>
+          <h3>Lakehouse &amp; Warehouse</h3>
+          <p>Delta Lake, Iceberg, Hudi, zone architecture, medallion patterns, dbt, semantic layers, and cost optimization.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(16, 185, 129, 0.15);">&#128274;</div>
+          <h3>Security &amp; Compliance</h3>
+          <p>PII, PCI, HIPAA, GDPR, regional sovereignty, ESG reporting, audit evidence, and platform-native governance.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(244, 63, 94, 0.15);">&#128680;</div>
+          <h3>Reliability &amp; Recovery</h3>
+          <p>Observability, SLA management, incident triage, disaster recovery, resiliency testing, and failure injection.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(139, 92, 246, 0.15);">&#128295;</div>
+          <h3>Modernization</h3>
+          <p>ETL/ELT strategy, mainframe offload, enterprise ETL modernization for Informatica, Talend, DataStage, and SSIS.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(99, 102, 241, 0.15);">&#128187;</div>
+          <h3>Language-Specific Skills</h3>
+          <p>Python pipeline packaging, Scala JVM data jobs, and Java integration services with idiomatic patterns.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(6, 182, 212, 0.15);">&#127760;</div>
+          <h3>Platform Governance</h3>
+          <p>Glue Data Catalog, Lake Formation, Unity Catalog, Microsoft Purview, Dataplex, OpenMetadata, and DataHub.</p>
+        </div>
+        <div class="bento-card">
+          <div class="bento-icon" style="background: rgba(245, 158, 11, 0.15);">&#128736;</div>
+          <h3>Operations &amp; Platform</h3>
+          <p>CI/CD release management, Terraform infrastructure, platform operating models, golden paths, and service ownership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <h2>Ready to Level Up Your<br><span class="gradient-text">Data Engineering?</span></h2>
+      <p>Give your AI agents the discipline of a strong data engineering team. Open source, MIT licensed, production-ready.</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Star on GitHub
+        </a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Plugins
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills">GitHub</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/getting-started.md">Getting Started</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/CONTRIBUTING.md">Contributing</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest">Releases</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/plugin-publishing.md">Plugin Publishing</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/LICENSE">MIT License</a>
+      </div>
+      <p style="margin-top: 8px;">&copy; 2024-2026 Data Engineering Agent Skills. Built with discipline for data teams.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll Reveal Animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Parallax orbs on scroll
+      var orbs = document.querySelectorAll('.orb');
+      window.addEventListener('scroll', function() {
+        var scrollY = window.pageYOffset;
+        orbs.forEach(function(orb, i) {
+          var speed = (i + 1) * 0.02;
+          orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+      });
+
+      // Mobile menu toggle
+      var mobileMenu = document.querySelector('.mobile-menu');
+      var navLinks = document.querySelector('.nav-links');
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function() {
+          if (navLinks.style.display === 'flex') {
+            navLinks.style.display = 'none';
+          } else {
+            navLinks.style.display = 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '60px';
+            navLinks.style.right = '24px';
+            navLinks.style.background = 'rgba(10, 14, 26, 0.95)';
+            navLinks.style.padding = '20px';
+            navLinks.style.borderRadius = '12px';
+            navLinks.style.border = '1px solid rgba(99, 102, 241, 0.2)';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
