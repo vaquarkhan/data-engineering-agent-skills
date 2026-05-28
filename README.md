@@ -148,6 +148,13 @@ python evals/run.py
 - `tutorials/regulated-data-and-compliance-workflows.md`
 - `tutorials/installing-vscode-and-jetbrains-plugins.md`
 
+#### Case Studies
+
+- `case-studies/README.md`
+- `case-studies/incident-bad-publish-recovery.md`
+- `case-studies/replay-safe-backfill-after-corruption.md`
+- `case-studies/regulated-data-release-gate.md`
+
 ## Core Principles
 
 - Spec before pipeline code
