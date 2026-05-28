@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Engineering Agent Skills - Production-Grade Skills for AI Agents</title>
+  <meta name="description" content="The open skill registry and execution toolkit for data engineering agents. 70+ skills, 14 platform presets, and disciplined delivery workflows.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #818cf8;
+      --secondary: #06b6d4;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: #334155;
+      --gradient-1: linear-gradient(135deg, #6366f1, #06b6d4);
+      --gradient-2: linear-gradient(135deg, #f59e0b, #ef4444);
+      --gradient-3: linear-gradient(135deg, #10b981, #06b6d4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-cta {
+      background: var(--gradient-1);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      -webkit-text-fill-color: white !important;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--primary-light);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 24px;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Feature Cards */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Lifecycle */
+    .lifecycle-flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .lifecycle-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lifecycle-cmd {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--primary-light);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .lifecycle-cmd:hover {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .lifecycle-arrow {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    .lifecycle-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* Platform Grid */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .platform-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .platform-card:hover {
+      border-color: var(--secondary);
+      background: rgba(6, 182, 212, 0.05);
+    }
+
+    .platform-card .platform-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .platform-card .platform-type {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Agent Compatibility */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .agent-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .agent-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .agent-card .agent-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .agent-card .agent-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Code Block */
+    .code-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 40px 0;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+    .code-block .comment { color: var(--text-muted); }
+    .code-block .cmd { color: var(--success); }
+    .code-block .flag { color: var(--accent); }
+    .code-block .path { color: var(--primary-light); }
+
+    /* Use Cases */
+    .usecases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .usecase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s;
+    }
+
+    .usecase-card:hover {
+      border-color: var(--success);
+    }
+
+    .usecase-card h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .usecase-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .usecase-card .usecase-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--success);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+
+    /* Principles */
+    .principles-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .principle {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .principle-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .principle h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .principle p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text-primary); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .lifecycle-flow { flex-direction: column; align-items: center; }
+      .lifecycle-arrow { transform: rotate(90deg); }
+      section { padding: 60px 0; }
+      .hero { padding: 120px 0 60px; }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-brand">DE Agent Skills</div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#lifecycle">Lifecycle</a></li>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#agents">Agents</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge animate">
+        <span>&#9733;</span> Open Source &bull; MIT Licensed &bull; Production-Grade
+      </div>
+      <h1 class="animate delay-1">
+        <span class="gradient-text">Data Engineering</span><br>
+        Agent Skills
+      </h1>
+      <p class="animate delay-2">
+        The open skill registry and execution toolkit that gives AI agents the operating procedures
+        to define, plan, implement, validate, replay, and ship reliable data products.
+      </p>
+      <div class="hero-buttons animate delay-3">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="btn btn-primary">
+          &#128640; Get Started
+        </a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest" class="btn btn-secondary">
+          &#128230; Download Latest
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats animate delay-4">
+        <div class="stat">
+          <div class="stat-number">70+</div>
+          <div class="stat-label">Workflow Skills</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">14</div>
+          <div class="stat-label">Platform Presets</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">13</div>
+          <div class="stat-label">Examples</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Starter Packs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10</div>
+          <div class="stat-label">MCP Configs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Agent Ecosystems</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Principles -->
+  <section id="principles">
+    <div class="container">
+      <div class="section-header">
+        <h2>Not Generic Prompts. Operating Procedures.</h2>
+        <p>Built for disciplined delivery of data products with contracts, validation, lineage, replay safety, and rollback awareness.</p>
+      </div>
+      <div class="principles-list">
+        <div class="principle">
+          <div class="principle-icon">&#128220;</div>
+          <div>
+            <h4>Spec Before Code</h4>
+            <p>Define contracts, SLAs, lineage, schema, retention, and ownership before writing pipeline code.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">&#128203;</div>
+          <div>
+            <h4>Contract-First Design</h4>
+            <p>Source and output contracts are defined upfront. No guessing grain, freshness, or behavior.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">&#128260;</div>
+          <div>
+            <h4>Replay-Safe Execution</h4>
+            <p>Idempotent, replayable, backfill-safe patterns are the default, not an afterthought.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">&#9989;</div>
+          <div>
+            <h4>Quality Before Publish</h4>
+            <p>Data quality checks, reconciliation, and contract compliance are proven before any release.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">&#128279;</div>
+          <div>
+            <h4>Lineage &amp; Governance</h4>
+            <p>Lineage, ownership, privacy, and governance are part of normal delivery, not bolt-on extras.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">&#128736;</div>
+          <div>
+            <h4>Clear Evidence</h4>
+            <p>Every change produces evidence. Rollback paths, observability, and audit trails are built in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything You Need for Data Engineering</h2>
+        <p>A comprehensive toolkit covering the full spectrum of data engineering concerns.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(99, 102, 241, 0.1);">&#127919;</div>
+          <h3>70+ Workflow Skills</h3>
+          <p>Covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, quality, legacy modernization, release, and incident recovery.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(6, 182, 212, 0.1);">&#9729;&#65039;</div>
+          <h3>14 Platform Presets</h3>
+          <p>AWS, Azure, GCP, Databricks, Snowflake, Alibaba Cloud, Informatica, Talend, and Apache-first stacks. Vendor-neutral skills with platform-specific adaptation.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(245, 158, 11, 0.1);">&#128640;</div>
+          <h3>Starter Packs</h3>
+          <p>Opinionated bundles for AWS Lakehouse, Databricks Medallion, Warehouse Analytics, Streaming Reliability, Privacy Governance, CI/CD Release, and more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(16, 185, 129, 0.1);">&#128270;</div>
+          <h3>Runnable Examples</h3>
+          <p>13 end-to-end example projects with specs, plans, tasks, and proof paths. Local smoke tests and rollback demonstrations included.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(239, 68, 68, 0.1);">&#128737;</div>
+          <h3>Operational Hooks</h3>
+          <p>Session start, contract checks, schema safety, cost checks, backfill guards, and release gates. The repo behaves like a workflow system.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(168, 85, 247, 0.1);">&#128218;</div>
+          <h3>Templates &amp; Contracts</h3>
+          <p>Machine-readable templates for source contracts, dataset contracts, metric contracts, compliance controls, backfill plans, and incident runbooks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifecycle Section -->
+  <section id="lifecycle" style="background: rgba(30, 41, 59, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Spec-First Delivery Lifecycle</h2>
+        <p>Seven commands that map to the entire data product delivery journey.</p>
+      </div>
+      <div class="lifecycle-flow">
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/spec</div>
+            <div class="lifecycle-desc">Define</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/plan</div>
+            <div class="lifecycle-desc">Break down</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/build</div>
+            <div class="lifecycle-desc">Implement</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/validate</div>
+            <div class="lifecycle-desc">Prove</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/review</div>
+            <div class="lifecycle-desc">Inspect</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/backfill</div>
+            <div class="lifecycle-desc">Replay</div>
+          </div>
+          <span class="lifecycle-arrow">&#8594;</span>
+        </div>
+        <div class="lifecycle-step">
+          <div>
+            <div class="lifecycle-cmd">/ship</div>
+            <div class="lifecycle-desc">Release</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top: 60px;">
+        <pre><span class="comment"># Clone and install</span>
+<span class="cmd">git clone</span> <span class="path">https://github.com/vaquarkhan/data-engineering-agent-skills.git</span>
+<span class="cmd">cd</span> <span class="path">data-engineering-agent-skills</span>
+
+<span class="comment"># Install into your project</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> all <span class="flag">--target</span> <span class="path">/path/to/project</span>
+
+<span class="comment"># Or use the bootstrap shortcut</span>
+<span class="cmd">./bootstrap.sh</span> <span class="path">/path/to/project</span> <span class="flag">auto</span>
+
+<span class="comment"># Run validators and benchmarks</span>
+<span class="cmd">pip install</span> <span class="flag">-r</span> <span class="path">requirements.txt</span>
+<span class="cmd">python</span> <span class="path">benchmarks/score_benchmarks.py</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms Section -->
+  <section id="platforms">
+    <div class="container">
+      <div class="section-header">
+        <h2>Platform Presets</h2>
+        <p>Vendor-neutral skills adapt to your stack through platform-specific presets.</p>
+      </div>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-name">AWS</div>
+          <div class="platform-type">S3, Glue, Athena, EMR, Lake Formation</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Azure</div>
+          <div class="platform-type">ADLS, Synapse, Purview, Data Factory</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">GCP</div>
+          <div class="platform-type">BigQuery, Dataflow, Pub/Sub, Dataplex</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Databricks</div>
+          <div class="platform-type">Delta Lake, Unity Catalog, Auto Loader</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Snowflake</div>
+          <div class="platform-type">Streams, Tasks, Dynamic Tables</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Alibaba Cloud</div>
+          <div class="platform-type">MaxCompute, DataWorks, OSS</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Apache Spark</div>
+          <div class="platform-type">Batch &amp; streaming processing</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Apache Flink</div>
+          <div class="platform-type">Stream processing engine</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Apache Airflow</div>
+          <div class="platform-type">Workflow orchestration</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Apache Kafka</div>
+          <div class="platform-type">Event streaming platform</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Apache Iceberg</div>
+          <div class="platform-type">Open table format</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Informatica</div>
+          <div class="platform-type">Enterprise data integration</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Talend</div>
+          <div class="platform-type">Data integration &amp; quality</div>
+        </div>
+        <div class="platform-card">
+          <div class="platform-name">Multi-Cloud</div>
+          <div class="platform-type">Hybrid &amp; cross-cloud patterns</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agent Compatibility -->
+  <section id="agents" style="background: rgba(30, 41, 59, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Works With Every AI Agent</h2>
+        <p>Native adapters and install surfaces for all major AI coding assistants.</p>
+      </div>
+      <div class="agents-grid">
+        <div class="agent-card">
+          <div class="agent-icon">&#128421;</div>
+          <div class="agent-name">VS Code</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#9000;</div>
+          <div class="agent-name">Cursor</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#129302;</div>
+          <div class="agent-name">Claude</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#128161;</div>
+          <div class="agent-name">Copilot</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#128142;</div>
+          <div class="agent-name">Gemini</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#127752;</div>
+          <div class="agent-name">Kiro</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#127754;</div>
+          <div class="agent-name">Windsurf</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#128187;</div>
+          <div class="agent-name">OpenCode</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#128209;</div>
+          <div class="agent-name">Codex</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">&#9881;</div>
+          <div class="agent-name">JetBrains</div>
+        </div>
+      </div>
+
+      <div class="code-block" style="margin-top: 40px;">
+        <pre><span class="comment"># Install for specific tools</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> cursor <span class="flag">--target</span> <span class="path">./my-project</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> claude <span class="flag">--target</span> <span class="path">./my-project</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> kiro <span class="flag">--target</span> <span class="path">./my-project</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> copilot <span class="flag">--target</span> <span class="path">./my-project</span>
+
+<span class="comment"># Install for all agents at once</span>
+<span class="cmd">scripts/install.sh</span> <span class="flag">--tool</span> all <span class="flag">--target</span> <span class="path">./my-project</span>
+
+<span class="comment"># Windows PowerShell</span>
+<span class="cmd">pwsh scripts/install.ps1</span> <span class="flag">--tool</span> all <span class="flag">--target</span> <span class="path">C:\my-project</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Examples Section -->
+  <section id="examples">
+    <div class="container">
+      <div class="section-header">
+        <h2>Real-World Examples</h2>
+        <p>End-to-end project packs with specs, plans, tasks, and runnable proof paths.</p>
+      </div>
+      <div class="usecases-grid">
+        <div class="usecase-card">
+          <h4>AWS S3 + Glue + Athena + Iceberg</h4>
+          <p>Full lakehouse adoption with zone architecture, normalization jobs, and reconciliation checks.</p>
+          <span class="usecase-tag">Lakehouse</span>
+        </div>
+        <div class="usecase-card">
+          <h4>Databricks Delta Medallion</h4>
+          <p>Bronze-to-silver transformation with Auto Loader, rollback demonstrations, and contract validation.</p>
+          <span class="usecase-tag">Medallion</span>
+        </div>
+        <div class="usecase-card">
+          <h4>dbt Warehouse Marts</h4>
+          <p>Analytics modeling with DuckDB local execution, semantic layer governance, and quality gates.</p>
+          <span class="usecase-tag">Analytics</span>
+        </div>
+        <div class="usecase-card">
+          <h4>Kafka + Flink Streaming</h4>
+          <p>Stream processing with replay safety, schema-aware pipelines, and incident recovery patterns.</p>
+          <span class="usecase-tag">Streaming</span>
+        </div>
+        <div class="usecase-card">
+          <h4>GCP Pub/Sub + Dataflow + BigQuery</h4>
+          <p>Managed GCP stream-to-analytics path with observability and SLA management.</p>
+          <span class="usecase-tag">GCP</span>
+        </div>
+        <div class="usecase-card">
+          <h4>Snowflake + dbt + Reverse ETL</h4>
+          <p>Warehouse-to-operational serving with publishing contracts and data sharing patterns.</p>
+          <span class="usecase-tag">Snowflake</span>
+        </div>
+        <div class="usecase-card">
+          <h4>Privacy Retention &amp; Deletion</h4>
+          <p>GDPR-compliant deletion propagation with audit evidence and lineage tracking.</p>
+          <span class="usecase-tag">Governance</span>
+        </div>
+        <div class="usecase-card">
+          <h4>Multi-Cloud Warehouse Cutover</h4>
+          <p>Platform migration with dual-run reconciliation, consumer cutover, and rollback paths.</p>
+          <span class="usecase-tag">Migration</span>
+        </div>
+        <div class="usecase-card">
+          <h4>CI/CD Progressive Release</h4>
+          <p>Staged platform release flow with shadow validation, canary checks, and gated rollout.</p>
+          <span class="usecase-tag">Release</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Section -->
+  <section style="background: rgba(30, 41, 59, 0.5);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comprehensive Coverage</h2>
+        <p>From ingestion to governance, from streaming to compliance.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(99, 102, 241, 0.1);">&#128202;</div>
+          <h3>Ingestion &amp; Extraction</h3>
+          <p>API/SaaS ingestion, CDC, file/SFTP feeds, partner-managed sources, source reliability, and extraction resilience patterns.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(6, 182, 212, 0.1);">&#9889;</div>
+          <h3>Streaming &amp; Messaging</h3>
+          <p>Kafka, Flink, Beam, Pub/Sub, Kinesis, schema registries, replay-safe streaming, and real-time analytics with ClickHouse.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(245, 158, 11, 0.1);">&#127981;</div>
+          <h3>Lakehouse &amp; Warehouse</h3>
+          <p>Delta Lake, Iceberg, Hudi, zone architecture, medallion patterns, dbt, semantic layers, and warehouse performance optimization.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(16, 185, 129, 0.1);">&#128274;</div>
+          <h3>Security &amp; Compliance</h3>
+          <p>PII, PCI, HIPAA, GDPR, regional sovereignty, ESG reporting, audit evidence, and platform-native governance for all major clouds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(239, 68, 68, 0.1);">&#128680;</div>
+          <h3>Reliability &amp; Recovery</h3>
+          <p>Observability, SLA management, incident triage, disaster recovery, resiliency testing, failure injection, and business continuity.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background: rgba(168, 85, 247, 0.1);">&#128295;</div>
+          <h3>Modernization</h3>
+          <p>ETL/ELT strategy, mainframe offload, enterprise ETL modernization for Informatica, Talend, DataStage, SSIS, and Matillion estates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Level Up Your Data Engineering?</h2>
+      <p>Give your AI agents the discipline of a strong data engineering team.</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills" class="btn btn-primary">
+          &#11088; Star on GitHub
+        </a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/getting-started.md" class="btn btn-secondary">
+          &#128214; Read the Docs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills">GitHub</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/docs/getting-started.md">Getting Started</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/CONTRIBUTING.md">Contributing</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest">Releases</a>
+        <a href="https://github.com/vaquarkhan/data-engineering-agent-skills/blob/main/LICENSE">MIT License</a>
+      </div>
+      <p>&copy; 2024-2026 Data Engineering Agent Skills. Built with discipline for data teams.</p>
+    </div>
+  </footer>
+
+  <!-- Simple scroll animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.feature-card, .platform-card, .agent-card, .usecase-card, .principle').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

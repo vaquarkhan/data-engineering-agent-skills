@@ -35,6 +35,7 @@ dist/
 build/
 examples/**/target/
 site/
+!docs/site/
 tmp/
 temp/
 *.tmp
