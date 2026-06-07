@@ -4,3 +4,5 @@ dbt-duckdb
 kafka-python
 psycopg[binary]
 jsonschema
+pandas
+pyarrow
