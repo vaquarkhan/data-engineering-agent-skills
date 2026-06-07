@@ -75,10 +75,32 @@ pwsh .\bootstrap.ps1 C:\path\to\project auto
 
 ### Install Surfaces
 
-#### Plugin And Release Downloads
+#### 📦 Plugin And Release Downloads
 
-- `VS Code` family `.vsix`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
-- `JetBrains` plugin `.zip`: [download from Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+> **⬇️ [Download VS Code Extension (.vsix)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — works with VS Code, Cursor, Windsurf, VSCodium
+>
+> **⬇️ [Download JetBrains Plugin (.zip)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — works with IntelliJ, PyCharm, DataGrip, WebStorm, GoLand
+
+**How to install the `.vsix`:**
+
+1. Download the `.vsix` file from the [latest release](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+2. Open VS Code / Cursor / Windsurf / Kiro
+3. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
+4. Type `Extensions: Install from VSIX...` and select it
+5. Browse to and select the downloaded `.vsix` file
+6. Reload the editor when prompted
+7. Use the Command Palette again — search for `Data Engineering Skills:` to see all available commands
+
+**How to install the JetBrains `.zip`:**
+
+1. Download the `.zip` file from the [latest release](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)
+2. Open IntelliJ / PyCharm / DataGrip
+3. Go to `Settings` → `Plugins` → ⚙️ gear icon → `Install Plugin from Disk...`
+4. Select the downloaded `.zip` file
+5. Restart the IDE when prompted
+
+**Additional plugin resources:**
+
 - plugin publishing and marketplace workflow setup: `docs/plugin-publishing.md`
 - marketplace publish workflows exist, but this repository should be treated as GitHub Releases-first unless a marketplace listing is explicitly published
 - `Claude` plugin bundle: use `.claude-plugin/`, `.claude/commands/`, and `CLAUDE.md`
