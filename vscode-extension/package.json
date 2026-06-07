@@ -2,10 +2,11 @@
   "name": "data-engineering-agent-skills",
   "displayName": "Data Engineering Agent Skills",
   "description": "Install data engineering skill packs, starter packs, MCP templates, and runnable examples into a VS Code workspace.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "publisher": "vaquarkhan",
-  "publisherDisplayName": "vaquarkhan",
+  "publisherDisplayName": "Viquar Khna",
   "license": "MIT",
+  "icon": "icon.png",
   "homepage": "https://github.com/vaquarkhan/data-engineering-agent-skills",
   "bugs": {
     "url": "https://github.com/vaquarkhan/data-engineering-agent-skills/issues"
