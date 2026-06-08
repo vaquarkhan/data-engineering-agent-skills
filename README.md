@@ -15,8 +15,12 @@
 [![Agent Benchmarks](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml)
 [![Markdown Lint](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/vaquarkhan/data-engineering-agent-skills)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/ViquarKhan.data-engineering-agent-skills)](https://marketplace.visualstudio.com/items?itemName=ViquarKhan.data-engineering-agent-skills)
+[![VS Code Downloads](https://img.shields.io/visual-studio-marketplace/d/ViquarKhan.data-engineering-agent-skills)](https://marketplace.visualstudio.com/items?itemName=ViquarKhan.data-engineering-agent-skills)
 [![JetBrains Plugin](https://img.shields.io/jetbrains/plugin/v/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
 [![JetBrains Downloads](https://img.shields.io/jetbrains/plugin/d/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
+
+> **🌐 [Project Website](https://vaquarkhan.github.io/data-engineering-agent-skills/)** | **📦 [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ViquarKhan.data-engineering-agent-skills)** | **🔌 [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)** | **⬇️ [GitHub Releases](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)**
 
 Production-grade data engineering skills for AI agents.
 
@@ -79,9 +83,11 @@ pwsh .\bootstrap.ps1 C:\path\to\project auto
 
 #### 📦 Plugin And Release Downloads
 
+> **⬇️ [Install from VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=ViquarKhan.data-engineering-agent-skills)** — search "Data Engineering Agent Skills" in VS Code Extensions panel
+>
 > **⬇️ [Install from JetBrains Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)** — IntelliJ, PyCharm, DataGrip, WebStorm, GoLand
 >
-> **⬇️ [Download VS Code Extension (.vsix)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — works with VS Code, Cursor, Windsurf, VSCodium
+> **⬇️ [Download VS Code Extension (.vsix)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — manual install for VS Code, Cursor, Windsurf, VSCodium
 >
 > **⬇️ [Download JetBrains Plugin (.zip)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — alternative manual download
 
@@ -113,7 +119,7 @@ pwsh .\bootstrap.ps1 C:\path\to\project auto
 
 | Tool or surface | Best starting link | Install path |
 | --- | --- | --- |
-| `VS Code` | `vscode-extension/README.md` | download `.vsix` from Releases, then use the extension commands; do not assume a live marketplace listing |
+| `VS Code` | `vscode-extension/README.md` | [Install from Marketplace](https://marketplace.visualstudio.com/items?itemName=ViquarKhan.data-engineering-agent-skills) or download `.vsix` from Releases |
 | `Cursor` | `docs/cursor-setup.md` | use `.cursor/rules/` or `scripts/install.sh --tool cursor` |
 | `Claude` | `docs/claude-setup.md` | use `.claude/commands/`, `.claude-plugin/`, `CLAUDE.md`, or `scripts/install.sh --tool claude` |
 | `JetBrains` | `docs/jetbrains-setup.md` | [Install from Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills) or download `.zip` from Releases |

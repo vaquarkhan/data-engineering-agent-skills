@@ -3,7 +3,7 @@
   "displayName": "Data Engineering Agent Skills",
   "description": "Install data engineering skill packs, starter packs, MCP templates, and runnable examples into a VS Code workspace.",
   "version": "3.0.2",
-  "publisher": "vaquarkhan",
+  "publisher": "ViquarKhan",
   "publisherDisplayName": "Viquar Khna",
   "license": "MIT",
   "icon": "icon.png",
