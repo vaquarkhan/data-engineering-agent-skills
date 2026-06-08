@@ -15,6 +15,8 @@
 [![Agent Benchmarks](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/agent-benchmarks.yml)
 [![Markdown Lint](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/markdown-lint.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/vaquarkhan/data-engineering-agent-skills)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases)
+[![JetBrains Plugin](https://img.shields.io/jetbrains/plugin/v/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
+[![JetBrains Downloads](https://img.shields.io/jetbrains/plugin/d/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
 
 Production-grade data engineering skills for AI agents.
 
@@ -77,9 +79,11 @@ pwsh .\bootstrap.ps1 C:\path\to\project auto
 
 #### 📦 Plugin And Release Downloads
 
+> **⬇️ [Install from JetBrains Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)** — IntelliJ, PyCharm, DataGrip, WebStorm, GoLand
+>
 > **⬇️ [Download VS Code Extension (.vsix)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — works with VS Code, Cursor, Windsurf, VSCodium
 >
-> **⬇️ [Download JetBrains Plugin (.zip)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — works with IntelliJ, PyCharm, DataGrip, WebStorm, GoLand
+> **⬇️ [Download JetBrains Plugin (.zip)](https://github.com/vaquarkhan/data-engineering-agent-skills/releases/latest)** — alternative manual download
 
 **How to install the `.vsix`:**
 
@@ -112,7 +116,7 @@ pwsh .\bootstrap.ps1 C:\path\to\project auto
 | `VS Code` | `vscode-extension/README.md` | download `.vsix` from Releases, then use the extension commands; do not assume a live marketplace listing |
 | `Cursor` | `docs/cursor-setup.md` | use `.cursor/rules/` or `scripts/install.sh --tool cursor` |
 | `Claude` | `docs/claude-setup.md` | use `.claude/commands/`, `.claude-plugin/`, `CLAUDE.md`, or `scripts/install.sh --tool claude` |
-| `JetBrains` | `docs/jetbrains-setup.md` | download plugin `.zip` from Releases; marketplace publish is optional and may not be active |
+| `JetBrains` | `docs/jetbrains-setup.md` | [Install from Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills) or download `.zip` from Releases |
 | `Copilot` | `docs/copilot-setup.md` | use `.github/copilot-instructions.md` or `scripts/install.sh --tool copilot` |
 | `Kiro` | `docs/kiro-setup.md` | use `.kiro/steering/` or `scripts/install.sh --tool kiro` |
 | `Windsurf` | `docs/windsurf-setup.md` | use `.windsurfrules.example` or `scripts/install.sh --tool windsurf` |
@@ -471,14 +475,16 @@ It is intended for the `VS Code` family:
 
 ## JetBrains Plugin
 
-The first working JetBrains plugin scaffold lives in `jetbrains-plugin/`.
+[![JetBrains Plugin](https://img.shields.io/jetbrains/plugin/v/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
+[![JetBrains Downloads](https://img.shields.io/jetbrains/plugin/d/32163)](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
 
-Installable plugin ZIP artifacts are published from the repository release page.
+**[Install from JetBrains Marketplace](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)** — search "Data Engineering Agent Skills" in your IDE's plugin settings.
 
-Marketplace publishing is supported through `.github/workflows/publish-plugins.yml` when JetBrains signing and marketplace secrets are configured.
+The plugin source lives in `jetbrains-plugin/`.
 
 Start here for `JetBrains` IDEs:
 
+- [JetBrains Marketplace listing](https://plugins.jetbrains.com/plugin/32163-data-engineering-agent-skills)
 - `jetbrains-plugin/README.md`
 - `docs/jetbrains-setup.md`
 - `tutorials/installing-vscode-and-jetbrains-plugins.md`
