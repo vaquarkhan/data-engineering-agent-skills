@@ -55,6 +55,13 @@ Pair this preset with `skills/glue-data-catalog-and-lake-formation-governance/SK
 - Design backfills to avoid runaway scan cost in `S3`, `Athena`, and `Redshift`.
 - Use platform-native monitoring and tagging so cost and ownership stay visible.
 
+## Companion Skills
+
+- `MSK` or `Kinesis` production hardening: `kafka-resilience-and-schema-evolution`
+- serverless or timeout-bound `Glue` / `Lambda` Spark: `spark-serverless-reliability-and-state-management`
+- replay or bounded backfill on AWS pipelines: `safe-backfill-and-replay-orchestration`
+- live lag, DAG, or Spark plan diagnosis: `mcp-data-observability-integration`
+
 ## Verification
 
 - [ ] Storage layout, partitioning, and retention are defined

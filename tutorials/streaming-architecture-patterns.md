@@ -102,8 +102,11 @@ If replay safety is unclear, the streaming architecture is unfinished.
 Use:
 
 - `skills/streaming-and-messaging-systems/SKILL.md`
+- `skills/kafka-resilience-and-schema-evolution/SKILL.md`
+- `skills/mcp-data-observability-integration/SKILL.md`
 - `skills/data-observability-and-sla-management/SKILL.md`
 - `skills/incident-triage-and-pipeline-recovery/SKILL.md`
+- `references/kafka-production-guardrails.md`
 - `references/data-resiliency-testing-patterns.md`
 
 That combination keeps the design grounded in observability and recovery, not only throughput.

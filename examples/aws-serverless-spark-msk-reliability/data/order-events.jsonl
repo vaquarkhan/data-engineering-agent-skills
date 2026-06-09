@@ -1,0 +1,6 @@
+{"order_id": "o-100", "event_date": "2026-06-01", "amount": 42.5, "event_type": "created"}
+{"order_id": "o-100", "event_date": "2026-06-01", "amount": 10.0, "event_type": "updated"}
+{"order_id": "o-101", "event_date": "2026-06-01", "amount": 99.0, "event_type": "created"}
+{"order_id": "o-102", "event_date": "2026-06-02", "amount": 15.0, "event_type": "created"}
+{"order_id": "o-102", "event_date": "2026-06-02", "amount": 5.0, "event_type": "updated"}
+{"order_id": "o-103", "event_date": "2026-06-02", "amount": 30.0, "event_type": "created"}

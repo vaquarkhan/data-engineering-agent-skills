@@ -8,5 +8,8 @@
   "cost_review": ["cost"],
   "lakehouse_release": ["publish-separation"],
   "incident_response": ["containment", "replay"],
-  "terraform_platform_review": ["drift", "least-privilege"]
+  "terraform_platform_review": ["drift", "least-privilege"],
+  "kafka_dlq_schema_hardening": ["acks", "schema-compatibility"],
+  "serverless_spark_state_recovery": ["checkpoint", "idempotency"],
+  "mcp_observability_triage": ["lag", "containment"]
 }

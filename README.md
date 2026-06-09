@@ -1,13 +1,13 @@
-![Data Engineering Agent Skills](https://raw.githubusercontent.com/vaquarkhan/data-engineering-agent-skills/main/images/DE-Skills-2.1.png)
+![Data Engineering Agent Skills](images/DE-Skills-3.2.png)
 
 # Data Engineering Agent Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-70-brightgreen.svg)](#initial-skill-pack)
+[![Skills](https://img.shields.io/badge/Skills-74-brightgreen.svg)](#initial-skill-pack)
 [![Presets](https://img.shields.io/badge/Presets-14-blue.svg)](#platform-presets)
-[![Examples](https://img.shields.io/badge/Examples-13-purple.svg)](#end-to-end-examples)
-[![MCP Configs](https://img.shields.io/badge/MCP%20Configs-10-orange.svg)](#mcp-config-templates)
-[![Starter Packs](https://img.shields.io/badge/Starter%20Packs-12-red.svg)](#starter-packs)
+[![Examples](https://img.shields.io/badge/Examples-14-purple.svg)](#end-to-end-examples)
+[![MCP Configs](https://img.shields.io/badge/MCP%20Configs-11-orange.svg)](#mcp-config-templates)
+[![Starter Packs](https://img.shields.io/badge/Starter%20Packs-13-red.svg)](#starter-packs)
 [![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
 [![Release Artifacts](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/release-artifacts.yml)
 [![Proof Assets](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/proof-assets.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/proof-assets.yml)
@@ -242,6 +242,8 @@ These commands are the clearest way to understand the repo. They can be mapped t
 - New pipeline -> use `/spec`
 - dbt project -> use `starter-packs/warehouse-analytics-starter.yaml`
 - Streaming system -> use `starter-packs/streaming-reliability-starter.yaml`
+- Production reliability and failure recovery -> use `starter-packs/production-reliability-starter.yaml` and `tutorials/production-reliability-and-mcp-observability.md`
+- Serverless Spark or MSK hardening -> use `examples/aws-serverless-spark-msk-reliability/`
 - Streaming architecture review -> use `references/streaming-architecture-patterns.md`
 - Cloud architecture review -> use `references/cloud-data-engineering-architecture-patterns.md`
 - Pipeline orchestration review -> use `references/pipeline-orchestration-patterns.md`
@@ -265,7 +267,7 @@ These commands are the clearest way to understand the repo. They can be mapped t
 - Disaster recovery planning -> use `data-platform-disaster-recovery-and-business-continuity`
 - Platform operating model or golden paths -> use `data-platform-operating-model-and-service-ownership`
 - Schema migration -> use `schema-evolution-and-contract-migrations`
-- Cutover or backfill -> use `data-migration-and-platform-cutover`
+- Cutover or backfill -> use `safe-backfill-and-replay-orchestration` and `data-migration-and-platform-cutover`
 - CI/CD and progressive release -> use `starter-packs/data-platform-cicd-release-starter.yaml`
 - Regional compliance or sovereignty -> use `regional-data-compliance-and-sovereignty`
 - `ESG` reporting -> use `starter-packs/regional-compliance-and-esg-reporting-starter.yaml`
@@ -364,6 +366,10 @@ This repository now includes a broader production-grade skill pack:
 - `avro-protobuf-json-schema-registry`
 - `duckdb-local-analytics-and-dev`
 - `data-contract-testing-with-schema-registry`
+- `safe-backfill-and-replay-orchestration`
+- `spark-serverless-reliability-and-state-management`
+- `kafka-resilience-and-schema-evolution`
+- `mcp-data-observability-integration`
 
 Future skills can extend this pack for:
 
@@ -600,6 +606,7 @@ Template MCP configs are available in `mcp/` for:
 - dbt Cloud
 - Airflow
 - Kafka
+- Spark
 - Terraform
 - Slack and Jira incident flows
 
@@ -615,6 +622,7 @@ Example project packs are available in `examples/`:
 - `dbt-warehouse-marts`
 - `gcp-pubsub-dataflow-bigquery`
 - `kafka-flink-streaming`
+- `aws-serverless-spark-msk-reliability`
 - `snowflake-dbt-reverse-etl`
 - `privacy-retention-deletion-workflow`
 - `feature-store-online-offline-parity`
@@ -623,7 +631,7 @@ Example project packs are available in `examples/`:
 - `esg-regulatory-reporting-foundation`
 - `validation-and-security-review-foundation`
 
-The first four example packs also include minimal runnable scaffolds and sample commands.
+Five example packs include minimal runnable scaffolds and sample commands: `aws-s3-glue-athena-iceberg`, `databricks-delta-medallion`, `dbt-warehouse-marts`, `kafka-flink-streaming`, and `aws-serverless-spark-msk-reliability`.
 
 ## Starter Packs
 
@@ -641,6 +649,7 @@ Use the starter packs in `starter-packs/` to adopt the repository by problem are
 - `test-data-lower-environments-starter.yaml`
 - `enterprise-etl-modernization-starter.yaml`
 - `resiliency-testing-starter.yaml`
+- `production-reliability-starter.yaml`
 
 ## Skills Catalog
 
@@ -690,6 +699,9 @@ Use `references/` for high-signal checklists and workflow support material.
 | `references/cloud-data-engineering-architecture-patterns.md` | Common lake, warehouse, lakehouse, streaming, and hybrid architecture patterns across `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, and `Alibaba Cloud` |
 | `references/pipeline-orchestration-patterns.md` | Generic orchestration decisions plus `AWS`, `Azure`, `GCP`, and `Databricks` workflow patterns and best practices |
 | `references/orchestration-patterns.md` | How skills, personas, commands, and hooks in this repository should compose without overlap |
+| `references/spark-serverless-reliability-patterns.md` | Staging, checkpoints, timeout rollback, and orphan cleanup for serverless Spark |
+| `references/kafka-production-guardrails.md` | Producer durability, schema evolution, DLQ, and lag/replay guardrails for Kafka |
+| `references/mcp-data-observability-patterns.md` | Symptom-to-MCP mapping for live lag, Spark plans, and run-state diagnosis |
 
 ## How This Toolkit Works
 

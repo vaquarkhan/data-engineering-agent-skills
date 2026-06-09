@@ -24,7 +24,8 @@ Each example includes:
 | `databricks-delta-medallion` | medallion lakehouse delivery | `Databricks`, `Delta Lake`, `Auto Loader` | `delta-lake-and-medallion-architecture`, `spark-and-distributed-processing`, `data-observability-and-sla-management` |
 | `dbt-warehouse-marts` | warehouse analytics modeling | `dbt`, warehouse marts, semantic outputs | `warehouse-and-schema-design`, `dbt-and-analytics-engineering`, `semantic-layer-and-metric-governance` |
 | `gcp-pubsub-dataflow-bigquery` | managed `GCP` stream-to-analytics path | `Pub/Sub`, `Dataflow`, `BigQuery` | `streaming-and-messaging-systems`, `data-observability-and-sla-management`, `gcp-data-engineering` |
-| `kafka-flink-streaming` | stream processing and replay safety | `Kafka`, `Flink`, schema-aware streaming | `streaming-and-messaging-systems`, `incident-triage-and-pipeline-recovery`, `data-contract-testing-with-schema-registry` |
+| `kafka-flink-streaming` | stream processing and replay safety | `Kafka`, `Flink`, schema-aware streaming | `streaming-and-messaging-systems`, `kafka-resilience-and-schema-evolution`, `safe-backfill-and-replay-orchestration`, `mcp-data-observability-integration` |
+| `aws-serverless-spark-msk-reliability` | serverless Spark checkpoints and MSK guardrails | `MSK`, `S3`, serverless Spark, gated publish | `spark-serverless-reliability-and-state-management`, `kafka-resilience-and-schema-evolution`, `safe-backfill-and-replay-orchestration`, `mcp-data-observability-integration` |
 | `snowflake-dbt-reverse-etl` | warehouse-to-operational serving | `Snowflake`, `dbt`, reverse ETL | `dbt-and-analytics-engineering`, `reverse-etl-and-operational-data-serving`, `data-sharing-and-publishing-contracts` |
 | `privacy-retention-deletion-workflow` | privacy operations and deletion propagation | retention, deletion, audit evidence | `privacy-retention-and-right-to-delete`, `lineage-pii-and-governance`, `incident-triage-and-pipeline-recovery` |
 | `feature-store-online-offline-parity` | feature consistency between training and serving | feature store, online/offline parity | `feature-store-and-ml-data-pipelines`, `data-quality-and-contract-testing`, `data-observability-and-sla-management` |
@@ -51,6 +52,7 @@ Each example includes:
 ### Streaming And Reliability
 
 - `kafka-flink-streaming`
+- `aws-serverless-spark-msk-reliability`
 - `gcp-pubsub-dataflow-bigquery`
 - `data-platform-cicd-progressive-release`
 
@@ -68,6 +70,7 @@ The following examples include local proof paths with sample configs, validation
 - `databricks-delta-medallion`
 - `dbt-warehouse-marts`
 - `kafka-flink-streaming`
+- `aws-serverless-spark-msk-reliability`
 
 Use `make smoke-test` inside each runnable example directory to execute the local proof slice when a `Makefile` is present.
 

@@ -91,6 +91,8 @@ Prioritize:
 Load:
 
 - `skills/data-resiliency-testing-and-failure-injection/SKILL.md`
+- `skills/safe-backfill-and-replay-orchestration/SKILL.md`
+- `skills/mcp-data-observability-integration/SKILL.md`
 - `skills/data-observability-and-sla-management/SKILL.md`
 - `skills/incident-triage-and-pipeline-recovery/SKILL.md`
 - `skills/orchestration-and-backfills/SKILL.md`

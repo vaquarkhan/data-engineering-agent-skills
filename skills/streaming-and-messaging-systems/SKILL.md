@@ -44,6 +44,8 @@ Do not use this when the workload is purely batch and does not require streaming
 
 4. Make consumer behavior observable.
    Lag, failed checkpoints, poison messages, schema drift, and dead-letter handling should be planned, not discovered in production.
+   For production Kafka hardening, load `kafka-resilience-and-schema-evolution`.
+   For live lag or broker metadata before changes, load `mcp-data-observability-integration`.
 
 5. Treat replay as a first-class operation.
    Reprocessing events should not depend on manual guesswork.

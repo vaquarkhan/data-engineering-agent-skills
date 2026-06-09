@@ -28,14 +28,17 @@ Do not jump to fixes before stabilizing the system and understanding impact.
    - isolate bad partitions
    - notify owners and consumers
 
-2. Classify impact.
+2. Pull live signals before mutation when possible.
+   Load `mcp-data-observability-integration` to inspect lag, run state, or Spark stage metrics before reruns or replays.
+
+3. Classify impact.
    Identify:
    - affected datasets
    - time window
    - downstream consumers
    - whether data is late, missing, duplicated, or wrong
 
-3. Determine the safest recovery path.
+4. Determine the safest recovery path.
    Options include:
    - rerun
    - replay
@@ -43,12 +46,14 @@ Do not jump to fixes before stabilizing the system and understanding impact.
    - partial correction
    - full backfill
 
-4. Validate recovery before reopening publish paths.
+   When replay or backfill is chosen, load `safe-backfill-and-replay-orchestration` and draft `templates/backfill-plan.yaml` before execution.
 
-5. Record the incident and add a guardrail.
+5. Validate recovery before reopening publish paths.
+
+6. Record the incident and add a guardrail.
    A fixed incident with no prevention work is unfinished.
 
-6. Turn high-value incidents into repeatable resilience tests.
+7. Turn high-value incidents into repeatable resilience tests.
    Load `skills/data-resiliency-testing-and-failure-injection/SKILL.md` or `references/data-resiliency-testing-patterns.md` when the same failure mode must be prevented from surprising the team again.
 
 ## Common Rationalizations

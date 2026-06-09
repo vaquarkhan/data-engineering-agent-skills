@@ -7,7 +7,7 @@ Use it to answer one practical question: does the skill pack cause an agent to c
 ## Included Assets
 
 - `tasks.json`
-  Ten benchmark prompts covering contracts, dbt, streaming, schema change, regulated data, backfills, cost review, release safety, incidents, and Terraform.
+  Thirteen benchmark prompts covering contracts, dbt, streaming, schema change, regulated data, backfills, cost review, release safety, incidents, Terraform, Kafka hardening, serverless Spark recovery, and MCP observability triage.
 - `baseline-results.json`
   Sample concern coverage without the skill pack.
 - `with-skills-results.json`

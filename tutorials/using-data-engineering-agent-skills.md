@@ -96,7 +96,18 @@ Use one small bundle based on the task.
 - `skills/using-data-engineering-agent-skills/SKILL.md`
 - `presets/apache-kafka-streaming/PRESET.md`
 - `skills/streaming-and-messaging-systems/SKILL.md`
+- `skills/kafka-resilience-and-schema-evolution/SKILL.md`
 - `skills/incident-triage-and-pipeline-recovery/SKILL.md`
+
+### Example: production reliability and failure recovery
+
+- `starter-packs/production-reliability-starter.yaml`
+- `skills/safe-backfill-and-replay-orchestration/SKILL.md`
+- `skills/spark-serverless-reliability-and-state-management/SKILL.md`
+- `skills/kafka-resilience-and-schema-evolution/SKILL.md`
+- `skills/mcp-data-observability-integration/SKILL.md`
+- `tutorials/production-reliability-and-mcp-observability.md`
+- `examples/aws-serverless-spark-msk-reliability/`
 
 ### Example: pipeline orchestration design
 
@@ -118,6 +129,8 @@ Use one small bundle based on the task.
 
 - `skills/using-data-engineering-agent-skills/SKILL.md`
 - `skills/data-resiliency-testing-and-failure-injection/SKILL.md`
+- `skills/safe-backfill-and-replay-orchestration/SKILL.md`
+- `skills/mcp-data-observability-integration/SKILL.md`
 - `skills/data-observability-and-sla-management/SKILL.md`
 - `references/data-resiliency-testing-patterns.md`
 - `templates/incident-runbook.md` and `templates/backfill-plan.yaml`

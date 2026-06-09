@@ -30,6 +30,7 @@ Reliable data systems are shaped as much by rerun behavior as by transformation 
 
 2. Separate normal runs from backfills.
    Historical reprocessing should not silently behave like daily incremental runs unless that has been proven safe.
+   For `/backfill` or publish-bound replay, load `safe-backfill-and-replay-orchestration` first and complete `templates/backfill-plan.yaml` before execution.
 
 3. Design the recovery path before rollout.
    Include:

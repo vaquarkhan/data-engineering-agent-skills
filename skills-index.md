@@ -14,7 +14,7 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `/build` -> use the matching execution skill plus one preset
 - `/validate` -> `data-quality-and-contract-testing`, `data-reconciliation-and-financial-controls`, `schema-evolution-and-contract-migrations`, `data-resiliency-testing-and-failure-injection`
 - `/review` -> `incident-triage-and-pipeline-recovery`, `data-observability-and-sla-management`, and reviewer personas in `agents/`
-- `/backfill` -> `orchestration-and-backfills`, `data-migration-and-platform-cutover`
+- `/backfill` -> `safe-backfill-and-replay-orchestration`, `orchestration-and-backfills`, `data-migration-and-platform-cutover`, `data-reconciliation-and-financial-controls`
 - `/ship` -> `data-platform-ci-cd-and-release-management`, `data-sharing-and-publishing-contracts`, `data-observability-and-sla-management`
 
 ## Define And Plan
@@ -43,8 +43,10 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `debezium-and-kafka-connect-cdc`
 - `apache-beam-unified-batch-and-stream`
 - `spark-and-distributed-processing`
+- `spark-serverless-reliability-and-state-management`
 - `airflow-and-workflow-orchestration`
 - `streaming-and-messaging-systems`
+- `kafka-resilience-and-schema-evolution`
 - `lakehouse-table-format-engineering`
 - `delta-lake-and-medallion-architecture`
 - `apache-hudi-lakehouse`
@@ -85,7 +87,9 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 - `data-observability-and-sla-management`
 - `incident-triage-and-pipeline-recovery`
 - `orchestration-and-backfills`
+- `safe-backfill-and-replay-orchestration`
 - `data-migration-and-platform-cutover`
+- `mcp-data-observability-integration`
 
 ## Platform And Infrastructure
 
@@ -171,7 +175,7 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ### Streaming
 
 - preset: choose the platform stack
-- skills: `streaming-and-messaging-systems`, `orchestration-and-backfills`, `incident-triage-and-pipeline-recovery`
+- skills: `streaming-and-messaging-systems`, `kafka-resilience-and-schema-evolution`, `orchestration-and-backfills`, `incident-triage-and-pipeline-recovery`
 
 ### Pipeline Orchestration
 
@@ -181,7 +185,7 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 ### Streaming Architecture Review
 
 - preset: `apache-kafka-streaming` or `apache-flink-stream-processing`
-- skills: `streaming-and-messaging-systems`, `data-contract-testing-with-schema-registry`, `data-observability-and-sla-management`
+- skills: `streaming-and-messaging-systems`, `kafka-resilience-and-schema-evolution`, `data-contract-testing-with-schema-registry`, `data-observability-and-sla-management`, `mcp-data-observability-integration`
 
 ### Governance And Privacy
 
@@ -242,6 +246,14 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 - preset: `multi-cloud-hybrid-data-engineering`
 - skills: `data-resiliency-testing-and-failure-injection`, `data-observability-and-sla-management`, `incident-triage-and-pipeline-recovery`, `orchestration-and-backfills`
+
+### Production Reliability And Failure Recovery
+
+- preset: `multi-cloud-hybrid-data-engineering` or `aws-data-engineering`
+- skills: `safe-backfill-and-replay-orchestration`, `spark-serverless-reliability-and-state-management`, `kafka-resilience-and-schema-evolution`, `mcp-data-observability-integration`, `data-reconciliation-and-financial-controls`
+- starter pack: `starter-packs/production-reliability-starter.yaml`
+- example: `examples/aws-serverless-spark-msk-reliability/`
+- tutorial: `tutorials/production-reliability-and-mcp-observability.md`
 
 ### Validation And Security Review
 

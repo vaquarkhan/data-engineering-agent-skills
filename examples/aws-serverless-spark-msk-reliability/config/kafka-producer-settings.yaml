@@ -1,0 +1,11 @@
+kafka_producer:
+  topic: order-events
+  required_settings:
+    acks: all
+    enable_idempotence: true
+    retries: 5
+    delivery_timeout_ms: 120000
+  schema_registry:
+    compatibility: BACKWARD
+    ci_validation_required: true
+  dlq_topic: order-events-dlq

@@ -44,6 +44,14 @@ jetbrains-plugin/        -> JetBrains installer plugin
 - Skills should include: Overview, When to Use, Workflow, Common Rationalizations, Red Flags, Verification
 - Presets should include: Overview, Use When, Preferred Platform Services, Design Rules, Verification
 
+## Production Reliability Routing
+
+- replay or backfill -> `safe-backfill-and-replay-orchestration` + `orchestration-and-backfills`
+- serverless Spark or hard timeout ceilings -> `spark-serverless-reliability-and-state-management`
+- Kafka production hardening -> `kafka-resilience-and-schema-evolution`
+- live lag, Spark plans, or run-state diagnosis -> `mcp-data-observability-integration`
+- starter bundle -> `starter-packs/production-reliability-starter.yaml`
+
 ## Guardrails
 
 - Prefer `/spec` before changing pipeline behavior

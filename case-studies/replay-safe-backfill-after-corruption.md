@@ -20,7 +20,7 @@
 
 ## Skills, Presets, And Templates Used
 
-- **Skills:** `orchestration-and-backfills`, `streaming-and-messaging-systems`, `data-reconciliation-and-financial-controls`, `schema-evolution-and-contract-migrations`
+- **Skills:** `safe-backfill-and-replay-orchestration`, `orchestration-and-backfills`, `streaming-and-messaging-systems`, `kafka-resilience-and-schema-evolution`, `mcp-data-observability-integration`, `data-reconciliation-and-financial-controls`, `schema-evolution-and-contract-migrations`
 - **Presets:** `presets/apache-kafka-streaming/PRESET.md`, `presets/apache-flink-stream-processing/PRESET.md`
 - **Templates:** `templates/backfill-plan.yaml`, `templates/release-gate-evidence.yaml`
 - **Repo anchors:** `examples/kafka-flink-streaming/README.md`, `examples/kafka-flink-streaming/Makefile`, `examples/kafka-flink-streaming/contracts/windowed-orders-contract.yaml`

@@ -6,6 +6,11 @@ All notable changes to this repository will be documented in this file.
 
 ### Added
 
+- production reliability skill pack: `safe-backfill-and-replay-orchestration`, `spark-serverless-reliability-and-state-management`, `kafka-resilience-and-schema-evolution`, and `mcp-data-observability-integration`
+- production reliability references, `mcp/spark.mcp.json`, `starter-packs/production-reliability-starter.yaml`, and `tutorials/production-reliability-and-mcp-observability.md`
+- runnable example `examples/aws-serverless-spark-msk-reliability` for serverless Spark checkpoint resume, Kafka guardrails, and replay-safe publish proof
+- installer, hook, preset, persona, lifecycle-command, benchmark, and cross-link wiring for the production reliability bundle
+
 - multi-agent packaging for `Cursor`, `Claude`, `Copilot`, and `Gemini`
 - install and sync scripts
 - MCP config templates for common data engineering systems

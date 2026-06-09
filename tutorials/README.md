@@ -18,6 +18,8 @@ Use these tutorials when you want a step-by-step adoption path instead of only a
   Applied walkthrough for event backbone, CDC, replay-safe sinks, DLQ, lateness, and state-recovery design choices.
 - `tutorials/data-resiliency-testing-patterns.md`  
   Practical tutorial for failure drills, restart behavior, replay safety, backlog catch-up, and publish-protection testing.
+- `tutorials/production-reliability-and-mcp-observability.md`  
+  Guided walkthrough for safe backfills, serverless Spark checkpoints, Kafka guardrails, and MCP-backed diagnosis before mutation.
 - `tutorials/platform-native-governance-patterns.md`  
   Guided tutorial for choosing native governance patterns across `Glue Data Catalog`, `Lake Formation`, `Unity Catalog`, `Purview`, and `Dataplex`.
 - `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`  
@@ -41,14 +43,15 @@ Use these tutorials when you want a step-by-step adoption path instead of only a
 4. `tutorials/pipeline-orchestration-patterns.md`
 5. `tutorials/streaming-architecture-patterns.md`
 6. `tutorials/data-resiliency-testing-patterns.md`
-7. `tutorials/platform-native-governance-patterns.md`
-8. `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
-9. `tutorials/disaster-recovery-and-restore-drills.md`
-10. `tutorials/mainframe-modernization-and-cutover.md`
-11. `tutorials/data-quality-tools-and-rule-operating-model.md`
-12. `tutorials/etl-elt-modernization-and-cutover.md`
-13. `tutorials/regulated-data-and-compliance-workflows.md`
-14. `tutorials/installing-vscode-and-jetbrains-plugins.md`
+7. `tutorials/production-reliability-and-mcp-observability.md`
+8. `tutorials/platform-native-governance-patterns.md`
+9. `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
+10. `tutorials/disaster-recovery-and-restore-drills.md`
+11. `tutorials/mainframe-modernization-and-cutover.md`
+12. `tutorials/data-quality-tools-and-rule-operating-model.md`
+13. `tutorials/etl-elt-modernization-and-cutover.md`
+14. `tutorials/regulated-data-and-compliance-workflows.md`
+15. `tutorials/installing-vscode-and-jetbrains-plugins.md`
 
 ## Who These Tutorials Are For
 

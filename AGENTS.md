@@ -38,6 +38,9 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - `ETL` or `ELT` transformation-boundary work -> `etl-elt-and-modernization-strategy`
 - mainframe offload or modernization -> `mainframe-modernization-and-data-offload`
 - streaming work -> `streaming-and-messaging-systems`
+- Kafka production hardening, DLQs, or schema guardrails -> `kafka-resilience-and-schema-evolution`
+- serverless Spark on Lambda or short-lived runtimes -> `spark-serverless-reliability-and-state-management`
+- agent observability via MCP (lag, Spark plans, run state) -> `mcp-data-observability-integration`
 - lakehouse work -> `data-lake-and-zone-architecture` + `lakehouse-table-format-engineering`
 - release workflow, promotion design, or gated rollout -> `data-platform-ci-cd-and-release-management`
 - test data or QA datasets -> `test-data-preparation-and-synthetic-data`
@@ -51,7 +54,7 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - disaster recovery or business continuity planning -> `data-platform-disaster-recovery-and-business-continuity`
 - reliability issue -> `data-observability-and-sla-management` + `incident-triage-and-pipeline-recovery`
 - platform-team ownership, golden paths, or support-boundary design -> `data-platform-operating-model-and-service-ownership`
-- replay or migration work -> `orchestration-and-backfills` + `data-migration-and-platform-cutover`
+- replay or migration work -> `safe-backfill-and-replay-orchestration` + `orchestration-and-backfills` + `data-migration-and-platform-cutover`
 - regulated data and audit-bound publish paths -> `data-security-compliance-and-regulated-data` + `lineage-pii-and-governance`
 
 ## Guardrails
@@ -95,6 +98,9 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - `references/regional-compliance-and-data-sovereignty-checklist.md`
 - `references/esg-and-sustainability-reporting-checklist.md`
 - `references/streaming-architecture-patterns.md`
+- `references/spark-serverless-reliability-patterns.md`
+- `references/kafka-production-guardrails.md`
+- `references/mcp-data-observability-patterns.md`
 - `references/cloud-data-engineering-architecture-patterns.md`
 - `references/pipeline-orchestration-patterns.md`
 - `references/README.md`

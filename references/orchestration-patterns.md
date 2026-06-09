@@ -74,7 +74,7 @@ Examples:
 
 - contract definition -> `data-specification`
 - schema migration -> `schema-evolution-and-contract-migrations`
-- replay work -> `orchestration-and-backfills`
+- replay work -> `safe-backfill-and-replay-orchestration` + `orchestration-and-backfills`
 
 ### Direct Persona Invocation
 

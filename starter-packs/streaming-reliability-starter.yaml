@@ -2,10 +2,18 @@ name: streaming-reliability-starter
 preset: apache-kafka-streaming
 skills:
   - streaming-and-messaging-systems
+  - kafka-resilience-and-schema-evolution
+  - mcp-data-observability-integration
   - data-observability-and-sla-management
   - incident-triage-and-pipeline-recovery
   - data-contract-testing-with-schema-registry
 templates:
   - templates/source-contract.yaml
   - templates/incident-runbook.md
+  - templates/backfill-plan.yaml
+references:
+  - references/kafka-production-guardrails.md
+  - references/mcp-data-observability-patterns.md
+mcp:
+  - mcp/kafka.mcp.json
 example: examples/kafka-flink-streaming

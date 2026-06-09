@@ -134,6 +134,23 @@ object InstallerData {
             "starter-packs/streaming-reliability-starter.yaml",
             "templates/source-contract.yaml",
             "templates/incident-runbook.md",
+            "references/kafka-production-guardrails.md",
+            "references/mcp-data-observability-patterns.md",
+            "mcp/kafka.mcp.json",
+            "AGENTS.md",
+            "skills-index.md"
+        ),
+        "Production Reliability" to listOf(
+            "starter-packs/production-reliability-starter.yaml",
+            "templates/backfill-plan.yaml",
+            "templates/incident-runbook.md",
+            "templates/release-gate-evidence.yaml",
+            "references/spark-serverless-reliability-patterns.md",
+            "references/kafka-production-guardrails.md",
+            "references/mcp-data-observability-patterns.md",
+            "mcp/spark.mcp.json",
+            "mcp/kafka.mcp.json",
+            "mcp/airflow.mcp.json",
             "AGENTS.md",
             "skills-index.md"
         ),
@@ -164,6 +181,8 @@ object InstallerData {
             "templates/incident-runbook.md",
             "templates/backfill-plan.yaml",
             "templates/release-gate-evidence.yaml",
+            "references/data-resiliency-testing-patterns.md",
+            "references/mcp-data-observability-patterns.md",
             "AGENTS.md",
             "skills-index.md"
         ),
@@ -210,6 +229,7 @@ object InstallerData {
         "dbt Cloud" to listOf("mcp/dbt-cloud.mcp.json"),
         "Airflow" to listOf("mcp/airflow.mcp.json"),
         "Kafka" to listOf("mcp/kafka.mcp.json"),
+        "Spark" to listOf("mcp/spark.mcp.json"),
         "Terraform" to listOf("mcp/terraform.mcp.json"),
         "Slack and Jira" to listOf("mcp/slack-jira-incidents.mcp.json")
     )
@@ -262,6 +282,22 @@ object InstallerData {
             "examples/dbt-warehouse-marts/models/marts/fct_daily_revenue.sql",
             "examples/dbt-warehouse-marts/models/schema.yml",
             "examples/dbt-warehouse-marts/seeds/orders.csv",
+            "scripts/validate_dataset_contract.py",
+            "requirements-proof.txt"
+        ),
+        "AWS Serverless Spark MSK Reliability" to listOf(
+            "examples/aws-serverless-spark-msk-reliability/README.md",
+            "examples/aws-serverless-spark-msk-reliability/spec.md",
+            "examples/aws-serverless-spark-msk-reliability/plan.md",
+            "examples/aws-serverless-spark-msk-reliability/tasks.md",
+            "examples/aws-serverless-spark-msk-reliability/Makefile",
+            "examples/aws-serverless-spark-msk-reliability/config/checkpoint-layout.yaml",
+            "examples/aws-serverless-spark-msk-reliability/config/kafka-producer-settings.yaml",
+            "examples/aws-serverless-spark-msk-reliability/contracts/aggregated-events-contract.yaml",
+            "examples/aws-serverless-spark-msk-reliability/data/order-events.jsonl",
+            "examples/aws-serverless-spark-msk-reliability/jobs/checkpoint_batch_job.py",
+            "examples/aws-serverless-spark-msk-reliability/jobs/orphan_cleanup.py",
+            "examples/aws-serverless-spark-msk-reliability/jobs/validate_resume.py",
             "scripts/validate_dataset_contract.py",
             "requirements-proof.txt"
         ),

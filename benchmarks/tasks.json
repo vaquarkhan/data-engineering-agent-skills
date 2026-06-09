@@ -48,5 +48,20 @@
     "id": "terraform_platform_review",
     "prompt": "Review Terraform for an AWS lakehouse deployment.",
     "expected_concerns": ["drift", "least-privilege", "governance", "rollback", "operations"]
+  },
+  {
+    "id": "kafka_dlq_schema_hardening",
+    "prompt": "Harden a production Kafka producer and consumer pair before a schema change rollout.",
+    "expected_concerns": ["acks", "idempotence", "schema-compatibility", "dlq", "consumer-lag", "replay"]
+  },
+  {
+    "id": "serverless_spark_state_recovery",
+    "prompt": "Design a serverless Spark job on AWS that must survive timeouts and resume from S3 checkpoints.",
+    "expected_concerns": ["checkpoint", "staging", "orphan-cleanup", "idempotency", "timeout-rollback", "publish-gate"]
+  },
+  {
+    "id": "mcp_observability_triage",
+    "prompt": "Diagnose rising Kafka consumer lag and a failing Spark stage before proposing code changes.",
+    "expected_concerns": ["lag", "execution-plan", "containment", "evidence-before-mutation", "replay-window"]
   }
 ]

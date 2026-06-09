@@ -31,6 +31,13 @@ Use this preset when `Apache Spark` is the main compute engine. It maps shared w
 - Keep job logic separate from orchestration and notebook convenience.
 - Make backfills, retries, and small-file behavior operationally safe.
 
+## Companion Skills
+
+- serverless or timeout-bound Spark: `spark-serverless-reliability-and-state-management`
+- execution plan and OOM diagnosis: `mcp-data-observability-integration`
+- historical recomputation: `safe-backfill-and-replay-orchestration`
+- reference: `references/spark-serverless-reliability-patterns.md`
+
 ## Verification
 
 - [ ] The workload justifies `Apache Spark`

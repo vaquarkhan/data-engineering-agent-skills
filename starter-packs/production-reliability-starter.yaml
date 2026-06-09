@@ -1,0 +1,22 @@
+name: production-reliability-starter
+preset: multi-cloud-hybrid-data-engineering
+skills:
+  - safe-backfill-and-replay-orchestration
+  - spark-serverless-reliability-and-state-management
+  - kafka-resilience-and-schema-evolution
+  - mcp-data-observability-integration
+  - incident-triage-and-pipeline-recovery
+  - data-reconciliation-and-financial-controls
+templates:
+  - templates/backfill-plan.yaml
+  - templates/incident-runbook.md
+  - templates/release-gate-evidence.yaml
+references:
+  - references/spark-serverless-reliability-patterns.md
+  - references/kafka-production-guardrails.md
+  - references/mcp-data-observability-patterns.md
+mcp:
+  - mcp/spark.mcp.json
+  - mcp/kafka.mcp.json
+  - mcp/airflow.mcp.json
+example: examples/aws-serverless-spark-msk-reliability

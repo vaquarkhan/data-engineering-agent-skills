@@ -33,6 +33,13 @@ Provide:
 3. missing observability, ownership, and rollback evidence
 4. explicit checks the team should run before `/ship`
 
+## Skills To Load During Review
+
+- replay or backfill design: `safe-backfill-and-replay-orchestration`
+- Kafka durability and schema guardrails: `kafka-resilience-and-schema-evolution`
+- serverless Spark state and checkpoints: `spark-serverless-reliability-and-state-management`
+- live lag, run state, or Spark plan evidence: `mcp-data-observability-integration`
+
 ## Review Focus
 
 1. Can the system be recovered safely after failure?

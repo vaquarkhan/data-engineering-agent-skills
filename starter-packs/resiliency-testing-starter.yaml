@@ -2,6 +2,8 @@ name: resiliency-testing-starter
 preset: multi-cloud-hybrid-data-engineering
 skills:
   - data-resiliency-testing-and-failure-injection
+  - safe-backfill-and-replay-orchestration
+  - mcp-data-observability-integration
   - data-observability-and-sla-management
   - incident-triage-and-pipeline-recovery
   - orchestration-and-backfills

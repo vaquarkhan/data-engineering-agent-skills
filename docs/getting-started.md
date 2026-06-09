@@ -51,6 +51,7 @@ pip install -r requirements.txt
 
 - `starter-packs/warehouse-analytics-starter.yaml`
 - `starter-packs/streaming-reliability-starter.yaml`
+- `starter-packs/production-reliability-starter.yaml`
 - `starter-packs/data-platform-cicd-release-starter.yaml`
 - `starter-packs/resiliency-testing-starter.yaml`
 - `starter-packs/validation-security-review-starter.yaml`
@@ -97,8 +98,16 @@ pwsh scripts/install.ps1 --tool all --target C:\path\to\project
 
 - start with `starter-packs/streaming-reliability-starter.yaml`
 - load `streaming-and-messaging-systems`
+- load `kafka-resilience-and-schema-evolution`
 - load `incident-triage-and-pipeline-recovery`
 - run `examples/kafka-flink-streaming/Makefile` to exercise replay-safe local validation
+
+### Production reliability and failure recovery
+
+- start with `starter-packs/production-reliability-starter.yaml`
+- follow `tutorials/production-reliability-and-mcp-observability.md`
+- load `safe-backfill-and-replay-orchestration` before any replay work
+- run `examples/aws-serverless-spark-msk-reliability/Makefile` for serverless Spark checkpoint proof
 
 ### Cloud architecture review
 
@@ -252,6 +261,7 @@ If you want a longer guided walkthrough instead of only setup guidance, continue
 - `tutorials/pipeline-orchestration-patterns.md`
 - `tutorials/streaming-architecture-patterns.md`
 - `tutorials/data-resiliency-testing-patterns.md`
+- `tutorials/production-reliability-and-mcp-observability.md`
 - `tutorials/platform-native-governance-patterns.md`
 - `tutorials/partner-feed-ingestion-and-replay-safe-file-processing.md`
 - `tutorials/disaster-recovery-and-restore-drills.md`

@@ -36,6 +36,8 @@ Each template now includes:
   Prefer a service account limited to DAG discovery, run state, and task log access.
 - `kafka.mcp.json`
   Set bootstrap servers, security protocol, and SASL values if your cluster is not plaintext.
+- `spark.mcp.json`
+  Point `SPARK_HISTORY_SERVER_URL` at your Spark History Server or managed equivalent. Scope `SPARK_APPLICATION_ALLOWLIST` to the applications agents may inspect.
 - `terraform.mcp.json`
   Point the server at the Terraform binary and provider credentials already validated in the target environment.
 - `slack-jira-incidents.mcp.json`
@@ -51,5 +53,6 @@ Included templates:
 - `dbt-cloud.mcp.json`
 - `airflow.mcp.json`
 - `kafka.mcp.json`
+- `spark.mcp.json`
 - `terraform.mcp.json`
 - `slack-jira-incidents.mcp.json`

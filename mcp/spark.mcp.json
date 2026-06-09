@@ -1,0 +1,32 @@
+{
+  "name": "spark",
+  "description": "Read-only Spark application and stage metadata access for execution plan review, OOM diagnosis, shuffle skew analysis, and retry decisions.",
+  "transport": {
+    "type": "stdio",
+    "command": "spark-mcp-server",
+    "args": [
+      "--read-only",
+      "--history-server",
+      "${SPARK_HISTORY_SERVER_URL}",
+      "--application-allowlist",
+      "${SPARK_APPLICATION_ALLOWLIST}"
+    ],
+    "env": {
+      "SPARK_HISTORY_SERVER_URL": "${SPARK_HISTORY_SERVER_URL}",
+      "SPARK_APPLICATION_ALLOWLIST": "${SPARK_APPLICATION_ALLOWLIST}",
+      "SPARK_DEPLOY_MODE": "${SPARK_DEPLOY_MODE}",
+      "AWS_REGION": "${AWS_REGION}"
+    }
+  },
+  "metadata": {
+    "validation": [
+      "curl -fsS \"$SPARK_HISTORY_SERVER_URL/api/v1/applications?limit=1\""
+    ],
+    "best_for": [
+      "execution plan inspection",
+      "stage and task duration review",
+      "OOM and shuffle skew diagnosis",
+      "serverless Spark timeout analysis"
+    ]
+  }
+}

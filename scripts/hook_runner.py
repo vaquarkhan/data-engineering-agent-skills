@@ -141,6 +141,7 @@ def run_session_start(workspace: Path) -> int:
         print("\nSuggested presets:")
         print("- presets/aws-data-engineering/PRESET.md or the platform preset matching the change you are making")
         print("\nSuggested starter packs:")
+        print("- starter-packs/production-reliability-starter.yaml")
         print("- starter-packs/data-platform-cicd-release-starter.yaml")
         print("\nSuggested examples:")
         print("- examples/dbt-warehouse-marts/")
@@ -287,6 +288,8 @@ def run_session_start(workspace: Path) -> int:
         recommended_skills.extend(
             [
                 "skills/streaming-and-messaging-systems/SKILL.md",
+                "skills/kafka-resilience-and-schema-evolution/SKILL.md",
+                "skills/mcp-data-observability-integration/SKILL.md",
                 "skills/incident-triage-and-pipeline-recovery/SKILL.md",
             ]
         )
@@ -367,6 +370,22 @@ def run_session_start(workspace: Path) -> int:
             ]
         )
         recommended_starters.append("starter-packs/resiliency-testing-starter.yaml")
+        recommended_starters.append("starter-packs/production-reliability-starter.yaml")
+
+    if search_text(
+        workspace,
+        r"lambda|serverless|emr serverless|glue.*streaming|checkpoint|state.store|orphan|iceguard",
+        include_docs=False,
+    ):
+        repo_signals.append("serverless-spark")
+        recommended_skills.extend(
+            [
+                "skills/spark-serverless-reliability-and-state-management/SKILL.md",
+                "skills/mcp-data-observability-integration/SKILL.md",
+            ]
+        )
+        recommended_presets.append("presets/apache-spark-engineering/PRESET.md")
+        recommended_starters.append("starter-packs/production-reliability-starter.yaml")
         next_command = "/plan"
 
     if search_text(workspace, r"rto|rpo|business continuity|restore drill|backup restore|failover region|cross-region restore|cross-account restore", include_docs=False):
@@ -509,7 +528,10 @@ def run_incident_mode(_: Path) -> int:
     print("Incident mode enabled.\n")
     print("Load these skills first:")
     print("- skills/incident-triage-and-pipeline-recovery/SKILL.md")
+    print("- skills/mcp-data-observability-integration/SKILL.md")
     print("- skills/data-observability-and-sla-management/SKILL.md")
+    print("- skills/safe-backfill-and-replay-orchestration/SKILL.md (when replay or backfill is required)")
+    print("- skills/kafka-resilience-and-schema-evolution/SKILL.md (when Kafka lag, DLQ, or schema drift is involved)")
     print("- skills/orchestration-and-backfills/SKILL.md\n")
     print("Use these references and templates:")
     print("- templates/incident-runbook.md")
@@ -550,9 +572,11 @@ def run_backfill_guard(workspace: Path) -> int:
         missing = 1
 
     print("\nRecommended skills:")
+    print("- skills/safe-backfill-and-replay-orchestration/SKILL.md")
     print("- skills/orchestration-and-backfills/SKILL.md")
     print("- skills/data-migration-and-platform-cutover/SKILL.md")
     print("- skills/data-reconciliation-and-financial-controls/SKILL.md")
+    print("- skills/mcp-data-observability-integration/SKILL.md (when live lag or run state bounds the replay window)")
     print("Starter template: templates/backfill-plan.yaml")
 
     if missing:

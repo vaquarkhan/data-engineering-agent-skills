@@ -14,6 +14,9 @@ Build a real-time data pipeline that ingests events through `Kafka`, processes t
 ## Skills To Apply
 
 - `streaming-and-messaging-systems`
+- `kafka-resilience-and-schema-evolution`
+- `safe-backfill-and-replay-orchestration`
+- `mcp-data-observability-integration`
 - `cdc-and-incremental-loading`
 - `data-observability-and-sla-management`
 - `incident-triage-and-pipeline-recovery`

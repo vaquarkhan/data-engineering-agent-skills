@@ -19,6 +19,9 @@ Use this index when you know you need guidance, but do not yet know which refere
 - `data-validation-and-testcase-patterns.md`
 - `data-platform-dr-bcp-checklist.md`
 - `data-quality-tooling-and-rule-management.md`
+- `spark-serverless-reliability-patterns.md`
+- `kafka-production-guardrails.md`
+- `mcp-data-observability-patterns.md`
 
 ### Security, Privacy, And Compliance
 

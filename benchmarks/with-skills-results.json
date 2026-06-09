@@ -1,12 +1,15 @@
 {
   "spec_customer_orders": ["contract", "grain", "ownership", "quality", "lineage"],
   "dbt_daily_revenue": ["grain", "tests", "docs", "freshness", "rollback"],
-  "streaming_replay": ["replay", "idempotency", "checkpoint", "reconciliation", "rollback"],
+  "streaming_replay": ["replay", "idempotency", "checkpoint", "reconciliation", "rollback", "dlq", "consumer-lag"],
   "schema_change_review": ["compatibility", "migration", "consumer-impact", "deprecation", "contract"],
   "regulated_publish": ["classification", "access", "masking", "audit", "retention"],
-  "backfill_cutover": ["affected-window", "reconciliation", "downstream-impact", "rollback", "approval"],
+  "backfill_cutover": ["affected-window", "reconciliation", "downstream-impact", "rollback", "approval", "publish-gate"],
   "cost_review": ["cost", "partitioning", "select-star", "incremental", "monitoring"],
   "lakehouse_release": ["shadow", "canary", "publish-separation", "parity", "observability"],
-  "incident_response": ["containment", "evidence", "affected-consumers", "replay", "reconciliation"],
-  "terraform_platform_review": ["drift", "least-privilege", "governance", "rollback", "operations"]
+  "incident_response": ["containment", "evidence", "affected-consumers", "replay", "reconciliation", "lag"],
+  "terraform_platform_review": ["drift", "least-privilege", "governance", "rollback", "operations"],
+  "kafka_dlq_schema_hardening": ["acks", "idempotence", "schema-compatibility", "dlq", "consumer-lag", "replay"],
+  "serverless_spark_state_recovery": ["checkpoint", "staging", "orphan-cleanup", "idempotency", "timeout-rollback", "publish-gate"],
+  "mcp_observability_triage": ["lag", "execution-plan", "containment", "evidence-before-mutation", "replay-window"]
 }

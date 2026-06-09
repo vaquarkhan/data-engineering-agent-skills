@@ -1,0 +1,8 @@
+checkpoint_layout:
+  bucket: s3://lake-example
+  staging_prefix: staging/aggregated-events
+  checkpoint_prefix: checkpoints/aggregated-events
+  publish_prefix: publish/aggregated-events
+  manifest_file: manifest.json
+  success_marker: _SUCCESS
+  local_workdir: build

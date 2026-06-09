@@ -30,6 +30,13 @@ Use this preset when `Apache Kafka` is the central messaging backbone. It maps s
 - Treat lag, poison records, and dead-letter handling as operational concerns.
 - Design topics for stable contracts, not only producer convenience.
 
+## Companion Skills
+
+- production guardrails: `kafka-resilience-and-schema-evolution`
+- live lag and topic inspection: `mcp-data-observability-integration`
+- replay-bound recovery: `safe-backfill-and-replay-orchestration`
+- reference: `references/kafka-production-guardrails.md`
+
 ## Verification
 
 - [ ] Topic contracts and key strategy are defined

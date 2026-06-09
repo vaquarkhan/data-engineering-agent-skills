@@ -41,7 +41,10 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - Resiliency testing, failure injection, restart drills, or failover validation: use `data-resiliency-testing-and-failure-injection`
    - Disaster recovery or business continuity planning: use `data-platform-disaster-recovery-and-business-continuity`
    - Reliability issue, incident, or broken publish: use `incident-triage-and-pipeline-recovery`
-   - Replay, rerun, cutover, or historical repair: use `orchestration-and-backfills` and `data-migration-and-platform-cutover`
+   - Replay, rerun, cutover, or historical repair: use `safe-backfill-and-replay-orchestration`, `orchestration-and-backfills`, and `data-migration-and-platform-cutover`
+   - Serverless Spark on Lambda or short-lived runtimes: use `spark-serverless-reliability-and-state-management`
+   - Kafka production guardrails, DLQs, or schema enforcement: use `kafka-resilience-and-schema-evolution`
+   - Live lag, Spark plans, or run-state diagnosis via MCP: use `mcp-data-observability-integration`
    - Governance, lineage, privacy, or access changes: use `lineage-pii-and-governance`
    - `PII`, `PCI`, `HIPAA`, `PHI`, or audit-bound data handling: use `data-security-compliance-and-regulated-data`
    - region-specific compliance, sovereignty, or localization rules: use `regional-data-compliance-and-sovereignty`
@@ -89,6 +92,7 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - Medallion delivery: use `starter-packs/databricks-medallion-starter.yaml`
    - Warehouse modeling: use `starter-packs/warehouse-analytics-starter.yaml`
    - Streaming reliability: use `starter-packs/streaming-reliability-starter.yaml`
+   - Production reliability and failure recovery: use `starter-packs/production-reliability-starter.yaml`
    - Data-platform release design: use `starter-packs/data-platform-cicd-release-starter.yaml`
    - Resilience drills and recovery proof: use `starter-packs/resiliency-testing-starter.yaml`
    - Validation and security review: use `starter-packs/validation-security-review-starter.yaml`
@@ -102,6 +106,7 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - Databricks medallion: `examples/databricks-delta-medallion/`
    - AWS lakehouse: `examples/aws-s3-glue-athena-iceberg/`
    - Kafka and Flink: `examples/kafka-flink-streaming/`
+   - AWS serverless Spark and MSK reliability: `examples/aws-serverless-spark-msk-reliability/`
    - API or SaaS ingestion: `examples/api-saas-to-warehouse-ingestion/`
    - Privacy workflows: `examples/privacy-retention-deletion-workflow/`
    - Platform cutover: `examples/multi-cloud-warehouse-cutover/`
@@ -137,6 +142,9 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - regional compliance: `references/regional-compliance-and-data-sovereignty-checklist.md`
    - ESG reporting: `references/esg-and-sustainability-reporting-checklist.md`
    - streaming architecture: `references/streaming-architecture-patterns.md`
+   - serverless Spark reliability: `references/spark-serverless-reliability-patterns.md`
+   - Kafka production guardrails: `references/kafka-production-guardrails.md`
+   - MCP observability: `references/mcp-data-observability-patterns.md`
    - cloud-specific common architecture patterns: `references/cloud-data-engineering-architecture-patterns.md`
    - pipeline orchestration across schedulers and clouds: `references/pipeline-orchestration-patterns.md`
    - data-quality tool boundaries and severity design: `references/data-quality-tooling-and-rule-management.md`

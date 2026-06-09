@@ -1,0 +1,30 @@
+dataset_contract:
+  name: aggregated_events
+  owner: platform@example.com
+  domain: orders
+  layer: publish
+  description: Windowed order aggregates published after serverless Spark checkpoint gate passes.
+  grain: one row per order_id and event_date
+  keys:
+    business_key:
+      - order_id
+      - event_date
+  schema:
+    version: v1
+    columns:
+      - name: order_id
+        type: string
+        nullable: false
+      - name: event_date
+        type: string
+        nullable: false
+      - name: total_amount
+        type: number
+        nullable: false
+      - name: event_count
+        type: integer
+        nullable: false
+  quality:
+    checks:
+      - unique: [order_id, event_date]
+      - not_null: [order_id, event_date, total_amount, event_count]

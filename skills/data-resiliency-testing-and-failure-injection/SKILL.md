@@ -67,6 +67,13 @@ Do not treat resilience testing as random breakage. The point is to validate rec
 6. Record guardrails and automate the highest-value drills.
    The best resilience test is one the team can rerun after changes, not a one-time exercise that gets forgotten.
 
+7. Load companion skills by failure mode.
+   - replay or backfill drills: `safe-backfill-and-replay-orchestration`
+   - Kafka lag, DLQ, or schema drift: `kafka-resilience-and-schema-evolution`
+   - serverless Spark checkpoint recovery: `spark-serverless-reliability-and-state-management`
+   - live diagnosis before drills: `mcp-data-observability-integration`
+   - drill patterns: `references/data-resiliency-testing-patterns.md`
+
 ## Common Rationalizations
 
 | Rationalization | Reality |

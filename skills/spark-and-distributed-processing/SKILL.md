@@ -33,6 +33,7 @@ Do not use this for lightweight local transforms that fit comfortably in a singl
    - `Spark`: direct control and broad ecosystem support
    - `Glue`: managed AWS-native Spark execution
    - `EMR`: broader cluster control for Spark and related engines
+   - short-lived or serverless Spark (`Lambda`, serverless `Glue`, hard timeout ceilings): load `spark-serverless-reliability-and-state-management`
 
 3. Design the physical plan, not just the logical one.
    Account for:
