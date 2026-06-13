@@ -6,7 +6,7 @@ Use this reference when Spark runs under hard time or memory ceilings — `AWS L
 
 Write to a staging prefix first. Open publish only after a manifest proves completeness.
 
-```
+```text
 s3://lake/staging/{dataset}/{run_id}/partitions/...
 s3://lake/publish/{dataset}/...          # promoted only after gate passes
 s3://lake/checkpoints/{dataset}/{run_id}/manifest.json

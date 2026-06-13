@@ -112,7 +112,7 @@ openssl x509 -req -days 3650 -in request.csr -signkey private.pem -out chain.crt
 Add these secrets in your GitHub repo settings:
 
 | Secret name | Value |
-|------------|-------|
+| --- | --- |
 | `JETBRAINS_MARKETPLACE_TOKEN` | The marketplace token from step 3 |
 | `JETBRAINS_CERTIFICATE_CHAIN` | Contents of `chain.crt` |
 | `JETBRAINS_PRIVATE_KEY` | Contents of `private.pem` |
@@ -132,7 +132,7 @@ Once published to marketplaces:
 
 ## Release Workflow
 
-```
+```text
 1. Update version numbers:
    - vscode-extension/package.json  →  "version": "2.1.0"
    - jetbrains-plugin/gradle.properties  →  pluginVersion = 2.1.0
@@ -165,7 +165,7 @@ Replace `PLUGIN_ID` with the numeric ID assigned after your first JetBrains uplo
 ## Troubleshooting
 
 | Problem | Solution |
-|---------|----------|
+| --- | --- |
 | `VSCE_PAT` expired | Regenerate in Azure DevOps, update the GitHub secret |
 | Publisher ID mismatch | Ensure `publisher` in package.json matches your Marketplace publisher exactly |
 | JetBrains signing fails | Verify certificate chain is complete and key password matches |
@@ -175,7 +175,7 @@ Replace `PLUGIN_ID` with the numeric ID assigned after your first JetBrains uplo
 ## Workflows Involved
 
 | Workflow | Trigger | What it does |
-|----------|---------|-------------|
+| --- | --- | --- |
 | `release-artifacts.yml` | `v*` tag push | Builds `.vsix` + `.zip`, runs smoke tests, creates GitHub Release |
 | `publish-plugins.yml` | Release published | Publishes to VS Code Marketplace, Open VSX, and JetBrains Marketplace |
 | `test-plugin-installation.yml` | Push / PR | Validates plugin artifacts are buildable and installable |

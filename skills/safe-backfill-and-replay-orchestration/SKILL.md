@@ -68,7 +68,7 @@ Always load this skill before `orchestration-and-backfills` execution steps. Tre
 
 Copy and track before any execution:
 
-```
+```text
 Backfill gate:
 - [ ] templates/backfill-plan.yaml drafted with owner and reason
 - [ ] affected window and partitions bounded
