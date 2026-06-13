@@ -102,11 +102,16 @@ Do not stop here once the task has been classified. Load the actual execution sk
    - Enterprise ETL modernization: use `starter-packs/enterprise-etl-modernization-starter.yaml`
 
 5. Recommend an example project when concrete context helps.
+   Prefer **runnable scaffolds** when the team needs executable proof; use **architecture blueprints** for `/spec` and `/plan` only. See `examples/README.md` for the full type column.
+
+   Runnable:
    - Warehouse/dbt: `examples/dbt-warehouse-marts/`
    - Databricks medallion: `examples/databricks-delta-medallion/`
    - AWS lakehouse: `examples/aws-s3-glue-athena-iceberg/`
    - Kafka and Flink: `examples/kafka-flink-streaming/`
    - AWS serverless Spark and MSK reliability: `examples/aws-serverless-spark-msk-reliability/`
+
+   Blueprint:
    - API or SaaS ingestion: `examples/api-saas-to-warehouse-ingestion/`
    - Privacy workflows: `examples/privacy-retention-deletion-workflow/`
    - Platform cutover: `examples/multi-cloud-warehouse-cutover/`

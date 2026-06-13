@@ -1,5 +1,7 @@
 # Privacy Retention Deletion Workflow
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Build a governed workflow for retention enforcement and deletion propagation across raw, transformed, and published datasets.

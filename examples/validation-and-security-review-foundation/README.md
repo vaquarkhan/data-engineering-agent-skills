@@ -1,5 +1,7 @@
 # Validation And Security Review Foundation
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Prepare a data product for release by defining validation layers, testcase coverage, reconciliation proof, and security controls together instead of treating them as separate cleanup work.

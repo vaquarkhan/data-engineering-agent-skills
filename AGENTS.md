@@ -64,6 +64,8 @@ Use this file as the generic entry point for agents that support `AGENTS.md`-sty
 - treat quality, replay, lineage, privacy, ownership, and rollback as part of delivery
 - run hooks from `hooks/` before risky operations when possible
 - prefer a small set of active skills over loading the whole repository
+- treat `using-data-agent-skills` as a compatibility alias only (73 workflow skills + 1 alias directory)
+- distinguish runnable example scaffolds (5) from architecture blueprints (9) in `examples/README.md`
 
 ## High-Value References
 

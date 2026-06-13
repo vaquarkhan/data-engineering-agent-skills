@@ -3,9 +3,9 @@
 # Data Engineering Agent Skills
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-74-brightgreen.svg)](#initial-skill-pack)
+[![Skills](https://img.shields.io/badge/Skills-73%20%2B%201%20alias-brightgreen.svg)](#initial-skill-pack)
 [![Presets](https://img.shields.io/badge/Presets-14-blue.svg)](#platform-presets)
-[![Examples](https://img.shields.io/badge/Examples-14-purple.svg)](#end-to-end-examples)
+[![Examples](https://img.shields.io/badge/Examples-14%20(5%20runnable)-purple.svg)](#end-to-end-examples)
 [![MCP Configs](https://img.shields.io/badge/MCP%20Configs-11-orange.svg)](#mcp-config-templates)
 [![Starter Packs](https://img.shields.io/badge/Starter%20Packs-13-red.svg)](#starter-packs)
 [![Validate and Package](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml/badge.svg?branch=main)](https://github.com/vaquarkhan/data-engineering-agent-skills/actions/workflows/validate-and-package.yml)
@@ -26,7 +26,7 @@ Production-grade data engineering skills for AI agents.
 
 The open skill registry and execution toolkit for data engineering agents.
 
-This repository packages repeatable workflows, quality gates, hooks, installer surfaces, and runnable examples so agents can build data systems with the same discipline used by strong data engineering teams.
+This repository packages repeatable workflows, quality gates, hooks, installer surfaces, and example packs (runnable scaffolds plus architecture blueprints) so agents can build data systems with the same discipline used by strong data engineering teams.
 
 The goal is not to give agents generic prompts. The goal is to give them operating procedures for defining, planning, implementing, validating, replaying, and shipping reliable data products.
 
@@ -58,6 +58,28 @@ For Python-based proof assets and validators, install local dependencies with:
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Contract validation quickstart
+
+The dataset contract validator checks sample data against `templates/dataset-contract.yaml`-style contracts. It requires a contract file **and** a data source (`--data` or `--duckdb`); validating a template alone will error by design.
+
+```bash
+python scripts/validate_dataset_contract.py --help
+
+python scripts/validate_dataset_contract.py \
+  --contract examples/aws-s3-glue-athena-iceberg/contracts/customers-contract.yaml \
+  --data examples/aws-s3-glue-athena-iceberg/data/customers.jsonl \
+  --reference-time 2026-05-02T00:00:00Z
+```
+
+For `dbt` + DuckDB local proof:
+
+```bash
+python scripts/validate_dataset_contract.py \
+  --contract examples/dbt-warehouse-marts/contracts/fct_daily_revenue-contract.yaml \
+  --duckdb examples/dbt-warehouse-marts/build/dbt_warehouse_marts.duckdb \
+  --query "select * from fct_daily_revenue order by order_date"
 ```
 
 Bootstrap install shortcuts:
@@ -199,13 +221,14 @@ python evals/run.py
 ## Feature Highlights
 
 - Spec-first lifecycle with `/spec`, `/plan`, `/build`, `/validate`, `/review`, `/backfill`, and `/ship`
-- 70 workflow skills covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, quality tooling, legacy modernization, release, incident recovery, and platform operating concerns
+- 73 workflow skills covering ingestion, transformation, orchestration, streaming, lakehouse, warehousing, governance, quality tooling, legacy modernization, release, incident recovery, and platform operating concerns, plus 1 compatibility alias entry skill
 - focused resilience testing coverage for failure drills, replay safety, restart behavior, backlog catch-up, publish protection, and disaster recovery readiness
 - 14 platform presets spanning `AWS`, `Azure`, `GCP`, `Databricks`, `Snowflake`, `Alibaba Cloud`, `Informatica`, `Talend`, and Apache-first stacks
 - Multi-agent packaging for `Cursor`, `Claude`, `Copilot`, `Gemini`, `Codex`, `Kiro`, `OpenCode`, `Windsurf`, `AGENTS.md`, and `CLAUDE.md` consumers
 - Install surfaces for `VS Code` family editors, `JetBrains` IDEs, setup guides, one-line install scripts, and plugin release artifacts
 - Plugin delivery and discovery workflows for `VS Code` and `JetBrains`, including release downloads, install smoke tests, markdown linting, and optional marketplace publish automation
-- Runnable examples with contract validation, rollback demonstrations, smoke-test proof paths, and a benchmark pack that compares baseline vs with-skills concern coverage
+- 5 runnable example scaffolds with contract validation, rollback demonstrations, and smoke-test proof paths, plus 9 architecture blueprint examples (spec/plan/tasks only)
+- Agent benchmark pack with quantified with-skills coverage improvement (23→67 on the included task set)
 - Structured operational templates for dataset contracts, compliance controls, backfills, schema changes, release gates, and incident response
 
 ## Feature Coverage
@@ -294,10 +317,12 @@ Use these hooks when you want the repository to behave more like a workflow syst
 
 ## Initial Skill Pack
 
+This repository includes **73 workflow skills** plus **1 compatibility alias** (`using-data-agent-skills` redirects to `using-data-engineering-agent-skills`). The alias exists for older installs; do not count it as a separate workflow.
+
 This repository now includes a broader production-grade skill pack:
 
-- `using-data-engineering-agent-skills`
-- `using-data-agent-skills`
+- `using-data-engineering-agent-skills` (canonical start-here skill)
+- `using-data-agent-skills` (compatibility alias — redirect only)
 - `data-specification`
 - `pipeline-planning-and-task-breakdown`
 - `data-quality-and-contract-testing`
@@ -614,15 +639,29 @@ Each template is a starting point only. Use `mcp/README.md` for environment-vari
 
 ## End-To-End Examples
 
-Example project packs are available in `examples/`:
+The repository includes **14 example packs** in `examples/`:
+
+| Type | Count | What you get |
+| --- | --- | --- |
+| **Runnable scaffold** | 5 | Local proof paths (`Makefile`, scripts, contract validation, smoke tests) |
+| **Architecture blueprint** | 9 | `README.md`, `spec.md`, `plan.md`, `tasks.md` — delivery shape without executable code |
+
+See `examples/README.md` for the full selector table.
+
+### Runnable scaffolds (5)
 
 - `aws-s3-glue-athena-iceberg`
-- `api-saas-to-warehouse-ingestion`
 - `databricks-delta-medallion`
 - `dbt-warehouse-marts`
-- `gcp-pubsub-dataflow-bigquery`
 - `kafka-flink-streaming`
 - `aws-serverless-spark-msk-reliability`
+
+Run `make smoke-test` inside each directory (or follow the README commands on Windows).
+
+### Architecture blueprints (9)
+
+- `api-saas-to-warehouse-ingestion`
+- `gcp-pubsub-dataflow-bigquery`
 - `snowflake-dbt-reverse-etl`
 - `privacy-retention-deletion-workflow`
 - `feature-store-online-offline-parity`
@@ -631,7 +670,7 @@ Example project packs are available in `examples/`:
 - `esg-regulatory-reporting-foundation`
 - `validation-and-security-review-foundation`
 
-Five example packs include minimal runnable scaffolds and sample commands: `aws-s3-glue-athena-iceberg`, `databricks-delta-medallion`, `dbt-warehouse-marts`, `kafka-flink-streaming`, and `aws-serverless-spark-msk-reliability`.
+Use blueprints for agent planning and `/spec` → `/plan` workflows. Use runnable scaffolds when you need executable proof.
 
 ## Starter Packs
 

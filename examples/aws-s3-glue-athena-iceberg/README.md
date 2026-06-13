@@ -1,5 +1,7 @@
 # AWS S3 Glue Athena Iceberg
 
+> **Example type:** Runnable scaffold — local proof path via `make smoke-test` or README commands.
+
 ## Scenario
 
 Build an AWS-native lakehouse pipeline that ingests operational data into `S3`, standardizes it with `Glue`, publishes `Iceberg` tables, and serves governed analytics through `Athena`.

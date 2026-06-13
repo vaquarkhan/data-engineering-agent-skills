@@ -10,7 +10,7 @@ presets/                 -> Platform presets for AWS, Azure, GCP, Databricks, Sn
 references/              -> Checklists for quality, recovery, streaming, schema change, observability, and more
 templates/               -> Source, dataset, metric, and incident templates
 starter-packs/           -> Opinionated bundles by problem area
-examples/                -> Scenario packs and runnable starter examples
+examples/                -> Scenario packs: 5 runnable scaffolds + 9 architecture blueprints
 hooks/                   -> Session and pre-flight workflow hooks
 .claude/commands/        -> Slash commands (`/spec`, `/plan`, `/build`, `/validate`, `/review`, `/backfill`, `/ship`)
 .gemini/commands/        -> Gemini command entry points for the same lifecycle
