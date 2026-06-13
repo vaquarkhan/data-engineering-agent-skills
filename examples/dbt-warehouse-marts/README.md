@@ -1,5 +1,7 @@
 # dbt Warehouse Marts
 
+> **Example type:** Runnable scaffold — local proof path via `make smoke-test` or README commands.
+
 ## Scenario
 
 Build a warehouse-centric analytics project with `dbt`, layered models, governed metrics, and documented marts for analyst and dashboard consumption.

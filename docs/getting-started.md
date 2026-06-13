@@ -7,7 +7,7 @@ This repository works with any AI agent that can consume Markdown instructions, 
 - workflow-driven data engineering skills
 - stack presets for major clouds and Apache ecosystems
 - starter packs for common adoption paths
-- example projects with specs, plans, and runnable scaffolds
+- example projects: **5 runnable scaffolds** and **9 architecture blueprints** (see `examples/README.md`)
 - hooks for session start, contract checks, schema safety, cost checks, and backfill guardrails
 
 ## 5-Minute Quick Start

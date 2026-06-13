@@ -1,5 +1,7 @@
 # ESG Regulatory Reporting Foundation
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Build a governed sustainability and regulatory reporting data foundation that supports multi-jurisdiction obligations, traceable evidence, and assurance-ready metrics.

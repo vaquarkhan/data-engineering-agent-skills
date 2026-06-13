@@ -1,5 +1,7 @@
 # Multi-Cloud Warehouse Cutover
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Cut over shared analytics workloads from one warehouse platform to another with parallel validation, consumer coordination, and explicit rollback.

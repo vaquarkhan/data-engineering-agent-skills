@@ -1,5 +1,7 @@
 # Data Platform CI CD Progressive Release
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Promote a material data-platform change across environments with staged validation, reconciliation, controlled publish, and explicit rollback boundaries.

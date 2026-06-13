@@ -1,5 +1,7 @@
 # API SaaS To Warehouse Ingestion
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Ingest a SaaS platform API into a warehouse with resilient extraction, raw response capture, incremental sync logic, and publish-ready modeled outputs.

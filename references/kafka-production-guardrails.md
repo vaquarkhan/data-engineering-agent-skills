@@ -23,7 +23,7 @@ Default production settings unless a named owner documents a waiver:
 
 ## Dead-Letter Queue Pattern
 
-```
+```text
 primary topic -> consumer -> success sink
                          \-> DLQ topic (deser / schema / rule failures)
 ```

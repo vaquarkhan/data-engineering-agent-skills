@@ -1,5 +1,7 @@
 # Kafka Flink Streaming
 
+> **Example type:** Runnable scaffold — local proof path via `make smoke-test` or README commands.
+
 ## Scenario
 
 Build a real-time data pipeline that ingests events through `Kafka`, processes them with `Flink`, and publishes validated outputs for downstream analytics and operational consumers.

@@ -1,5 +1,7 @@
 # AWS Serverless Spark MSK Reliability
 
+> **Example type:** Runnable scaffold — local proof path via `make smoke-test` or README commands.
+
 ## Scenario
 
 Build an AWS-native pipeline that ingests events from `MSK`, processes them with timeout-bound serverless Spark-style batch jobs, and publishes only after checkpoint manifests and reconciliation gates pass.

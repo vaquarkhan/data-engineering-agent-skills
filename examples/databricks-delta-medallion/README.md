@@ -1,5 +1,7 @@
 # Databricks Delta Medallion
 
+> **Example type:** Runnable scaffold — local proof path via `make smoke-test` or README commands.
+
 ## Scenario
 
 Build a medallion-style lakehouse on `Databricks` using `Delta Lake`, `Unity Catalog`, and workflow-driven batch plus streaming ingestion.

@@ -4,8 +4,8 @@ This index groups the repository by lifecycle and platform so teams can quickly 
 
 ## Start Here
 
-- `using-data-engineering-agent-skills`
-- `using-data-agent-skills`
+- `using-data-engineering-agent-skills` (canonical entry skill)
+- `using-data-agent-skills` (compatibility alias — redirects to the canonical skill; not a separate workflow)
 
 ## Command-First Lifecycle
 

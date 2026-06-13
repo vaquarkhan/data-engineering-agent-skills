@@ -1,5 +1,7 @@
 # Snowflake dbt Reverse ETL
 
+> **Example type:** Architecture blueprint — spec, plan, and tasks only (no local proof path). See [Runnable Example Scaffolds](../README.md#runnable-example-scaffolds) for executable examples.
+
 ## Scenario
 
 Build a warehouse-first analytics workflow on `Snowflake` with `dbt` marts and an outbound reverse-ETL sync into operational systems.

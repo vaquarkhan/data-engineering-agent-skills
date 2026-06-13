@@ -6,6 +6,9 @@ All notable changes to this repository will be documented in this file.
 
 ### Added
 
+- honest example catalog: 5 runnable scaffolds vs 9 architecture blueprints, with type labels in every example README
+- README contract-validator quickstart, consistent 73+1 alias skill counts, and corrected feature-highlight prose
+
 - production reliability skill pack: `safe-backfill-and-replay-orchestration`, `spark-serverless-reliability-and-state-management`, `kafka-resilience-and-schema-evolution`, and `mcp-data-observability-integration`
 - production reliability references, `mcp/spark.mcp.json`, `starter-packs/production-reliability-starter.yaml`, and `tutorials/production-reliability-and-mcp-observability.md`
 - runnable example `examples/aws-serverless-spark-msk-reliability` for serverless Spark checkpoint resume, Kafka guardrails, and replay-safe publish proof
@@ -14,7 +17,7 @@ All notable changes to this repository will be documented in this file.
 - multi-agent packaging for `Cursor`, `Claude`, `Copilot`, and `Gemini`
 - install and sync scripts
 - MCP config templates for common data engineering systems
-- runnable scaffolds for the flagship examples
+- runnable scaffolds for five flagship examples; nine additional architecture blueprints (spec/plan/tasks only)
 - starter packs, release docs, walkthrough guidance, and taxonomy docs
 - additional OSS and platform-specific skills and presets
 - command-first lifecycle with `/validate` and `/backfill`
